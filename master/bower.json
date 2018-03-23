@@ -1,0 +1,43 @@
+{
+  "name": "sewage-admin",
+  "description": "sewage-admin",
+  "main": "index.js",
+  "authors": [
+    "Ida"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "sewage"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.12.4",
+    "angular": "^1.6.9",
+    "angular-ui-router": "^1.0.15",
+    "fontawesome": "^4.7.0",
+    "angular-bootstrap": "^2.5.0",
+    "angular-sanitize": "^1.6.9",
+    "oclazyload": "^1.1.0",
+    "angular-datatables": "^5.0.0",
+    "screenfull": "^3.3.2",
+    "simple-line-icons": "^2.4.1",
+    "angular-ui-select": "^0.19.8",
+    "bootstrap": "^3.3.7",
+    "highcharts": "^6.0.7",
+    "chart.js": "^2.7.2",
+    "animate.css": "^3.5.2",
+    "angular-nestable": "ng-nestable#^0.0.1",
+    "jvectormap": "^2.0.4",
+    "jquery-classyloader": "*",
+    "sparkline": "^2.1.2",
+    "moment": "^2.21.0"
+  }
+}

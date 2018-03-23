@@ -1,0 +1,7 @@
+[
+  "../vendor/screenfull/dist/screenfull.js",
+  "../vendor/simple-line-icons/css/simple-line-icons.css",
+  "../vendor/simple-line-icons/fonts/*",
+  "../vendor/angular-ui-select/dist/select.js",
+  "../vendor/angular-ui-select/dist/select.css"
+]

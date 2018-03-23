@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+/*global*/
+*{
+	font-size: 14px;
+	font-family: arial,"microsoft yahei";
+}
+
+
+.content-wrapper {
+     border-top: none; 
+}
+
+.nav>li>a:focus, .nav>li>a:hover {    
+     background-color: transparent; 
+}
+
+.panel-default>.panel-heading {
+    color: #444444;
+    /*background-color: #eff9f8;*/
+   background-color: #FFFFFF;
+    border-color: #cfdbe2;
+    border-bottom: 1px solid #cfdbe2;
+}
+.panel-default {
+    border-color: #cfdbe2;
+}
+
+.orderColor{
+	color: red;
+}
+
+
+/*header*/
+.logo_text{	
+	color: #FFFFFF;
+	font-size: 16px;
+}
+@media only screen and (min-width: 768px){
+	.topnavbar .navbar-header {
+	    width: auto;
+	}
+}
+
+.stat_icon{
+	display: inline-block;
+	width: 15px;
+	height: 6px;
+	border-radius:5px ;
+} 
+.icon_default{
+	background-color: #DDE6E9;
+}
+.icon_info{
+	background-color: #1AACDA;
+} 
+
+
+
+/*dashboard*/
+.row-table{
+	position: relative;
+}
+.widget .more{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	color: #FFFFFF;
+	font-size: 13px;
+}
+
+
+

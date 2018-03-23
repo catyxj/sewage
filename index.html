@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html data-ng-app="sewageHome">
+	<head>
+		<meta charset="utf-8" />
+		<title>宁波市农村生活污水运维信息化管理平台</title>
+		<link rel="stylesheet" type="text/css" href="app/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="app/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="app/css/home.css"/>
+		<script src="app/vendor/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="app/js/home.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header_home">
+				<div class="logo">
+					
+				</div>
+				<h1>
+					宁波市农村生活污水运维信息化管理平台
+				</h1>
+			</div>
+			
+			<div class="content-wrapper">
+				<div class="row">
+					<div class="col-sm-7">
+						<div class="news_content">
+							<h3>新闻公告 <span>News</span></h3>
+							<ul>
+								<li>
+									<a class="news_text">新闻新闻新闻</a>
+									<span class="news_date">20180102</span>
+								</li>
+								<li>
+									<a class="news_text">asdfgggg</a>
+									<span class="news_date">20180102</span>
+								</li>
+								<li>
+									<a class="news_text">asdfgggg</a>
+									<span class="news_date">20180102</span>
+								</li>
+								<li>
+									<a class="news_text">asdfgggg</a>
+									<span class="news_date">20180102</span>
+								</li>
+								<li>
+									<a class="news_text">asdfgggg</a>
+									<span class="news_date">20180102</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="login" ng-controller="accountCtrl as account">
+							<h3>用户登录  <span>User Login</span></h3>
+							<form name="loginForm">
+								<div class="form-group has-feedback">
+									<input type="text" name="account_user" id="" placeholder="用户名" ng-model="account.user" required class="form-control" autocomplete="on" />
+									<span ng-show="loginForm.account_user.$pristine" class="fa fa-user form-control-feedback text-muted"></span>
+									<span ng-show="loginForm.account_user.$dirty && loginForm.account_user.$valid" class="fa fa-check form-control-feedback text-green"></span>
+									<span ng-show="loginForm.account_user.$dirty && loginForm.account_user.$error.required" class="fa fa-exclamation form-control-feedback text-red"></span>
+
+						            <span ng-show="loginForm.account_user.$dirty && loginForm.account_user.$error.required" class="text-danger">用户名不能为空</span>															
+								</div>
+								<div class="form-group has-feedback">
+									<input type="password" name="account_password" id="password1"  placeholder="密码" ng-model="account.password" required class="form-control" ng-minlength="6" />
+						            <span ng-show="loginForm.account_password.$pristine" class="fa fa-lock form-control-feedback text-muted"></span>
+						            <span ng-show="loginForm.account_password.$dirty && loginForm.account_password.$valid" class="fa fa-check form-control-feedback text-green"></span>
+									<span ng-show="loginForm.account_password.$dirty && loginForm.account_password.$error.required" class="fa fa-exclamation form-control-feedback text-red"></span>
+
+						            <span ng-show="loginForm.account_password.$dirty && loginForm.account_password.$error.required" class="text-danger">密码不能为空</span>
+								</div>
+								<div class="">
+									<div class="checkbox c-checkbox pull-left">
+										<label>
+						                     <input type="checkbox" name="account_remember" ng-model="account.remember" />
+						                     <span class="fa fa-check"></span>
+						                     	记住用户名
+										</label>																	
+									</div>
+									<div class="pull-right" style="margin-top: 10px;">
+										<a href="">忘记密码</a>
+									</div>
+								</div>
+								
+								<button type="button" ng-click="account.login()" 
+									ng-disabled=" loginForm.account_user.$invalid || loginForm.account_password.$invalid"
+									class="btn btn-block btn-green" style="margin-top: 10px;">
+									登录
+								</button>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="footer">
+				<p>
+					<i class="fa fa-phone" style="color: #FFFFFF;"></i>
+					Tel:0571-86596613 
+					浙公网安备 300108532496 号
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

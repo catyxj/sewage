@@ -1,0 +1,78 @@
+[
+  {
+    "text": "主监控台",
+    "heading": "true",
+    "translate": "主监控台"
+  },
+  {
+    "text": "站点概览",
+    "sref": "app.dashboard",
+    "icon": "icon-speedometer"
+  },
+  {
+    "text": "统计分析",
+    "sref": "app.dashboard2",
+    "icon": "icon-graph"
+  },
+  {
+    "text": "信息维护",
+    "heading": "true",
+    "translate": "信息维护"
+  },
+  {
+    "text": "报表信息",
+    "sref": "app.widgets",
+    "icon": "icon-note"
+  },
+  {
+    "text": "区县信息",
+    "sref": "app.maps-vector",
+    "icon": "icon-grid"
+  },
+  {
+    "text": "设备信息",
+    "sref": "app.nestable",
+    "icon": "icon-chemistry"
+  },
+  {
+    "text": "信息维护",
+    "heading": "true",
+    "translate": "信息维护"
+  },
+  {
+    "text": "项目管理",
+    "sref": "app.nestable",
+    "icon": "icon-doc"
+  },
+  {
+    "text": "考核管理",
+    "sref": "app.nestable",
+    "icon": "icon-map"
+  },
+  {
+    "text": "资金管理",
+    "sref": "app.nestable",
+    "icon": "icon-graduation"
+  },
+  {
+    "text": "培训管理",
+    "sref": "app.nestable",
+    "icon": "icon-folder"
+  },
+  {
+    "text": "系统设置",
+    "heading": "true",
+    "translate": "系统设置"
+  },
+	{
+    "text": "账号管理",
+    "sref": "app.nestable",
+    "icon": "icon-cup"
+  },
+  {
+    "text": "用户信息",
+    "sref": "app.nestable",
+    "icon": "icon-grid"
+  }
+  
+]
