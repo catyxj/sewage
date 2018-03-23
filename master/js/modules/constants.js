@@ -45,6 +45,13 @@ App
       'vector-map':         ['vendor/ika.jvectormap/jquery-jvectormap-1.2.2.min.js',
                              'vendor/ika.jvectormap/jquery-jvectormap-1.2.2.css'],
       'vector-map-maps':    ['vendor/jvectormap/jquery-jvectormap-cn-mill.js'],	
+      'flot-chart':         ['vendor/Flot/jquery.flot.js'],
+      'flot-chart-plugins': ['vendor/flot.tooltip/js/jquery.flot.tooltip.min.js',
+                             'vendor/Flot/jquery.flot.resize.js',
+                             'vendor/Flot/jquery.flot.pie.js',
+                             'vendor/Flot/jquery.flot.time.js',
+                             'vendor/Flot/jquery.flot.categories.js',
+                             'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
       						'vendor/moment/min/locales.min.js']
 

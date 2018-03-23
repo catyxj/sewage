@@ -23,14 +23,21 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         abstract: true,
         templateUrl: 'app/views/app.html',
         controller: 'AppController',
-        resolve: helper.resolveFor('screenfull','icons','highcharts')
+        resolve: helper.resolveFor('screenfull','icons','classyloader','sparklines')
     })
     .state('app.dashboard', {
         url: '/dashboard',
         title: 'Dashboard',
         templateUrl: 'app/views/dashboard.html',
         controller: 'dashboardController',
-        resolve: helper.resolveFor('chartjs','vector-map', 'vector-map-maps','sparklines','classyloader','moment')
+        resolve: helper.resolveFor('vector-map', 'vector-map-maps','moment')
+    })
+    .state('app.stat', {
+        url: '/stat',
+        title: 'stat',
+        templateUrl: 'app/views/stat.html',
+        controller: 'statController',
+        resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
     .state('app.dashboard2', {
         url: '/dashboard2',

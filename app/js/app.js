@@ -71,14 +71,21 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         abstract: true,
         templateUrl: 'app/views/app.html',
         controller: 'AppController',
-        resolve: helper.resolveFor('screenfull','icons','highcharts')
+        resolve: helper.resolveFor('screenfull','icons','classyloader','sparklines')
     })
     .state('app.dashboard', {
         url: '/dashboard',
         title: 'Dashboard',
         templateUrl: 'app/views/dashboard.html',
         controller: 'dashboardController',
-        resolve: helper.resolveFor('chartjs','vector-map', 'vector-map-maps','sparklines','classyloader','moment')
+        resolve: helper.resolveFor('vector-map', 'vector-map-maps','moment')
+    })
+    .state('app.stat', {
+        url: '/stat',
+        title: 'stat',
+        templateUrl: 'app/views/stat.html',
+        controller: 'statController',
+        resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
     .state('app.dashboard2', {
         url: '/dashboard2',
@@ -242,6 +249,13 @@ App
       'vector-map':         ['vendor/ika.jvectormap/jquery-jvectormap-1.2.2.min.js',
                              'vendor/ika.jvectormap/jquery-jvectormap-1.2.2.css'],
       'vector-map-maps':    ['vendor/jvectormap/jquery-jvectormap-cn-mill.js'],	
+      'flot-chart':         ['vendor/Flot/jquery.flot.js'],
+      'flot-chart-plugins': ['vendor/flot.tooltip/js/jquery.flot.tooltip.min.js',
+                             'vendor/Flot/jquery.flot.resize.js',
+                             'vendor/Flot/jquery.flot.pie.js',
+                             'vendor/Flot/jquery.flot.time.js',
+                             'vendor/Flot/jquery.flot.categories.js',
+                             'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
       						'vendor/moment/min/locales.min.js']
 
@@ -760,6 +774,156 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 }]);
 
 /**=========================================================
+ * Module: notifications.js
+ * Initializes the notifications system
+ =========================================================*/
+App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
+
+	$scope.project = [
+		{ value: "32", type: "info" },
+        { value: "33", type: "success" },
+        { value: "35", type: "danger" }
+    ];
+
+
+	// BAR STACKED
+  // ----------------------------------- 
+
+	$http.get("server/chart/barstacked.json").then(function(res){
+		$scope.barStackeData = res.data;
+		console.log(res.data);
+	})
+
+  $scope.barStackedOptions = {
+      series: {
+          stack: true,
+          bars: {
+              align: 'center',
+              lineWidth: 0,
+              show: true,
+              barWidth: 0.6,
+              fill: 0.9
+          }
+      },
+      grid: {
+          borderColor: '#eee',
+          borderWidth: 1,
+          hoverable: true,
+          backgroundColor: '#fcfcfc'
+      },
+      tooltip: true,
+      tooltipOpts: {
+          content: function (label, x, y) { return x + ' : ' + y; }
+      },
+      xaxis: {
+          tickColor: '#fcfcfc',
+          mode: 'categories'
+      },
+      yaxis: {
+          min: 0,
+          max: 200, // optional: use it for a clear represetation
+          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+          tickColor: '#eee'
+      },
+      shadowSize: 0
+  };
+
+
+
+
+// Pie chart
+// ----------------------------------- 
+
+  $scope.pieData =[
+        {
+          value: 300,
+          color: colors.byName('purple'),
+          highlight: colors.byName('purple'),
+          label: 'Purple'
+        },
+        {
+          value: 40,
+          color: colors.byName('yellow'),
+          highlight: colors.byName('yellow'),
+          label: 'Yellow'
+        },
+        {
+          value: 120,
+          color: colors.byName('info'),
+          highlight: colors.byName('info'),
+          label: 'Info'
+        }
+      ];
+
+  $scope.pieOptions = {
+    segmentShowStroke : true,
+    segmentStrokeColor : '#fff',
+    segmentStrokeWidth : 2,
+    percentageInnerCutout : 0, // Setting this to zero convert a doughnut into a Pie
+    animationSteps : 100,
+    animationEasing : 'easeOutBounce',
+    animateRotate : true,
+    animateScale : false
+  };
+
+
+
+
+// Line chart
+// ----------------------------------- 
+
+  $scope.lineData = {
+      labels : ['January','February','March','April','May','June','July'],
+      datasets : [
+        {
+          label: 'My First dataset',
+          fillColor : 'rgba(114,102,186,0.2)',
+          strokeColor : 'rgba(114,102,186,1)',
+          pointColor : 'rgba(114,102,186,1)',
+          pointStrokeColor : '#fff',
+          pointHighlightFill : '#fff',
+          pointHighlightStroke : 'rgba(114,102,186,1)',
+          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
+        },
+        {
+          label: 'My Second dataset',
+          fillColor : 'rgba(35,183,229,0.2)',
+          strokeColor : 'rgba(35,183,229,1)',
+          pointColor : 'rgba(35,183,229,1)',
+          pointStrokeColor : '#fff',
+          pointHighlightFill : '#fff',
+          pointHighlightStroke : 'rgba(35,183,229,1)',
+          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
+        }
+      ]
+    };
+
+
+  $scope.lineOptions = {
+    scaleShowGridLines : true,
+    scaleGridLineColor : 'rgba(0,0,0,.05)',
+    scaleGridLineWidth : 1,
+    bezierCurve : true,
+    bezierCurveTension : 0.4,
+    pointDot : true,
+    pointDotRadius : 4,
+    pointDotStrokeWidth : 1,
+    pointHitDetectionRadius : 20,
+    datasetStroke : true,
+    datasetStrokeWidth : 2,
+    datasetFill : true,
+  };
+
+
+
+
+
+}]);
+
+
+
+
+/**=========================================================
  * Module: vmaps,js
  * jVector Maps support
  =========================================================*/
@@ -800,6 +964,108 @@ App.controller('VectorMapController', ['$scope', function($scope) {
   ];
 
 }]);
+
+/**=========================================================
+ * Module: chart.js
+ * Wrapper directive for chartJS. 
+ * Based on https://gist.github.com/AndreasHeiberg/9837868
+ =========================================================*/
+
+var ChartJS = function (type) {
+    return {
+        restrict: "A",
+        scope: {
+            data: "=",
+            options: "=",
+            id: "@",
+            width: "=",
+            height: "=",
+            resize: "=",
+            chart: "@",
+            segments: "@",
+            responsive: "=",
+            tooltip: "=",
+            legend: "="
+        },
+        link: function ($scope, $elem) {
+            var ctx = $elem[0].getContext("2d");
+            var autosize = false;
+
+            $scope.size = function () {
+                if ($scope.width <= 0) {
+                    $elem.width($elem.parent().width());
+                    ctx.canvas.width = $elem.width();
+                } else {
+                    ctx.canvas.width = $scope.width || ctx.canvas.width;
+                    autosize = true;
+                }
+
+                if($scope.height <= 0){
+                    $elem.height($elem.parent().height());
+                    ctx.canvas.height = ctx.canvas.width / 2;
+                } else {
+                    ctx.canvas.height = $scope.height || ctx.canvas.height;
+                    autosize = true;
+                }
+            };
+
+            $scope.$watch("data", function (newVal, oldVal) {
+                if(chartCreated)
+                    chartCreated.destroy();
+
+                // if data not defined, exit
+                if (!newVal) {
+                    return;
+                }
+                if ($scope.chart) { type = $scope.chart; }
+
+                if(autosize){
+                    $scope.size();
+                    chart = new Chart(ctx);
+                }
+
+                if($scope.responsive || $scope.resize)
+                    $scope.options.responsive = true;
+
+                if($scope.responsive !== undefined)
+                    $scope.options.responsive = $scope.responsive;
+
+                chartCreated = chart[type]($scope.data, $scope.options);
+                chartCreated.update();
+                if($scope.legend)
+                    angular.element($elem[0]).parent().after( chartCreated.generateLegend() );
+            }, true);
+
+            $scope.$watch("tooltip", function (newVal, oldVal) {
+                if (chartCreated)
+                    chartCreated.draw();
+                if(newVal===undefined || !chartCreated.segments)
+                    return;
+                if(!isFinite(newVal) || newVal >= chartCreated.segments.length || newVal < 0)
+                    return;
+                var activeSegment = chartCreated.segments[newVal];
+                activeSegment.save();
+                activeSegment.fillColor = activeSegment.highlightColor;
+                chartCreated.showTooltip([activeSegment]);
+                activeSegment.restore();
+            }, true);
+
+            $scope.size();
+            var chart = new Chart(ctx);
+            var chartCreated;
+        }
+    };
+};
+
+/* Aliases for various chart types */
+App.directive("chartjs",       function () { return ChartJS(); });
+App.directive("linechart",     function () { return ChartJS("Line"); });
+App.directive("barchart",      function () { return ChartJS("Bar"); });
+App.directive("radarchart",    function () { return ChartJS("Radar"); });
+App.directive("polarchart",    function () { return ChartJS("PolarArea"); });
+App.directive("piechart",      function () { return ChartJS("Pie"); });
+App.directive("doughnutchart", function () { return ChartJS("Doughnut"); });
+App.directive("donutchart",    function () { return ChartJS("Doughnut"); });
 
 /**=========================================================
  * Module: classy-loader.js
@@ -849,6 +1115,107 @@ App.directive('classyloader', ["$timeout", "Utils", function($timeout, Utils) {
       }
     }
   };
+}]);
+
+/**=========================================================
+ * Module: flot.js
+ * Initializes the Flot chart plugin and handles data refresh
+ =========================================================*/
+
+App.directive('flot', ['$http', '$timeout', function($http, $timeout) {
+  'use strict';
+  return {
+    restrict: 'EA',
+    template: '<div></div>',
+    scope: {
+      dataset: '=?',
+      options: '=',
+      series: '=',
+      callback: '=',
+      src: '='
+    },
+    link: linkFunction
+  };
+  
+  function linkFunction(scope, element, attributes) {
+    var height, plot, plotArea, width;
+    var heightDefault = 220;
+
+    plot = null;
+
+    width = attributes.width || '100%';
+    height = attributes.height || heightDefault;
+
+    plotArea = $(element.children()[0]);
+    plotArea.css({
+      width: width,
+      height: height
+    });
+
+    function init() {
+      var plotObj;
+      if(!scope.dataset || !scope.options) return;
+      plotObj = $.plot(plotArea, scope.dataset, scope.options);
+      scope.$emit('plotReady', plotObj);
+      if (scope.callback) {
+        scope.callback(plotObj, scope);
+      }
+
+      return plotObj;
+    }
+
+    function onDatasetChanged(dataset) {
+      if (plot) {
+        plot.setData(dataset);
+        plot.setupGrid();
+        return plot.draw();
+      } else {
+        plot = init();
+        onSerieToggled(scope.series);
+        return plot;
+      }
+    }
+    scope.$watchCollection('dataset', onDatasetChanged, true);
+
+    function onSerieToggled (series) {
+      if( !plot || !series ) return;
+      var someData = plot.getData();
+      for(var sName in series) {
+        angular.forEach(series[sName], toggleFor(sName));
+      }
+      
+      plot.setData(someData);
+      plot.draw();
+      
+      function toggleFor(sName) {
+        return function (s, i){
+          if(someData[i] && someData[i][sName])
+            someData[i][sName].show = s;
+        };
+      }
+    }
+    scope.$watch('series', onSerieToggled, true);
+    
+    function onSrcChanged(src) {
+
+      if( src ) {
+
+        $http.get(src)
+          .success(function (data) {
+
+            $timeout(function(){
+              scope.dataset = data;
+            });
+
+        }).error(function(){
+          $.error('Flot chart: Bad request.');
+        });
+        
+      }
+    }
+    scope.$watch('src', onSrcChanged);
+  }
+
 }]);
 
 /**=========================================================

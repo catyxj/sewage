@@ -11,7 +11,7 @@
   },
   {
     "text": "统计分析",
-    "sref": "app.dashboard2",
+    "sref": "app.stat",
     "icon": "icon-graph"
   },
   {
@@ -41,7 +41,7 @@
   },
   {
     "text": "项目管理",
-    "sref": "app.nestable",
+    "sref": "app.dashboard2",
     "icon": "icon-doc"
   },
   {

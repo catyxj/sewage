@@ -38,6 +38,9 @@
     "jvectormap": "^2.0.4",
     "jquery-classyloader": "*",
     "sparkline": "^2.1.2",
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "Flot": "flot#^0.8.3",
+    "flot.tooltip": "^0.9.0",
+    "flot-spline": "^0.8.2"
   }
 }
