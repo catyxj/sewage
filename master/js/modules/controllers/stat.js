@@ -54,6 +54,8 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
   };
 
 
+// random values for demo
+  var rFactor = function(){ return Math.round(Math.random()*100); };
 
 
 // Pie chart
