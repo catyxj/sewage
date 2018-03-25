@@ -1,0 +1,33 @@
+<h3>
+	区县信息
+</h3>
+<div ng-controller="countyController" class="container-fluid county">
+   <div class="row">
+      <div class="col-lg-2 col-sm-4">
+      	<div class="panel panel-default">     		
+      		<div class="panel-body">
+      			<div class="panel-title">
+	      			搜索查询
+	      		</div>
+      			<div class="input-group" style="margin-top: 10px;">
+					<input type="text" placeholder="输入关键字进行搜索" class="form-control input-sm" />
+					<span class="input-group-btn">
+					    <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
+					    </button>
+					</span>
+				</div>
+      		</div>
+      	</div>
+         <div class="panel panel-default" style="min-height: 480px;">
+         	<div class="panel-body">
+         		<!--<span ng-if="doing_async">...loading...</span>-->
+            	<abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+         	</div>
+            
+         </div>
+      </div>
+
+		<div ui-view="" autoscroll="false" class=""></div>
+		
+   </div>
+</div>

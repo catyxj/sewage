@@ -1,0 +1,86 @@
+<div class="row">
+      <div class="col-md-7">
+         <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+            	<div class="pull-left">
+            		设备巡检率
+            	</div>
+            	
+                <div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
+                     <input type="text" class="form-control" value="2018-5">
+                     <div class="input-group-btn">
+                        <button type="button" dropdown-toggle="" class="btn btn-default">
+                           <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                           <li><a href="#">Action</a>
+                           </li>
+                           <li><a href="#">Another action</a>
+                           </li>
+                           <li><a href="#">Something else here</a>
+                           </li>
+                           <li class="divider"></li>
+                           <li><a href="#">Separated link</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+            </div>
+            <div class="panel-body">
+               <div morris-line="" morris-data="linedata" morris-options="lineOptions" style="height: 230px;"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-5">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+            	<div class="">
+            		设备分布情况
+            	</div>
+            	
+            	
+            </div>
+            <div class="panel-body" ng-controller="equipController1">
+               <canvas id="pieChart2" width="400" height="230"></canvas>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   
+   <div class="row">
+      <div class="col-md-7">
+         <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+            	<div class="pull-left">
+            		设备故障率
+            	</div>
+            	
+            	<div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
+                     <input type="text" class="form-control" value="2018-5">
+                     <div class="input-group-btn">
+                        <button type="button" dropdown-toggle="" class="btn btn-default">
+                           <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                           <li><a href="#">Action</a>
+                           </li>
+                           
+                        </ul>
+                     </div>
+                  </div>
+            </div>
+            <div class="panel-body">
+               <div morris-bar="" morris-data="chartdata" morris-options="barOptions" style="height: 230px;"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-5">
+         <div class="panel panel-default">
+            <div class="panel-heading">告警记录</div>
+            <div class="panel-body">
+               
+            </div>
+         </div>
+      </div>
+   </div>

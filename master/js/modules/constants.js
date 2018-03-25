@@ -53,7 +53,10 @@ App
                              'vendor/Flot/jquery.flot.categories.js',
                              'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
-      						'vendor/moment/min/locales.min.js']
+      						'vendor/moment/min/locales.min.js'],
+      'morris':             ['vendor/raphael/raphael.js',
+                             'vendor/morris.js/morris.js',
+                             'vendor/morris.js/morris.css'],
 
     },
     // Angular based script (use the right module name)
@@ -65,6 +68,8 @@ App
 //                                                'vendor/angular-datatables/dist/angular-datatables.js'], serie: true}
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
+      {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
+                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']},                                            
 
     ]
   })

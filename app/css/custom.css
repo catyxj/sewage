@@ -4,8 +4,12 @@
 *{
 	font-size: 14px;
 	font-family: arial,"microsoft yahei";
+	margin: 0;
+	padding: 0;
 }
-
+ul,li{
+	list-style: none;
+}
 
 .content-wrapper {
      border-top: none; 
@@ -70,4 +74,132 @@
 }
 
 
+/*stat*/
+.stat-heading{
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+.stat .more{
+	float: right;
+}
+.stat .progress{
+	height: 40px;
+	margin-bottom: 8px;
+}
+.progress-bar-darkblue {
+    background-color: #3b88ca;
+}
+.progress-bar-blue {
+    background-color: #71a0db;
+}
+.progress-bar-lightblue{
+    background-color: #c2d9f6;
+}
+.progress-bar-darkorange {
+    background-color: #ff902b;
+}
+.progress-bar-orange {
+    background-color: #FFA500;
+}
+.progress-bar-lightorange{
+    background-color: #ffc28a;
+}
 
+.legend{
+	overflow: hidden;	
+	font-size:12px;
+	padding-right: 5px;
+}
+.legend span{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+}
+
+
+
+/*county*/
+.county ul li{
+	padding-left:8px ;
+	padding-right: 8px;
+	padding-bottom: 16px;
+}
+.county .cou_img{
+	width: 100%;
+}
+.county .cou_img img{
+	width: 100%;
+}
+.county .cou_text{
+	overflow: hidden;
+	background-color: #FFFFFF;
+	padding: 8px;	
+}
+.county .cou_text span{
+	font-size: 10px;
+	line-height: 30px;
+}
+.county .cou_text p{
+	width: 100%;
+	overflow: hidden;
+	text-indent: 20px;
+	padding-top: 5px;
+}
+
+.county .list-group{
+	font-size: 12px;
+}
+.county .list-group .more{
+	font-size: 12px;
+	padding: 4px 8px;
+}
+.county .list-group .col-xs-3{
+	padding: 0;
+}
+
+.county .cou_text_3{
+	background-color: #FFFFFF;
+	padding: 15px 25px;
+}
+.county .cou_text_3 h5{
+	font-size: 16px;
+	color: #5D9CEC;
+	font-weight: bold;
+}
+.county .cou_text_3 h6{
+	color: #5D9CEC;
+	font-weight: bold;
+}
+.county .cou_text_3 p{
+	text-indent: 20px;
+}
+
+.county .site_situation .panel-title{
+	padding-bottom: 10px;
+}
+.county .site_situation .row{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.county .site_situation .row .btn-default{
+	background-color: #F5F5F5;
+	width: 100%;
+}
+.county .cou_foot_1{
+	width: 40%;
+	font-size: 12px;
+}
+.county .cou_foot_2{
+	
+}
+.county .panel-footer .col-md-6{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.county .table .progress {
+    display: inline-block;
+    width: 60%;
+}
+.cou_analysis.panel .table{
+	border: 1px solid #ddd;
+}

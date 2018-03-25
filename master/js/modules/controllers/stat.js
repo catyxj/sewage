@@ -5,63 +5,106 @@
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
 	$scope.project = [
-		{ value: "32", type: "info" },
-        { value: "33", type: "success" },
-        { value: "35", type: "danger" }
+		{ value: "32", type: "darkblue" },
+        { value: "33", type: "blue" },
+        { value: "35", type: "lightblue" }
+    ];
+    $scope.funds = [
+		{ value: "60", type: "darkorange" },
+        { value: "40", type: "lightorange" }
     ];
 
 
-	// BAR STACKED
-  // ----------------------------------- 
+// BAR STACKED
+ // ----------------------------------- 
 
 	$http.get("server/chart/barstacked.json").then(function(res){
 		$scope.barStackeData = res.data;
-		console.log(res.data);
+		var Color = ["#b2aaea","#7266ba","#554a96"];		
+		for (i = 0 ; i<$scope.barStackeData.length; i++) {
+			$scope.barStackeData[i].color = Color[i]; 
+		};
+		console.log($scope.barStackeData);
 	})
 
-  $scope.barStackedOptions = {
-      series: {
-          stack: true,
-          bars: {
-              align: 'center',
-              lineWidth: 0,
-              show: true,
-              barWidth: 0.6,
-              fill: 0.9
-          }
-      },
-      grid: {
-          borderColor: '#eee',
-          borderWidth: 1,
-          hoverable: true,
-          backgroundColor: '#fcfcfc'
-      },
-      tooltip: true,
-      tooltipOpts: {
-          content: function (label, x, y) { return x + ' : ' + y; }
-      },
-      xaxis: {
-          tickColor: '#fcfcfc',
-          mode: 'categories'
-      },
-      yaxis: {
-          min: 0,
-          max: 200, // optional: use it for a clear represetation
-          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
-          tickColor: '#eee'
-      },
-      shadowSize: 0
-  };
+	  $scope.barStackedOptions = {
+	      series: {
+	          stack: true,
+	          bars: {
+	              align: 'center',
+	              lineWidth: 0,
+	              show: true,
+	              barWidth: 0.6,
+	              fill: 0.9
+	          }
+	      },
+	      grid: {
+	          borderColor: '#eee',
+	          borderWidth: 1,
+	          hoverable: true,
+	          backgroundColor: '#fcfcfc'
+	      },
+	      tooltip: true,
+	      tooltipOpts: {
+	          content: function (label, x, y) { return x + ' : ' + y; }
+	      },
+	      xaxis: {
+	          tickColor: '#fcfcfc',
+	          mode: 'categories'
+	      },
+	      yaxis: {
+	          min: 0,
+	          max: 200, // optional: use it for a clear represetation
+	          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+	          tickColor: '#eee'
+	      },
+	      shadowSize: 0
+	  };
 
 
-// random values for demo
-  var rFactor = function(){ return Math.round(Math.random()*100); };
 
 
+	
 // Pie chart
 // ----------------------------------- 
 
-  $scope.pieData =[
+	$scope.pieChart = function(){		
+		var ctx = document.getElementById("pieChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+				datasets: [{
+					data: [
+						200,
+						50,
+						100
+					],
+					backgroundColor: [
+						'#7266ba',
+						'#ffef2b',						
+						'rgba(35,183,229,1)'
+					],
+				}],
+				labels: [
+					'安装完成',
+					'等待安装'
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+	$scope.pieChart();
+
+ /* $scope.pieData =[
         {
           value: 300,
           color: colors.byName('purple'),
@@ -91,7 +134,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     animationEasing : 'easeOutBounce',
     animateRotate : true,
     animateScale : false
-  };
+  };*/
 
 
 
@@ -99,7 +142,45 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 // Line chart
 // ----------------------------------- 
 
-  $scope.lineData = {
+	$scope.lineChart = function(){
+		var ctx = document.getElementById("lineChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ['January','February','March','April','May','June','July'],
+		        datasets: [
+			        {
+			            label: '水质达标率',
+			            data: [65, 59, 80, 81, 56, 55, 40],
+			            backgroundColor: 'rgba(114,102,186,0.5)',
+						borderColor: 'rgba(114,102,186,1)',
+			            borderWidth: 1
+			        },
+			        {
+			            label: ' ',
+			            data: [28, 48, 40, 19, 86, 27, 90],
+			            backgroundColor: 'rgba(35,183,229,0.5)',
+						borderColor: 'rgba(35,183,229,1)',
+			            borderWidth: 1
+			        },
+		        ]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+
+	}
+	
+	$scope.lineChart();
+
+/*$scope.lineData = {
       labels : ['January','February','March','April','May','June','July'],
       datasets : [
         {
@@ -126,7 +207,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     };
 
 
-  $scope.lineOptions = {
+$scope.lineOptions = {
     scaleShowGridLines : true,
     scaleGridLineColor : 'rgba(0,0,0,.05)',
     scaleGridLineWidth : 1,
@@ -139,7 +220,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     datasetStroke : true,
     datasetStrokeWidth : 2,
     datasetFill : true,
-  };
+};*/
 
 
 

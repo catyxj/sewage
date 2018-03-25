@@ -2,86 +2,135 @@
 	统计分析
 </h3>
 
-
-<!-- START row-->
-<div class="row">
-   <div class="col-md-4">      
-      <!-- START panel-->
-      <div class="panel">         	
-         <div class="panel-body">
-         	<div class="">
-         		<div class="">
-         			总体项目进度
-         		</div>
-         		
-	            <uib-progress>
-		         	<uib-bar ng-repeat="bar in project track by $index" value="bar.value" type="{{bar.type}}">{{bar.value}}%
-		             </uib-bar>
-		        </uib-progress>
-         	</div>
-         	<hr />
-         	<div class="">
-         		<div class="">
-         			总体资金进度
-         		</div>
-         		
-	            <uib-progress>
-		         	<uib-bar ng-repeat="bar in project track by $index" value="bar.value" type="{{bar.type}}">{{bar.value}}%
-		             </uib-bar>
-		        </uib-progress>
-         	</div>
-         	
-         </div>
-      </div>
-      <!-- END panel-->           
-   </div>
-   
-   <div class="col-md-5">     
-      <!-- START panel-->
-      <div class="panel">         	
-         <div class="panel-body">
-         	<div id="panelChart3" class="panel panel-default">
-            <div class="panel-heading">
-               <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss"></paneltool>
-               <div class="panel-title">能耗统计</div>
-            </div>
-            <div collapse="panelChart3" class="panel-wrapper">
-               <div class="panel-body">
-                  <div class="indicator show">
-                     <span class="spinner"></span>
-                  </div>
-                  <flot dataset="barStackeData" options="barStackedOptions" height="300px"></flot>
-               </div>
-            </div>
-         </div>
-         	
-         </div>
-      </div>
-      <!-- END panel-->          
-   </div>
-   
-   <div class="col-md-3">
-   		<h4>Pie Chart</h4>
-         <div>
-            <canvas doughnutchart="" options="pieOptions" data="pieData" height="80" responsive="true"></canvas>
-         </div>
-   </div>
-   
-   
-   
-   
-</div>
-<!-- END row-->
-	
-	
-	
-	
-<div class="row">
-	<div class="col-md-12">
-		<h4>Line Chart</h4>
-         <div>
-            <canvas linechart="" options="lineOptions" data="lineData" height="120" responsive="true"></canvas>
-         </div>
+<div class="stat">
+	<!-- START row-->
+	<div class="row">
+	   <div class="col-md-4">      
+	      <!-- START panel-->
+	      <div class="panel">         	
+	        <div class="panel-body" style="border-bottom: 1px solid #dddddd;">
+	         	<div class="">
+	         		<div class="stat-heading">
+	         			总体项目进度
+	         			<a class="more btn btn-default" href="">点击详情</a>
+	         		</div>         		
+		            <uib-progress>
+			         	<uib-bar ng-repeat="bar in project track by $index" value="bar.value" type="{{bar.type}}">
+			         		<!--{{bar.value}}%-->
+			             </uib-bar>
+			        </uib-progress>
+			        <div class="clearfix">
+			        	<div class="pull-right">
+			        		<span class="legend">
+				        		<span class="progress-bar-darkblue"></span>
+				        		已竣工正在维护
+				        	</span>
+				        	<span class="legend">
+				        		<span class="progress-bar-blue"></span>
+				        		已竣工待接收
+				        	</span>
+				        	<span class="legend">
+				        		<span class="progress-bar-lightblue"></span>
+				        		未竣工
+				        	</span>
+			        	</div>
+			        </div>
+	         	</div>
+	         	         	
+	         </div>
+	      	
+	      	<div class="panel-body">
+	      		<div class="">
+	         		<div class="stat-heading">
+	         			总体资金进度
+	         			<a class="more btn btn-default" href="">点击详情</a>
+	         		</div>         		
+		            <uib-progress>
+			         	<uib-bar ng-repeat="bar in funds track by $index" value="bar.value" type="{{bar.type}}">
+			         		<!--{{bar.value}}%-->
+			             </uib-bar>
+			        </uib-progress>
+			        <div class="clearfix">
+			        	<div class="pull-right">
+			        		<span class="legend">
+				        		<span class="progress-bar-darkorange"></span>
+				        		已支付
+				        	</span>
+				        
+				        	<span class="legend">
+				        		<span class="progress-bar-lightorange"></span>
+				        		待支付
+				        	</span>
+			        	</div>
+			        	
+			        </div>
+	         	</div>	
+	      	</div>
+	      </div>
+	      <!-- END panel-->           
+	   </div>
+	   
+	   <div class="col-md-5">     
+	      <!-- START panel-->
+	      <div class="panel">         	
+	         <div class="panel-body">        
+	            <div class="panel-wrapper"> 
+	            	<div class="panel-title">能耗统计 <a class="more btn btn-default" href="">点击详情</a></div>
+	               <div class="panel-body">               		
+	                  	<div class="indicator show">
+	                     	<span class="spinner"></span>
+	                  	</div>
+	                  	<flot dataset="barStackeData" options="barStackedOptions" height="200px"></flot>
+	               </div>
+	            </div>         	
+	         </div>
+	      </div>
+	      <!-- END panel-->          
+	   </div>
+	   
+	   <div class="col-md-3">
+	   		<div class="panel">  			
+	   			<div class="panel-body" style="position: relative;"> 
+	   				<div class="panel-title">设备统计 <a class="more btn btn-default" href="">点击详情</a></div>
+			        <div>
+			            <canvas id="pieChart" width="400" height="340"></canvas>
+			        </div>
+			        <div class="" style="position: absolute; right: 0px; bottom: 5px;">
+			        	<span class="legend">
+				        	<span style="background-color: #7266ba;"></span>
+				        	安装完成
+				        </span>
+				        <br />
+				        <span class="legend">
+				        	<span style="background-color: #ffef2b;"></span>
+				        	等待安装
+				        </span>
+			        </div>
+	   			</div>   			
+	   		</div>  		
+	   </div>   
+	   
 	</div>
-</div>	
+	<!-- END row-->
+		
+		
+		
+		
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="panel-title">水质达标率 
+						<a class="more btn btn-default" href="">点击详情</a>
+					</div>
+			        <div>
+			            <canvas id="lineChart" width="600" height="150"></canvas>
+			        </div>
+				</div>			
+			</div>
+			
+		</div>
+	</div>	
 	
+
+</div>

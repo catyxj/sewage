@@ -39,6 +39,78 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'statController',
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
+    .state('app.county', {
+        url: '/county',
+        title: 'county',
+        templateUrl: 'app/views/information/county/main.html',
+        resolve: helper.resolveFor('angularBootstrapNavTree')
+    })
+    .state('app.county.county_1_1', {
+        url: '/county_1_1',
+        title: 'county_1_1',
+        templateUrl: 'app/views/information/county/county_1_1.html',
+    })
+    .state('app.county.county_1_2', {
+        url: '/county_1_2',
+        title: 'county_1_2',
+        templateUrl: 'app/views/information/county/county_1_2.html',
+    })
+    .state('app.county.county_1_3', {
+        url: '/county_1_3',
+        title: 'county_1_3',
+        templateUrl: 'app/views/information/county/county_1_3.html',
+    })
+    .state('app.county.county_1_4', {
+        url: '/county_1_4',
+        title: 'county_1_4',
+        templateUrl: 'app/views/information/county/county_1_4.html',
+    })
+    .state('app.county-analysis', {
+        url: '/county-analysis',
+        title: 'county-analysis',
+        templateUrl: 'app/views/information/county/analysis.html',
+    })
+    .state('app.county-equipment', {
+        url: '/county-equipment',
+        title: 'county-equipment',
+        templateUrl: 'app/views/information/county/equipment.html',
+    })
+    .state('app.county-worker', {
+        url: '/county-worker',
+        title: 'county-worker',
+        templateUrl: 'app/views/information/county/worker.html',
+    })
+    .state('app.county-cash', {
+        url: '/county-cash',
+        title: 'county-cash',
+        templateUrl: 'app/views/information/county/cash.html',
+    })
+    
+    
+    
+    
+    .state('app.equipment', {
+        url: '/equipment',
+        title: 'equipment',
+        templateUrl: 'app/views/information/equipment/main.html',
+        controller: 'equipmentController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','flot-chart','flot-chart-plugins','chartjs','morris')
+    })
+    .state('app.equipment.equipment_1', {
+        url: '/equipment_1',
+        title: 'equipment_1',
+        templateUrl: 'app/views/information/equipment/equipment_1.html',
+        controller: 'equipmentController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
+    })
+    .state('app.equipment-analysis', {
+        url: '/equipment-analysis',
+        title: 'equipment-analysis',
+        templateUrl: 'app/views/information/equipment/analysis.html',
+        resolve: helper.resolveFor('angularBootstrapNavTree')
+    })
+    
+    
     .state('app.dashboard2', {
         url: '/dashboard2',
         title: 'dashboard2',

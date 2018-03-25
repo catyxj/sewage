@@ -21,17 +21,17 @@
   },
   {
     "text": "报表信息",
-    "sref": "app.widgets",
+    "sref": "app.report",
     "icon": "icon-note"
   },
   {
     "text": "区县信息",
-    "sref": "app.maps-vector",
+    "sref": "app.county.county_1_1",
     "icon": "icon-grid"
   },
   {
     "text": "设备信息",
-    "sref": "app.nestable",
+    "sref": "app.equipment.equipment_1",
     "icon": "icon-chemistry"
   },
   {

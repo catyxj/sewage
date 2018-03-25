@@ -87,6 +87,78 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'statController',
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
+    .state('app.county', {
+        url: '/county',
+        title: 'county',
+        templateUrl: 'app/views/information/county/main.html',
+        resolve: helper.resolveFor('angularBootstrapNavTree')
+    })
+    .state('app.county.county_1_1', {
+        url: '/county_1_1',
+        title: 'county_1_1',
+        templateUrl: 'app/views/information/county/county_1_1.html',
+    })
+    .state('app.county.county_1_2', {
+        url: '/county_1_2',
+        title: 'county_1_2',
+        templateUrl: 'app/views/information/county/county_1_2.html',
+    })
+    .state('app.county.county_1_3', {
+        url: '/county_1_3',
+        title: 'county_1_3',
+        templateUrl: 'app/views/information/county/county_1_3.html',
+    })
+    .state('app.county.county_1_4', {
+        url: '/county_1_4',
+        title: 'county_1_4',
+        templateUrl: 'app/views/information/county/county_1_4.html',
+    })
+    .state('app.county-analysis', {
+        url: '/county-analysis',
+        title: 'county-analysis',
+        templateUrl: 'app/views/information/county/analysis.html',
+    })
+    .state('app.county-equipment', {
+        url: '/county-equipment',
+        title: 'county-equipment',
+        templateUrl: 'app/views/information/county/equipment.html',
+    })
+    .state('app.county-worker', {
+        url: '/county-worker',
+        title: 'county-worker',
+        templateUrl: 'app/views/information/county/worker.html',
+    })
+    .state('app.county-cash', {
+        url: '/county-cash',
+        title: 'county-cash',
+        templateUrl: 'app/views/information/county/cash.html',
+    })
+    
+    
+    
+    
+    .state('app.equipment', {
+        url: '/equipment',
+        title: 'equipment',
+        templateUrl: 'app/views/information/equipment/main.html',
+        controller: 'equipmentController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','flot-chart','flot-chart-plugins','chartjs','morris')
+    })
+    .state('app.equipment.equipment_1', {
+        url: '/equipment_1',
+        title: 'equipment_1',
+        templateUrl: 'app/views/information/equipment/equipment_1.html',
+        controller: 'equipmentController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
+    })
+    .state('app.equipment-analysis', {
+        url: '/equipment-analysis',
+        title: 'equipment-analysis',
+        templateUrl: 'app/views/information/equipment/analysis.html',
+        resolve: helper.resolveFor('angularBootstrapNavTree')
+    })
+    
+    
     .state('app.dashboard2', {
         url: '/dashboard2',
         title: 'dashboard2',
@@ -257,7 +329,10 @@ App
                              'vendor/Flot/jquery.flot.categories.js',
                              'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
-      						'vendor/moment/min/locales.min.js']
+      						'vendor/moment/min/locales.min.js'],
+      'morris':             ['vendor/raphael/raphael.js',
+                             'vendor/morris.js/morris.js',
+                             'vendor/morris.js/morris.css'],
 
     },
     // Angular based script (use the right module name)
@@ -269,10 +344,151 @@ App
 //                                                'vendor/angular-datatables/dist/angular-datatables.js'], serie: true}
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
+      {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
+                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']},                                            
 
     ]
   })
 ;
+/**=========================================================
+
+ =========================================================*/
+
+App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
+
+  $scope.my_tree_handler = function(branch) {
+	console.log(branch);
+	if(branch.level===1){
+		$state.go("app.county.county_1_1");
+	}else if(branch.level===2){
+		$state.go("app.county.county_1_2");
+	}else if(!branch.level){
+		$state.go("app.county.county_1_3");
+	}
+	
+//  $scope.output = "You selected: " + branch.label;
+//
+//  if (branch.data && branch.data.description) {
+//    $scope.output += '(' + branch.data.description + ')';
+//    return $scope.output;
+//  }
+  };
+
+  // onSelect event handlers
+  var apple_selected = function(branch) {
+    $scope.output = "APPLE! : " + branch.label;
+    return $scope.output;
+  };
+
+  var treedata_avm = [
+    {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          data: {
+            description: "man's best friend"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "Felis catus"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "hungry, hungry"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      data: {
+        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        data_can_contain_anything: true
+      },
+      onSelect: function(branch) {
+        $scope.output = "Vegetable: " + branch.data.definition;
+        return $scope.output;
+      },
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: [
+            {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }
+          ]
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }
+  ];
+  
+  var treedata_geography = [
+    {
+      label: 'North America',
+      children: [
+        {
+          label: 'Canada',
+          children: ['Toronto', 'Vancouver']
+        }, {
+          label: 'USA',
+          children: ['New York', 'Los Angeles']
+        }, {
+          label: 'Mexico',
+          children: ['Mexico City', 'Guadalajara']
+        }
+      ]
+    }, {
+      label: 'South America',
+      children: [
+        {
+          label: 'Venezuela',
+          children: ['Caracas', 'Maracaibo']
+        }, {
+          label: 'Brazil',
+          children: ['Sao Paulo', 'Rio de Janeiro']
+        }, {
+          label: 'Argentina',
+          children: ['Buenos Aires', 'Cordoba']
+        }
+      ]
+    }
+  ];
+
+  $scope.my_data = treedata_avm;
+
+  
+ 
+}]);
+
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http",function($scope,$rootScope,$http){
 	
@@ -397,46 +613,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http",function($sc
 	
 	
 	
-/*	
-	var ctx = document.getElementById("myChart").getContext('2d');		
-	var myChart = new Chart(ctx, {
-	    type: 'line',
-	    data: {
-	        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-	        datasets: [{
-	            label: 'colors of Votes',
-	            data: [12, 19, 3, 5, 2, 3],
-	            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-				borderColor: 'rgba(255, 99, 132, 1)',
-//	            backgroundColor: [
-//	                'rgba(255, 99, 132, 0.2)',
-//	                'rgba(54, 162, 235, 0.2)',
-//	                'rgba(255, 206, 86, 0.2)',
-//	                'rgba(75, 192, 192, 0.2)',
-//	                'rgba(153, 102, 255, 0.2)',
-//	                'rgba(255, 159, 64, 0.2)'
-//	            ],
-//	            borderColor: [
-//	                'rgba(255,99,132,1)',
-//	                'rgba(54, 162, 235, 1)',
-//	                'rgba(255, 206, 86, 1)',
-//	                'rgba(75, 192, 192, 1)',
-//	                'rgba(153, 102, 255, 1)',
-//	                'rgba(255, 159, 64, 1)'
-//	            ],
-	            borderWidth: 1
-	        }]
-	    },
-	    options: {
-	        scales: {
-	            yAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                }
-	            }]
-	        }
-	    }
-	});*/
+
 
 
 
@@ -503,6 +680,136 @@ App.controller("dashboardController2",["$scope","$rootScope","$http","$filter",f
 
 
 
+/**=========================================================
+ * Module: morris.js
+ =========================================================*/
+
+App.controller('equipmentController', ['$scope', '$timeout', 'colors', function ($scope, $timeout, colors) {
+
+  $scope.chartdata = [
+      { y: "xxx镇", a: 100, b: 90 },
+      { y: "xx镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 50,  b: 40 },
+      { y: "xxx镇", a: 75,  b: 65 },
+      { y: "xxxx镇", a: 50,  b: 40 },
+      { y: "xxx1镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 100, b: 90 }
+  ];
+  $scope.linedata = [
+      {y: '2011-2', data: 1000},  
+      {y: '2011-3', data: 8000},  
+      {y: '2011-4', data: 6000},  
+      {y: '2011-5', data: 4000},  
+      {y: '2012-1', data: 5000},  
+      {y: '2012-2', data: 6000},  
+      {y: '2012-3', data: 7000},  
+  ];
+
+  /* test data update
+  $timeout(function(){
+    $scope.chartdata[0].a = 50;
+    $scope.chartdata[0].b = 50;
+  }, 3000); */
+
+//$scope.donutdata = [
+//  {label: "Download Sales", value: 12},
+//  {label: "In-Store Sales",value: 30},
+//  {label: "Mail-Order Sales", value: 20}
+//];
+//
+//$scope.donutOptions = {
+//  colors: [ colors.byName('danger'), colors.byName('yellow'), colors.byName('warning') ],
+//  resize: true
+//};
+
+  $scope.barOptions = {
+    xkey: 'y',
+    ykeys: ["a", "b"],
+    labels: ["已安装", "故障率"],
+    xLabelMargin: 2,
+    barColors: [ colors.byName('info'), colors.byName('danger') ],
+    resize: true
+  };
+
+  $scope.lineOptions = {
+    xkey: 'y',
+    ykeys: ["data"],
+    labels: ["xxx镇"],
+    lineColors: ["#31C0BE"],
+    resize: true
+  };
+
+//$scope.areaOptions = {
+//  xkey: 'y',
+//  ykeys: ["a", "b"],
+//  labels: ["已安装", "故障率"],
+//  lineColors: [ colors.byName('purple'), colors.byName('info') ],
+//  resize: true
+//};
+
+
+
+
+
+
+
+
+
+}]);
+
+
+
+App.controller('equipController1', ['$scope', '$timeout', 'colors', function ($scope, $timeout, colors) {
+	
+	
+//piechart
+$scope.pieChart = function(){		
+		var ctx = document.getElementById("pieChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+				datasets: [{
+					data: [
+						200,
+						50,
+						100,
+						150,
+						20,
+						30,
+					],
+					backgroundColor: [
+						'#7266ba',
+						'#ffef2b',						
+						'rgba(35,183,229,1)',
+						'#2b957a',
+						'#ff902b',
+						'#f05050'
+					],
+				}],
+				labels: [
+					'xxx村',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.pieChart();
+
+}]);
 /**=========================================================
  * Module: main.js
  * Main Application Controller
@@ -780,63 +1087,106 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
 	$scope.project = [
-		{ value: "32", type: "info" },
-        { value: "33", type: "success" },
-        { value: "35", type: "danger" }
+		{ value: "32", type: "darkblue" },
+        { value: "33", type: "blue" },
+        { value: "35", type: "lightblue" }
+    ];
+    $scope.funds = [
+		{ value: "60", type: "darkorange" },
+        { value: "40", type: "lightorange" }
     ];
 
 
-	// BAR STACKED
-  // ----------------------------------- 
+// BAR STACKED
+ // ----------------------------------- 
 
 	$http.get("server/chart/barstacked.json").then(function(res){
 		$scope.barStackeData = res.data;
-		console.log(res.data);
+		var Color = ["#b2aaea","#7266ba","#554a96"];		
+		for (i = 0 ; i<$scope.barStackeData.length; i++) {
+			$scope.barStackeData[i].color = Color[i]; 
+		};
+		console.log($scope.barStackeData);
 	})
 
-  $scope.barStackedOptions = {
-      series: {
-          stack: true,
-          bars: {
-              align: 'center',
-              lineWidth: 0,
-              show: true,
-              barWidth: 0.6,
-              fill: 0.9
-          }
-      },
-      grid: {
-          borderColor: '#eee',
-          borderWidth: 1,
-          hoverable: true,
-          backgroundColor: '#fcfcfc'
-      },
-      tooltip: true,
-      tooltipOpts: {
-          content: function (label, x, y) { return x + ' : ' + y; }
-      },
-      xaxis: {
-          tickColor: '#fcfcfc',
-          mode: 'categories'
-      },
-      yaxis: {
-          min: 0,
-          max: 200, // optional: use it for a clear represetation
-          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
-          tickColor: '#eee'
-      },
-      shadowSize: 0
-  };
+	  $scope.barStackedOptions = {
+	      series: {
+	          stack: true,
+	          bars: {
+	              align: 'center',
+	              lineWidth: 0,
+	              show: true,
+	              barWidth: 0.6,
+	              fill: 0.9
+	          }
+	      },
+	      grid: {
+	          borderColor: '#eee',
+	          borderWidth: 1,
+	          hoverable: true,
+	          backgroundColor: '#fcfcfc'
+	      },
+	      tooltip: true,
+	      tooltipOpts: {
+	          content: function (label, x, y) { return x + ' : ' + y; }
+	      },
+	      xaxis: {
+	          tickColor: '#fcfcfc',
+	          mode: 'categories'
+	      },
+	      yaxis: {
+	          min: 0,
+	          max: 200, // optional: use it for a clear represetation
+	          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+	          tickColor: '#eee'
+	      },
+	      shadowSize: 0
+	  };
 
 
-// random values for demo
-  var rFactor = function(){ return Math.round(Math.random()*100); };
 
 
+	
 // Pie chart
 // ----------------------------------- 
 
-  $scope.pieData =[
+	$scope.pieChart = function(){		
+		var ctx = document.getElementById("pieChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+				datasets: [{
+					data: [
+						200,
+						50,
+						100
+					],
+					backgroundColor: [
+						'#7266ba',
+						'#ffef2b',						
+						'rgba(35,183,229,1)'
+					],
+				}],
+				labels: [
+					'安装完成',
+					'等待安装'
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+	$scope.pieChart();
+
+ /* $scope.pieData =[
         {
           value: 300,
           color: colors.byName('purple'),
@@ -866,7 +1216,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     animationEasing : 'easeOutBounce',
     animateRotate : true,
     animateScale : false
-  };
+  };*/
 
 
 
@@ -874,7 +1224,45 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 // Line chart
 // ----------------------------------- 
 
-  $scope.lineData = {
+	$scope.lineChart = function(){
+		var ctx = document.getElementById("lineChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ['January','February','March','April','May','June','July'],
+		        datasets: [
+			        {
+			            label: '水质达标率',
+			            data: [65, 59, 80, 81, 56, 55, 40],
+			            backgroundColor: 'rgba(114,102,186,0.5)',
+						borderColor: 'rgba(114,102,186,1)',
+			            borderWidth: 1
+			        },
+			        {
+			            label: ' ',
+			            data: [28, 48, 40, 19, 86, 27, 90],
+			            backgroundColor: 'rgba(35,183,229,0.5)',
+						borderColor: 'rgba(35,183,229,1)',
+			            borderWidth: 1
+			        },
+		        ]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+
+	}
+	
+	$scope.lineChart();
+
+/*$scope.lineData = {
       labels : ['January','February','March','April','May','June','July'],
       datasets : [
         {
@@ -901,7 +1289,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     };
 
 
-  $scope.lineOptions = {
+$scope.lineOptions = {
     scaleShowGridLines : true,
     scaleGridLineColor : 'rgba(0,0,0,.05)',
     scaleGridLineWidth : 1,
@@ -914,7 +1302,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
     datasetStroke : true,
     datasetStrokeWidth : 2,
     datasetFill : true,
-  };
+};*/
 
 
 
@@ -1306,6 +1694,50 @@ App.directive('loadCss', function() {
 
 
 });
+/**=========================================================
+ * Module: morris.js
+ * AngularJS Directives for Morris Charts
+ =========================================================*/
+
+(function() {
+    "use strict";
+
+    App.directive('morrisBar',   morrisChart('Bar')   );
+    App.directive('morrisDonut', morrisChart('Donut') );
+    App.directive('morrisLine',  morrisChart('Line')  );
+    App.directive('morrisArea',  morrisChart('Area')  );
+
+    function morrisChart(type) {
+      return function () {
+        return {
+          restrict: 'EA',
+          scope: {
+            morrisData: '=',
+            morrisOptions: '='
+          },
+          link: function($scope, elem, attrs) {
+            // start ready to watch for changes in data
+            $scope.$watch("morrisData", function(newVal, oldVal) {
+              if (newVal) {
+                $scope.morrisInstance.setData(newVal);
+                $scope.morrisInstance.redraw();
+              }
+            }, true);
+            // the element that contains the chart
+            $scope.morrisOptions.element = elem;
+            // If data defined copy to options
+            if($scope.morrisData)
+              $scope.morrisOptions.data = $scope.morrisData;
+            // Init chart
+            $scope.morrisInstance = new Morris[type]($scope.morrisOptions);
+
+          }
+        }
+      }
+    }
+
+})();
+
 /**=========================================================
  * Module: now.js
  * Provides a simple way to display the current time formatted
