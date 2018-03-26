@@ -91,7 +91,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county',
         title: 'county',
         templateUrl: 'app/views/information/county/main.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree')
+        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs')
     })
     .state('app.county.county_1_1', {
         url: '/county_1_1',
@@ -133,8 +133,32 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-cash',
         templateUrl: 'app/views/information/county/cash.html',
     })
-    
-    
+    .state('app.county-chemistry', {
+        url: '/county-chemistry',
+        title: 'county-chemistry',
+        templateUrl: 'app/views/information/county/chemistry.html',
+    })
+    .state('app.county-monitor', {
+        url: '/county-monitor',
+        title: 'county-monitor',
+        templateUrl: 'app/views/information/county/monitor.html',
+    })
+    .state('app.county-run', {
+        url: '/county-run',
+        title: 'county-run',
+        templateUrl: 'app/views/information/county/run.html',
+    })
+    .state('app.county-fault', {
+        url: '/county-fault',
+        title: 'county-fault',
+        templateUrl: 'app/views/information/county/fault.html',
+    })
+    .state('app.county-Energy', {
+        url: '/county-Energy',
+        title: 'county-Energy',
+        templateUrl: 'app/views/information/county/Energy.html',
+        resolve: helper.resolveFor('chartjs')
+    })
     
     
     .state('app.equipment', {
@@ -148,8 +172,31 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/equipment_1',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
-        controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2', {
+        url: '/equipment_2',
+        title: 'equipment_2',
+        templateUrl: 'app/views/information/equipment/equipment_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_1', {
+        url: '/table_1',
+        title: 'table_1',
+        templateUrl: 'app/views/information/equipment/equipment_table_1.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_2', {
+        url: '/table_2',
+        title: 'table_2',
+        templateUrl: 'app/views/information/equipment/equipment_table_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_3', {
+        url: '/table_3',
+        title: 'table_3',
+        templateUrl: 'app/views/information/equipment/equipment_table_3.html',
+        resolve: helper.resolveFor()
     })
     .state('app.equipment-analysis', {
         url: '/equipment-analysis',
@@ -168,8 +215,18 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report', {
         url: '/report',
         title: 'report',
-        templateUrl: 'app/views/information/report.html'
+        templateUrl: 'app/views/information/report/main.html',
+        controller: 'reportController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','datatables')
     })
+    .state('app.report.table1', {
+        url: '/table1',
+        title: 'table1',
+        templateUrl: 'app/views/information/report/table_1.html'
+    })
+    
+    
+    
     .state('app.widgets', {
         url: '/widgets',
         title: 'widgets',
@@ -339,9 +396,9 @@ App
     modules: [
       {name: 'ui.select',                 files: ['vendor/angular-ui-select/dist/select.js',
                                                   'vendor/angular-ui-select/dist/select.css']},
-//    {name: 'datatables',                files: ['vendor/datatables/media/css/jquery.dataTables.css',
-//                                                'vendor/datatables/media/js/jquery.dataTables.js',
-//                                                'vendor/angular-datatables/dist/angular-datatables.js'], serie: true}
+      {name: 'datatables',                files: ['vendor/datatables/media/css/jquery.dataTables.css',
+                                                  'vendor/datatables/media/js/jquery.dataTables.js',
+                                                  'vendor/angular-datatables/dist/angular-datatables.js'], serie: true},
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
       {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
@@ -486,8 +543,67 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
   $scope.my_data = treedata_avm;
 
   
+  
+  
+
+
+
+ 
  
 }]);
+
+
+
+
+
+App.controller('countybarController', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+/*				{data: [
+						[200,50,100,150,20,30]
+					],
+					backgroundColor: [
+						colors.byName('info')
+					],
+				}*/
+
+
+				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100]
+		        }
+				
+				],
+				labels: [
+					"January","February","March","April","May","June","July"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
+
 
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http",function($scope,$rootScope,$http){
@@ -684,7 +800,99 @@ App.controller("dashboardController2",["$scope","$rootScope","$http","$filter",f
  * Module: morris.js
  =========================================================*/
 
-App.controller('equipmentController', ['$scope', '$timeout', 'colors', function ($scope, $timeout, colors) {
+App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
+
+
+$scope.my_tree_handler = function(branch) {
+	console.log(branch);
+	if(branch.level===1||branch.level===2){
+		$state.go("app.equipment.equipment_1");
+	}else if(!branch.level){
+		$state.go("app.equipment.equipment_2.table_1");
+	}
+};
+
+  // onSelect event handlers
+  var apple_selected = function(branch) {
+    $scope.output = "APPLE! : " + branch.label;
+    return $scope.output;
+  };
+
+  var treedata_avm = [
+    {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          data: {
+            description: "man's best friend"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "Felis catus"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "hungry, hungry"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      data: {
+        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        data_can_contain_anything: true
+      },
+      onSelect: function(branch) {
+        $scope.output = "Vegetable: " + branch.data.definition;
+        return $scope.output;
+      },
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: [
+            {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }
+          ]
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }
+  ];
+  
+  
+  $scope.my_data = treedata_avm;
+
+
 
   $scope.chartdata = [
       { y: "xxx镇", a: 100, b: 90 },
@@ -711,16 +919,6 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors', function 
     $scope.chartdata[0].b = 50;
   }, 3000); */
 
-//$scope.donutdata = [
-//  {label: "Download Sales", value: 12},
-//  {label: "In-Store Sales",value: 30},
-//  {label: "Mail-Order Sales", value: 20}
-//];
-//
-//$scope.donutOptions = {
-//  colors: [ colors.byName('danger'), colors.byName('yellow'), colors.byName('warning') ],
-//  resize: true
-//};
 
   $scope.barOptions = {
     xkey: 'y',
@@ -749,9 +947,85 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors', function 
 
 
 
+// LINE
+  // ----------------------------------- 
+  $http.get("server/chart/line.json").then(function(res){
+		$scope.flowData = res.data;
+//		var Color = ["#b2aaea","#7266ba","#554a96"];		
+//		for (i = 0 ; i<$scope.barStackeData.length; i++) {
+//			$scope.barStackeData[i].color = Color[i]; 
+//		};
+		console.log($scope.flowData);
+	})
+
+  $scope.flowOptions = {
+      series: {
+          lines: {
+              show: true,
+              fill: 0.01
+          },
+          points: {
+              show: true,
+              radius: 4
+          }
+      },
+      grid: {
+          borderColor: '#eee',
+          borderWidth: 1,
+          hoverable: true,
+          backgroundColor: '#fcfcfc'
+      },
+      tooltip: true,
+      tooltipOpts: {
+          content: function (label, x, y) { return x + ' : ' + y; }
+      },
+      xaxis: {
+          tickColor: '#eee',
+          mode: 'categories'
+      },
+      yaxis: {
+          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+          tickColor: '#eee'
+      },
+      shadowSize: 0
+  };
 
 
+//datepicker
+$scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
 
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  // Disable weekend selection
+  $scope.disabled = function(date, mode) {
+    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.initDate = new Date('2016-15-20');
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
 
 
 
@@ -975,6 +1249,74 @@ App.controller('NestableController', ['$scope', function($scope) {
 
 }]);
 
+/**=========================================================
+ * Module: datatable,js
+ * Angular Datatable controller
+ =========================================================*/
+
+App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTColumnDefBuilder',
+  function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
+  'use strict';
+
+  // Ajax
+
+  $resource('server/datatable.json').query().$promise.then(function(persons) {
+      $scope.persons = persons;
+  });
+
+  // Changing data
+
+  $scope.heroes = [{
+      "id": 860,
+      "firstName": "Superman",
+      "lastName": "Yoda"
+    }, {
+      "id": 870,
+      "firstName": "Ace",
+      "lastName": "Ventura"
+    }, {
+      "id": 590,
+      "firstName": "Flash",
+      "lastName": "Gordon"
+    }, {
+      "id": 803,
+      "firstName": "Luke",
+      "lastName": "Skywalker"
+    }
+  ];
+
+  $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+  $scope.dtColumnDefs = [
+      DTColumnDefBuilder.newColumnDef(0),
+      DTColumnDefBuilder.newColumnDef(1),
+      DTColumnDefBuilder.newColumnDef(2),
+      DTColumnDefBuilder.newColumnDef(3).notSortable()
+  ];
+  $scope.person2Add = _buildPerson2Add(1);
+  $scope.addPerson = addPerson;
+  $scope.modifyPerson = modifyPerson;
+  $scope.removePerson = removePerson;
+
+  function _buildPerson2Add(id) {
+      return {
+          id: id,
+          firstName: 'Foo' + id,
+          lastName: 'Bar' + id
+      };
+  }
+  function addPerson() {
+      $scope.heroes.push(angular.copy($scope.person2Add));
+      $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
+  }
+  function modifyPerson(index) {
+      $scope.heroes.splice(index, 1, angular.copy($scope.person2Add));
+      $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
+  }
+  function removePerson(index) {
+      $scope.heroes.splice(index, 1);
+  }
+
+}]);
 /**=========================================================
  * Module: sidebar-menu.js
  * Handle sidebar collapsible elements

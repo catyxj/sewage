@@ -2,7 +2,99 @@
  * Module: morris.js
  =========================================================*/
 
-App.controller('equipmentController', ['$scope', '$timeout', 'colors', function ($scope, $timeout, colors) {
+App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
+
+
+$scope.my_tree_handler = function(branch) {
+	console.log(branch);
+	if(branch.level===1||branch.level===2){
+		$state.go("app.equipment.equipment_1");
+	}else if(!branch.level){
+		$state.go("app.equipment.equipment_2.table_1");
+	}
+};
+
+  // onSelect event handlers
+  var apple_selected = function(branch) {
+    $scope.output = "APPLE! : " + branch.label;
+    return $scope.output;
+  };
+
+  var treedata_avm = [
+    {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          data: {
+            description: "man's best friend"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "Felis catus"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "hungry, hungry"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      data: {
+        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        data_can_contain_anything: true
+      },
+      onSelect: function(branch) {
+        $scope.output = "Vegetable: " + branch.data.definition;
+        return $scope.output;
+      },
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: [
+            {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }
+          ]
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }
+  ];
+  
+  
+  $scope.my_data = treedata_avm;
+
+
 
   $scope.chartdata = [
       { y: "xxx镇", a: 100, b: 90 },
@@ -29,16 +121,6 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors', function 
     $scope.chartdata[0].b = 50;
   }, 3000); */
 
-//$scope.donutdata = [
-//  {label: "Download Sales", value: 12},
-//  {label: "In-Store Sales",value: 30},
-//  {label: "Mail-Order Sales", value: 20}
-//];
-//
-//$scope.donutOptions = {
-//  colors: [ colors.byName('danger'), colors.byName('yellow'), colors.byName('warning') ],
-//  resize: true
-//};
 
   $scope.barOptions = {
     xkey: 'y',
@@ -67,9 +149,85 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors', function 
 
 
 
+// LINE
+  // ----------------------------------- 
+  $http.get("server/chart/line.json").then(function(res){
+		$scope.flowData = res.data;
+//		var Color = ["#b2aaea","#7266ba","#554a96"];		
+//		for (i = 0 ; i<$scope.barStackeData.length; i++) {
+//			$scope.barStackeData[i].color = Color[i]; 
+//		};
+		console.log($scope.flowData);
+	})
+
+  $scope.flowOptions = {
+      series: {
+          lines: {
+              show: true,
+              fill: 0.01
+          },
+          points: {
+              show: true,
+              radius: 4
+          }
+      },
+      grid: {
+          borderColor: '#eee',
+          borderWidth: 1,
+          hoverable: true,
+          backgroundColor: '#fcfcfc'
+      },
+      tooltip: true,
+      tooltipOpts: {
+          content: function (label, x, y) { return x + ' : ' + y; }
+      },
+      xaxis: {
+          tickColor: '#eee',
+          mode: 'categories'
+      },
+      yaxis: {
+          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+          tickColor: '#eee'
+      },
+      shadowSize: 0
+  };
 
 
+//datepicker
+$scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
 
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  // Disable weekend selection
+  $scope.disabled = function(date, mode) {
+    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.initDate = new Date('2016-15-20');
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
 
 
 

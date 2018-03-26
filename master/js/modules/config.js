@@ -43,7 +43,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county',
         title: 'county',
         templateUrl: 'app/views/information/county/main.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree')
+        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs')
     })
     .state('app.county.county_1_1', {
         url: '/county_1_1',
@@ -85,8 +85,32 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-cash',
         templateUrl: 'app/views/information/county/cash.html',
     })
-    
-    
+    .state('app.county-chemistry', {
+        url: '/county-chemistry',
+        title: 'county-chemistry',
+        templateUrl: 'app/views/information/county/chemistry.html',
+    })
+    .state('app.county-monitor', {
+        url: '/county-monitor',
+        title: 'county-monitor',
+        templateUrl: 'app/views/information/county/monitor.html',
+    })
+    .state('app.county-run', {
+        url: '/county-run',
+        title: 'county-run',
+        templateUrl: 'app/views/information/county/run.html',
+    })
+    .state('app.county-fault', {
+        url: '/county-fault',
+        title: 'county-fault',
+        templateUrl: 'app/views/information/county/fault.html',
+    })
+    .state('app.county-Energy', {
+        url: '/county-Energy',
+        title: 'county-Energy',
+        templateUrl: 'app/views/information/county/Energy.html',
+        resolve: helper.resolveFor('chartjs')
+    })
     
     
     .state('app.equipment', {
@@ -100,8 +124,31 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/equipment_1',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
-        controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2', {
+        url: '/equipment_2',
+        title: 'equipment_2',
+        templateUrl: 'app/views/information/equipment/equipment_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_1', {
+        url: '/table_1',
+        title: 'table_1',
+        templateUrl: 'app/views/information/equipment/equipment_table_1.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_2', {
+        url: '/table_2',
+        title: 'table_2',
+        templateUrl: 'app/views/information/equipment/equipment_table_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_2.table_3', {
+        url: '/table_3',
+        title: 'table_3',
+        templateUrl: 'app/views/information/equipment/equipment_table_3.html',
+        resolve: helper.resolveFor()
     })
     .state('app.equipment-analysis', {
         url: '/equipment-analysis',
@@ -120,8 +167,18 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report', {
         url: '/report',
         title: 'report',
-        templateUrl: 'app/views/information/report.html'
+        templateUrl: 'app/views/information/report/main.html',
+        controller: 'reportController',
+        resolve: helper.resolveFor('angularBootstrapNavTree','datatables')
     })
+    .state('app.report.table1', {
+        url: '/table1',
+        title: 'table1',
+        templateUrl: 'app/views/information/report/table_1.html'
+    })
+    
+    
+    
     .state('app.widgets', {
         url: '/widgets',
         title: 'widgets',

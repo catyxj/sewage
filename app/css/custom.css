@@ -200,6 +200,17 @@ ul,li{
     display: inline-block;
     width: 60%;
 }
-.cou_analysis.panel .table{
+.panel .table{
 	border: 1px solid #ddd;
 }
+
+
+/*equipment*/
+.equipment .media-box-body{
+	padding: 10px 0;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+
+
+

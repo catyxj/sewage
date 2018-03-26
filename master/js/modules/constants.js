@@ -63,9 +63,9 @@ App
     modules: [
       {name: 'ui.select',                 files: ['vendor/angular-ui-select/dist/select.js',
                                                   'vendor/angular-ui-select/dist/select.css']},
-//    {name: 'datatables',                files: ['vendor/datatables/media/css/jquery.dataTables.css',
-//                                                'vendor/datatables/media/js/jquery.dataTables.js',
-//                                                'vendor/angular-datatables/dist/angular-datatables.js'], serie: true}
+      {name: 'datatables',                files: ['vendor/datatables/media/css/jquery.dataTables.css',
+                                                  'vendor/datatables/media/js/jquery.dataTables.js',
+                                                  'vendor/angular-datatables/dist/angular-datatables.js'], serie: true},
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
       {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',

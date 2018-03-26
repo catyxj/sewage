@@ -1,1 +1,84 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="title clearfix">
+			<div class="pull-left">
+				瞬时流量与液位图示
+			</div>			
+			<div class="pull-right">
+				<button type="button" class="mb-sm mr-lg btn btn-default">
+					<i class="fa fa-cog text-info"></i>
+					告警设置
+				</button>
+				<span>
+					告警推送
+					<label class="switch">
+			            <input type="checkbox" ng-model="send" ng-init="send = true;" class="">
+			            <span></span>
+			         </label>
+				</span>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div collapse="panelChart4" class="panel-wrapper">
+        <div class="panel-body">
+            <flot dataset="flowData" options="flowOptions" height="200px"></flot>
+        </div>
+    </div>
+</div>
+
+<div class="">
+	<!-- START panel-->
+	<div class="panel panel-default" >
+	   <div class="panel-body">
+	   	<div class="row">
+	   		<div class="col-md-12" role="navigation">
+	   			<ul class="nav nav-tabs">
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_1'}"><a ui-sref="app.equipment.equipment_2.table_1">运行记录</a></li>			  
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_2'}"><a ui-sref="app.equipment.equipment_2.table_2">巡检记录</a></li>
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_3'}"><a ui-sref="app.equipment.equipment_2.table_3">故障记录</a></li>
+				  <li>
+				  	<p class="input-group" style="width: 200px;padding: 0 5px;">
+                        <input type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                        class="form-control" />
+                        <span class="input-group-btn">
+                           <button type="button" ng-click="open($event)" class="btn btn-default">
+                              <em class="fa fa-calendar"></em>
+                           </button>
+                        </span>
+                     </p>				  	
+				  
+				  	
+				  </li>
+				  <li style="line-height: 34px;"> 至 </li>
+				  <li>
+				  	<p class="input-group" style="width: 200px;padding: 0 5px;">
+                        <input type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                        class="form-control" />
+                        <span class="input-group-btn">
+                           <button type="button" ng-click="open($event)" class="btn btn-default">
+                              <em class="fa fa-calendar"></em>
+                           </button>
+                        </span>
+                     </p>
+				  </li>
+				</ul>
+	   		</div>  
+	   		
+	   	</div>
+	   	
+	   	
+	   	<div ui-view="" autoscroll="false" class="" style="height: 300px; padding:10px; border: 1px solid #ddd; border-top: none;"></div>
+	   	
+	  	
+	   </div>  
+	</div>
+	<!-- END panel-->
+</div>
+
+
+
+
+
 

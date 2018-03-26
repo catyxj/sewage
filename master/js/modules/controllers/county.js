@@ -134,5 +134,64 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
   $scope.my_data = treedata_avm;
 
   
+  
+  
+
+
+
+ 
  
 }]);
+
+
+
+
+
+App.controller('countybarController', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+/*				{data: [
+						[200,50,100,150,20,30]
+					],
+					backgroundColor: [
+						colors.byName('info')
+					],
+				}*/
+
+
+				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100]
+		        }
+				
+				],
+				labels: [
+					"January","February","March","April","May","June","July"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
+
