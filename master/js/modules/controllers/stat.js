@@ -75,25 +75,23 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		    data: {
 				datasets: [{
 					data: [
-						200,
-						50,
-						100
+						80,
+						20
 					],
 					backgroundColor: [
 						'#7266ba',
-						'#ffef2b',						
-						'rgba(35,183,229,1)'
+						'#ffef2b'
 					],
 				}],
 				labels: [
-					'安装完成',
-					'等待安装'
+					'安装完成（台）',
+					'等待安装（台）'
 				]
 			},
 		    options: {
 		        responsive: true,
 		        legend: {
-		          display: false,
+		          display: true,
 		          position: 'bottom',
 		          boxWidth: 20,
 		        }
@@ -147,18 +145,18 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['January','February','March','April','May','June','July'],
+		        labels: ['2018-08','2018-09','2018-10','2018-11','2018-12','2018-01','2018-02','2018-03'],
 		        datasets: [
 			        {
-			            label: '水质达标率',
-			            data: [65, 59, 80, 81, 56, 55, 40],
+			            label: '水质达标情况（%）',
+			            data: [65, 70, 80, 81, 77, 88, 84,90],
 			            backgroundColor: 'rgba(114,102,186,0.5)',
 						borderColor: 'rgba(114,102,186,1)',
 			            borderWidth: 1
 			        },
 			        {
-			            label: ' ',
-			            data: [28, 48, 40, 19, 86, 27, 90],
+			            label: '水质达标率（%）',
+			            data: [70, 70, 70, 70, 70, 70,70,70],
 			            backgroundColor: 'rgba(35,183,229,0.5)',
 						borderColor: 'rgba(35,183,229,1)',
 			            borderWidth: 1
@@ -169,7 +167,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		        scales: {
 		            yAxes: [{
 		                ticks: {
-		                    beginAtZero:true
+		                    beginAtZero:false
 		                }
 		            }]
 		        }

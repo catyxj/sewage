@@ -4,11 +4,11 @@
       <small>Chaning data</small>
    </div>
    <div class="panel-body">
-      <div ng-controller="DataTableController">
+      <div>
          <form ng-submit="addPerson()" class="form-inline">
             <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="row-border hover">
                <thead>
-                  <tr>
+                  <!--<tr>
                      <th>
                         <div class="form-group">
                            <label>
@@ -38,12 +38,20 @@
                               </span>Add</button>
                         </div>
                      </th>
-                  </tr>
+                  </tr>-->
                   <tr>
                      <th>Hero ID</th>
                      <th>First Name</th>
                      <th>Last Name</th>
-                     <th></th>
+                     <th>
+                     	<div class="form-group">
+                           <a ui-sref="app.report_edit" class="btn btn-labeled btn-success">
+                              <span class="btn-label">
+                                 <em class="fa fa-plus"></em>
+                              </span>Add
+                           </a>
+                        </div>
+                     </th>
                   </tr>
                </thead>
                <tbody>
@@ -52,9 +60,9 @@
                      <td>{{ hero.firstName }}</td>
                      <td>{{ hero.lastName }}</td>
                      <td>
-                        <button type="button" ng-click="modifyPerson($index)" class="btn btn-sm btn-warning">
+                        <a ui-sref="app.report_edit" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
-                        </button>
+                        </a>
                         <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>

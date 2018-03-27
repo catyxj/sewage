@@ -7,11 +7,119 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
   function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
   'use strict';
 
-  // Ajax
 
-  $resource('server/datatable.json').query().$promise.then(function(persons) {
-      $scope.persons = persons;
-  });
+
+	$scope.my_tree_handler = function(branch) {
+	console.log(branch);
+	if(branch.level===1){
+		$state.go("app.county.county_1_1");
+	}else if(branch.level===2){
+		$state.go("app.county.county_1_2");
+	}else if(!branch.level){
+		$state.go("app.county.county_1_3");
+	}
+	
+  };
+
+  // onSelect event handlers
+  var apple_selected = function(branch) {
+    $scope.output = "APPLE! : " + branch.label;
+    return $scope.output;
+  };
+
+  var treedata_avm = [
+    {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          data: {
+            description: "man's best friend"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "Felis catus"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "hungry, hungry"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      data: {
+        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        data_can_contain_anything: true
+      },
+      onSelect: function(branch) {
+        $scope.output = "Vegetable: " + branch.data.definition;
+        return $scope.output;
+      },
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: [
+            {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }
+          ]
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }
+  ];
+  
+
+  $scope.my_data = treedata_avm;
+
+  
+  
+
+
+
+
+
+
+
+
+
+  // Ajax
+  $http.get("server/datatable.json").then(function(res){
+  	$scope.persons = res.data;
+  })
+
+//$resource('server/datatable.json').query().$promise.then(function(persons) {
+//    $scope.persons = persons;
+//});
 
   // Changing data
 
@@ -41,8 +149,8 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
       DTColumnDefBuilder.newColumnDef(2),
       DTColumnDefBuilder.newColumnDef(3).notSortable()
   ];
-  $scope.person2Add = _buildPerson2Add(1);
-  $scope.addPerson = addPerson;
+$scope.person2Add = _buildPerson2Add(1);
+$scope.addPerson = addPerson;
   $scope.modifyPerson = modifyPerson;
   $scope.removePerson = removePerson;
 

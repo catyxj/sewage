@@ -464,11 +464,11 @@ body {
 .content-wrapper > .content-heading {
   font-size: 24px;
   line-height: 1.1;
-  color: #929292;
+  color: #666666;
   margin: -15px;
   margin-bottom: 20px;
   padding: 15px;
-  font-weight: normal;
+  font-weight: bold;
   background-color: #fafbfc;
   border-bottom: 1px solid #cfdbe2;
 }
@@ -1157,7 +1157,7 @@ body {
   height: 100%;
   padding-bottom: 20px;
   background-color: #ffffff;
-  margin-right: -17px;
+  margin-right: -97px;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;

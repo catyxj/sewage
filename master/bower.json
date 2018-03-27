@@ -44,6 +44,7 @@
     "flot-spline": "^0.8.2",
     "angular-bootstrap-nav-tree": "*",
     "morris.js": "^0.5.1",
-    "raphael": "^2.2.7"
+    "raphael": "^2.2.7",
+    "parsleyjs": "^2.8.1"
   }
 }

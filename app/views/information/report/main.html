@@ -1,7 +1,7 @@
 <h3>
 	报表信息
 </h3>
-<div ng-controller="countyController" class="container-fluid county">
+<div class="container-fluid county">
    <div class="row">
       <div class="col-lg-2 col-sm-4">
       	<div class="panel panel-default">     		
@@ -26,8 +26,11 @@
             
          </div>
       </div>
-
-		<div ui-view="" autoscroll="false" class=""></div>
+		
+		<div class="col-lg-10 col-sm-8">
+			<div ui-view="" autoscroll="false" class=""></div>
+		</div>	
+		
 		
    </div>
 </div>

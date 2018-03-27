@@ -60,11 +60,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3',
         templateUrl: 'app/views/information/county/county_1_3.html',
     })
-    .state('app.county.county_1_4', {
-        url: '/county_1_4',
-        title: 'county_1_4',
-        templateUrl: 'app/views/information/county/county_1_4.html',
-    })
     .state('app.county-analysis', {
         url: '/county-analysis',
         title: 'county-analysis',
@@ -111,7 +106,24 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy.html',
         resolve: helper.resolveFor('chartjs')
     })
-    
+    .state('app.county-install', {
+        url: '/county-install',
+        title: 'county-install',
+        templateUrl: 'app/views/information/county/install.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
+    .state('app.county-Beneficiary', {
+        url: '/county-Beneficiary',
+        title: 'county-Beneficiary',
+        templateUrl: 'app/views/information/county/Beneficiary.html'
+    })
+    .state('app.county-water', {
+        url: '/county-water-quality',
+        title: 'county-water-quality',
+        templateUrl: 'app/views/information/county/water-quality.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
+
     
     .state('app.equipment', {
         url: '/equipment',
@@ -176,7 +188,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'table1',
         templateUrl: 'app/views/information/report/table_1.html'
     })
-    
+    .state('app.report_edit', {
+        url: '/report_edit',
+        title: 'report_edit',
+        templateUrl: 'app/views/information/report/edit.html',
+        resolve: helper.resolveFor('parsley')
+    })
     
     
     .state('app.widgets', {

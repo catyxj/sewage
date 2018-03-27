@@ -54,9 +54,11 @@ App
                              'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
       						'vendor/moment/min/locales.min.js'],
+      'parsley':            ['vendor/parsleyjs/dist/parsley.min.js'],
       'morris':             ['vendor/raphael/raphael.js',
                              'vendor/morris.js/morris.js',
                              'vendor/morris.js/morris.css'],
+                             
 
     },
     // Angular based script (use the right module name)
@@ -69,7 +71,11 @@ App
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
       {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
-                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']},                                            
+                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']}, 
+      {name: 'angular-rickshaw',          files: ['vendor/d3/d3.min.js',
+                                                  'vendor/rickshaw/rickshaw.js',
+                                                  'vendor/rickshaw/rickshaw.min.css',
+                                                  'vendor/angular-rickshaw/rickshaw.js'], serie: true},                                           
 
     ]
   })

@@ -108,11 +108,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3',
         templateUrl: 'app/views/information/county/county_1_3.html',
     })
-    .state('app.county.county_1_4', {
-        url: '/county_1_4',
-        title: 'county_1_4',
-        templateUrl: 'app/views/information/county/county_1_4.html',
-    })
     .state('app.county-analysis', {
         url: '/county-analysis',
         title: 'county-analysis',
@@ -159,7 +154,24 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy.html',
         resolve: helper.resolveFor('chartjs')
     })
-    
+    .state('app.county-install', {
+        url: '/county-install',
+        title: 'county-install',
+        templateUrl: 'app/views/information/county/install.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
+    .state('app.county-Beneficiary', {
+        url: '/county-Beneficiary',
+        title: 'county-Beneficiary',
+        templateUrl: 'app/views/information/county/Beneficiary.html'
+    })
+    .state('app.county-water', {
+        url: '/county-water-quality',
+        title: 'county-water-quality',
+        templateUrl: 'app/views/information/county/water-quality.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
+
     
     .state('app.equipment', {
         url: '/equipment',
@@ -224,7 +236,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'table1',
         templateUrl: 'app/views/information/report/table_1.html'
     })
-    
+    .state('app.report_edit', {
+        url: '/report_edit',
+        title: 'report_edit',
+        templateUrl: 'app/views/information/report/edit.html',
+        resolve: helper.resolveFor('parsley')
+    })
     
     
     .state('app.widgets', {
@@ -387,9 +404,11 @@ App
                              'vendor/flot-spline/js/jquery.flot.spline.min.js'],
       'moment':             ['vendor/moment/moment.js',
       						'vendor/moment/min/locales.min.js'],
+      'parsley':            ['vendor/parsleyjs/dist/parsley.min.js'],
       'morris':             ['vendor/raphael/raphael.js',
                              'vendor/morris.js/morris.js',
                              'vendor/morris.js/morris.css'],
+                             
 
     },
     // Angular based script (use the right module name)
@@ -402,7 +421,11 @@ App
 	  {name: 'ng-nestable',               files: ['vendor/angular-nestable/src/angular-nestable.js',
                                                   'vendor/angular-nestable/lib/jquery.nestable.js']},
       {name: 'angularBootstrapNavTree',   files: ['vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
-                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']},                                            
+                                                  'vendor/angular-bootstrap-nav-tree/dist/abn_tree.css']}, 
+      {name: 'angular-rickshaw',          files: ['vendor/d3/d3.min.js',
+                                                  'vendor/rickshaw/rickshaw.js',
+                                                  'vendor/rickshaw/rickshaw.min.css',
+                                                  'vendor/angular-rickshaw/rickshaw.js'], serie: true},                                           
 
     ]
   })
@@ -603,6 +626,172 @@ $scope.barChart = function(){
 	
 $scope.barChart();
 }]);
+
+
+App.controller("countyrickController",['$scope',function($scope){
+	$scope.renderers = [{
+          id: 'area',
+          name: 'Area'
+      }, {
+          id: 'line',
+          name: 'Line'
+      }, {
+          id: 'bar',
+          name: 'Bar'
+      }, {
+          id: 'scatterplot',
+          name: 'Scatterplot'
+      }];
+
+$scope.palettes = [
+      'spectrum14',
+      'spectrum2000',
+      'spectrum2001',
+      'colorwheel',
+      'cool',
+      'classic9',
+      'munin'
+];
+
+  $scope.rendererChanged = function(id) {
+      $scope['options' + id] = {
+          renderer: $scope['renderer' + id].id
+      };
+  };
+
+$scope.paletteChanged = function(id) {
+      $scope['features' + id] = {
+          palette: $scope['palette' + id]
+      };
+};
+
+$scope.changeSeriesData = function(id) {
+      var seriesList = [];
+      for (var i = 0; i < 3; i++) {
+          var series = {
+              name: 'Series ' + (i + 1),
+              data: []
+          };
+          for (var j = 0; j < 10; j++) {
+              series.data.push({x: j, y: Math.random() * 20});
+          }
+          seriesList.push(series);
+          $scope['series' + id][i] = series;
+      }
+      //$scope['series' + id] = seriesList;
+};
+
+  $scope.series0 = [];
+
+  $scope.options0 = {
+    renderer: 'bar'
+  };
+
+  $scope.renderer0 = $scope.renderers[2];
+$scope.palette0 = $scope.palettes[0];
+
+  $scope.rendererChanged(0);
+$scope.paletteChanged(0);
+$scope.changeSeriesData(0);  
+
+  // Graph 2
+
+//var seriesData = [ [], [], [] ];
+//var random = new Rickshaw.Fixtures.RandomData(150);
+//
+//for (var i = 0; i < 150; i++) {
+//  random.addData(seriesData);
+//}
+//
+//$scope.series2 = [
+//  {
+//    color: "#c05020",
+//    data: seriesData[0],
+//    name: 'New York'
+//  }, {
+//    color: "#30c020",
+//    data: seriesData[1],
+//    name: 'London'
+//  }, {
+//    color: "#6060c0",
+//    data: seriesData[2],
+//    name: 'Tokyo'
+//  }
+//];
+//
+//$scope.options2 = {
+//  renderer: 'area'
+//};
+}])
+
+
+App.controller("countywaterController",['$scope',function($scope){
+	$scope.renderers = [{
+          id: 'area',
+          name: 'Area'
+      }, {
+          id: 'line',
+          name: 'Line'
+      }, {
+          id: 'bar',
+          name: 'Bar'
+      }, {
+          id: 'scatterplot',
+          name: 'Scatterplot'
+      }];
+
+$scope.palettes = [
+      'spectrum14',
+      'spectrum2000',
+      'spectrum2001',
+      'colorwheel',
+      'cool',
+      'classic9',
+      'munin'
+];
+
+  $scope.rendererChanged = function(id) {
+      $scope['options' + id] = {
+          renderer: $scope['renderer' + id].id
+      };
+  };
+
+$scope.paletteChanged = function(id) {
+      $scope['features' + id] = {
+          palette: $scope['palette' + id]
+      };
+};
+
+$scope.changeSeriesData = function(id) {
+      var seriesList = [];
+      for (var i = 0; i < 3; i++) {
+          var series = {
+              name: 'Series ' + (i + 1),
+              data: []
+          };
+          for (var j = 0; j < 10; j++) {
+              series.data.push({x: j, y: Math.random() * 20});
+          }
+          seriesList.push(series);
+          $scope['series' + id][i] = series;
+      }
+      //$scope['series' + id] = seriesList;
+};
+
+  $scope.series0 = [];
+
+  $scope.options0 = {
+    renderer: 'area'
+  };
+
+  $scope.renderer0 = $scope.renderers[0];
+$scope.palette0 = $scope.palettes[0];
+
+  $scope.rendererChanged(0);
+$scope.paletteChanged(0);
+$scope.changeSeriesData(0);  
+
+}])
 
 
 //dashboard
@@ -1258,11 +1447,119 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
   function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
   'use strict';
 
-  // Ajax
 
-  $resource('server/datatable.json').query().$promise.then(function(persons) {
-      $scope.persons = persons;
-  });
+
+	$scope.my_tree_handler = function(branch) {
+	console.log(branch);
+	if(branch.level===1){
+		$state.go("app.county.county_1_1");
+	}else if(branch.level===2){
+		$state.go("app.county.county_1_2");
+	}else if(!branch.level){
+		$state.go("app.county.county_1_3");
+	}
+	
+  };
+
+  // onSelect event handlers
+  var apple_selected = function(branch) {
+    $scope.output = "APPLE! : " + branch.label;
+    return $scope.output;
+  };
+
+  var treedata_avm = [
+    {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          data: {
+            description: "man's best friend"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "Felis catus"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          data: {
+            description: "hungry, hungry"
+          },
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      data: {
+        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        data_can_contain_anything: true
+      },
+      onSelect: function(branch) {
+        $scope.output = "Vegetable: " + branch.data.definition;
+        return $scope.output;
+      },
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: [
+            {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }, {
+              label: 'xxxx村',
+              onSelect: apple_selected
+            }
+          ]
+        }
+      ]
+    }, {
+      label: 'xxxxx县',
+      children: [
+        {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, {
+          label: 'xxxx镇',
+          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }
+      ]
+    }
+  ];
+  
+
+  $scope.my_data = treedata_avm;
+
+  
+  
+
+
+
+
+
+
+
+
+
+  // Ajax
+  $http.get("server/datatable.json").then(function(res){
+  	$scope.persons = res.data;
+  })
+
+//$resource('server/datatable.json').query().$promise.then(function(persons) {
+//    $scope.persons = persons;
+//});
 
   // Changing data
 
@@ -1292,8 +1589,8 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
       DTColumnDefBuilder.newColumnDef(2),
       DTColumnDefBuilder.newColumnDef(3).notSortable()
   ];
-  $scope.person2Add = _buildPerson2Add(1);
-  $scope.addPerson = addPerson;
+$scope.person2Add = _buildPerson2Add(1);
+$scope.addPerson = addPerson;
   $scope.modifyPerson = modifyPerson;
   $scope.removePerson = removePerson;
 
@@ -1499,25 +1796,23 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		    data: {
 				datasets: [{
 					data: [
-						200,
-						50,
-						100
+						80,
+						20
 					],
 					backgroundColor: [
 						'#7266ba',
-						'#ffef2b',						
-						'rgba(35,183,229,1)'
+						'#ffef2b'
 					],
 				}],
 				labels: [
-					'安装完成',
-					'等待安装'
+					'安装完成（台）',
+					'等待安装（台）'
 				]
 			},
 		    options: {
 		        responsive: true,
 		        legend: {
-		          display: false,
+		          display: true,
 		          position: 'bottom',
 		          boxWidth: 20,
 		        }
@@ -1571,18 +1866,18 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['January','February','March','April','May','June','July'],
+		        labels: ['2018-08','2018-09','2018-10','2018-11','2018-12','2018-01','2018-02','2018-03'],
 		        datasets: [
 			        {
-			            label: '水质达标率',
-			            data: [65, 59, 80, 81, 56, 55, 40],
+			            label: '水质达标情况（%）',
+			            data: [65, 70, 80, 81, 77, 88, 84,90],
 			            backgroundColor: 'rgba(114,102,186,0.5)',
 						borderColor: 'rgba(114,102,186,1)',
 			            borderWidth: 1
 			        },
 			        {
-			            label: ' ',
-			            data: [28, 48, 40, 19, 86, 27, 90],
+			            label: '水质达标率（%）',
+			            data: [70, 70, 70, 70, 70, 70,70,70],
 			            backgroundColor: 'rgba(35,183,229,0.5)',
 						borderColor: 'rgba(35,183,229,1)',
 			            borderWidth: 1
@@ -1593,7 +1888,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		        scales: {
 		            yAxes: [{
 		                ticks: {
-		                    beginAtZero:true
+		                    beginAtZero:false
 		                }
 		            }]
 		        }
