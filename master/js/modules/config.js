@@ -60,6 +60,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3',
         templateUrl: 'app/views/information/county/county_1_3.html',
     })
+    .state('app.county.county-onsite', {
+        url: '/county-onsite',
+        title: 'county-onsite',
+        templateUrl: 'app/views/information/county/onsite.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
     .state('app.county-analysis', {
         url: '/county-analysis',
         title: 'county-analysis',
@@ -84,6 +90,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county-chemistry',
         title: 'county-chemistry',
         templateUrl: 'app/views/information/county/chemistry.html',
+        resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-monitor', {
         url: '/county-monitor',
@@ -123,6 +130,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/water-quality.html',
         resolve: helper.resolveFor('angular-rickshaw')
     })
+    
 
     
     .state('app.equipment', {
@@ -142,6 +150,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/equipment_2',
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_3', {
+        url: '/equipment_3',
+        title: 'equipment_3',
+        templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
     .state('app.equipment.equipment_2.table_1', {

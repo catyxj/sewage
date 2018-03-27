@@ -41,22 +41,22 @@
   },
   {
     "text": "项目管理",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-doc"
   },
   {
     "text": "考核管理",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-map"
   },
   {
     "text": "资金管理",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-graduation"
   },
   {
     "text": "培训管理",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-folder"
   },
   {
@@ -66,12 +66,12 @@
   },
 	{
     "text": "账号管理",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-cup"
   },
   {
     "text": "用户信息",
-    "sref": "",
+    "sref": "page.404",
     "icon": "icon-grid"
   }
   

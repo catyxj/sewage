@@ -7,8 +7,10 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$
 
 $scope.my_tree_handler = function(branch) {
 	console.log(branch);
-	if(branch.level===1||branch.level===2){
+	if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
+	}else if(branch.level===2){
+		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
 		$state.go("app.equipment.equipment_2.table_1");
 	}
@@ -97,13 +99,13 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "xxx镇", a: 100, b: 90 },
-      { y: "xx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 50,  b: 40 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xxxx镇", a: 50,  b: 40 },
-      { y: "xxx1镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 100, b: 90 }
+      { y: "2011-2", a: 100, b: 90 },
+      { y: "2011-3", a: 75,  b: 65 },
+      { y: "2011-4", a: 50,  b: 40 },
+      { y: "2011-5", a: 75,  b: 65 },
+      { y: "2011-6", a: 50,  b: 40 },
+      { y: "2011-7", a: 75,  b: 65 },
+      { y: "2011-8", a: 100, b: 90 }
   ];
   $scope.linedata = [
       {y: '2011-2', data: 1000},  

@@ -43,7 +43,7 @@
 	      		<div class="">
 	         		<div class="stat-heading">
 	         			总体资金进度
-	         			<a class="more btn btn-default" href="">点击详情</a>
+	         			<a class="more btn btn-default" ui-sref="app.county-cash">点击详情</a>
 	         		</div>         		
 		            <uib-progress>
 			         	<uib-bar ng-repeat="bar in funds track by $index" value="bar.value" type="{{bar.type}}">
@@ -75,7 +75,7 @@
 	      <div class="panel">         	
 	         <div class="panel-body">        
 	            <div class="panel-wrapper"> 
-	            	<div class="panel-title">能耗统计 <a class="more btn btn-default" href="">点击详情</a></div>
+	            	<div class="panel-title">耗能统计 <a class="more btn btn-default" ui-sref="app.county-Energy">点击详情</a></div>
 	               <div class="panel-body">               		
 	                  	<div class="indicator show">
 	                     	<span class="spinner"></span>
@@ -91,7 +91,7 @@
 	   <div class="col-md-3">
 	   		<div class="panel">  			
 	   			<div class="panel-body" style="position: relative;"> 
-	   				<div class="panel-title">设备统计 <a class="more btn btn-default" href="">点击详情</a></div>
+	   				<div class="panel-title">设备统计 <a class="more btn btn-default" ui-sref="app.county-install">点击详情</a></div>
 	   				<!--<div class="" style="position: absolute; right: 0px; bottom: 5px;">
 			        	<span class="legend">
 				        	<span style="background-color: #7266ba;"></span>
@@ -122,7 +122,7 @@
 			<div class="panel">
 				<div class="panel-body">
 					<div class="panel-title">水质达标率 
-						<a class="more btn btn-default" href="">点击详情</a>
+						<a class="more btn btn-default" ui-sref="app.county-water">点击详情</a>
 					</div>
 			        <div>
 			            <canvas id="lineChart" width="600" height="150"></canvas>

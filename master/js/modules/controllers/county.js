@@ -361,3 +361,70 @@ $scope.changeSeriesData(0);
 
 }])
 
+
+App.controller("countychemistryController",['$scope',function($scope){
+// Radar chart
+// ----------------------------------- 
+
+$scope.RadarChart = function(){		
+		var ctx = document.getElementById("chemistryChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'radar',
+		    data: {
+				datasets: [
+					{
+			        label: 'My First dataset',
+			        backgroundColor: 'rgba(114,102,186,0.2)',
+			        borderColor: 'rgba(114,102,186,1)',
+			        pointBackgroundColor: 'rgba(114,102,186,1)',
+			        pointStrokeColor: '#fff',
+			        pointHighlightFill: '#fff',
+			        pointHighlightStroke: 'rgba(114,102,186,1)',
+			        data: [65,59,90,81,56,55,40]
+			      },
+			      {
+			        label: 'My Second dataset',
+			        backgroundColor: 'rgba(151,187,205,0.2)',
+			        borderColor: 'rgba(151,187,205,1)',
+			        pointBackgroundColor: 'rgba(151,187,205,1)',
+			        pointStrokeColor: '#fff',
+			        pointHighlightFill: '#fff',
+			        pointHighlightStroke: 'rgba(151,187,205,1)',
+			        data: [28,48,40,19,96,27,100]
+			      }				
+				],
+				labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        },
+		        scaleShowLine : true,
+    angleShowLineOut : true,
+    scaleShowLabels : false,
+    scaleBeginAtZero : true,
+    angleLineColor : 'rgba(0,0,0,.1)',
+    angleLineWidth : 1,
+    pointLabelFontFamily : "'Arial'",
+    pointLabelFontStyle : 'bold',
+    pointLabelFontSize : 10,
+    pointLabelFontColor : '#565656',
+    pointDot : true,
+    pointDotRadius : 3,
+    pointDotStrokeWidth : 1,
+    pointHitDetectionRadius : 20,
+    datasetStroke : true,
+    datasetStrokeWidth : 2,
+    datasetFill : true
+		
+		    }
+		});
+	}
+	
+$scope.RadarChart();
+
+}])
+

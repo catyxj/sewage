@@ -1,1 +1,119 @@
 
+<div class="row">
+      <div class="col-md-7">
+         <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+            	<div class="pull-left">
+            		设备巡检率
+            	</div>
+            	
+                <div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
+                     <select name="">
+                     	<option value="">xxx镇</option>
+                     </select>
+                     <select name="">
+                     	<option value="">xxx村</option>
+                     </select>
+                </div>
+            </div>
+            <div class="panel-body">
+               <div morris-line="" morris-data="linedata" morris-options="lineOptions" style="height: 230px;"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-5">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+            	<div class="">
+            		设备分布情况
+            	</div>
+            	
+            	
+            </div>
+            <div class="panel-body" ng-controller="equipController1">
+               <canvas id="pieChart2" width="400" height="250"></canvas>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   
+   <div class="row">
+      <div class="col-md-7">
+         <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+            	<div class="pull-left">
+            		设备故障率
+            	</div>
+            	
+            	<div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
+                     <select name="">
+                     	<option value="">xxx镇</option>
+                     </select>
+                     <select name="">
+                     	<option value="">xxx村</option>
+                     </select>
+                  </div>
+            </div>
+            <div class="panel-body">
+               <div morris-bar="" morris-data="chartdata" morris-options="barOptions" style="height: 230px;"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-5">
+         <div class="panel panel-default">
+            <div class="panel-heading">            	
+            	<div class="pull-right">
+            		<div class="pull-left label label-danger">5</div> 液位告警
+            	</div>
+            	<div class="pull-right" style="margin-right: 10px;">
+            		<div class="pull-left label label-warning">12</div> 流量告警
+            	</div>             
+              <div class="panel-title">告警记录</div>
+            </div>
+            <div class="panel-body" style="height: 220px; overflow: auto;">
+            	<div class="media-box-body clearfix">
+                <small class="pull-right">2018-2-12 12：58：01</small>
+                <span class="media-box-heading">
+                  <span class="circle circle-warning circle-lg text-left"></span>
+                  xxx村xxx设备告警
+                </span>                           
+              </div>
+              <div class="media-box-body clearfix">
+                <small class="pull-right">2018-2-12 12：58：01</small>
+                <span class="media-box-heading">
+                  <span class="circle circle-danger circle-lg text-left"></span>
+                  xxx村xxx设备告警
+                </span>                           
+              </div>
+              <div class="media-box-body clearfix">
+                <small class="pull-right">2018-2-12 12：58：01</small>
+                <span class="media-box-heading">
+                  <span class="circle circle-danger circle-lg text-left"></span>
+                  xxx村xxx设备告警
+                </span>                           
+              </div>
+              <div class="media-box-body clearfix">
+                <small class="pull-right">2018-2-12 12：58：01</small>
+                <span class="media-box-heading">
+                  <span class="circle circle-danger circle-lg text-left"></span>
+                  xxx村xxx设备告警
+                </span>                           
+              </div>
+
+            </div>
+         		
+         		<!-- START panel footer-->
+               <div class="panel-footer clearfix">
+                  <div class="input-group">
+                     <input type="text" placeholder="" class="form-control input-sm" />
+                     <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
+                        </button>
+                     </span>
+                  </div>
+               </div>
+               <!-- END panel-footer-->
+         </div>
+      </div>
+   </div>

@@ -108,6 +108,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3',
         templateUrl: 'app/views/information/county/county_1_3.html',
     })
+    .state('app.county.county-onsite', {
+        url: '/county-onsite',
+        title: 'county-onsite',
+        templateUrl: 'app/views/information/county/onsite.html',
+        resolve: helper.resolveFor('angular-rickshaw')
+    })
     .state('app.county-analysis', {
         url: '/county-analysis',
         title: 'county-analysis',
@@ -132,6 +138,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county-chemistry',
         title: 'county-chemistry',
         templateUrl: 'app/views/information/county/chemistry.html',
+        resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-monitor', {
         url: '/county-monitor',
@@ -171,6 +178,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/water-quality.html',
         resolve: helper.resolveFor('angular-rickshaw')
     })
+    
 
     
     .state('app.equipment', {
@@ -190,6 +198,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/equipment_2',
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.equipment.equipment_3', {
+        url: '/equipment_3',
+        title: 'equipment_3',
+        templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
     .state('app.equipment.equipment_2.table_1', {
@@ -794,6 +808,73 @@ $scope.changeSeriesData(0);
 }])
 
 
+App.controller("countychemistryController",['$scope',function($scope){
+// Radar chart
+// ----------------------------------- 
+
+$scope.RadarChart = function(){		
+		var ctx = document.getElementById("chemistryChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'radar',
+		    data: {
+				datasets: [
+					{
+			        label: 'My First dataset',
+			        backgroundColor: 'rgba(114,102,186,0.2)',
+			        borderColor: 'rgba(114,102,186,1)',
+			        pointBackgroundColor: 'rgba(114,102,186,1)',
+			        pointStrokeColor: '#fff',
+			        pointHighlightFill: '#fff',
+			        pointHighlightStroke: 'rgba(114,102,186,1)',
+			        data: [65,59,90,81,56,55,40]
+			      },
+			      {
+			        label: 'My Second dataset',
+			        backgroundColor: 'rgba(151,187,205,0.2)',
+			        borderColor: 'rgba(151,187,205,1)',
+			        pointBackgroundColor: 'rgba(151,187,205,1)',
+			        pointStrokeColor: '#fff',
+			        pointHighlightFill: '#fff',
+			        pointHighlightStroke: 'rgba(151,187,205,1)',
+			        data: [28,48,40,19,96,27,100]
+			      }				
+				],
+				labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: false,
+		          position: 'bottom',
+		          boxWidth: 20,
+		        },
+		        scaleShowLine : true,
+    angleShowLineOut : true,
+    scaleShowLabels : false,
+    scaleBeginAtZero : true,
+    angleLineColor : 'rgba(0,0,0,.1)',
+    angleLineWidth : 1,
+    pointLabelFontFamily : "'Arial'",
+    pointLabelFontStyle : 'bold',
+    pointLabelFontSize : 10,
+    pointLabelFontColor : '#565656',
+    pointDot : true,
+    pointDotRadius : 3,
+    pointDotStrokeWidth : 1,
+    pointHitDetectionRadius : 20,
+    datasetStroke : true,
+    datasetStrokeWidth : 2,
+    datasetFill : true
+		
+		    }
+		});
+	}
+	
+$scope.RadarChart();
+
+}])
+
+
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http",function($scope,$rootScope,$http){
 	
@@ -994,8 +1075,10 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$
 
 $scope.my_tree_handler = function(branch) {
 	console.log(branch);
-	if(branch.level===1||branch.level===2){
+	if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
+	}else if(branch.level===2){
+		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
 		$state.go("app.equipment.equipment_2.table_1");
 	}
@@ -1084,13 +1167,13 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "xxx镇", a: 100, b: 90 },
-      { y: "xx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 50,  b: 40 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xxxx镇", a: 50,  b: 40 },
-      { y: "xxx1镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 100, b: 90 }
+      { y: "2011-2", a: 100, b: 90 },
+      { y: "2011-3", a: 75,  b: 65 },
+      { y: "2011-4", a: 50,  b: 40 },
+      { y: "2011-5", a: 75,  b: 65 },
+      { y: "2011-6", a: 50,  b: 40 },
+      { y: "2011-7", a: 75,  b: 65 },
+      { y: "2011-8", a: 100, b: 90 }
   ];
   $scope.linedata = [
       {y: '2011-2', data: 1000},  
