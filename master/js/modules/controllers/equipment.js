@@ -237,11 +237,73 @@ $scope.today = function() {
 
 
 
-App.controller('equipController1', ['$scope', '$timeout', 'colors', function ($scope, $timeout, colors) {
-	
-	
+App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
+
+
+	var options = {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},        
+        tooltip: {
+//          headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+            	minSize: 180,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 10,                   
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: "#666666",
+                        fontSize: "12px",
+                        fontWeight: "normal",
+                        textOutline: "1px 1px contrast"
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '设备分布情况',
+            data: [
+                ['xx镇',   25.0],
+                ['xxx镇',       26.8],
+                {
+                    name: 'x镇',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['xxxx镇',    8.5],
+                ['xxx镇',     6.2],
+                ['xxx镇',   0.7]
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('pieChart2', options);
+
 //piechart
-$scope.pieChart = function(){		
+/*$scope.pieChart = function(){		
 		var ctx = document.getElementById("pieChart2").getContext('2d');		
 		var myChart = new Chart(ctx, {
 		    type: 'pie',
@@ -276,15 +338,136 @@ $scope.pieChart = function(){
 		    options: {
 		        responsive: true,
 		        legend: {
-		          display: false,
+		          display: true,
 		          position: 'bottom',
-		          boxWidth: 20,
+		          boxWidth: 10,
 		        }
 		
 		    }
 		});
 	}
 	
-$scope.pieChart();
+$scope.pieChart();*/
 
 }]);
+
+
+
+
+
+
+App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
+
+
+	var options = {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},        
+        tooltip: {
+//          headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+            	minSize: 180,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 10,                   
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: "#666666",
+                        fontSize: "12px",
+                        fontWeight: "normal",
+                        textOutline: "1px 1px contrast"
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '设备分布情况',
+            data: [
+                ['xx镇',   25.0],
+                ['xxx镇',       26.8],
+                {
+                    name: 'x镇',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['xxxx镇',    8.5],
+                ['xxx镇',     6.2],
+                ['xxx镇',   0.7]
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('pieChart2', options);
+
+//piechart
+/*$scope.pieChart = function(){		
+		var ctx = document.getElementById("pieChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: {
+				datasets: [{
+					data: [
+						200,
+						50,
+						100,
+						150,
+						20,
+						30,
+					],
+					backgroundColor: [
+						'#7266ba',
+						'#ffef2b',						
+						'rgba(35,183,229,1)',
+						'#2b957a',
+						'#ff902b',
+						'#f05050'
+					],
+				}],
+				labels: [
+					'xxx村',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+					'xx镇',
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'bottom',
+		          boxWidth: 10,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.pieChart();*/
+
+}]);
+
+

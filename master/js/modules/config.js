@@ -23,7 +23,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         abstract: true,
         templateUrl: 'app/views/app.html',
         controller: 'AppController',
-        resolve: helper.resolveFor('screenfull','icons','classyloader','sparklines')
+        resolve: helper.resolveFor('screenfull','icons','classyloader','sparklines','highcharts')
     })
     .state('app.dashboard', {
         url: '/dashboard',
@@ -144,7 +144,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/equipment_1',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
-        resolve: helper.resolveFor()
+        resolve: helper.resolveFor('highcharts.plugin')
     })
     .state('app.equipment.equipment_2', {
         url: '/equipment_2',
