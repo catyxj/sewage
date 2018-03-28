@@ -271,7 +271,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
                 dataLabels: {
                     enabled: true,
                     distance: 10,                   
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
                     style: {
                         color: "#666666",
                         fontSize: "12px",
@@ -390,7 +390,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
                 dataLabels: {
                     enabled: true,
                     distance: 10,                   
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
                     style: {
                         color: "#666666",
                         fontSize: "12px",
