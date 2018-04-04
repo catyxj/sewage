@@ -5,8 +5,7 @@
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
 	$scope.project = [
-		{ value: "32", type: "darkblue" },
-        { value: "33", type: "blue" },
+		{ value: "65", type: "darkblue" },
         { value: "35", type: "lightblue" }
     ];
     $scope.funds = [
@@ -68,7 +67,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 // Pie chart
 // ----------------------------------- 
 
-	$scope.pieChart = function(){		
+/*	$scope.pieChart = function(){		
 		var ctx = document.getElementById("pieChart").getContext('2d');		
 		var myChart = new Chart(ctx, {
 		    type: 'pie',
@@ -89,7 +88,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 				]
 			},
 		    options: {
-		        responsive: true,
+//		        responsive: true,
 		        legend: {
 		          display: true,
 		          position: 'bottom',
@@ -100,39 +99,63 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		});
 	}
 	
-	$scope.pieChart();
+	$scope.pieChart();*/
 
- /* $scope.pieData =[
-        {
-          value: 300,
-          color: colors.byName('purple'),
-          highlight: colors.byName('purple'),
-          label: 'Purple'
+var options = {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
         },
-        {
-          value: 40,
-          color: colors.byName('yellow'),
-          highlight: colors.byName('yellow'),
-          label: 'Yellow'
+        colors: ['#7266ba',
+				'#ffef2b'],
+        title: {
+            text: ''
         },
-        {
-          value: 120,
-          color: colors.byName('info'),
-          highlight: colors.byName('info'),
-          label: 'Info'
-        }
-      ];
-
-  $scope.pieOptions = {
-    segmentShowStroke : true,
-    segmentStrokeColor : '#fff',
-    segmentStrokeWidth : 2,
-    percentageInnerCutout : 0, // Setting this to zero convert a doughnut into a Pie
-    animationSteps : 100,
-    animationEasing : 'easeOutBounce',
-    animateRotate : true,
-    animateScale : false
-  };*/
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},        
+        tooltip: {
+            headerFormat: '{point.key}<br>',
+            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+            	minSize: 180,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 10,                   
+                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
+                    style: {
+                        color: "#666666",
+                        fontSize: "12px",
+                        fontWeight: "normal",
+                        textOutline: "1px 1px contrast"
+                    }
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '设备分布情况',
+            data: [
+                ['安装完成',   160],
+                ['等待安装',       40]                
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('statPieChart', options);
 
 
 
@@ -148,14 +171,14 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		        labels: ['2018-08','2018-09','2018-10','2018-11','2018-12','2018-01','2018-02','2018-03'],
 		        datasets: [
 			        {
-			            label: '水质达标情况（%）',
+			            label: '总体水质平均达标情况（%）',
 			            data: [65, 70, 80, 81, 77, 88, 84,90],
 			            backgroundColor: 'rgba(114,102,186,0.5)',
 						borderColor: 'rgba(114,102,186,1)',
 			            borderWidth: 1
 			        },
 			        {
-			            label: '水质达标率（%）',
+			            label: '水质达标要求（%）',
 			            data: [70, 70, 70, 70, 70, 70,70,70],
 			            backgroundColor: 'rgba(35,183,229,0.5)',
 						borderColor: 'rgba(35,183,229,1)',
@@ -177,49 +200,6 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 	}
 	
 	$scope.lineChart();
-
-/*$scope.lineData = {
-      labels : ['January','February','March','April','May','June','July'],
-      datasets : [
-        {
-          label: 'My First dataset',
-          fillColor : 'rgba(114,102,186,0.2)',
-          strokeColor : 'rgba(114,102,186,1)',
-          pointColor : 'rgba(114,102,186,1)',
-          pointStrokeColor : '#fff',
-          pointHighlightFill : '#fff',
-          pointHighlightStroke : 'rgba(114,102,186,1)',
-          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
-        },
-        {
-          label: 'My Second dataset',
-          fillColor : 'rgba(35,183,229,0.2)',
-          strokeColor : 'rgba(35,183,229,1)',
-          pointColor : 'rgba(35,183,229,1)',
-          pointStrokeColor : '#fff',
-          pointHighlightFill : '#fff',
-          pointHighlightStroke : 'rgba(35,183,229,1)',
-          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
-        }
-      ]
-    };
-
-
-$scope.lineOptions = {
-    scaleShowGridLines : true,
-    scaleGridLineColor : 'rgba(0,0,0,.05)',
-    scaleGridLineWidth : 1,
-    bezierCurve : true,
-    bezierCurveTension : 0.4,
-    pointDot : true,
-    pointDotRadius : 4,
-    pointDotStrokeWidth : 1,
-    pointHitDetectionRadius : 20,
-    datasetStroke : true,
-    datasetStrokeWidth : 2,
-    datasetFill : true,
-};*/
-
 
 
 

@@ -1,5 +1,5 @@
 [{
-    "label": "Complete",
+    "label": "液位",
     "color": "#5ab1ef",
     "data": [
         ["Jan", 188],
@@ -13,7 +13,7 @@
         ["Sep", 74]
     ]
 }, {
-    "label": "In Progress",
+    "label": "瞬时流量",
     "color": "#f5994e",
     "data": [
         ["Jan", 153],
@@ -27,7 +27,7 @@
         ["Sep", 59]
     ]
 }, {
-    "label": "Cancelled",
+    "label": "液位阈值",
     "color": "#d87a80",
     "data": [
         ["Jan", 111],

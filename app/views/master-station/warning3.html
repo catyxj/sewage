@@ -1,0 +1,269 @@
+<h3>
+   站点概览
+</h3>
+
+
+<div class="panel panel-default" ng-controller="warningFlowCtrl">
+	<div class="panel-body">
+		<div class="panel-title clearfix">
+			<h4 class="pull-left">告警列表</h4>
+			<div class="pull-right">
+				<button type="button" ng-click="openWarning()" class="mb-sm mr-lg btn btn-default">
+					<i class="fa fa-cog text-info"></i>
+					告警设置
+				</button>
+				<span>
+					告警推送
+					<label class="switch">
+			            <input type="checkbox" ng-model="send" ng-init="send = true;" class="">
+			            <span></span>
+			         </label>
+				</span>
+			</div>
+		</div>
+		<div collapse="panelChart4" class="panel-wrapper">
+	        <div class="panel-body">
+	            <flot dataset="flowData" options="flowOptions" height="300px"></flot>
+	        </div>
+	    </div>
+	    
+	    
+	    <div class="panel-body">
+	    	<!-- START table-responsive-->
+		   <div class="" style="height: 320px;">
+		   		<div class="table-responsive" style="height: 300px; overflow: auto;">
+			      <table class="table table-bordered table-hover table-striped">
+			         <thead>
+			            <tr>
+			               <th>序号</th>
+			               <th>告警名称</th>
+			               <th>告警设备</th>
+			               <th>设备所在地</th>
+			               <th>负责人</th>
+			               <th>告警时间</th>
+			               <th>告警设定值</th>
+			               <th>实际告警值</th>
+			               <th>告警级别</th>          
+			            </tr>
+			         </thead>
+			         <tbody>
+			            <tr>
+			               <td>1</td>
+			               <td>
+			                  高液位报警
+			               </td>
+			               <td>BHMCE2158流量计</td>
+			               <td>xxx区县（市）xxx乡镇（街道）xxx村</td>
+			               <td>张三</td>
+			               <td>
+			               		2018-03-12 12：15：11
+			               </td>
+			               <td>
+			               		200
+			               </td>
+			               <td>
+			               		230
+			               </td>
+			               <td>
+			               	高
+			               </td>               
+			            </tr>
+			            	           
+			            
+			         </tbody>
+			      </table>
+			   </div>
+			   
+			   <div class="row">
+			   	
+			   	<div class="col-lg-6">
+			   		共518条记录
+			   		pageSize: 
+			   		<select style="padding: 3px 10px;">
+			   			<option value="250">250</option>
+			   			<option value="150">150</option>
+			   		</select>
+			   	</div>
+			   	<div class="col-lg-6">
+			   		<nav>
+					  <ul class="pagination pull-right" style="margin: 0;">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+			   	</div>
+			   	
+		   		
+		   	</div>
+		   </div>
+		   
+		   <!-- END table-responsive-->
+	    </div>
+	    
+	</div>
+</div>
+
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">告警设置</h3>
+    </div>
+    <div class="modal-body">
+    	<style type="text/css">
+    		.warn_set_label{
+    			font-size: 16px; line-height: 120px;padding-left: 20px;
+    		}
+    		.warn_tip{
+    			line-height: 34px;
+    			font-weight: bold;
+    		}
+    	</style>
+    	
+        <div class="row">
+        	<div class="col-md-2 warn_set_label">
+        		液位
+        	</div>
+        	<div class="col-md-10">
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-primary">
+		        		过低
+		        	</div>
+        		</div>
+        		
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-success">
+		        		正常
+		        	</div>
+        		</div>
+        		
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-danger">
+		        		过高
+		        	</div>
+        		</div>
+        		
+        		
+        	</div>
+        	
+        </div>
+        
+        
+        <div class="row mt-lg">
+        	<div class="col-md-2 warn_set_label">
+        		瞬时流量
+        	</div>
+        	<div class="col-md-10">
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-primary">
+		        		过低
+		        	</div>
+        		</div>
+        		
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-success">
+		        		正常
+		        	</div>
+        		</div>
+        		
+        		<div class="row mb">
+        			<div class="col-md-9">
+        				<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+		        		<div class="pull-left ml-lg mr-lg">
+		        			-
+		        		</div>
+		        		<div class="wd-sm pull-left">
+		        			<input type="text" id="" value="" class="form-control" />
+		        		</div>
+        			</div>
+        			<div class="col-md-3 warn_tip text-danger">
+		        		过高
+		        	</div>
+        		</div>
+        		
+        		
+        	</div>
+        	
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-oval" type="button" ng-click="ok()">更新</button>
+        <button class="btn btn-default btn-oval" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>
+
+
+
+
+
+

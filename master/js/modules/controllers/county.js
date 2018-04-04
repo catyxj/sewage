@@ -5,21 +5,13 @@
 App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
 
   $scope.my_tree_handler = function(branch) {
-	console.log(branch);
 	if(branch.level===1){
 		$state.go("app.county.county_1_1");
 	}else if(branch.level===2){
 		$state.go("app.county.county_1_2");
 	}else if(!branch.level){
 		$state.go("app.county.county_1_3");
-	}
-	
-//  $scope.output = "You selected: " + branch.label;
-//
-//  if (branch.data && branch.data.description) {
-//    $scope.output += '(' + branch.data.description + ')';
-//    return $scope.output;
-//  }
+	}	
   };
 
   // onSelect event handlers
@@ -58,11 +50,11 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
     }, {
       label: 'xxxxx县',
       data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        definition: "",
         data_can_contain_anything: true
       },
       onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
+        $scope.output = "" + branch.data.definition;
         return $scope.output;
       },
       children: [
@@ -99,44 +91,17 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
     }
   ];
   
-  var treedata_geography = [
-    {
-      label: 'North America',
-      children: [
-        {
-          label: 'Canada',
-          children: ['Toronto', 'Vancouver']
-        }, {
-          label: 'USA',
-          children: ['New York', 'Los Angeles']
-        }, {
-          label: 'Mexico',
-          children: ['Mexico City', 'Guadalajara']
-        }
-      ]
-    }, {
-      label: 'South America',
-      children: [
-        {
-          label: 'Venezuela',
-          children: ['Caracas', 'Maracaibo']
-        }, {
-          label: 'Brazil',
-          children: ['Sao Paulo', 'Rio de Janeiro']
-        }, {
-          label: 'Argentina',
-          children: ['Buenos Aires', 'Cordoba']
-        }
-      ]
-    }
-  ];
 
   $scope.my_data = treedata_avm;
 
   
   
-  
-
+  //图表 进度条
+  $scope.energy = [3,6,7,8,4,5];
+	$scope.val1 = 80;
+	$scope.val2 = 20;
+	$scope.val3 = 50;
+	$scope.val4 = 20;
 
 
  
@@ -157,34 +122,27 @@ $scope.barChart = function(){
 		    type: 'bar',
 		    data: {
 				datasets: [
-/*				{data: [
-						[200,50,100,150,20,30]
-					],
-					backgroundColor: [
-						colors.byName('info')
-					],
-				}*/
 
-
-				{
+/*				{
 		            backgroundColor : colors.byName('info'),
 		            data : [65,59,90,81,56,55,40]
-		        },
+		        },*/
 		        {
 		            backgroundColor : colors.byName('primary'),
-		            data : [28,48,40,19,96,27,100]
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
 		        }
 				
 				],
 				labels: [
-					"January","February","March","April","May","June","July"
+					"xx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）"
 				]
 			},
 		    options: {
 		        responsive: true,
 		        legend: {
-		          display: false,
-		          position: 'bottom',
+		          display: true,
+		          position: 'top',
 		          boxWidth: 20,
 		        }
 		
@@ -196,101 +154,50 @@ $scope.barChart();
 }]);
 
 
-App.controller("countyrickController",['$scope',function($scope){
-	$scope.renderers = [{
-          id: 'area',
-          name: 'Area'
-      }, {
-          id: 'line',
-          name: 'Line'
-      }, {
-          id: 'bar',
-          name: 'Bar'
-      }, {
-          id: 'scatterplot',
-          name: 'Scatterplot'
-      }];
+App.controller('countybarController2', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
 
-$scope.palettes = [
-      'spectrum14',
-      'spectrum2000',
-      'spectrum2001',
-      'colorwheel',
-      'cool',
-      'classic9',
-      'munin'
-];
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
 
-  $scope.rendererChanged = function(id) {
-      $scope['options' + id] = {
-          renderer: $scope['renderer' + id].id
-      };
-  };
+/*				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },*/
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"xx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
 
-$scope.paletteChanged = function(id) {
-      $scope['features' + id] = {
-          palette: $scope['palette' + id]
-      };
-};
 
-$scope.changeSeriesData = function(id) {
-      var seriesList = [];
-      for (var i = 0; i < 3; i++) {
-          var series = {
-              name: 'Series ' + (i + 1),
-              data: []
-          };
-          for (var j = 0; j < 10; j++) {
-              series.data.push({x: j, y: Math.random() * 20});
-          }
-          seriesList.push(series);
-          $scope['series' + id][i] = series;
-      }
-      //$scope['series' + id] = seriesList;
-};
 
-  $scope.series0 = [];
 
-  $scope.options0 = {
-    renderer: 'bar'
-  };
-
-  $scope.renderer0 = $scope.renderers[2];
-$scope.palette0 = $scope.palettes[0];
-
-  $scope.rendererChanged(0);
-$scope.paletteChanged(0);
-$scope.changeSeriesData(0);  
-
-  // Graph 2
-
-//var seriesData = [ [], [], [] ];
-//var random = new Rickshaw.Fixtures.RandomData(150);
-//
-//for (var i = 0; i < 150; i++) {
-//  random.addData(seriesData);
-//}
-//
-//$scope.series2 = [
-//  {
-//    color: "#c05020",
-//    data: seriesData[0],
-//    name: 'New York'
-//  }, {
-//    color: "#30c020",
-//    data: seriesData[1],
-//    name: 'London'
-//  }, {
-//    color: "#6060c0",
-//    data: seriesData[2],
-//    name: 'Tokyo'
-//  }
-//];
-//
-//$scope.options2 = {
-//  renderer: 'area'
-//};
-}])
 
 
 App.controller("countywaterController",['$scope',function($scope){

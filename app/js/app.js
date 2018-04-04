@@ -80,6 +80,47 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'dashboardController',
         resolve: helper.resolveFor('vector-map', 'vector-map-maps','moment')
     })
+    .state('app.warning', {
+        url: '/warning',
+        title: 'warning',
+        templateUrl: 'app/views/master-station/warning.html'
+    })
+    .state('app.warning.current', {
+        url: '/warning_current',
+        title: 'warning_current',
+        templateUrl: 'app/views/master-station/warning_current.html'
+    })
+    .state('app.warning.history', {
+        url: '/warning_history',
+        title: 'warning_history',
+        templateUrl: 'app/views/master-station/warning_history.html'
+    })
+    .state('app.malfunction', {
+        url: '/malfunction',
+        title: 'malfunction',
+        templateUrl: 'app/views/master-station/malfunction.html'
+    })
+    .state('app.malfunction.unsolved', {
+        url: '/malfunction_unsolved',
+        title: 'malfunction_unsolved',
+        templateUrl: 'app/views/master-station/malfunction_unsolved.html'
+    })
+    .state('app.malfunction.solved', {
+        url: '/malfunction_solved',
+        title: 'malfunction_solved',
+        templateUrl: 'app/views/master-station/malfunction_solved.html'
+    })
+    
+    .state('app.warning3', {
+        url: '/warning3',
+        title: 'warning3',
+        templateUrl: 'app/views/master-station/warning3.html',
+        resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
+    })
+    
+    
+    
+    
     .state('app.stat', {
         url: '/stat',
         title: 'stat',
@@ -87,6 +128,86 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'statController',
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
+    .state('app.stat_energy', {
+        url: '/stat_energy',
+        title: 'stat_energy',
+        templateUrl: 'app/views/master-station/Energy.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.install', {
+        url: '/install',
+        title: 'install',
+        templateUrl: 'app/views/tables/install.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    
+    .state('app.cash', {
+        url: '/cash',
+        title: 'cash',
+        templateUrl: 'app/views/tables/cash.html',
+    })
+    .state('app.beneficiary', {
+        url: '/beneficiary',
+        title: 'beneficiary',
+        templateUrl: 'app/views/tables/Beneficiary.html'
+    })
+    .state('app.water', {
+        url: '/water-quality',
+        title: 'water-quality',
+        templateUrl: 'app/views/tables/water-quality.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    
+    .state('app.water2', {
+        url: '/water-quality2',
+        title: 'water-quality2',
+        templateUrl: 'app/views/tables/water-quality2.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.water3', {
+        url: '/water-quality3',
+        title: 'water-quality3',
+        templateUrl: 'app/views/tables/water-quality3.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.install2', {
+        url: '/install2',
+        title: 'install2',
+        templateUrl: 'app/views/tables/install_2.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.install3', {
+        url: '/install3',
+        title: 'install3',
+        templateUrl: 'app/views/tables/install_3.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.beneficiary2', {
+        url: '/beneficiary2',
+        title: 'beneficiary2',
+        templateUrl: 'app/views/tables/Beneficiary2.html'
+    })
+    .state('app.beneficiary3', {
+        url: '/beneficiary3',
+        title: 'beneficiary3',
+        templateUrl: 'app/views/tables/Beneficiary3.html'
+    })
+    .state('app.cash2', {
+        url: '/cash2',
+        title: 'cash2',
+        templateUrl: 'app/views/tables/cash2.html',
+    })
+    .state('app.cash3', {
+        url: '/cash3',
+        title: 'cash3',
+        templateUrl: 'app/views/tables/cash3.html',
+    })
+    
+    
+    
+    
+    
+    //区县信息
     .state('app.county', {
         url: '/county',
         title: 'county',
@@ -129,11 +250,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-worker',
         templateUrl: 'app/views/information/county/worker.html',
     })
-    .state('app.county-cash', {
-        url: '/county-cash',
-        title: 'county-cash',
-        templateUrl: 'app/views/information/county/cash.html',
-    })
     .state('app.county-chemistry', {
         url: '/county-chemistry',
         title: 'county-chemistry',
@@ -161,26 +277,25 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy.html',
         resolve: helper.resolveFor('chartjs')
     })
-    .state('app.county-install', {
-        url: '/county-install',
-        title: 'county-install',
-        templateUrl: 'app/views/information/county/install.html',
-        resolve: helper.resolveFor('angular-rickshaw')
+    .state('app.county-worker2', {
+        url: '/county-worker2',
+        title: 'county-worker2',
+        templateUrl: 'app/views/information/county/worker2.html',
     })
-    .state('app.county-Beneficiary', {
-        url: '/county-Beneficiary',
-        title: 'county-Beneficiary',
-        templateUrl: 'app/views/information/county/Beneficiary.html'
+    .state('app.county-worker3', {
+        url: '/county-worker3',
+        title: 'county-worker3',
+        templateUrl: 'app/views/information/county/worker3.html',
     })
-    .state('app.county-water', {
-        url: '/county-water-quality',
-        title: 'county-water-quality',
-        templateUrl: 'app/views/information/county/water-quality.html',
-        resolve: helper.resolveFor('angular-rickshaw')
+    .state('app.county-Energy2', {
+        url: '/county-Energy2',
+        title: 'county-Energy2',
+        templateUrl: 'app/views/information/county/Energy2.html',
+        resolve: helper.resolveFor('chartjs')
     })
     
 
-    
+    //设备信息
     .state('app.equipment', {
         url: '/equipment',
         title: 'equipment',
@@ -200,25 +315,31 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_2.html',
         resolve: helper.resolveFor()
     })
+    .state('app.equipment.equipment_2_1', {
+        url: '/equipment_2',
+        title: 'equipment_2',
+        templateUrl: 'app/views/information/equipment/equipment_2_1.html',
+        resolve: helper.resolveFor()
+    })
     .state('app.equipment.equipment_3', {
         url: '/equipment_3',
         title: 'equipment_3',
         templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_1', {
+    .state('app.equipment.equipment_2_1.table_1', {
         url: '/table_1',
         title: 'table_1',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_2', {
+    .state('app.equipment.equipment_2_1.table_2', {
         url: '/table_2',
         title: 'table_2',
         templateUrl: 'app/views/information/equipment/equipment_table_2.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_3', {
+    .state('app.equip_table_3', {
         url: '/table_3',
         title: 'table_3',
         templateUrl: 'app/views/information/equipment/equipment_table_3.html',
@@ -238,6 +359,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/dashboard2.html',
         controller: 'dashboardController2'
     })
+    
+    
+    //报表信息
     .state('app.report', {
         url: '/report',
         title: 'report',
@@ -258,24 +382,14 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     
-    .state('app.widgets', {
-        url: '/widgets',
-        title: 'widgets',
-        templateUrl: 'app/views/widgets.html'
-    })
-	.state('app.nestable', {
-        url: '/nestable',
-        title: 'Nestable',
-        templateUrl: helper.basepath('nestable.html'),
-        resolve: helper.resolveFor('ng-nestable')
-    })
-	.state('app.maps-vector', {
-        url: '/maps-vector',
-        title: 'Maps Vector',
-        templateUrl: helper.basepath('maps-vector.html'),
-        controller: 'VectorMapController',
-        resolve: helper.resolveFor('vector-map', 'vector-map-maps')
-    })
+
+//	.state('app.nestable', {
+//      url: '/nestable',
+//      title: 'Nestable',
+//      templateUrl: helper.basepath('nestable.html'),
+//      resolve: helper.resolveFor('ng-nestable')
+//  })
+
 
     // 
     // Single Page Routes
@@ -356,6 +470,19 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
       App.value      = $provide.value;
 
 }]);
+
+
+
+
+
+
+
+//directives
+
+
+
+
+
 
 
 
@@ -444,6 +571,15 @@ App
     ]
   })
 ;
+
+App.controller("beneficiaryCtrl",["$scope",function($scope){
+	$scope.val = 80;
+}])
+
+App.controller("cashCtrl",["$scope",function($scope){
+	$scope.val = 80;
+}]);
+
 /**=========================================================
 
  =========================================================*/
@@ -451,21 +587,13 @@ App
 App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
 
   $scope.my_tree_handler = function(branch) {
-	console.log(branch);
 	if(branch.level===1){
 		$state.go("app.county.county_1_1");
 	}else if(branch.level===2){
 		$state.go("app.county.county_1_2");
 	}else if(!branch.level){
 		$state.go("app.county.county_1_3");
-	}
-	
-//  $scope.output = "You selected: " + branch.label;
-//
-//  if (branch.data && branch.data.description) {
-//    $scope.output += '(' + branch.data.description + ')';
-//    return $scope.output;
-//  }
+	}	
   };
 
   // onSelect event handlers
@@ -504,11 +632,11 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
     }, {
       label: 'xxxxx县',
       data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        definition: "",
         data_can_contain_anything: true
       },
       onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
+        $scope.output = "" + branch.data.definition;
         return $scope.output;
       },
       children: [
@@ -545,44 +673,17 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
     }
   ];
   
-  var treedata_geography = [
-    {
-      label: 'North America',
-      children: [
-        {
-          label: 'Canada',
-          children: ['Toronto', 'Vancouver']
-        }, {
-          label: 'USA',
-          children: ['New York', 'Los Angeles']
-        }, {
-          label: 'Mexico',
-          children: ['Mexico City', 'Guadalajara']
-        }
-      ]
-    }, {
-      label: 'South America',
-      children: [
-        {
-          label: 'Venezuela',
-          children: ['Caracas', 'Maracaibo']
-        }, {
-          label: 'Brazil',
-          children: ['Sao Paulo', 'Rio de Janeiro']
-        }, {
-          label: 'Argentina',
-          children: ['Buenos Aires', 'Cordoba']
-        }
-      ]
-    }
-  ];
 
   $scope.my_data = treedata_avm;
 
   
   
-  
-
+  //图表 进度条
+  $scope.energy = [3,6,7,8,4,5];
+	$scope.val1 = 80;
+	$scope.val2 = 20;
+	$scope.val3 = 50;
+	$scope.val4 = 20;
 
 
  
@@ -603,34 +704,27 @@ $scope.barChart = function(){
 		    type: 'bar',
 		    data: {
 				datasets: [
-/*				{data: [
-						[200,50,100,150,20,30]
-					],
-					backgroundColor: [
-						colors.byName('info')
-					],
-				}*/
 
-
-				{
+/*				{
 		            backgroundColor : colors.byName('info'),
 		            data : [65,59,90,81,56,55,40]
-		        },
+		        },*/
 		        {
 		            backgroundColor : colors.byName('primary'),
-		            data : [28,48,40,19,96,27,100]
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
 		        }
 				
 				],
 				labels: [
-					"January","February","March","April","May","June","July"
+					"xx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）"
 				]
 			},
 		    options: {
 		        responsive: true,
 		        legend: {
-		          display: false,
-		          position: 'bottom',
+		          display: true,
+		          position: 'top',
 		          boxWidth: 20,
 		        }
 		
@@ -642,101 +736,50 @@ $scope.barChart();
 }]);
 
 
-App.controller("countyrickController",['$scope',function($scope){
-	$scope.renderers = [{
-          id: 'area',
-          name: 'Area'
-      }, {
-          id: 'line',
-          name: 'Line'
-      }, {
-          id: 'bar',
-          name: 'Bar'
-      }, {
-          id: 'scatterplot',
-          name: 'Scatterplot'
-      }];
+App.controller('countybarController2', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
 
-$scope.palettes = [
-      'spectrum14',
-      'spectrum2000',
-      'spectrum2001',
-      'colorwheel',
-      'cool',
-      'classic9',
-      'munin'
-];
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
 
-  $scope.rendererChanged = function(id) {
-      $scope['options' + id] = {
-          renderer: $scope['renderer' + id].id
-      };
-  };
+/*				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },*/
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"xx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
 
-$scope.paletteChanged = function(id) {
-      $scope['features' + id] = {
-          palette: $scope['palette' + id]
-      };
-};
 
-$scope.changeSeriesData = function(id) {
-      var seriesList = [];
-      for (var i = 0; i < 3; i++) {
-          var series = {
-              name: 'Series ' + (i + 1),
-              data: []
-          };
-          for (var j = 0; j < 10; j++) {
-              series.data.push({x: j, y: Math.random() * 20});
-          }
-          seriesList.push(series);
-          $scope['series' + id][i] = series;
-      }
-      //$scope['series' + id] = seriesList;
-};
 
-  $scope.series0 = [];
 
-  $scope.options0 = {
-    renderer: 'bar'
-  };
-
-  $scope.renderer0 = $scope.renderers[2];
-$scope.palette0 = $scope.palettes[0];
-
-  $scope.rendererChanged(0);
-$scope.paletteChanged(0);
-$scope.changeSeriesData(0);  
-
-  // Graph 2
-
-//var seriesData = [ [], [], [] ];
-//var random = new Rickshaw.Fixtures.RandomData(150);
-//
-//for (var i = 0; i < 150; i++) {
-//  random.addData(seriesData);
-//}
-//
-//$scope.series2 = [
-//  {
-//    color: "#c05020",
-//    data: seriesData[0],
-//    name: 'New York'
-//  }, {
-//    color: "#30c020",
-//    data: seriesData[1],
-//    name: 'London'
-//  }, {
-//    color: "#6060c0",
-//    data: seriesData[2],
-//    name: 'Tokyo'
-//  }
-//];
-//
-//$scope.options2 = {
-//  renderer: 'area'
-//};
-}])
 
 
 App.controller("countywaterController",['$scope',function($scope){
@@ -1080,7 +1123,7 @@ $scope.my_tree_handler = function(branch) {
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
-		$state.go("app.equipment.equipment_2.table_1");
+		$state.go("app.equipment.equipment_2");
 	}
 };
 
@@ -1185,11 +1228,7 @@ $scope.my_tree_handler = function(branch) {
       {y: '2012-3', data: 7000},  
   ];
 
-  /* test data update
-  $timeout(function(){
-    $scope.chartdata[0].a = 50;
-    $scope.chartdata[0].b = 50;
-  }, 3000); */
+
 
 
   $scope.barOptions = {
@@ -1209,13 +1248,6 @@ $scope.my_tree_handler = function(branch) {
     resize: true
   };
 
-//$scope.areaOptions = {
-//  xkey: 'y',
-//  ykeys: ["a", "b"],
-//  labels: ["已安装", "故障率"],
-//  lineColors: [ colors.byName('purple'), colors.byName('info') ],
-//  resize: true
-//};
 
 
 
@@ -1223,11 +1255,7 @@ $scope.my_tree_handler = function(branch) {
   // ----------------------------------- 
   $http.get("server/chart/line.json").then(function(res){
 		$scope.flowData = res.data;
-//		var Color = ["#b2aaea","#7266ba","#554a96"];		
-//		for (i = 0 ; i<$scope.barStackeData.length; i++) {
-//			$scope.barStackeData[i].color = Color[i]; 
-//		};
-		console.log($scope.flowData);
+
 	})
 
   $scope.flowOptions = {
@@ -1422,8 +1450,6 @@ $scope.pieChart();*/
 
 
 
-
-
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 
@@ -1537,6 +1563,206 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
 $scope.pieChart();*/
 
 }]);
+
+
+App.controller('equipDateCtrl', function ($scope) {
+             $scope.dat = new Date();
+             $scope.format = "yyyy/MM/dd";
+             $scope.altInputFormats = ['yyyy/M!/d!'];
+ 
+             $scope.popup1 = {
+                 opened: false
+             };
+             $scope.open1 = function () {
+                 $scope.popup1.opened = true;
+             };
+             
+             $scope.popup2 = {
+                 opened: false
+             };
+             $scope.open2 = function () {
+                 $scope.popup2.opened = true;
+             };
+             
+             
+         });
+App.controller("installController",['$scope',function($scope){
+	// 图表配置
+        var options = {
+            chart: {
+                type: 'column'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: '设备安装' ,                // 标题
+                align:"left",
+                style:{fontWeight: 'bold',fontSize: '16px'}
+            },
+            colors: ['#9DC2D3','#387AA3'] ,
+            xAxis: {
+                categories: ['xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
+            },
+            yAxis: {
+                title: {
+                    text: ''                // y 轴标题
+                }
+            },
+            exporting:{
+	        	buttons:{
+	        		contextButton:{
+	        			enabled:false,
+	        		}
+	        	}
+	        },
+			credits:{
+			     enabled: false // 禁用版权信息
+			},   
+			legend: {
+	            align: 'right',	            
+	            verticalAlign: 'top',	
+	            floating: true,
+	        },
+	        tooltip: {
+		         headerFormat: '{point.key}<br>',
+	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+	        }, 
+            plotOptions: {
+	            column: {
+	                stacking: 'normal'
+	            }
+	        },
+            series: [{                              // 数据列
+                name: '未安装',                        // 数据列名
+                data: [1, 1, 4, 2, 3, 4]                     // 数据
+            }, {
+                name: '已安装',
+                data: [5, 7, 3 , 5, 4, 3]
+            }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('install', options);
+
+ 
+}])
+
+
+
+App.controller("installController2",['$scope',function($scope){
+	// 图表配置
+        var options = {
+            chart: {
+                type: 'column'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: '设备安装' ,                // 标题
+                align:"left",
+                style:{fontWeight: 'bold',fontSize: '16px'}
+            },
+            colors: ['#9DC2D3','#387AA3'] ,
+            xAxis: {
+                categories: ['xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
+            },
+            yAxis: {
+                title: {
+                    text: ''                // y 轴标题
+                }
+            },
+            exporting:{
+	        	buttons:{
+	        		contextButton:{
+	        			enabled:false,
+	        		}
+	        	}
+	        },
+			credits:{
+			     enabled: false // 禁用版权信息
+			},   
+			legend: {
+	            align: 'right',	            
+	            verticalAlign: 'top',	
+	            floating: true,
+	        },
+	        tooltip: {
+		         headerFormat: '{point.key}<br>',
+	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+	        }, 
+            plotOptions: {
+	            column: {
+	                stacking: 'normal'
+	            }
+	        },
+            series: [{                              // 数据列
+                name: '未安装',                        // 数据列名
+                data: [1, 1, 4, 2, 3, 4]                     // 数据
+            }, {
+                name: '已安装',
+                data: [5, 7, 3 , 5, 4, 3]
+            }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('install', options);
+
+ 
+}])
+
+
+
+App.controller("installController3",['$scope',function($scope){
+	// 图表配置
+        var options = {
+            chart: {
+                type: 'column'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: '设备安装' ,                // 标题
+                align:"left",
+                style:{fontWeight: 'bold',fontSize: '16px'}
+            },
+            colors: ['#9DC2D3','#387AA3'] ,
+            xAxis: {
+                categories: ['xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']   // x 轴分类
+            },
+            yAxis: {
+                title: {
+                    text: ''                // y 轴标题
+                }
+            },
+            exporting:{
+	        	buttons:{
+	        		contextButton:{
+	        			enabled:false,
+	        		}
+	        	}
+	        },
+			credits:{
+			     enabled: false // 禁用版权信息
+			},   
+			legend: {
+	            align: 'right',	            
+	            verticalAlign: 'top',	
+	            floating: true,
+	        },
+	        tooltip: {
+		         headerFormat: '{point.key}<br>',
+	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+	        }, 
+            plotOptions: {
+	            column: {
+	                stacking: 'normal'
+	            }
+	        },
+            series: [{                              // 数据列
+                name: '未安装',                        // 数据列名
+                data: [1, 1, 4, 2, 3, 4]                     // 数据
+            }, {
+                name: '已安装',
+                data: [5, 7, 3 , 5, 4, 3]
+            }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('install', options);
+
+ 
+}])
 
 
 
@@ -1993,8 +2219,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
 	$scope.project = [
-		{ value: "32", type: "darkblue" },
-        { value: "33", type: "blue" },
+		{ value: "65", type: "darkblue" },
         { value: "35", type: "lightblue" }
     ];
     $scope.funds = [
@@ -2056,7 +2281,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 // Pie chart
 // ----------------------------------- 
 
-	$scope.pieChart = function(){		
+/*	$scope.pieChart = function(){		
 		var ctx = document.getElementById("pieChart").getContext('2d');		
 		var myChart = new Chart(ctx, {
 		    type: 'pie',
@@ -2077,7 +2302,7 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 				]
 			},
 		    options: {
-		        responsive: true,
+//		        responsive: true,
 		        legend: {
 		          display: true,
 		          position: 'bottom',
@@ -2088,39 +2313,63 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		});
 	}
 	
-	$scope.pieChart();
+	$scope.pieChart();*/
 
- /* $scope.pieData =[
-        {
-          value: 300,
-          color: colors.byName('purple'),
-          highlight: colors.byName('purple'),
-          label: 'Purple'
+var options = {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
         },
-        {
-          value: 40,
-          color: colors.byName('yellow'),
-          highlight: colors.byName('yellow'),
-          label: 'Yellow'
+        colors: ['#7266ba',
+				'#ffef2b'],
+        title: {
+            text: ''
         },
-        {
-          value: 120,
-          color: colors.byName('info'),
-          highlight: colors.byName('info'),
-          label: 'Info'
-        }
-      ];
-
-  $scope.pieOptions = {
-    segmentShowStroke : true,
-    segmentStrokeColor : '#fff',
-    segmentStrokeWidth : 2,
-    percentageInnerCutout : 0, // Setting this to zero convert a doughnut into a Pie
-    animationSteps : 100,
-    animationEasing : 'easeOutBounce',
-    animateRotate : true,
-    animateScale : false
-  };*/
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},        
+        tooltip: {
+            headerFormat: '{point.key}<br>',
+            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+            	minSize: 180,
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 10,                   
+                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
+                    style: {
+                        color: "#666666",
+                        fontSize: "12px",
+                        fontWeight: "normal",
+                        textOutline: "1px 1px contrast"
+                    }
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '设备分布情况',
+            data: [
+                ['安装完成',   160],
+                ['等待安装',       40]                
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('statPieChart', options);
 
 
 
@@ -2136,14 +2385,14 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 		        labels: ['2018-08','2018-09','2018-10','2018-11','2018-12','2018-01','2018-02','2018-03'],
 		        datasets: [
 			        {
-			            label: '水质达标情况（%）',
+			            label: '总体水质平均达标情况（%）',
 			            data: [65, 70, 80, 81, 77, 88, 84,90],
 			            backgroundColor: 'rgba(114,102,186,0.5)',
 						borderColor: 'rgba(114,102,186,1)',
 			            borderWidth: 1
 			        },
 			        {
-			            label: '水质达标率（%）',
+			            label: '水质达标要求（%）',
 			            data: [70, 70, 70, 70, 70, 70,70,70],
 			            backgroundColor: 'rgba(35,183,229,0.5)',
 						borderColor: 'rgba(35,183,229,1)',
@@ -2165,49 +2414,6 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 	}
 	
 	$scope.lineChart();
-
-/*$scope.lineData = {
-      labels : ['January','February','March','April','May','June','July'],
-      datasets : [
-        {
-          label: 'My First dataset',
-          fillColor : 'rgba(114,102,186,0.2)',
-          strokeColor : 'rgba(114,102,186,1)',
-          pointColor : 'rgba(114,102,186,1)',
-          pointStrokeColor : '#fff',
-          pointHighlightFill : '#fff',
-          pointHighlightStroke : 'rgba(114,102,186,1)',
-          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
-        },
-        {
-          label: 'My Second dataset',
-          fillColor : 'rgba(35,183,229,0.2)',
-          strokeColor : 'rgba(35,183,229,1)',
-          pointColor : 'rgba(35,183,229,1)',
-          pointStrokeColor : '#fff',
-          pointHighlightFill : '#fff',
-          pointHighlightStroke : 'rgba(35,183,229,1)',
-          data : [rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor(),rFactor()]
-        }
-      ]
-    };
-
-
-$scope.lineOptions = {
-    scaleShowGridLines : true,
-    scaleGridLineColor : 'rgba(0,0,0,.05)',
-    scaleGridLineWidth : 1,
-    bezierCurve : true,
-    bezierCurveTension : 0.4,
-    pointDot : true,
-    pointDotRadius : 4,
-    pointDotStrokeWidth : 1,
-    pointHitDetectionRadius : 20,
-    datasetStroke : true,
-    datasetStrokeWidth : 2,
-    datasetFill : true,
-};*/
-
 
 
 
@@ -2257,6 +2463,232 @@ App.controller('VectorMapController', ['$scope', function($scope) {
     { latLng:[42.5,1.51],     name:'Andorra'               }
   ];
 
+}]);
+
+
+App.controller("warningFlowCtrl",["$scope","$http","$uibModal",function($scope,$http,$uibModal){
+	
+  // LINE
+  // ----------------------------------- 
+  $http.get("server/chart/line.json").then(function(res){
+		$scope.flowData = res.data;
+
+	})
+
+  $scope.flowOptions = {
+      series: {
+          lines: {
+              show: true,
+              fill: 0.01
+          },
+          points: {
+              show: true,
+              radius: 4
+          }
+      },
+      grid: {
+          borderColor: '#eee',
+          borderWidth: 1,
+          hoverable: true,
+          backgroundColor: '#fcfcfc'
+      },
+      tooltip: true,
+      tooltipOpts: {
+          content: function (label, x, y) { return x + ' : ' + y; }
+      },
+      xaxis: {
+          tickColor: '#eee',
+          mode: 'categories'
+      },
+      yaxis: {
+          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
+          tickColor: '#eee'
+      },
+      shadowSize: 0
+  };
+	
+	
+	
+
+	$scope.openWarning = function () {
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'myModalContent.html',
+                    controller: 'ModalInstanceCtrl',
+                    backdrop: "static",
+                    size: "",
+                    /*resolve: {
+                        items1: function () {
+                            return $scope.items;
+                        }
+                    }*/
+                });
+
+                modalInstance.result.then(function (selectedItem) {
+                    $scope.selected = selectedItem;
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
+            };
+	
+	
+	
+}])
+
+
+App.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+            /*$scope.items = items1;
+            $scope.selected = {
+                item: $scope.items[0]
+            };*/
+
+            $scope.ok = function () {
+                $uibModalInstance.close();
+            };
+
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+        });
+
+
+
+App.controller("waterQualityController",["$scope",function($scope){
+	// Line chart
+// ----------------------------------- 
+
+	$scope.lineChart = function(){
+		var ctx = document.getElementById("lineChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ['xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）'],
+		        datasets: [
+			        {
+			            label: '实际水质达标率（%）',
+			            data: [65, 70, 80, 81, 77, 88, 84,90],
+			            backgroundColor: 'rgba(114,102,186,0.5)',
+						borderColor: 'rgba(114,102,186,1)',
+			            borderWidth: 1
+			        },
+			        {
+			            label: '水质平均达标率（%）',
+			            data: [70, 70, 70, 70, 70, 70,70,70],
+			            backgroundColor: 'rgba(35,183,229,0.5)',
+						borderColor: 'rgba(35,183,229,1)',
+			            borderWidth: 1
+			        },
+		        ]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:false
+		                }
+		            }]
+		        }
+		    }
+		});
+
+	}
+	
+	$scope.lineChart();
+	
+}]);
+
+
+
+
+
+App.controller("waterQualityController2",["$scope",function($scope){
+	// Line chart
+// ----------------------------------- 
+
+	$scope.lineChart = function(){
+		var ctx = document.getElementById("lineChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ['xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）'],
+		        datasets: [
+			        {
+			            label: '实际水质达标率（%）',
+			            data: [65, 70, 80, 81, 77, 88, 84,90],
+			            backgroundColor: 'rgba(114,102,186,0.5)',
+						borderColor: 'rgba(114,102,186,1)',
+			            borderWidth: 1
+			        },
+			        {
+			            label: '水质平均达标率（%）',
+			            data: [70, 70, 70, 70, 70, 70,70,70],
+			            backgroundColor: 'rgba(35,183,229,0.5)',
+						borderColor: 'rgba(35,183,229,1)',
+			            borderWidth: 1
+			        },
+		        ]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:false
+		                }
+		            }]
+		        }
+		    }
+		});
+
+	}
+	
+	$scope.lineChart();
+	
+}]);
+
+
+
+
+App.controller("waterQualityController3",["$scope",function($scope){
+	// Line chart
+// ----------------------------------- 
+
+	$scope.lineChart = function(){
+		var ctx = document.getElementById("lineChart").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ['xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村'],
+		        datasets: [
+			        {
+			            label: '实际水质达标率（%）',
+			            data: [65, 70, 80, 81, 77, 88, 84,90],
+			            backgroundColor: 'rgba(114,102,186,0.5)',
+						borderColor: 'rgba(114,102,186,1)',
+			            borderWidth: 1
+			        },
+			        {
+			            label: '水质平均达标率（%）',
+			            data: [70, 70, 70, 70, 70, 70,70,70],
+			            backgroundColor: 'rgba(35,183,229,0.5)',
+						borderColor: 'rgba(35,183,229,1)',
+			            borderWidth: 1
+			        },
+		        ]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:false
+		                }
+		            }]
+		        }
+		    }
+		});
+
+	}
+	
+	$scope.lineChart();
+	
 }]);
 
 /**=========================================================

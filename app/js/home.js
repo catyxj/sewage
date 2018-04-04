@@ -15,6 +15,8 @@ angular.module("sewageHome",[]).controller("accountCtrl",["$rootScope","$scope" 
 	}
 	
 	
+	var newsMarquee = document.getElementById("news");
+	angular.element(newsMarquee).kxbdMarquee({direction:"up",isEqual:false,scrollDelay:40});
 	
 	
 }])

@@ -1,78 +1,111 @@
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<div class="title clearfix">
-			<div class="pull-left">
-				瞬时流量与液位图示
-			</div>			
-			<div class="pull-right">
-				<button type="button" class="mb-sm mr-lg btn btn-default">
-					<i class="fa fa-cog text-info"></i>
-					告警设置
-				</button>
-				<span>
-					告警推送
-					<label class="switch">
-			            <input type="checkbox" ng-model="send" ng-init="send = true;" class="">
-			            <span></span>
-			         </label>
-				</span>
-			</div>
-		</div>
-		
-	</div>
-	
-	<div collapse="panelChart4" class="panel-wrapper">
-        <div class="panel-body">
-            <flot dataset="flowData" options="flowOptions" height="200px"></flot>
-        </div>
-    </div>
-</div>
 
 <div class="">
 	<!-- START panel-->
-	<div class="panel panel-default" >
+	<div class="panel panel-default cou_analysis" >
 	   <div class="panel-body">
 	   	<div class="row">
 	   		<div class="col-md-12" role="navigation">
 	   			<ul class="nav nav-tabs">
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_1'}"><a ui-sref="app.equipment.equipment_2.table_1">运行记录</a></li>			  
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_2'}"><a ui-sref="app.equipment.equipment_2.table_2">巡检记录</a></li>
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2.table_3'}"><a ui-sref="app.equipment.equipment_2.table_3">故障记录</a></li>
-				  <li>
-				  	<p class="input-group" style="width: 200px;padding: 0 5px;">
-                        <input type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
-                        class="form-control" />
-                        <span class="input-group-btn">
-                           <button type="button" ng-click="open($event)" class="btn btn-default">
-                              <em class="fa fa-calendar"></em>
-                           </button>
-                        </span>
-                     </p>				  	
-				  
-				  	
-				  </li>
-				  <li style="line-height: 34px;"> 至 </li>
-				  <li>
-				  	<p class="input-group" style="width: 200px;padding: 0 5px;">
-                        <input type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
-                        class="form-control" />
-                        <span class="input-group-btn">
-                           <button type="button" ng-click="open($event)" class="btn btn-default">
-                              <em class="fa fa-calendar"></em>
-                           </button>
-                        </span>
-                     </p>
-				  </li>
+				  <li role="presentation" class="active"><a href="#">设备清单</a></li>			  				  			  
 				</ul>
-	   		</div>  
-	   		
+	   		</div>   		     	
 	   	</div>
 	   	
 	   	
-	   	<div ui-view="" autoscroll="false" class="" style="height: 300px; padding:10px; border: 1px solid #ddd; border-top: none;"></div>
+	   	<!-- START table-responsive-->
+	   <div class="" style="height: 400px; padding:10px; border: 1px solid #ddd; border-top: none;">
+	   		<div class="table-responsive" style="height: 350px; overflow: auto;">
+		      <table class="table table-bordered table-hover table-striped">
+		         <thead>
+		            <tr>
+		               <th>序号</th>
+		               <th>站点编号</th>
+		               <th>设备名称</th>
+		               <th>监测值</th>
+		               <th>运行日期</th>
+		               <th>区域编号</th>
+		               <th>运行日期</th>
+		               <th>操作</th>              
+		            </tr>
+		         </thead>
+		         <tbody>
+		            <tr>
+		               <td>1</td>
+		               <td>
+		                  NHFH6065
+		               </td>
+		               <td>流量计（累计流量）</td>
+		               <td>31693</td>
+		               <td>2018-03-20 12:00:00</td>
+		               <td>001</td>
+		               <td>2018-03-20 12:00:00</td>
+		               <td>
+		               		<a class="btn btn-oval btn-primary" ui-sref="app.equipment.equipment_2_1.table_1">设置</a>
+		               </td>               
+		            </tr>
+		            <tr>
+		               <td>2</td>
+		               <td>
+		                  NHFH6065
+		               </td>
+		               <td>流量计（累计流量）</td>
+		               <td>31693</td>
+		               <td>2018-03-20 12:00:00</td>
+		               <td>001</td>
+		               <td>2018-03-20 12:00:00</td>
+		               <td>
+		               		<a class="btn btn-oval btn-primary" ui-sref="app.equipment.equipment_2_1.table_1">设置</a>
+		               </td>               
+		            </tr>
+		            
+		         </tbody>
+		      </table>
+		   </div>
+		   
+		   <div class="clearfix">
+		   	
+		   	<div class="pull-left">
+		   		共518条记录
+		   		pageSize: 
+		   		<select style="padding: 3px 10px;">
+		   			<option value="250">250</option>
+		   			<option value="150">150</option>
+		   		</select>
+		   	</div>
+		   	<div class="pull-right">
+		   		<nav>
+				  <ul class="pagination pull-right" style="margin: 0;">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+		   	</div>
+		   	
+	   		
+	   	</div>
+	   </div>
+	   
+	   <!-- END table-responsive-->
+	   	
+	   	
 	   	
 	  	
-	   </div>  
+	   </div>
+	   
+	   
 	</div>
 	<!-- END panel-->
 </div>

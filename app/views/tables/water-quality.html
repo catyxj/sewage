@@ -2,12 +2,18 @@
 	统计分析
 </h3>
 
-<div class="row mb-lg" ng-controller="countybarController">
-	<div class="col-md-12">		
-         <h4>能耗统计</h4>
-         <div>
-         	<canvas id="barChart2" width="400" height="100"></canvas>
-         </div>      
+<div class="row" ng-controller="waterQualityController">
+	<div class="col-md-12">
+		<div class="panel">
+		      <div class="panel-title" style="padding-left: 10px;padding-top: 10px; ">
+		      	水质达标率
+		      </div>
+		      <div>
+				<canvas id="lineChart" width="600" height="150"></canvas>
+			</div>
+	      
+	   </div>
+              
 	</div>
 </div>
 
@@ -17,31 +23,33 @@
    	<div class="row">
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
-			  <li role="presentation" class="active mr-lg"><a href="#">能耗列表</a></li>	
-			  <select class="tab_select">
-			  	<option value="">2018年</option>
-			  	<option value="">2018年</option>
-			  </select>
-			  <select class="tab_select">
-			  	<option value="">5月</option>
-			  	<option value="">5月</option>
-			  </select>
-			  	<a ui-sref="app.county.county_1_1" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  <li role="presentation" class="active"><a href="#">水质达标</a></li>		
+			  	<select class="tab_select ml-lg">
+			  		<option value="">2018年</option>
+			  		<option value="">2017年</option>
+			  	</select>
+			  	<select class="tab_select">
+			  		<option value="">5月</option>
+			  		<option value="">4月</option>
+			  	</select>
+			  	<a ui-sref="app.stat" class="btn btn-default pull-right" style="color: #1AACDA; ">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 320px; padding:20px; border: 1px solid #ddd; border-top: none;">
+   <div class="" style="height: 300px; padding:10px; border: 1px solid #ddd; border-top: none;">
    		<div class="table-responsive" style="height: 250px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
 	               <th>序号</th>
 	               <th>地域</th>
-	               <th>时间</th>
-	               <th>耗电量</th>
+	               <th>达标站点（个）</th>
+	               <th>未达标站点（个）</th>
+	               <th>达标率（%）</th>
+	               <th>更新时间</th>
 	               <th>操作</th>              
 	            </tr>
 	         </thead>
@@ -49,21 +57,25 @@
 	            <tr>
 	               <td>1</td>
 	               <td>
-	                  xx乡镇（街道）
+	                  xxx区县（市）
 	               </td>
+	               <td>154</td>
+	               <td>12</td>
+	               <td>89</td>
 	               <td>2018-05</td>
-	               <td>12345度</td>
 	               <td>
-	               	<a href="">查看更多</a>
+	               	<a ui-sref="app.water2">查看更多</a>
 	               </td>               
-	            </tr>
-	            	            
+	            </tr>	            	           	            
 	         </tbody>
 	      </table>
 	   </div>
 	   
-	   <div class="row">	   	
-	   	<div class="col-lg-6">
+	   <div class="row">
+	   	<div class="col-lg-5">
+	   		
+	   	</div>
+	   	<div class="col-lg-3">
 	   		共518条记录
 	   		pageSize: 
 	   		<select style="padding: 3px 10px;">
@@ -71,7 +83,7 @@
 	   			<option value="150">150</option>
 	   		</select>
 	   	</div>
-	   	<div class="col-lg-6">
+	   	<div class="col-lg-4">
 	   		<nav>
 			  <ul class="pagination pull-right" style="margin: 0;">
 			    <li>
@@ -98,8 +110,13 @@
    </div>
    
    <!-- END table-responsive-->
-   	   	  	
-   </div>     
+   	
+   	
+   	
+  	
+   </div>
+   
+   
 </div>
 <!-- END panel-->
 

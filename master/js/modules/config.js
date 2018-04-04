@@ -32,6 +32,47 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'dashboardController',
         resolve: helper.resolveFor('vector-map', 'vector-map-maps','moment')
     })
+    .state('app.warning', {
+        url: '/warning',
+        title: 'warning',
+        templateUrl: 'app/views/master-station/warning.html'
+    })
+    .state('app.warning.current', {
+        url: '/warning_current',
+        title: 'warning_current',
+        templateUrl: 'app/views/master-station/warning_current.html'
+    })
+    .state('app.warning.history', {
+        url: '/warning_history',
+        title: 'warning_history',
+        templateUrl: 'app/views/master-station/warning_history.html'
+    })
+    .state('app.malfunction', {
+        url: '/malfunction',
+        title: 'malfunction',
+        templateUrl: 'app/views/master-station/malfunction.html'
+    })
+    .state('app.malfunction.unsolved', {
+        url: '/malfunction_unsolved',
+        title: 'malfunction_unsolved',
+        templateUrl: 'app/views/master-station/malfunction_unsolved.html'
+    })
+    .state('app.malfunction.solved', {
+        url: '/malfunction_solved',
+        title: 'malfunction_solved',
+        templateUrl: 'app/views/master-station/malfunction_solved.html'
+    })
+    
+    .state('app.warning3', {
+        url: '/warning3',
+        title: 'warning3',
+        templateUrl: 'app/views/master-station/warning3.html',
+        resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
+    })
+    
+    
+    
+    
     .state('app.stat', {
         url: '/stat',
         title: 'stat',
@@ -39,6 +80,86 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         controller: 'statController',
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins','chartjs')
     })
+    .state('app.stat_energy', {
+        url: '/stat_energy',
+        title: 'stat_energy',
+        templateUrl: 'app/views/master-station/Energy.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.install', {
+        url: '/install',
+        title: 'install',
+        templateUrl: 'app/views/tables/install.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    
+    .state('app.cash', {
+        url: '/cash',
+        title: 'cash',
+        templateUrl: 'app/views/tables/cash.html',
+    })
+    .state('app.beneficiary', {
+        url: '/beneficiary',
+        title: 'beneficiary',
+        templateUrl: 'app/views/tables/Beneficiary.html'
+    })
+    .state('app.water', {
+        url: '/water-quality',
+        title: 'water-quality',
+        templateUrl: 'app/views/tables/water-quality.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    
+    .state('app.water2', {
+        url: '/water-quality2',
+        title: 'water-quality2',
+        templateUrl: 'app/views/tables/water-quality2.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.water3', {
+        url: '/water-quality3',
+        title: 'water-quality3',
+        templateUrl: 'app/views/tables/water-quality3.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.install2', {
+        url: '/install2',
+        title: 'install2',
+        templateUrl: 'app/views/tables/install_2.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.install3', {
+        url: '/install3',
+        title: 'install3',
+        templateUrl: 'app/views/tables/install_3.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.beneficiary2', {
+        url: '/beneficiary2',
+        title: 'beneficiary2',
+        templateUrl: 'app/views/tables/Beneficiary2.html'
+    })
+    .state('app.beneficiary3', {
+        url: '/beneficiary3',
+        title: 'beneficiary3',
+        templateUrl: 'app/views/tables/Beneficiary3.html'
+    })
+    .state('app.cash2', {
+        url: '/cash2',
+        title: 'cash2',
+        templateUrl: 'app/views/tables/cash2.html',
+    })
+    .state('app.cash3', {
+        url: '/cash3',
+        title: 'cash3',
+        templateUrl: 'app/views/tables/cash3.html',
+    })
+    
+    
+    
+    
+    
+    //区县信息
     .state('app.county', {
         url: '/county',
         title: 'county',
@@ -81,11 +202,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-worker',
         templateUrl: 'app/views/information/county/worker.html',
     })
-    .state('app.county-cash', {
-        url: '/county-cash',
-        title: 'county-cash',
-        templateUrl: 'app/views/information/county/cash.html',
-    })
     .state('app.county-chemistry', {
         url: '/county-chemistry',
         title: 'county-chemistry',
@@ -113,26 +229,25 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy.html',
         resolve: helper.resolveFor('chartjs')
     })
-    .state('app.county-install', {
-        url: '/county-install',
-        title: 'county-install',
-        templateUrl: 'app/views/information/county/install.html',
-        resolve: helper.resolveFor('angular-rickshaw')
+    .state('app.county-worker2', {
+        url: '/county-worker2',
+        title: 'county-worker2',
+        templateUrl: 'app/views/information/county/worker2.html',
     })
-    .state('app.county-Beneficiary', {
-        url: '/county-Beneficiary',
-        title: 'county-Beneficiary',
-        templateUrl: 'app/views/information/county/Beneficiary.html'
+    .state('app.county-worker3', {
+        url: '/county-worker3',
+        title: 'county-worker3',
+        templateUrl: 'app/views/information/county/worker3.html',
     })
-    .state('app.county-water', {
-        url: '/county-water-quality',
-        title: 'county-water-quality',
-        templateUrl: 'app/views/information/county/water-quality.html',
-        resolve: helper.resolveFor('angular-rickshaw')
+    .state('app.county-Energy2', {
+        url: '/county-Energy2',
+        title: 'county-Energy2',
+        templateUrl: 'app/views/information/county/Energy2.html',
+        resolve: helper.resolveFor('chartjs')
     })
     
 
-    
+    //设备信息
     .state('app.equipment', {
         url: '/equipment',
         title: 'equipment',
@@ -152,25 +267,31 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_2.html',
         resolve: helper.resolveFor()
     })
+    .state('app.equipment.equipment_2_1', {
+        url: '/equipment_2',
+        title: 'equipment_2',
+        templateUrl: 'app/views/information/equipment/equipment_2_1.html',
+        resolve: helper.resolveFor()
+    })
     .state('app.equipment.equipment_3', {
         url: '/equipment_3',
         title: 'equipment_3',
         templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_1', {
+    .state('app.equipment.equipment_2_1.table_1', {
         url: '/table_1',
         title: 'table_1',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_2', {
+    .state('app.equipment.equipment_2_1.table_2', {
         url: '/table_2',
         title: 'table_2',
         templateUrl: 'app/views/information/equipment/equipment_table_2.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2.table_3', {
+    .state('app.equip_table_3', {
         url: '/table_3',
         title: 'table_3',
         templateUrl: 'app/views/information/equipment/equipment_table_3.html',
@@ -190,6 +311,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/dashboard2.html',
         controller: 'dashboardController2'
     })
+    
+    
+    //报表信息
     .state('app.report', {
         url: '/report',
         title: 'report',
@@ -210,24 +334,14 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     
-    .state('app.widgets', {
-        url: '/widgets',
-        title: 'widgets',
-        templateUrl: 'app/views/widgets.html'
-    })
-	.state('app.nestable', {
-        url: '/nestable',
-        title: 'Nestable',
-        templateUrl: helper.basepath('nestable.html'),
-        resolve: helper.resolveFor('ng-nestable')
-    })
-	.state('app.maps-vector', {
-        url: '/maps-vector',
-        title: 'Maps Vector',
-        templateUrl: helper.basepath('maps-vector.html'),
-        controller: 'VectorMapController',
-        resolve: helper.resolveFor('vector-map', 'vector-map-maps')
-    })
+
+//	.state('app.nestable', {
+//      url: '/nestable',
+//      title: 'Nestable',
+//      templateUrl: helper.basepath('nestable.html'),
+//      resolve: helper.resolveFor('ng-nestable')
+//  })
+
 
     // 
     // Single Page Routes
@@ -308,6 +422,19 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
       App.value      = $provide.value;
 
 }]);
+
+
+
+
+
+
+
+//directives
+
+
+
+
+
 
 
 

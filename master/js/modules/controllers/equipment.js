@@ -12,7 +12,7 @@ $scope.my_tree_handler = function(branch) {
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
-		$state.go("app.equipment.equipment_2.table_1");
+		$state.go("app.equipment.equipment_2");
 	}
 };
 
@@ -117,11 +117,7 @@ $scope.my_tree_handler = function(branch) {
       {y: '2012-3', data: 7000},  
   ];
 
-  /* test data update
-  $timeout(function(){
-    $scope.chartdata[0].a = 50;
-    $scope.chartdata[0].b = 50;
-  }, 3000); */
+
 
 
   $scope.barOptions = {
@@ -141,13 +137,6 @@ $scope.my_tree_handler = function(branch) {
     resize: true
   };
 
-//$scope.areaOptions = {
-//  xkey: 'y',
-//  ykeys: ["a", "b"],
-//  labels: ["已安装", "故障率"],
-//  lineColors: [ colors.byName('purple'), colors.byName('info') ],
-//  resize: true
-//};
 
 
 
@@ -155,11 +144,7 @@ $scope.my_tree_handler = function(branch) {
   // ----------------------------------- 
   $http.get("server/chart/line.json").then(function(res){
 		$scope.flowData = res.data;
-//		var Color = ["#b2aaea","#7266ba","#554a96"];		
-//		for (i = 0 ; i<$scope.barStackeData.length; i++) {
-//			$scope.barStackeData[i].color = Color[i]; 
-//		};
-		console.log($scope.flowData);
+
 	})
 
   $scope.flowOptions = {
@@ -354,8 +339,6 @@ $scope.pieChart();*/
 
 
 
-
-
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 
@@ -471,3 +454,24 @@ $scope.pieChart();*/
 }]);
 
 
+App.controller('equipDateCtrl', function ($scope) {
+             $scope.dat = new Date();
+             $scope.format = "yyyy/MM/dd";
+             $scope.altInputFormats = ['yyyy/M!/d!'];
+ 
+             $scope.popup1 = {
+                 opened: false
+             };
+             $scope.open1 = function () {
+                 $scope.popup1.opened = true;
+             };
+             
+             $scope.popup2 = {
+                 opened: false
+             };
+             $scope.open2 = function () {
+                 $scope.popup2.opened = true;
+             };
+             
+             
+         });

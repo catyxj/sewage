@@ -1,70 +1,63 @@
 <h3>
-	区县信息
+	统计分析
 </h3>
+
+
 <!-- START panel-->
-<div class="panel panel-default cou_analysis" >
+<div class="panel panel-default cou_analysis" ng-controller="beneficiaryCtrl">
    <div class="panel-body">
    	<div class="row">
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
-			  <li role="presentation" class="active"><a href="#">工作人员</a></li>	
-			  <select class="tab_select ml-lg">
-			  	<option value="">xxx区县（市）</option>
-			  	<option value="">xxx区县（市）</option>
-			  </select>
-			  <select class="tab_select">
-			  	<option value="">xxx乡镇（街道）</option>
-			  	<option value="">xxx乡镇（街道）</option>
-			  </select>
-			  <select class="tab_select">
-			  	<option value="">xxx村</option>
-			  	<option value="">xxx村</option>
-			  </select>
-			  	<a ui-sref="app.county.county_1_1" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  <li role="presentation" class="active"><a href="#">受益人数</a></li>			  
+			  	<a ui-sref="app.stat" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
-   		<div class="table-responsive" style="height: 450px; overflow: auto;">
+   <div class="" style="height: 350px; padding:10px; border: 1px solid #ddd; border-top: none;">
+   		<div class="table-responsive" style="height: 300px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
 	               <th>序号</th>
-	               <th>姓名</th>
-	               <th>职称</th>
-	               <th>手机</th>
-	               <th>固话</th>
-	               <th>所属区县（市）</th>
-	               <th>所属乡镇（街道）</th>
-	               <th>所属自然村</th>   
-	               <th>备注</th>
+	               <th>地域</th>
+	               <th>已受益户数</th>
+	               <th>应受益户数</th>
+	               <th>更新时间</th>
+	               <th style="width: 15%;">进度</th>
+	               <th>操作</th>          
 	            </tr>
 	         </thead>
 	         <tbody>
 	            <tr>
 	               <td>1</td>
 	               <td>
-	                  张三
+	                  xx区县（市）
 	               </td>
-	               <td>部门负责人</td>
-	               <td>18023457878</td>
-	               <td>0574-52114452</td>
-	               <td>xxx区县（市）</td>
-	               <td>xxx乡镇（街道）</td>
-	               <td>xxx村</td>  
-	               <td></td>
+	               <td>165</td>
+	               <td>应受益户数</td>
+	               <td>2018-03</td>
+	               <td>
+	               		<uib-progressbar value="val" type="success" class="progress progress-xs" style="width: 70%; display: inline-block;"></uib-progressbar>
+	               		<span class="font_sm">
+		                    {{val}}%
+		                </span>
+	               </td>
+	               <td>
+	               	<a ui-sref="app.beneficiary2">查看更多</a>
+	               </td>               
 	            </tr>
-	            
-	            
+	            	           
 	            
 	         </tbody>
 	      </table>
 	   </div>
 	   
 	   <div class="row">
+	   	
 	   	<div class="col-lg-6">
 	   		共518条记录
 	   		pageSize: 

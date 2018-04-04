@@ -1,6 +1,58 @@
-<!-- START table-responsive-->
+<div class="">
+	<!-- START panel-->
+	<div class="panel panel-default" >
+	   <div class="panel-body">
+	   	<div class="row">
+	   		<div class="col-md-12" role="navigation">
+	   			<ul class="nav nav-tabs">
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_1'}"><a ui-sref="app.equipment.equipment_2_1.table_1">运行记录</a></li>			  
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_2'}"><a ui-sref="app.equipment.equipment_2_1.table_2">巡检记录</a></li>
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_3'}"><a ui-sref="app.equipment.equipment_2_1.table_3">故障记录</a></li>
+				  
+				  <div class="pull-right" style="width: 50%;">
+				  	<div ng-controller="equipDateCtrl" class="row" >
+				  	
+			         
+			             <div class="input-group pull-left" style="width: 46%;">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="dat" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			             </div>
+			         
+			         
+			         <span class="pull-left text-center" style="width: 8%; line-height: 37px;">
+			         	至
+			         </span>
+			         			         
+			             <div class="input-group pull-right" style="width: 46%;">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dat" is-open="popup2.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			             </div>			         
+			         
+			     </div>
+				  				  	
+				  </div>
+				  
+				  					  	
+				  
+				  	
+				  
+				</ul>
+	   		</div>  
+	   		
+	   	</div>
+	   	
+	   	
+	   	<div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
+	   		<!-- START table-responsive-->
 	   <div class="" >
-	   		<div class="table-responsive" style="height: 250px; overflow: auto;">
+	   		<div class="table-responsive" style="height: 450px; overflow: auto;">
 		      <table class="table table-bordered table-hover table-striped">
 		         <thead>
 		            <tr>
@@ -80,10 +132,8 @@
 		   </div>
 		   
 		   <div class="row">
-		   	<div class="col-lg-3">
-		   		
-		   	</div>
-		   	<div class="col-lg-4">
+		   	
+		   	<div class="col-lg-6">
 		   		共518条记录
 		   		pageSize: 
 		   		<select style="padding: 3px 10px;">
@@ -91,7 +141,7 @@
 		   			<option value="150">150</option>
 		   		</select>
 		   	</div>
-		   	<div class="col-lg-5">
+		   	<div class="col-lg-6">
 		   		<nav>
 				  <ul class="pagination pull-right" style="margin: 0;">
 				    <li>
@@ -115,3 +165,13 @@
 	   	</div>
 	   </div>  
 	   <!-- END table-responsive-->
+	   	</div>
+	   	
+	  	
+	   </div>  
+	</div>
+	<!-- END panel-->
+</div>
+
+
+

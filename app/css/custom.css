@@ -33,6 +33,14 @@ ul,li{
 .orderColor{
 	color: red;
 }
+.tab_select{
+	padding: 4px 10px;
+	border-radius:3px ;
+}
+.font_sm{
+	font-size: 10px;
+}
+
 
 
 /*header*/
@@ -85,6 +93,10 @@ ul,li{
 .stat .progress{
 	height: 40px;
 	margin-bottom: 8px;
+}
+.stat .col-md-4,.stat .col-md-5,.stat .col-md-3{
+	padding-left: 8px;
+	padding-right: 8px;
 }
 .progress-bar-darkblue {
     background-color: #3b88ca;
@@ -207,7 +219,7 @@ ul,li{
 	border: 1px solid #ddd;
 }
 
-.county .text-info{
+.county .cou_text .text-info{
 	font-size: 16px;
 }
 

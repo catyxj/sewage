@@ -1,0 +1,51 @@
+<h3>
+   站点概览
+</h3>
+<style type="text/css">
+	.malfunction .tab li{
+		float: left;		
+	}
+	.malfunction .tab li a{
+		display: block;
+		padding: 25px;
+		width: 300px;
+		background-color: #F9F9F9;
+		color: #555555;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.malfunction .tab li a.active{
+		background-color: #f3b506;
+		color: #FFFFFF;
+	}
+</style>
+
+<div class="row malfunction">
+   <div class="col-md-12">
+   	<div class="panel panel-default">
+   		<div class="panel-heading">
+   			<h4 class="mb-lg">
+   				故障列表
+   			</h4>
+   			<div class="row">
+		   		<div class="col-md-12">
+		   			<ul class="tab">
+					  <li><a ui-sref-active="active" ui-sref="app.malfunction.unsolved">未解决</a></li>			  
+					  <li><a ui-sref-active="active" ui-sref="app.malfunction.solved">已解决</a></li>		  
+					</ul>
+		   		</div>   		     	
+		   	</div>
+   			
+   		</div>
+   		<div class="panel-body">
+		   	<div class="ui-view">
+		   		
+		   	</div>
+   		</div>
+   	</div>
+   </div>
+</div>
+
+
+
+
