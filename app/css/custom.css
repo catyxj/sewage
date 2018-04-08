@@ -40,8 +40,12 @@ ul,li{
 .font_sm{
 	font-size: 10px;
 }
-
-
+.table_borderless{
+	border: none;
+}
+.table_borderless td{
+	border: none;
+}
 
 /*header*/
 .logo_text{	
@@ -131,12 +135,12 @@ ul,li{
 
 
 /*county*/
-.county ul li{
+.county_list ul li{
 	padding-left:8px ;
 	padding-right: 8px;
 	padding-bottom: 16px;
 }
-.county ul li a{
+.county_list ul li a{
 	color: #666666;
 }
 .county .cou_img{

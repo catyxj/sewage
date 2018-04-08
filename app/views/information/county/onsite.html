@@ -4,7 +4,7 @@
 			</div>
 			<div class="cou_text_3">
 				<div class="" style="padding-bottom: 10px;">
-					
+					<h6>运维情况简介</h6>
 					<p>
 						xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 					</p>
@@ -28,11 +28,11 @@
 	                  <div class="pull-left">
 	                     <span class="fa-stack">
 	                        <em class="fa fa-circle fa-stack-2x text-purple"></em>
-	                        <em class="fa fa-cloud-upload fa-stack-1x fa-inverse text-white"></em>
+	                        <em class="fa fa-caret-right fa-stack-1x fa-inverse text-white"></em>
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.equipment.equipment_2_1.table_1" class="btn btn-oval btn-default"> 运 行 记 录 </a>
+	                     <a ui-sref="app.equip_table_1" class="btn btn-oval btn-default"> 运 行 记 录 </a>
 	                  </div>
 	               </div>
          		</div>
@@ -41,7 +41,7 @@
 	                  <div class="pull-left">
 	                     <span class="fa-stack">
 	                        <em class="fa fa-circle fa-stack-2x text-success"></em>
-                        	<em class="fa fa-clock-o fa-stack-1x fa-inverse text-white"></em>
+                        	<em class="fa fa-cog fa-stack-1x fa-inverse text-white"></em>
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
@@ -61,7 +61,7 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.equipment.equipment_2_1.table_3" class="btn btn-oval btn-default"> 故 障 记 录 </a>	                     
+	                     <a ui-sref="app.equip_table_3" class="btn btn-oval btn-default"> 故 障 记 录 </a>	                     
 	                  </div>
 	               </div>
          		</div>
@@ -74,37 +74,7 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county-chemistry" class="btn btn-oval btn-default"> 化 验 情 况 </a>
-	                  </div>
-	               </div>
-         		</div>
-         	</div>
-         	
-         	<div class="row">
-         		<div class="col-md-6">
-         			<div class="media-box">
-	                  <div class="pull-left">
-	                     <span class="fa-stack">
-	                        <em class="fa fa-circle fa-stack-2x text-info"></em>
-                        	<em class="fa fa-file-text-o fa-stack-1x fa-inverse text-white"></em>
-	                     </span>
-	                  </div>
-	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county.county-onsite" class="btn btn-oval btn-default"> 现 场 监 控 </a>
-	                     
-	                  </div>
-	               </div>
-         		</div>
-         		<div class="col-md-6">
-         			<div class="media-box">
-	                  <div class="pull-left">
-	                     <span class="fa-stack">
-	                       	<em class="fa fa-circle fa-stack-2x text-danger"></em>
-                        	<em class="fa fa-exclamation fa-stack-1x fa-inverse text-white"></em>
-	                     </span>
-	                  </div>
-	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county-monitor" class="btn btn-oval btn-default"> 监 控 图 片 </a>
+	                     <a ui-sref="app.county-chemistry" class="btn btn-oval btn-default"> 化 验 报 告 </a>
 	                  </div>
 	               </div>
          		</div>
@@ -120,7 +90,7 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.equipment.equipment_2_1.table_2" class="btn btn-oval btn-default"> 巡 检 记 录 </a>
+	                     <a ui-sref="app.equip_table_2" class="btn btn-oval btn-default"> 巡 检 记 录 </a>
 	                  </div>
 	               </div>
          		</div>
@@ -128,15 +98,47 @@
          			<div class="media-box">
 	                  <div class="pull-left">
 	                     <span class="fa-stack">
-	                        <em class="fa fa-circle fa-stack-2x text-success"></em>
+	                        <em class="fa fa-circle fa-stack-2x text-info"></em>
+                        	<em class="fa fa-eye fa-stack-1x fa-inverse text-white"></em>
+	                     </span>
+	                  </div>
+	                  <div class="media-box-body clearfix">
+	                     <a ui-sref="app.county.county-onsite" class="btn btn-oval btn-default"> 现 场 监 控 </a>
+	                     
+	                  </div>
+	               </div>
+         		</div>
+         		
+         	</div>
+         	
+         	<div class="row">         		
+         		<div class="col-md-6">
+         			<div class="media-box">
+	                  <div class="pull-left">
+	                     <span class="fa-stack">
+	                        <em class="fa fa-circle fa-stack-2x text-danger"></em>
                         	<em class="fa fa-clock-o fa-stack-1x fa-inverse text-white"></em>
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county-analysis" class="btn btn-oval btn-default"> 分 析 报 告 </a>
+	                     <a ui-sref="app.warning3" class="btn btn-oval btn-default"> 告 警 记 录 </a>
 	                  </div>
 	               </div>
          		</div>
+         		<div class="col-md-6">
+         			<div class="media-box">
+	                  <div class="pull-left">
+	                     <span class="fa-stack">
+	                       	<em class="fa fa-circle fa-stack-2x text-info"></em>
+                        	<em class="fa fa-image fa-stack-1x fa-inverse text-white"></em>
+	                     </span>
+	                  </div>
+	                  <div class="media-box-body clearfix">
+	                     <a ui-sref="app.county-monitor" class="btn btn-oval btn-default"> 监 控 图 片 </a>
+	                  </div>
+	               </div>
+         		</div>
+         		
          	</div>
          	
          	
@@ -162,11 +164,11 @@
          		<div class="col-md-6">
          			<table class="table table-bordered">
 		         		<tr>
-		         			<td class="cou_foot_1"> 水质达标率 </td>
+		         			<td class="cou_foot_1"> 受益人数比例 </td>
 		         			<td> 		         				
-		         					80%
+		         					50%
 		         					<div class="progress progress-striped progress-xs">            			
-						                <div role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-success progress-80">		                                 
+						                <div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-info progress-50">		                                 
 						                </div>
 						        	</div>		         				
 		         			</td>
@@ -197,7 +199,7 @@
 							<div sparkline="" data-bar-color="#23b7e5" data-height="60" data-bar-width="10" data-bar-spacing="6" data-chart-range-min="0" values="3,6,7,8,4,5"></div>
 						</div>
 						<div class="col-xs-3">
-							<a ui-sref="app.county-Energy" class="more btn btn-default"> 点击详情</a>
+							<a ui-sref="app.county-Energy3" class="more btn btn-default"> 点击详情</a>
 						</div>
 					</div>
 				</li>
@@ -213,7 +215,7 @@
 							<div sparkline="" data-type="line" data-height="60" data-width="80%" data-line-width="2" data-line-color="#7266ba" data-chart-range-min="0" data-spot-color="#888" data-min-spot-color="{{colorByName('purple')}}" data-max-spot-color="{{colorByName('purple')}}" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="3" values="7,3,4,7,5,9,4,4,7,5,9,6,4" data-resize="true"></div>
 						</div>
 						<div class="col-xs-3">
-							<a ui-sref="app.county-cash" class="more btn btn-default"> 点击详情</a>
+							<a ui-sref="app.cash3" class="more btn btn-default"> 点击详情</a>
 						</div>
 					</div>
 				</li>
@@ -260,7 +262,7 @@
 							</ul>
 						</div>
 						<div class="col-xs-3">
-							<a ui-sref="app.county-worker" class="more btn btn-default"> 点击详情</a>
+							<a ui-sref="app.county-worker3" class="more btn btn-default"> 点击详情</a>
 						</div>
 					</div>
 				</li>

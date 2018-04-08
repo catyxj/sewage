@@ -187,11 +187,11 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/onsite.html',
         resolve: helper.resolveFor('angular-rickshaw')
     })
-    .state('app.county-analysis', {
-        url: '/county-analysis',
-        title: 'county-analysis',
-        templateUrl: 'app/views/information/county/analysis.html',
-    })
+//  .state('app.county-analysis', {
+//      url: '/county-analysis',
+//      title: 'county-analysis',
+//      templateUrl: 'app/views/information/county/analysis.html',
+//  })
     .state('app.county-equipment', {
         url: '/county-equipment',
         title: 'county-equipment',
@@ -212,16 +212,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county-monitor',
         title: 'county-monitor',
         templateUrl: 'app/views/information/county/monitor.html',
-    })
-    .state('app.county-run', {
-        url: '/county-run',
-        title: 'county-run',
-        templateUrl: 'app/views/information/county/run.html',
-    })
-    .state('app.county-fault', {
-        url: '/county-fault',
-        title: 'county-fault',
-        templateUrl: 'app/views/information/county/fault.html',
     })
     .state('app.county-Energy', {
         url: '/county-Energy',
@@ -245,6 +235,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy2.html',
         resolve: helper.resolveFor('chartjs')
     })
+    .state('app.county-Energy3', {
+        url: '/county-Energy3',
+        title: 'county-Energy3',
+        templateUrl: 'app/views/information/county/Energy3.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.county-equipment-detail', {
+        url: '/county-equipment-detail',
+        title: 'county-equipment-detail',
+        templateUrl: 'app/views/information/county/equipment_detail.html',
+    })
     
 
     //设备信息
@@ -253,13 +254,13 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment',
         templateUrl: 'app/views/information/equipment/main.html',
         controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','flot-chart','flot-chart-plugins','chartjs','morris')
+        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs','morris')
     })
     .state('app.equipment.equipment_1', {
         url: '/equipment_1',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
-        resolve: helper.resolveFor('highcharts.plugin')
+        resolve: helper.resolveFor()
     })
     .state('app.equipment.equipment_2', {
         url: '/equipment_2',
@@ -279,13 +280,13 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2_1.table_1', {
+    .state('app.equip_table_1', {
         url: '/table_1',
         title: 'table_1',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2_1.table_2', {
+    .state('app.equip_table_2', {
         url: '/table_2',
         title: 'table_2',
         templateUrl: 'app/views/information/equipment/equipment_table_2.html',
@@ -297,20 +298,15 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_table_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment-analysis', {
-        url: '/equipment-analysis',
-        title: 'equipment-analysis',
-        templateUrl: 'app/views/information/equipment/analysis.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree')
-    })
     
     
-    .state('app.dashboard2', {
+    
+    /*.state('app.dashboard2', {
         url: '/dashboard2',
         title: 'dashboard2',
         templateUrl: 'app/views/dashboard2.html',
         controller: 'dashboardController2'
-    })
+    })*/
     
     
     //报表信息
@@ -332,8 +328,61 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/edit.html',
         resolve: helper.resolveFor('parsley')
     })
-    
-    
+    .state('app.report.table2', {
+        url: '/table2',
+        title: 'table2',
+        templateUrl: 'app/views/information/report/table_2.html'
+    })
+    .state('app.report.table3', {
+        url: '/table3',
+        title: 'table3',
+        templateUrl: 'app/views/information/report/table_3.html'
+    })
+    .state('app.report.table4', {
+        url: '/table4',
+        title: 'table4',
+        templateUrl: 'app/views/information/report/table_4.html'
+    })
+    .state('app.report.table5', {
+        url: '/table5',
+        title: 'table5',
+        templateUrl: 'app/views/information/report/table_5.html'
+    })
+    .state('app.report.table6', {
+        url: '/table6',
+        title: 'table6',
+        templateUrl: 'app/views/information/report/table_6.html'
+    })
+    .state('app.report_edit2', {
+        url: '/report_edit2',
+        title: 'report_edit2',
+        templateUrl: 'app/views/information/report/edit2.html',
+        resolve: helper.resolveFor('parsley')
+    })
+    .state('app.report_edit3', {
+        url: '/report_edit3',
+        title: 'report_edit3',
+        templateUrl: 'app/views/information/report/edit3.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit4', {
+        url: '/report_edit4',
+        title: 'report_edit4',
+        templateUrl: 'app/views/information/report/edit4.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit5', {
+        url: '/report_edit5',
+        title: 'report_edit5',
+        templateUrl: 'app/views/information/report/edit5.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit6', {
+        url: '/report_edit6',
+        title: 'report_edit6',
+        templateUrl: 'app/views/information/report/edit6.html',
+        resolve: helper.resolveFor('parsley')
+    })
 
 //	.state('app.nestable', {
 //      url: '/nestable',

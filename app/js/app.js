@@ -46,6 +46,10 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache', f
 
 }]);
 
+
+
+
+
 /**=========================================================
  * Module: config.js
  * App routes and resources configuration
@@ -235,11 +239,11 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/onsite.html',
         resolve: helper.resolveFor('angular-rickshaw')
     })
-    .state('app.county-analysis', {
-        url: '/county-analysis',
-        title: 'county-analysis',
-        templateUrl: 'app/views/information/county/analysis.html',
-    })
+//  .state('app.county-analysis', {
+//      url: '/county-analysis',
+//      title: 'county-analysis',
+//      templateUrl: 'app/views/information/county/analysis.html',
+//  })
     .state('app.county-equipment', {
         url: '/county-equipment',
         title: 'county-equipment',
@@ -260,16 +264,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county-monitor',
         title: 'county-monitor',
         templateUrl: 'app/views/information/county/monitor.html',
-    })
-    .state('app.county-run', {
-        url: '/county-run',
-        title: 'county-run',
-        templateUrl: 'app/views/information/county/run.html',
-    })
-    .state('app.county-fault', {
-        url: '/county-fault',
-        title: 'county-fault',
-        templateUrl: 'app/views/information/county/fault.html',
     })
     .state('app.county-Energy', {
         url: '/county-Energy',
@@ -293,6 +287,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/Energy2.html',
         resolve: helper.resolveFor('chartjs')
     })
+    .state('app.county-Energy3', {
+        url: '/county-Energy3',
+        title: 'county-Energy3',
+        templateUrl: 'app/views/information/county/Energy3.html',
+        resolve: helper.resolveFor('chartjs')
+    })
+    .state('app.county-equipment-detail', {
+        url: '/county-equipment-detail',
+        title: 'county-equipment-detail',
+        templateUrl: 'app/views/information/county/equipment_detail.html',
+    })
     
 
     //设备信息
@@ -301,13 +306,13 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment',
         templateUrl: 'app/views/information/equipment/main.html',
         controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','flot-chart','flot-chart-plugins','chartjs','morris')
+        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs','morris')
     })
     .state('app.equipment.equipment_1', {
         url: '/equipment_1',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
-        resolve: helper.resolveFor('highcharts.plugin')
+        resolve: helper.resolveFor()
     })
     .state('app.equipment.equipment_2', {
         url: '/equipment_2',
@@ -327,13 +332,13 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2_1.table_1', {
+    .state('app.equip_table_1', {
         url: '/table_1',
         title: 'table_1',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2_1.table_2', {
+    .state('app.equip_table_2', {
         url: '/table_2',
         title: 'table_2',
         templateUrl: 'app/views/information/equipment/equipment_table_2.html',
@@ -345,20 +350,15 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_table_3.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment-analysis', {
-        url: '/equipment-analysis',
-        title: 'equipment-analysis',
-        templateUrl: 'app/views/information/equipment/analysis.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree')
-    })
     
     
-    .state('app.dashboard2', {
+    
+    /*.state('app.dashboard2', {
         url: '/dashboard2',
         title: 'dashboard2',
         templateUrl: 'app/views/dashboard2.html',
         controller: 'dashboardController2'
-    })
+    })*/
     
     
     //报表信息
@@ -380,8 +380,61 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/edit.html',
         resolve: helper.resolveFor('parsley')
     })
-    
-    
+    .state('app.report.table2', {
+        url: '/table2',
+        title: 'table2',
+        templateUrl: 'app/views/information/report/table_2.html'
+    })
+    .state('app.report.table3', {
+        url: '/table3',
+        title: 'table3',
+        templateUrl: 'app/views/information/report/table_3.html'
+    })
+    .state('app.report.table4', {
+        url: '/table4',
+        title: 'table4',
+        templateUrl: 'app/views/information/report/table_4.html'
+    })
+    .state('app.report.table5', {
+        url: '/table5',
+        title: 'table5',
+        templateUrl: 'app/views/information/report/table_5.html'
+    })
+    .state('app.report.table6', {
+        url: '/table6',
+        title: 'table6',
+        templateUrl: 'app/views/information/report/table_6.html'
+    })
+    .state('app.report_edit2', {
+        url: '/report_edit2',
+        title: 'report_edit2',
+        templateUrl: 'app/views/information/report/edit2.html',
+        resolve: helper.resolveFor('parsley')
+    })
+    .state('app.report_edit3', {
+        url: '/report_edit3',
+        title: 'report_edit3',
+        templateUrl: 'app/views/information/report/edit3.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit4', {
+        url: '/report_edit4',
+        title: 'report_edit4',
+        templateUrl: 'app/views/information/report/edit4.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit5', {
+        url: '/report_edit5',
+        title: 'report_edit5',
+        templateUrl: 'app/views/information/report/edit5.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit6', {
+        url: '/report_edit6',
+        title: 'report_edit6',
+        templateUrl: 'app/views/information/report/edit6.html',
+        resolve: helper.resolveFor('parsley')
+    })
 
 //	.state('app.nestable', {
 //      url: '/nestable',
@@ -528,8 +581,9 @@ App
       'screenfull':         ['vendor/screenfull/dist/screenfull.js'], 
       'chartjs':            ['vendor/Chart.js/dist/Chart.js'],
       'highcharts':         ['vendor/highcharts/highcharts.js'],
-      'highcharts.plugin':  ['vendor/highcharts/modules/exporting.js',
-      						'vendor/highcharts/modules/series-label.js',
+      'highcharts.plugin':  [
+//    						'vendor/highcharts/modules/exporting.js',
+//    						'vendor/highcharts/modules/series-label.js',
       						'vendor/highcharts/modules/oldie.js',
       						'vendor/highcharts-plugins/highcharts-zh_CN.js'
       						],
@@ -688,93 +742,6 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
 
  
  
-}]);
-
-
-
-
-
-App.controller('countybarController', ['$scope',"colors", function($scope,colors ){
-	  // Bar chart
-// ----------------------------------- 
-
-$scope.barChart = function(){		
-		var ctx = document.getElementById("barChart2").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'bar',
-		    data: {
-				datasets: [
-
-/*				{
-		            backgroundColor : colors.byName('info'),
-		            data : [65,59,90,81,56,55,40]
-		        },*/
-		        {
-		            backgroundColor : colors.byName('primary'),
-		            data : [28,48,40,19,96,27,100,156,55,40],
-		            label: '耗电量 单位 度'
-		        }
-				
-				],
-				labels: [
-					"xx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）"
-				]
-			},
-		    options: {
-		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'top',
-		          boxWidth: 20,
-		        }
-		
-		    }
-		});
-	}
-	
-$scope.barChart();
-}]);
-
-
-App.controller('countybarController2', ['$scope',"colors", function($scope,colors ){
-	  // Bar chart
-// ----------------------------------- 
-
-$scope.barChart = function(){		
-		var ctx = document.getElementById("barChart2").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'bar',
-		    data: {
-				datasets: [
-
-/*				{
-		            backgroundColor : colors.byName('info'),
-		            data : [65,59,90,81,56,55,40]
-		        },*/
-		        {
-		            backgroundColor : colors.byName('primary'),
-		            data : [28,48,40,19,96,27,100,156,55,40],
-		            label: '耗电量 单位 度'
-		        }
-				
-				],
-				labels: [
-					"xx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村"
-				]
-			},
-		    options: {
-		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'top',
-		          boxWidth: 20,
-		        }
-		
-		    }
-		});
-	}
-	
-$scope.barChart();
 }]);
 
 
@@ -1109,21 +1076,187 @@ App.controller("dashboardController2",["$scope","$rootScope","$http","$filter",f
 
 
 
+//----------能耗统计----------
+
+App.controller('energyController0', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("energyChart0").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"xx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
+
+
+
+
+
+
+
+
+App.controller('countybarController', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+
+/*				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },*/
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"xx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
+
+
+App.controller('countybarController2', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+
+/*				{
+		            backgroundColor : colors.byName('info'),
+		            data : [65,59,90,81,56,55,40]
+		        },*/
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"xx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
+
+App.controller('countybarController3', ['$scope',"colors", function($scope,colors ){
+	  // Bar chart
+// ----------------------------------- 
+
+$scope.barChart = function(){		
+		var ctx = document.getElementById("barChart2").getContext('2d');		
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+				datasets: [
+
+		        {
+		            backgroundColor : colors.byName('primary'),
+		            data : [28,48,40,19,96,27,100,156,55,40],
+		            label: '耗电量 单位 度'
+		        }
+				
+				],
+				labels: [
+					"2017-09","2017-10","2017-11","2017-12","2018-01","2018-02","2018-03","2018-04","2018-05","2018-06"
+				]
+			},
+		    options: {
+		        responsive: true,
+		        legend: {
+		          display: true,
+		          position: 'top',
+		          boxWidth: 20,
+		        }
+		
+		    }
+		});
+	}
+	
+$scope.barChart();
+}]);
 /**=========================================================
  * Module: morris.js
  =========================================================*/
 
 App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
 
+	
 
 $scope.my_tree_handler = function(branch) {
-	console.log(branch);
+		
 	if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
-		$state.go("app.equipment.equipment_2");
+		$state.go("app.county-equipment");
 	}
 };
 
@@ -1210,15 +1343,15 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "2011-2", a: 100, b: 90 },
-      { y: "2011-3", a: 75,  b: 65 },
-      { y: "2011-4", a: 50,  b: 40 },
-      { y: "2011-5", a: 75,  b: 65 },
-      { y: "2011-6", a: 50,  b: 40 },
-      { y: "2011-7", a: 75,  b: 65 },
-      { y: "2011-8", a: 100, b: 90 }
+      { y: "xxx镇", a: 100, b: 90 },
+      { y: "xxx镇", a: 75,  b: 65 },
+      { y: "xx镇", a: 50,  b: 40 },
+      { y: "xxx镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 50,  b: 40 },
+      { y: "xx镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 100, b: 90 }
   ];
-  $scope.linedata = [
+/*$scope.linedata = [
       {y: '2011-2', data: 1000},  
       {y: '2011-3', data: 8000},  
       {y: '2011-4', data: 6000},  
@@ -1226,9 +1359,17 @@ $scope.my_tree_handler = function(branch) {
       {y: '2012-1', data: 5000},  
       {y: '2012-2', data: 6000},  
       {y: '2012-3', data: 7000},  
+];*/
+
+$scope.chartdata2 = [
+      { y: "xxx村", a: 80, b: 90 },
+      { y: "xxx村", a: 75,  b: 65 },
+      { y: "xx村", a: 50,  b: 40 },
+      { y: "xxx村", a: 75,  b: 65 },
+      { y: "xxx村", a: 50,  b: 40 },
+      { y: "xx村", a: 75,  b: 65 },
+      { y: "xxx村", a: 100, b: 90 }
   ];
-
-
 
 
   $scope.barOptions = {
@@ -1240,13 +1381,13 @@ $scope.my_tree_handler = function(branch) {
     resize: true
   };
 
-  $scope.lineOptions = {
+/*  $scope.lineOptions = {
     xkey: 'y',
     ykeys: ["data"],
     labels: ["xxx镇"],
     lineColors: ["#31C0BE"],
     resize: true
-  };
+  };*/
 
 
 
@@ -1335,7 +1476,71 @@ $scope.today = function() {
 
 App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
+//设备巡检率
+	var options1 = {
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},    
+		colors:["#31C0BE"],
+		xAxis: {
+	        categories: ['xx镇', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
+	    },
+	    yAxis: {
+	        title: {
+	            text: ''
+	        }
+	    },
+	    legend:{
+	    	enabled:false
+	    },
+        tooltip: {
+            headerFormat: '{point.x}<br>',
+            pointFormat: ' <b>{point.y}</b>',
+            style: {                      // 文字内容相关样式
+		        color: "#31C0BE",
+		        fontSize: "12px"
+		    }
+        },
+       
+        plotOptions: {       	
+	        spline: {
+	            marker: {
+	                lineColor: '#31C0BE',
+	                lineWidth: 1
+	            }
+	        }
+	    },
+        series: [{
+            name: '设备巡检率',
+            data: [
+                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('xunjianlv', options1);
 
+
+
+
+
+
+
+
+//设备分布情况
 	var options = {
         chart: {
             plotBackgroundColor: null,
@@ -1398,52 +1603,6 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
         // 图表初始化函数
         var chart = Highcharts.chart('pieChart2', options);
 
-//piechart
-/*$scope.pieChart = function(){		
-		var ctx = document.getElementById("pieChart2").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'pie',
-		    data: {
-				datasets: [{
-					data: [
-						200,
-						50,
-						100,
-						150,
-						20,
-						30,
-					],
-					backgroundColor: [
-						'#7266ba',
-						'#ffef2b',						
-						'rgba(35,183,229,1)',
-						'#2b957a',
-						'#ff902b',
-						'#f05050'
-					],
-				}],
-				labels: [
-					'xxx村',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-				]
-			},
-		    options: {
-		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'bottom',
-		          boxWidth: 10,
-		        }
-		
-		    }
-		});
-	}
-	
-$scope.pieChart();*/
 
 }]);
 
@@ -1452,7 +1611,69 @@ $scope.pieChart();*/
 
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
+//设备巡检率
+	var options1 = {
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},    
+		colors:["#31C0BE"],
+		xAxis: {
+	        categories: ['xx村', 'xxx村', 'xx村', 'xx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']
+	    },
+	    yAxis: {
+	        title: {
+	            text: ''
+	        }
+	    },
+	    legend:{
+	    	enabled:false
+	    },
+        tooltip: {
+            headerFormat: '{point.x}<br>',
+            pointFormat: ' <b>{point.y}</b>',
+            style: {                      // 文字内容相关样式
+		        color: "#31C0BE",
+		        fontSize: "12px"
+		    }
+        },
+       
+        plotOptions: {       	
+	        spline: {
+	            marker: {
+	                lineColor: '#31C0BE',
+	                lineWidth: 1
+	            }
+	        }
+	    },
+        series: [{
+            name: '设备巡检率',
+            data: [
+                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('xunjianlv', options1);
 
+
+
+
+
+
+//设备分布情况
 	var options = {
         chart: {
             plotBackgroundColor: null,
@@ -1936,96 +2157,73 @@ App.controller('NestableController', ['$scope', function($scope) {
  * Angular Datatable controller
  =========================================================*/
 
-App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTColumnDefBuilder',
-  function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
+App.controller('reportController', ['$scope', '$http','$state', 'DTOptionsBuilder', 'DTColumnDefBuilder',
+  function($scope, $http,$state , DTOptionsBuilder, DTColumnDefBuilder) {
   'use strict';
 
 
 
 	$scope.my_tree_handler = function(branch) {
-	console.log(branch);
-	if(branch.level===1){
-		$state.go("app.county.county_1_1");
-	}else if(branch.level===2){
-		$state.go("app.county.county_1_2");
-	}else if(!branch.level){
-		$state.go("app.county.county_1_3");
-	}
 	
-  };
+  	};
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = "APPLE! : " + branch.label;
-    return $scope.output;
+    $scope.output = branch.data.description;
+//  return $scope.output;
+	$state.go($scope.output);
   };
 
   var treedata_avm = [
     {
-      label: 'xxxxx县',
+      label: '运维记录',
       children: [
         {
-          label: 'xxxx镇',
-          data: {
-            description: "man's best friend"
+          label: '故障报表',
+		  data: {
+            description: "app.report.table1"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }, {
-          label: 'xxxx镇',
+          label: '巡检报表',
           data: {
-            description: "Felis catus"
+            description: "app.report.table2"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }, {
-          label: 'xxxx镇',
+          label: '化验报表',
           data: {
-            description: "hungry, hungry"
+            description: "app.report.table3"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }
       ]
     }, {
-      label: 'xxxxx县',
-      data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
-        data_can_contain_anything: true
-      },
-      onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
-        return $scope.output;
-      },
+      label: '行政机构',      
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '行政单位信息表',
+          data: {
+	        description: "app.report.table4"
+	      },
+	      onSelect: apple_selected,
         }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '运维单位信息表',
+          data: {
+	        description: "app.report.table5"
+	      },
+	      onSelect: apple_selected,
         }
       ]
     }, {
-      label: 'xxxxx县',
+      label: '设备相关',
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '设备信息表',
+          data: {
+	        description: "app.report.table6"
+	      },
+	      onSelect: apple_selected,
         }
       ]
     }
@@ -2050,38 +2248,24 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
   	$scope.persons = res.data;
   })
 
-//$resource('server/datatable.json').query().$promise.then(function(persons) {
-//    $scope.persons = persons;
-//});
-
   // Changing data
 
-  $scope.heroes = [{
-      "id": 860,
-      "firstName": "Superman",
-      "lastName": "Yoda"
-    }, {
-      "id": 870,
-      "firstName": "Ace",
-      "lastName": "Ventura"
-    }, {
-      "id": 590,
-      "firstName": "Flash",
-      "lastName": "Gordon"
-    }, {
-      "id": 803,
-      "firstName": "Luke",
-      "lastName": "Skywalker"
+  $scope.malfunctions = [{
+      id: "ECW_109321SD_122",
+      name: "流量计变压器损坏",
+      equip: "NSECO193流量计",
+      date:"2018-03-25",
+      state:"未解决"
     }
   ];
 
-  $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+  /*$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
   $scope.dtColumnDefs = [
       DTColumnDefBuilder.newColumnDef(0),
       DTColumnDefBuilder.newColumnDef(1),
       DTColumnDefBuilder.newColumnDef(2),
       DTColumnDefBuilder.newColumnDef(3).notSortable()
-  ];
+  ];*/
 $scope.person2Add = _buildPerson2Add(1);
 $scope.addPerson = addPerson;
   $scope.modifyPerson = modifyPerson;
@@ -2107,6 +2291,17 @@ $scope.addPerson = addPerson;
   }
 
 }]);
+
+
+
+
+
+
+App.controller("PaginationCtrl",["$scope",function($scope){
+//	$scope.maxSize = 5;
+//  $scope.totalItems = 175;
+    $scope.currentPage = 1;
+}])
 /**=========================================================
  * Module: sidebar-menu.js
  * Handle sidebar collapsible elements

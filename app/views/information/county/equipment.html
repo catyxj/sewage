@@ -7,87 +7,56 @@
    	<div class="row">
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
-			  <li role="presentation" class="active"><a href="#">设备情况</a></li>			  
-			  	<a ui-sref="app.county.county_1_3" class="btn btn-default" style="color: #1AACDA; margin-left: 20px;">返回</a>			  
+			  <li role="presentation" class="active"><a href="#">设施列表</a></li>			  
+			  	<a ui-sref="app.county.county_1_3" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 520px; padding:20px; border: 1px solid #ddd; border-top: none;">
+   <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
    		<div class="table-responsive" style="height: 450px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
 	               <th>序号</th>
-	               <th>站点编号</th>
-	               <th>设备名称</th>
-	               <th>监测值</th>
-	               <th>运行日期</th>
-	               <th>区域编号</th>
-	               <th>运行日期</th>
-	               <th>区域编号</th>              
+	               <th>设施名称</th>
+	               <th>设施编码</th>
+	               <th>所属地域</th>
+	               <th>日均污水处理量（吨）</th>
+	               <th>设施总功率（kw）</th>
+	               <th>开始运维日期</th>
+	               <th>是否带在线监测</th>  
+	               <th>是否带远程控制</th>  
+	               <th>详情</th>  
 	            </tr>
 	         </thead>
 	         <tbody>
 	            <tr>
 	               <td>1</td>
 	               <td>
-	                  NHFH6065
+	                  北仑区郭巨街道双岙村终端
 	               </td>
-	               <td>流量计（累计流量）</td>
-	               <td>31693</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>               
-	            </tr>
-	            <tr>
-	               <td>2</td>
+	               <td>330203011211-02-045-D2</td>
+	               <td>北仑区郭巨街道双岙村</td>
+	               <td>45</td>
+	               <td>1.5</td>
+	               <td>2016-09-20</td>
+	               <td>无</td>  
+	               <td>无</td> 
 	               <td>
-	                  NHFH6065
-	               </td>
-	               <td>流量计（累计流量）</td>
-	               <td>31693</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>               
+	               	<a ui-sref="app.county-equipment-detail">查看更多</a>
+	               </td> 
 	            </tr>
-	            <tr>
-	               <td>3</td>
-	               <td>
-	                  NHFH6065
-	               </td>
-	               <td>流量计（累计流量）</td>
-	               <td>31693</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>               
-	            </tr>
-	            <tr>
-	               <td>4</td>
-	               <td>
-	                  NHFH6065
-	               </td>
-	               <td>流量计（累计流量）</td>
-	               <td>31693</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>
-	               <td>2018-03-20 12:00:00</td>
-	               <td>001</td>               
-	            </tr>
+	            
+	            
 	         </tbody>
 	      </table>
 	   </div>
 	   
-	   <div class="row">
+	   <div class="row">	   	
 	   	<div class="col-lg-6">
-	   		
-	   	</div>
-	   	<div class="col-lg-3">
 	   		共518条记录
 	   		pageSize: 
 	   		<select style="padding: 3px 10px;">
@@ -95,7 +64,7 @@
 	   			<option value="150">150</option>
 	   		</select>
 	   	</div>
-	   	<div class="col-lg-3">
+	   	<div class="col-lg-6">
 	   		<nav>
 			  <ul class="pagination pull-right" style="margin: 0;">
 			    <li>

@@ -37,8 +37,9 @@ App
       'screenfull':         ['vendor/screenfull/dist/screenfull.js'], 
       'chartjs':            ['vendor/Chart.js/dist/Chart.js'],
       'highcharts':         ['vendor/highcharts/highcharts.js'],
-      'highcharts.plugin':  ['vendor/highcharts/modules/exporting.js',
-      						'vendor/highcharts/modules/series-label.js',
+      'highcharts.plugin':  [
+//    						'vendor/highcharts/modules/exporting.js',
+//    						'vendor/highcharts/modules/series-label.js',
       						'vendor/highcharts/modules/oldie.js',
       						'vendor/highcharts-plugins/highcharts-zh_CN.js'
       						],

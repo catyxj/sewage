@@ -1,80 +1,107 @@
-<!-- START table-responsive-->
+<h3>
+   设备信息
+</h3>
+
+<div class="">
+	<!-- START panel-->
+	<div class="panel panel-default" >
+	   <div class="panel-body">
+	   	<div class="row">
+	   		<div class="col-md-12" role="navigation">
+	   			<ul class="nav nav-tabs">
+				  <!--<li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_1'}"><a ui-sref="app.equip_table_1">运行记录</a></li>-->			  
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_2'}"><a ui-sref="app.equip_table_2">巡检记录</a></li>
+				  <!--<li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_3'}"><a ui-sref="app.equip_table_3">故障记录</a></li>-->
+				  
+				  <div class="input-group pull-left ml-lg" style="width: 20%;">
+						<input type="text" placeholder="输入关键字进行搜索" class="form-control input-sm" />
+						<span class="input-group-btn">
+						    <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
+						    </button>
+						</span>
+					</div>
+				  <div class="pull-left ml-lg" style="width: 50%;">
+				  	<div ng-controller="equipDateCtrl" class="" >	
+				  		<div class="pull-left" style="width: 12%;line-height: 37px;">
+				  			巡检日期
+				  		</div>
+			             <div class="input-group pull-left" style="width: 42%;">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="dat" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			             </div>
+			         
+			         
+			         <span class="pull-left text-center" style="width: 4%; line-height: 37px;">
+			         	至
+			         </span>
+			         			         
+			             <div class="input-group pull-right" style="width: 42%;">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dat" is-open="popup2.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			             </div>			         
+			         
+			     </div>
+				  				  	
+				  </div>
+				  
+				  					  	
+				  <a ui-sref="app.county.county_1_3" class="btn btn-default pull-right">返回</a>
+				  	
+				  
+				</ul>
+	   		</div>  
+	   		
+	   	</div>
+	   	
+	   	
+	   	<div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
+	   		<!-- START table-responsive-->
 	   <div class="" >
-	   		<div class="table-responsive" style="height: 250px; overflow: auto;">
+	   		<div class="table-responsive" style="height: 450px; overflow: auto;">
 		      <table class="table table-bordered table-hover table-striped">
 		         <thead>
 		            <tr>
 		               <th>序号</th>
+		               <th>巡检时间</th>
+		               <th>巡检站点</th>
 		               <th>站点编号</th>
-		               <th>设备名称</th>
-		               <th>监测值</th>
-		               <th>运行日期</th>
-		               <th>区域编号</th>
-		               <th>运行日期</th>
-		               <th>区域编号</th>              
+		               <th>巡检人员</th>
+		               <th>道路通常情况</th>
+		               <th>责任标志牌设施警示标</th>
+		               <th>出水水质情况</th>
+		               <th>进水情况</th> 
+		               <th>绿化管理维护情况</th> 
+		               <th>主体机构管理维护情况</th> 
+		               <th>配电设施运转情况</th> 
 		            </tr>
 		         </thead>
 		         <tbody>
 		            <tr>
 		               <td>1</td>
 		               <td>
-		                  NHFH6065
+		                  2018-03-25
 		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
+		               <td>余家坝村</td>
+		               <td>HNFH0012</td>
+		               <td>张三、李四、王五</td>
+		               <td>正常</td>
+		               <td>正常</td>
+		               <td>正常</td> 
+		               <td>正常</td> 
+		               <td>正常</td> 
+		               <td>正常</td> 
+		               <td>正常</td> 
 		            </tr>
-		            <tr>
-		               <td>2</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>3</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>4</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>4</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
+		            
+		            
+		            
 		         </tbody>
 		      </table>
 		   </div>
@@ -113,3 +140,13 @@
 	   	</div>
 	   </div>  
 	   <!-- END table-responsive-->
+	   	</div>
+	   	
+	  	
+	   </div>  
+	</div>
+	<!-- END panel-->
+</div>
+
+
+

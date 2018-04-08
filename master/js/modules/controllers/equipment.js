@@ -4,15 +4,16 @@
 
 App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
 
+	
 
 $scope.my_tree_handler = function(branch) {
-	console.log(branch);
+		
 	if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
-		$state.go("app.equipment.equipment_2");
+		$state.go("app.county-equipment");
 	}
 };
 
@@ -99,15 +100,15 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "2011-2", a: 100, b: 90 },
-      { y: "2011-3", a: 75,  b: 65 },
-      { y: "2011-4", a: 50,  b: 40 },
-      { y: "2011-5", a: 75,  b: 65 },
-      { y: "2011-6", a: 50,  b: 40 },
-      { y: "2011-7", a: 75,  b: 65 },
-      { y: "2011-8", a: 100, b: 90 }
+      { y: "xxx镇", a: 100, b: 90 },
+      { y: "xxx镇", a: 75,  b: 65 },
+      { y: "xx镇", a: 50,  b: 40 },
+      { y: "xxx镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 50,  b: 40 },
+      { y: "xx镇", a: 75,  b: 65 },
+      { y: "xxx镇", a: 100, b: 90 }
   ];
-  $scope.linedata = [
+/*$scope.linedata = [
       {y: '2011-2', data: 1000},  
       {y: '2011-3', data: 8000},  
       {y: '2011-4', data: 6000},  
@@ -115,9 +116,17 @@ $scope.my_tree_handler = function(branch) {
       {y: '2012-1', data: 5000},  
       {y: '2012-2', data: 6000},  
       {y: '2012-3', data: 7000},  
+];*/
+
+$scope.chartdata2 = [
+      { y: "xxx村", a: 80, b: 90 },
+      { y: "xxx村", a: 75,  b: 65 },
+      { y: "xx村", a: 50,  b: 40 },
+      { y: "xxx村", a: 75,  b: 65 },
+      { y: "xxx村", a: 50,  b: 40 },
+      { y: "xx村", a: 75,  b: 65 },
+      { y: "xxx村", a: 100, b: 90 }
   ];
-
-
 
 
   $scope.barOptions = {
@@ -129,13 +138,13 @@ $scope.my_tree_handler = function(branch) {
     resize: true
   };
 
-  $scope.lineOptions = {
+/*  $scope.lineOptions = {
     xkey: 'y',
     ykeys: ["data"],
     labels: ["xxx镇"],
     lineColors: ["#31C0BE"],
     resize: true
-  };
+  };*/
 
 
 
@@ -224,7 +233,71 @@ $scope.today = function() {
 
 App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
+//设备巡检率
+	var options1 = {
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},    
+		colors:["#31C0BE"],
+		xAxis: {
+	        categories: ['xx镇', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
+	    },
+	    yAxis: {
+	        title: {
+	            text: ''
+	        }
+	    },
+	    legend:{
+	    	enabled:false
+	    },
+        tooltip: {
+            headerFormat: '{point.x}<br>',
+            pointFormat: ' <b>{point.y}</b>',
+            style: {                      // 文字内容相关样式
+		        color: "#31C0BE",
+		        fontSize: "12px"
+		    }
+        },
+       
+        plotOptions: {       	
+	        spline: {
+	            marker: {
+	                lineColor: '#31C0BE',
+	                lineWidth: 1
+	            }
+	        }
+	    },
+        series: [{
+            name: '设备巡检率',
+            data: [
+                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('xunjianlv', options1);
 
+
+
+
+
+
+
+
+//设备分布情况
 	var options = {
         chart: {
             plotBackgroundColor: null,
@@ -287,52 +360,6 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
         // 图表初始化函数
         var chart = Highcharts.chart('pieChart2', options);
 
-//piechart
-/*$scope.pieChart = function(){		
-		var ctx = document.getElementById("pieChart2").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'pie',
-		    data: {
-				datasets: [{
-					data: [
-						200,
-						50,
-						100,
-						150,
-						20,
-						30,
-					],
-					backgroundColor: [
-						'#7266ba',
-						'#ffef2b',						
-						'rgba(35,183,229,1)',
-						'#2b957a',
-						'#ff902b',
-						'#f05050'
-					],
-				}],
-				labels: [
-					'xxx村',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-					'xx镇',
-				]
-			},
-		    options: {
-		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'bottom',
-		          boxWidth: 10,
-		        }
-		
-		    }
-		});
-	}
-	
-$scope.pieChart();*/
 
 }]);
 
@@ -341,7 +368,69 @@ $scope.pieChart();*/
 
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
+//设备巡检率
+	var options1 = {
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: ''
+        },
+        exporting:{
+        	buttons:{
+        		contextButton:{
+        			enabled:false,
+        		}
+        	}
+        },
+		credits:{
+		     enabled: false // 禁用版权信息
+		},    
+		colors:["#31C0BE"],
+		xAxis: {
+	        categories: ['xx村', 'xxx村', 'xx村', 'xx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']
+	    },
+	    yAxis: {
+	        title: {
+	            text: ''
+	        }
+	    },
+	    legend:{
+	    	enabled:false
+	    },
+        tooltip: {
+            headerFormat: '{point.x}<br>',
+            pointFormat: ' <b>{point.y}</b>',
+            style: {                      // 文字内容相关样式
+		        color: "#31C0BE",
+		        fontSize: "12px"
+		    }
+        },
+       
+        plotOptions: {       	
+	        spline: {
+	            marker: {
+	                lineColor: '#31C0BE',
+	                lineWidth: 1
+	            }
+	        }
+	    },
+        series: [{
+            name: '设备巡检率',
+            data: [
+                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+            ]
+        }]
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('xunjianlv', options1);
 
+
+
+
+
+
+//设备分布情况
 	var options = {
         chart: {
             plotBackgroundColor: null,

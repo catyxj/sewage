@@ -3,96 +3,73 @@
  * Angular Datatable controller
  =========================================================*/
 
-App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTColumnDefBuilder',
-  function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
+App.controller('reportController', ['$scope', '$http','$state', 'DTOptionsBuilder', 'DTColumnDefBuilder',
+  function($scope, $http,$state , DTOptionsBuilder, DTColumnDefBuilder) {
   'use strict';
 
 
 
 	$scope.my_tree_handler = function(branch) {
-	console.log(branch);
-	if(branch.level===1){
-		$state.go("app.county.county_1_1");
-	}else if(branch.level===2){
-		$state.go("app.county.county_1_2");
-	}else if(!branch.level){
-		$state.go("app.county.county_1_3");
-	}
 	
-  };
+  	};
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = "APPLE! : " + branch.label;
-    return $scope.output;
+    $scope.output = branch.data.description;
+//  return $scope.output;
+	$state.go($scope.output);
   };
 
   var treedata_avm = [
     {
-      label: 'xxxxx县',
+      label: '运维记录',
       children: [
         {
-          label: 'xxxx镇',
-          data: {
-            description: "man's best friend"
+          label: '故障报表',
+		  data: {
+            description: "app.report.table1"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }, {
-          label: 'xxxx镇',
+          label: '巡检报表',
           data: {
-            description: "Felis catus"
+            description: "app.report.table2"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }, {
-          label: 'xxxx镇',
+          label: '化验报表',
           data: {
-            description: "hungry, hungry"
+            description: "app.report.table3"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected
         }
       ]
     }, {
-      label: 'xxxxx县',
-      data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
-        data_can_contain_anything: true
-      },
-      onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
-        return $scope.output;
-      },
+      label: '行政机构',      
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '行政单位信息表',
+          data: {
+	        description: "app.report.table4"
+	      },
+	      onSelect: apple_selected,
         }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '运维单位信息表',
+          data: {
+	        description: "app.report.table5"
+	      },
+	      onSelect: apple_selected,
         }
       ]
     }, {
-      label: 'xxxxx县',
+      label: '设备相关',
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '设备信息表',
+          data: {
+	        description: "app.report.table6"
+	      },
+	      onSelect: apple_selected,
         }
       ]
     }
@@ -117,38 +94,24 @@ App.controller('reportController', ['$scope', '$http', 'DTOptionsBuilder', 'DTCo
   	$scope.persons = res.data;
   })
 
-//$resource('server/datatable.json').query().$promise.then(function(persons) {
-//    $scope.persons = persons;
-//});
-
   // Changing data
 
-  $scope.heroes = [{
-      "id": 860,
-      "firstName": "Superman",
-      "lastName": "Yoda"
-    }, {
-      "id": 870,
-      "firstName": "Ace",
-      "lastName": "Ventura"
-    }, {
-      "id": 590,
-      "firstName": "Flash",
-      "lastName": "Gordon"
-    }, {
-      "id": 803,
-      "firstName": "Luke",
-      "lastName": "Skywalker"
+  $scope.malfunctions = [{
+      id: "ECW_109321SD_122",
+      name: "流量计变压器损坏",
+      equip: "NSECO193流量计",
+      date:"2018-03-25",
+      state:"未解决"
     }
   ];
 
-  $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+  /*$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
   $scope.dtColumnDefs = [
       DTColumnDefBuilder.newColumnDef(0),
       DTColumnDefBuilder.newColumnDef(1),
       DTColumnDefBuilder.newColumnDef(2),
       DTColumnDefBuilder.newColumnDef(3).notSortable()
-  ];
+  ];*/
 $scope.person2Add = _buildPerson2Add(1);
 $scope.addPerson = addPerson;
   $scope.modifyPerson = modifyPerson;
@@ -174,3 +137,14 @@ $scope.addPerson = addPerson;
   }
 
 }]);
+
+
+
+
+
+
+App.controller("PaginationCtrl",["$scope",function($scope){
+//	$scope.maxSize = 5;
+//  $scope.totalItems = 175;
+    $scope.currentPage = 1;
+}])

@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" ng-controller="equipController2">
       <div class="col-md-7">
          <div class="panel panel-default">
             <div class="panel-heading clearfix">
@@ -8,16 +8,14 @@
             	</div>
             	
                 <div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <select name="">
-                     	<option value="">xxx镇</option>
-                     </select>
-                     <select name="">
-                     	<option value="">xxx村</option>
+                     <select name="" class="tab_select">
+                     	<option value="">2018-05</option>
+                     	<option value="">2018-04</option>
                      </select>
                 </div>
             </div>
             <div class="panel-body">
-               <div morris-line="" morris-data="linedata" morris-options="lineOptions" style="height: 230px;"></div>
+               <div id="xunjianlv" style="max-width:100%;height:250px"></div>
             </div>
          </div>
       </div>
@@ -30,7 +28,7 @@
             	
             	
             </div>
-            <div class="panel-body" ng-controller="equipController2">
+            <div class="panel-body">
                <div id="pieChart2" style="min-width:100%; height:250px"></div>
             </div>
          </div>
@@ -47,16 +45,14 @@
             	</div>
             	
             	<div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <select name="">
-                     	<option value="">xxx镇</option>
-                     </select>
-                     <select name="">
-                     	<option value="">xxx村</option>
+                     <select name="" class="tab_select">
+                     	<option value="">2018-05</option>
+                     	<option value="">2018-04</option>
                      </select>
                   </div>
             </div>
             <div class="panel-body">
-               <div morris-bar="" morris-data="chartdata" morris-options="barOptions" style="height: 230px;"></div>
+               <div morris-bar="" morris-data="chartdata2" morris-options="barOptions" style="height: 230px;"></div>
             </div>
          </div>
       </div>

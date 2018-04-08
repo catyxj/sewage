@@ -1,3 +1,7 @@
+<h3>
+   设备信息
+</h3>
+
 <div class="">
 	<!-- START panel-->
 	<div class="panel panel-default" >
@@ -5,15 +9,23 @@
 	   	<div class="row">
 	   		<div class="col-md-12" role="navigation">
 	   			<ul class="nav nav-tabs">
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_1'}"><a ui-sref="app.equipment.equipment_2_1.table_1">运行记录</a></li>			  
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_2'}"><a ui-sref="app.equipment.equipment_2_1.table_2">巡检记录</a></li>
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_3'}"><a ui-sref="app.equipment.equipment_2_1.table_3">故障记录</a></li>
+				  <!--<li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_1'}"><a ui-sref="app.equipment.equipment_2_1.table_1">运行记录</a></li>			  
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equipment.equipment_2_1.table_2'}"><a ui-sref="app.equipment.equipment_2_1.table_2">巡检记录</a></li>-->
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_3'}"><a ui-sref="app.equip_table_3">故障记录</a></li>
 				  
-				  <div class="pull-right" style="width: 50%;">
-				  	<div ng-controller="equipDateCtrl" class="row" >
-				  	
-			         
-			             <div class="input-group pull-left" style="width: 46%;">
+				  <div class="input-group pull-left ml-lg" style="width: 20%;">
+						<input type="text" placeholder="输入关键字进行搜索" class="form-control input-sm" />
+						<span class="input-group-btn">
+						    <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
+						    </button>
+						</span>
+					</div>
+				  <div class="pull-left ml-lg" style="width: 50%;">
+				  	<div ng-controller="equipDateCtrl" class="" >	
+				  		<div class="pull-left" style="width: 12%;line-height: 37px;">
+				  			故障日期
+				  		</div>
+			             <div class="input-group pull-left" style="width: 42%;">
 			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
 			                 		ng-model="dat" is-open="popup1.opened" ng-required="true" close-text="关闭"
 			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
@@ -23,11 +35,11 @@
 			             </div>
 			         
 			         
-			         <span class="pull-left text-center" style="width: 8%; line-height: 37px;">
+			         <span class="pull-left text-center" style="width: 4%; line-height: 37px;">
 			         	至
 			         </span>
 			         			         
-			             <div class="input-group pull-right" style="width: 46%;">
+			             <div class="input-group pull-right" style="width: 42%;">
 			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dat" is-open="popup2.opened" ng-required="true" close-text="关闭"
 			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
 			                 <span class="input-group-btn">
@@ -40,7 +52,7 @@
 				  </div>
 				  
 				  					  	
-				  
+				  <a ui-sref="app.county.county_1_3" class="btn btn-default pull-right">返回</a>
 				  	
 				  
 				</ul>
@@ -57,76 +69,39 @@
 		         <thead>
 		            <tr>
 		               <th>序号</th>
-		               <th>站点编号</th>
-		               <th>设备名称</th>
-		               <th>监测值</th>
-		               <th>运行日期</th>
-		               <th>区域编号</th>
-		               <th>运行日期</th>
-		               <th>区域编号</th>              
+		               <th>设备状态</th>
+		               <th>故障设备</th>
+		               <th>故障编号</th>
+		               <th>站点名称</th>
+		               <th>站点编码</th>
+		               <th>故障详情</th>
+		               <th>故障日期</th>
+		               <th>机修建议</th> 
+		               <th>修复日期</th> 
+		               <th>负责人</th> 
+		               <th>备注</th> 
 		            </tr>
 		         </thead>
 		         <tbody>
 		            <tr>
 		               <td>1</td>
 		               <td>
-		                  NHFH6065
+		                  未修复
 		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
+		               <td>流量计</td>
+		               <td>GZ53731</td>
+		               <td>徐溪村</td>
+		               <td>HNFH6060</td>
+		               <td>液位计损坏</td>
+		               <td>2018-03-25</td> 
+		               <td>更换新变送器</td> 
+		               <td></td> 
+		               <td>张三</td> 
+		               <td></td> 
 		            </tr>
-		            <tr>
-		               <td>2</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>3</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>4</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
-		            <tr>
-		               <td>4</td>
-		               <td>
-		                  NHFH6065
-		               </td>
-		               <td>流量计（累计流量）</td>
-		               <td>31693</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>
-		               <td>2018-03-20 12:00:00</td>
-		               <td>001</td>               
-		            </tr>
+		            
+		            
+		            
 		         </tbody>
 		      </table>
 		   </div>
