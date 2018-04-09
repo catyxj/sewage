@@ -247,6 +247,57 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/equipment_detail.html',
     })
     
+    
+    //展示页面
+    .state('app.county.county_1_2_baifeng', {
+        url: '/county_1_2_baifeng',
+        title: 'county_1_2_baifeng',
+        templateUrl: 'app/views/information/county/county_1_2_baifeng.html',
+    })
+    .state('app.county.county_1_3_baifeng', {
+        url: '/county_1_3_baifeng',
+        title: 'county_1_3_baifeng',
+        templateUrl: 'app/views/information/shows/county_1_3_baifeng.html',
+    })
+    .state('app.county.county_1_3_guanzhuang', {
+        url: '/county_1_3_guanzhuang',
+        title: 'county_1_3_guanzhuang',
+        templateUrl: 'app/views/information/shows/county_1_3_guanzhuang.html',
+    })
+    .state('app.county.county_1_3_siyan', {
+        url: '/county_1_3_siyan',
+        title: 'county_1_3_siyan',
+        templateUrl: 'app/views/information/shows/county_1_3_siyan.html',
+    })
+    .state('app.county.county_1_3_xinfeng', {
+        url: '/county_1_3_xinfeng',
+        title: 'county_1_3_xinfeng',
+        templateUrl: 'app/views/information/shows/county_1_3_xinfeng.html',
+    })
+    .state('app.county.county_1_3_yangdong', {
+        url: '/county_1_3_yangdong',
+        title: 'county_1_3_yangdong',
+        templateUrl: 'app/views/information/shows/county_1_3_yangdong.html',
+    })
+    .state('app.county.county_1_3_qinshan', {
+        url: '/county_1_3_qinshan',
+        title: 'county_1_3_qinshan',
+        templateUrl: 'app/views/information/shows/county_1_3_qinshan.html',
+    })
+    .state('app.county.county_1_3_shangyang', {
+        url: '/county_1_3_shangyang',
+        title: 'county_1_3_shangyang',
+        templateUrl: 'app/views/information/shows/county_1_3_shangyang.html',
+    })
+    .state('app.county.county_1_3_xiayang', {
+        url: '/county_1_3_xiayang',
+        title: 'county_1_3_xiayang',
+        templateUrl: 'app/views/information/shows/county_1_3_xiayang.html',
+    })
+    
+    
+    
+    
 
     //设备信息
     .state('app.equipment', {

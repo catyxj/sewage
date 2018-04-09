@@ -16,20 +16,74 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = "APPLE! : " + branch.label;
-    return $scope.output;
+    $scope.output = branch.data.description;
+	$state.go($scope.output);
   };
 
   var treedata_avm = [
     {
-      label: 'xxxxx县',
+      label: '北仑区',
+      data: {
+            description: "app.county.county_1_1"
+          },
+          onSelect: apple_selected,
       children: [
         {
-          label: 'xxxx镇',
+          label: '白峰街道',
           data: {
-            description: "man's best friend"
+            description: "app.county.county_1_2_baifeng"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected,
+          children: [
+          {label:'白峰村',
+          data: {
+            description: "app.county.county_1_3_baifeng"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'官庄村',
+          data: {
+            description: "app.county.county_1_3_guanzhuang"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'司岩村',
+          data: {
+            description: "app.county.county_1_3_siyan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'新峰村',
+          data: {
+            description: "app.county.county_1_3_xinfeng"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'阳东村',
+          data: {
+            description: "app.county.county_1_3_yangdong"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'勤山村',
+          data: {
+            description: "app.county.county_1_3_qinshan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'上阳村',
+          data: {
+            description: "app.county.county_1_3_shangyang"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'下阳村',
+          data: {
+            description: "app.county.county_1_3_xiayang"
+          },
+          onSelect: apple_selected,
+         }
+         ]
         }, {
           label: 'xxxx镇',
           data: {
