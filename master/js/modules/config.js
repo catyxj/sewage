@@ -315,7 +315,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report',
         templateUrl: 'app/views/information/report/main.html',
         controller: 'reportController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','datatables')
+        resolve: helper.resolveFor('angularBootstrapNavTree')
     })
     .state('app.report.table1', {
         url: '/table1',

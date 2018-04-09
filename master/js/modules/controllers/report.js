@@ -3,8 +3,8 @@
  * Angular Datatable controller
  =========================================================*/
 
-App.controller('reportController', ['$scope', '$http','$state', 'DTOptionsBuilder', 'DTColumnDefBuilder',
-  function($scope, $http,$state , DTOptionsBuilder, DTColumnDefBuilder) {
+App.controller('reportController', ['$scope', '$http','$state',
+  function($scope, $http,$state ) {
   'use strict';
 
 
@@ -90,9 +90,9 @@ App.controller('reportController', ['$scope', '$http','$state', 'DTOptionsBuilde
 
 
   // Ajax
-  $http.get("server/datatable.json").then(function(res){
-  	$scope.persons = res.data;
-  })
+//$http.get("server/datatable.json").then(function(res){
+//	$scope.persons = res.data;
+//})
 
   // Changing data
 
@@ -105,13 +105,7 @@ App.controller('reportController', ['$scope', '$http','$state', 'DTOptionsBuilde
     }
   ];
 
-  /*$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
-  $scope.dtColumnDefs = [
-      DTColumnDefBuilder.newColumnDef(0),
-      DTColumnDefBuilder.newColumnDef(1),
-      DTColumnDefBuilder.newColumnDef(2),
-      DTColumnDefBuilder.newColumnDef(3).notSortable()
-  ];*/
+
 $scope.person2Add = _buildPerson2Add(1);
 $scope.addPerson = addPerson;
   $scope.modifyPerson = modifyPerson;
@@ -125,15 +119,15 @@ $scope.addPerson = addPerson;
       };
   }
   function addPerson() {
-      $scope.heroes.push(angular.copy($scope.person2Add));
+      $scope.malfunctions.push(angular.copy($scope.person2Add));
       $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
   }
   function modifyPerson(index) {
-      $scope.heroes.splice(index, 1, angular.copy($scope.person2Add));
+      $scope.malfunctions.splice(index, 1, angular.copy($scope.person2Add));
       $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
   }
   function removePerson(index) {
-      $scope.heroes.splice(index, 1);
+      $scope.malfunctions.splice(index, 1);
   }
 
 }]);
