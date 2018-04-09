@@ -18,6 +18,116 @@ App.controller("dashboardController",["$scope","$rootScope","$http",function($sc
 	
 	$scope.mapName = "cn_mill";
 	
+/*-------百度地图------------*/	
+	var map = new BMap.Map("container");// 创建地图实例  
+
+map.centerAndZoom("宁波", 12);// 初始化地图，设置中心点坐标和地图级别  
+map.enableScrollWheelZoom(true);  //开启鼠标滚轮缩放
+map.addControl(new BMap.NavigationControl());//开启左侧标尺工具
+map.addControl(new BMap.MapTypeControl());//右上角地图类型
+map.addControl(new BMap.ScaleControl());//左下角地图尺标
+//map.enableContinuousZoom(); // 开启连续缩放效果
+
+var point1 = new BMap.Point(121.9829107893,29.7909035932);// 创建点坐标  
+var point2 = new BMap.Point(121.9834519127,29.8242360892);
+var point3 = new BMap.Point(122.0001573897,29.8249272746);
+var point4 = new BMap.Point(121.9871018426,29.8150895629);
+var point5 = new BMap.Point(121.9990371438,29.8299256617);
+var point6 = new BMap.Point(122.0145935722,29.8281734140);
+var point7 = new BMap.Point(121.99654,29.884151);
+var point8 = new BMap.Point(121.9845630227,29.8228471992);
+var point9 = new BMap.Point(121.9803963527,29.8203471992);
+
+var marker1 = new BMap.Marker(point1);
+var marker2 = new BMap.Marker(point2);
+var marker3 = new BMap.Marker(point3);
+var marker4 = new BMap.Marker(point4);
+var marker5 = new BMap.Marker(point5);
+var marker6 = new BMap.Marker(point6);
+var marker7 = new BMap.Marker(point7);
+var marker8 = new BMap.Marker(point8);
+var marker9 = new BMap.Marker(point9);
+
+marker1.setTitle("北仑区白峰街道阳东村终端330206010209-04-030-D2");
+marker2.setTitle("北仑区白峰街道阳东村终端330206010209-03-030-D2");
+marker3.setTitle("北仑区白峰街道阳东村终端330206010209-02-030-D2");
+marker4.setTitle("北仑区白峰街道阳东村终端330206010209-01-030-D2");
+marker5.setTitle("北仑区白峰街道阳东村终端330206010209-05-030-D2");
+marker6.setTitle("北仑区白峰街道阳东村终端330206010209-06-030-D2");
+marker7.setTitle("北仑区白峰街道新峰村管网330206010204-01-000-00");
+marker8.setTitle("北仑区白峰街道下阳村终端330206010207-02-036-D2");
+marker9.setTitle("北仑区白峰街道下阳村终端330206010207-01-041-D2");
+
+map.addOverlay(marker1);
+map.addOverlay(marker2);
+map.addOverlay(marker3);
+map.addOverlay(marker4);
+map.addOverlay(marker5);
+map.addOverlay(marker6);
+map.addOverlay(marker7);
+map.addOverlay(marker8);
+map.addOverlay(marker9);
+
+marker1.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker2.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker3.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker4.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker5.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker6.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker7.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker8.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker9.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+
+var point10 = new BMap.Point(122.0048793434,29.8810418310);
+var marker10 = new BMap.Marker(point10);
+marker10.setTitle("北仑区白峰街道司沿村终端330206010205-02-200-D2");
+map.addOverlay(marker10);
+marker10.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+var point11 = new BMap.Point(121.9814911896,29.8381224756);
+var marker11 = new BMap.Marker(point11);
+marker11.setTitle("北仑区白峰街道勤山村终端330206010210-01-080-D2");
+map.addOverlay(marker11);
+marker11.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+var point12 = new BMap.Point(122.0340009952,29.8777580698);
+var marker12 = new BMap.Marker(point12);
+marker12.setTitle("北仑区白峰街道官庄终端330206010202-03-030-D2");
+map.addOverlay(marker12);
+marker12.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+var point13 = new BMap.Point(122.0512439540,29.8454169926);
+var marker13 = new BMap.Marker(point13);
+marker13.setTitle("北仑区白峰街道官庄终端330206010202-02-025-D2");
+map.addOverlay(marker13);
+marker13.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+var point14 = new BMap.Point(122.0179009474,29.8783937828);
+var marker14 = new BMap.Marker(point14);
+marker14.setTitle("北仑区白峰街道官庄终端330206010202-01-020-D2");
+map.addOverlay(marker14);
+marker14.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+var point15 = new BMap.Point(121.9814911896,29.8392335856);
+var marker15 = new BMap.Marker(point15);
+marker15.setTitle("北仑区白峰街道上阳村终端330206010208-01-046-D2");
+map.addOverlay(marker15);
+marker15.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//moment
