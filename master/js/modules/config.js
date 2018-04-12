@@ -294,6 +294,131 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3_xiayang',
         templateUrl: 'app/views/information/shows/county_1_3_xiayang.html',
     })
+    .state('app.county-equipment_baifeng', {
+        url: '/county-equipment_baifeng',
+        title: 'county-equipment_baifeng',
+        templateUrl: 'app/views/information/shows/equipment_baifeng.html',
+    })
+    .state('app.county-equipment-detail_baifeng', {
+        url: '/county-equipment-detail_baifeng',
+        title: 'county-equipment-detail_baifeng',
+        templateUrl: 'app/views/information/shows/equipment_detail_baifeng.html',
+    })
+    .state('app.county-equipment_guanzhuang', {
+        url: '/county-equipment_guanzhuang',
+        title: 'county-equipment_guanzhuang',
+        templateUrl: 'app/views/information/shows/equipment_guanzhuang.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang', {
+        url: '/county-equipment-detail_guanzhuang',
+        title: 'county-equipment-detail_guanzhuang',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang2', {
+        url: '/county-equipment-detail_guanzhuang2',
+        title: 'county-equipment-detail_guanzhuang2',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang2.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang3', {
+        url: '/county-equipment-detail_guanzhuang3',
+        title: 'county-equipment-detail_guanzhuang3',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang3.html',
+    })
+    .state('app.county-equipment_siyan', {
+        url: '/county-equipment_siyan',
+        title: 'county-equipment_siyan',
+        templateUrl: 'app/views/information/shows/equipment_siyan.html',
+    })
+    .state('app.county-equipment-detail_siyan', {
+        url: '/county-equipment-detail_siyan',
+        title: 'county-equipment-detail_siyan',
+        templateUrl: 'app/views/information/shows/equipment_detail_siyan.html',
+    })
+    .state('app.county-equipment-detail_siyan2', {
+        url: '/county-equipment-detail_siyan2',
+        title: 'county-equipment-detail_siyan2',
+        templateUrl: 'app/views/information/shows/equipment_detail_siyan2.html',
+    })
+    .state('app.county-equipment_xinfeng', {
+        url: '/county-equipment_xinfeng',
+        title: 'county-equipment_xinfeng',
+        templateUrl: 'app/views/information/shows/equipment_xinfeng.html',
+    })
+    .state('app.county-equipment-detail_xinfeng', {
+        url: '/county-equipment-detail_xinfeng',
+        title: 'county-equipment-detail_xinfeng',
+        templateUrl: 'app/views/information/shows/equipment_detail_xinfeng.html',
+    })
+    .state('app.county-equipment_yangdong', {
+        url: '/county-equipment_yangdong',
+        title: 'county-equipment_yangdong',
+        templateUrl: 'app/views/information/shows/equipment_yangdong.html',
+    })
+    .state('app.county-equipment-detail_yangdong', {
+        url: '/county-equipment-detail_yangdong',
+        title: 'county-equipment-detail_yangdong',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong.html',
+    })
+    .state('app.county-equipment-detail_yangdong2', {
+        url: '/county-equipment-detail_yangdong2',
+        title: 'county-equipment-detail_yangdong2',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong2.html',
+    })
+    .state('app.county-equipment-detail_yangdong3', {
+        url: '/county-equipment-detail_yangdong3',
+        title: 'county-equipment-detail_yangdong3',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong3.html',
+    })
+    .state('app.county-equipment-detail_yangdong4', {
+        url: '/county-equipment-detail_yangdong4',
+        title: 'county-equipment-detail_yangdong4',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong4.html',
+    })
+    .state('app.county-equipment-detail_yangdong5', {
+        url: '/county-equipment-detail_yangdong5',
+        title: 'county-equipment-detail_yangdong5',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong5.html',
+    })
+    .state('app.county-equipment-detail_yangdong6', {
+        url: '/county-equipment-detail_yangdong6',
+        title: 'county-equipment-detail_yangdong6',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong6.html',
+    })
+    .state('app.county-equipment_qinshan', {
+        url: '/county-equipment_qinshan',
+        title: 'county-equipment_qinshan',
+        templateUrl: 'app/views/information/shows/equipment_qinshan.html',
+    })
+    .state('app.county-equipment-detail_qinshan', {
+        url: '/county-equipment-detail_qinshan',
+        title: 'county-equipment-detail_qinshan',
+        templateUrl: 'app/views/information/shows/equipment_detail_qinshan.html',
+    })
+    .state('app.county-equipment_shangyang', {
+        url: '/county-equipment_shangyang',
+        title: 'county-equipment_shangyang',
+        templateUrl: 'app/views/information/shows/equipment_shangyang.html',
+    })
+    .state('app.county-equipment-detail_shangyang', {
+        url: '/county-equipment-detail_shangyang',
+        title: 'county-equipment-detail_shangyang',
+        templateUrl: 'app/views/information/shows/equipment_detail_shangyang.html',
+    })
+    .state('app.county-equipment_xiayang', {
+        url: '/county-equipment_xiayang',
+        title: 'county-equipment_xiayang',
+        templateUrl: 'app/views/information/shows/equipment_xiayang.html',
+    })
+    .state('app.county-equipment-detail_xiayang', {
+        url: '/county-equipment-detail_xiayang',
+        title: 'county-equipment-detail_xiayang',
+        templateUrl: 'app/views/information/shows/equipment_detail_xiayang.html',
+    })
+    .state('app.county-equipment-detail_xiayang2', {
+        url: '/county-equipment-detail_xiayang2',
+        title: 'county-equipment-detail_xiayang2',
+        templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
+    })
     
     
     

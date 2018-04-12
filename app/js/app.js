@@ -346,6 +346,131 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3_xiayang',
         templateUrl: 'app/views/information/shows/county_1_3_xiayang.html',
     })
+    .state('app.county-equipment_baifeng', {
+        url: '/county-equipment_baifeng',
+        title: 'county-equipment_baifeng',
+        templateUrl: 'app/views/information/shows/equipment_baifeng.html',
+    })
+    .state('app.county-equipment-detail_baifeng', {
+        url: '/county-equipment-detail_baifeng',
+        title: 'county-equipment-detail_baifeng',
+        templateUrl: 'app/views/information/shows/equipment_detail_baifeng.html',
+    })
+    .state('app.county-equipment_guanzhuang', {
+        url: '/county-equipment_guanzhuang',
+        title: 'county-equipment_guanzhuang',
+        templateUrl: 'app/views/information/shows/equipment_guanzhuang.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang', {
+        url: '/county-equipment-detail_guanzhuang',
+        title: 'county-equipment-detail_guanzhuang',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang2', {
+        url: '/county-equipment-detail_guanzhuang2',
+        title: 'county-equipment-detail_guanzhuang2',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang2.html',
+    })
+    .state('app.county-equipment-detail_guanzhuang3', {
+        url: '/county-equipment-detail_guanzhuang3',
+        title: 'county-equipment-detail_guanzhuang3',
+        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang3.html',
+    })
+    .state('app.county-equipment_siyan', {
+        url: '/county-equipment_siyan',
+        title: 'county-equipment_siyan',
+        templateUrl: 'app/views/information/shows/equipment_siyan.html',
+    })
+    .state('app.county-equipment-detail_siyan', {
+        url: '/county-equipment-detail_siyan',
+        title: 'county-equipment-detail_siyan',
+        templateUrl: 'app/views/information/shows/equipment_detail_siyan.html',
+    })
+    .state('app.county-equipment-detail_siyan2', {
+        url: '/county-equipment-detail_siyan2',
+        title: 'county-equipment-detail_siyan2',
+        templateUrl: 'app/views/information/shows/equipment_detail_siyan2.html',
+    })
+    .state('app.county-equipment_xinfeng', {
+        url: '/county-equipment_xinfeng',
+        title: 'county-equipment_xinfeng',
+        templateUrl: 'app/views/information/shows/equipment_xinfeng.html',
+    })
+    .state('app.county-equipment-detail_xinfeng', {
+        url: '/county-equipment-detail_xinfeng',
+        title: 'county-equipment-detail_xinfeng',
+        templateUrl: 'app/views/information/shows/equipment_detail_xinfeng.html',
+    })
+    .state('app.county-equipment_yangdong', {
+        url: '/county-equipment_yangdong',
+        title: 'county-equipment_yangdong',
+        templateUrl: 'app/views/information/shows/equipment_yangdong.html',
+    })
+    .state('app.county-equipment-detail_yangdong', {
+        url: '/county-equipment-detail_yangdong',
+        title: 'county-equipment-detail_yangdong',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong.html',
+    })
+    .state('app.county-equipment-detail_yangdong2', {
+        url: '/county-equipment-detail_yangdong2',
+        title: 'county-equipment-detail_yangdong2',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong2.html',
+    })
+    .state('app.county-equipment-detail_yangdong3', {
+        url: '/county-equipment-detail_yangdong3',
+        title: 'county-equipment-detail_yangdong3',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong3.html',
+    })
+    .state('app.county-equipment-detail_yangdong4', {
+        url: '/county-equipment-detail_yangdong4',
+        title: 'county-equipment-detail_yangdong4',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong4.html',
+    })
+    .state('app.county-equipment-detail_yangdong5', {
+        url: '/county-equipment-detail_yangdong5',
+        title: 'county-equipment-detail_yangdong5',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong5.html',
+    })
+    .state('app.county-equipment-detail_yangdong6', {
+        url: '/county-equipment-detail_yangdong6',
+        title: 'county-equipment-detail_yangdong6',
+        templateUrl: 'app/views/information/shows/equipment_detail_yangdong6.html',
+    })
+    .state('app.county-equipment_qinshan', {
+        url: '/county-equipment_qinshan',
+        title: 'county-equipment_qinshan',
+        templateUrl: 'app/views/information/shows/equipment_qinshan.html',
+    })
+    .state('app.county-equipment-detail_qinshan', {
+        url: '/county-equipment-detail_qinshan',
+        title: 'county-equipment-detail_qinshan',
+        templateUrl: 'app/views/information/shows/equipment_detail_qinshan.html',
+    })
+    .state('app.county-equipment_shangyang', {
+        url: '/county-equipment_shangyang',
+        title: 'county-equipment_shangyang',
+        templateUrl: 'app/views/information/shows/equipment_shangyang.html',
+    })
+    .state('app.county-equipment-detail_shangyang', {
+        url: '/county-equipment-detail_shangyang',
+        title: 'county-equipment-detail_shangyang',
+        templateUrl: 'app/views/information/shows/equipment_detail_shangyang.html',
+    })
+    .state('app.county-equipment_xiayang', {
+        url: '/county-equipment_xiayang',
+        title: 'county-equipment_xiayang',
+        templateUrl: 'app/views/information/shows/equipment_xiayang.html',
+    })
+    .state('app.county-equipment-detail_xiayang', {
+        url: '/county-equipment-detail_xiayang',
+        title: 'county-equipment-detail_xiayang',
+        templateUrl: 'app/views/information/shows/equipment_detail_xiayang.html',
+    })
+    .state('app.county-equipment-detail_xiayang2', {
+        url: '/county-equipment-detail_xiayang2',
+        title: 'county-equipment-detail_xiayang2',
+        templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
+    })
     
     
     
@@ -818,17 +943,6 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           ]
         }
       ]
-    }, {
-      label: 'xxxxx县',
-      children: [
-        {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }
-      ]
     }
   ];
   
@@ -991,7 +1105,7 @@ $scope.RadarChart();
 
 
 //dashboard
-App.controller("dashboardController",["$scope","$rootScope","$http",function($scope,$rootScope,$http){
+App.controller("dashboardController",["$scope","$rootScope","$http","$state",function($scope,$rootScope,$http,$state){
 	
 /**=========================================================
  * Module: vmaps,js
@@ -1060,52 +1174,52 @@ map.addOverlay(marker7);
 map.addOverlay(marker8);
 map.addOverlay(marker9);
 
-marker1.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker2.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker3.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker4.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker5.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker6.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker7.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker8.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
-marker9.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker1.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker2.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker3.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker4.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker5.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker6.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_yangdong");});
+marker7.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_xinfeng");});
+marker8.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_xiayang");});
+marker9.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_xiayang");});
 
 
 var point10 = new BMap.Point(122.0048793434,29.8810418310);
 var marker10 = new BMap.Marker(point10);
 marker10.setTitle("北仑区白峰街道司沿村终端330206010205-02-200-D2");
 map.addOverlay(marker10);
-marker10.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker10.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_siyan");});
 
 var point11 = new BMap.Point(121.9814911896,29.8381224756);
 var marker11 = new BMap.Marker(point11);
 marker11.setTitle("北仑区白峰街道勤山村终端330206010210-01-080-D2");
 map.addOverlay(marker11);
-marker11.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker11.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_qinshan");});
 
 var point12 = new BMap.Point(122.0340009952,29.8777580698);
 var marker12 = new BMap.Marker(point12);
 marker12.setTitle("北仑区白峰街道官庄终端330206010202-03-030-D2");
 map.addOverlay(marker12);
-marker12.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker12.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_guanzhuang");});
 
 var point13 = new BMap.Point(122.0512439540,29.8454169926);
 var marker13 = new BMap.Marker(point13);
 marker13.setTitle("北仑区白峰街道官庄终端330206010202-02-025-D2");
 map.addOverlay(marker13);
-marker13.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker13.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_guanzhuang");});
 
 var point14 = new BMap.Point(122.0179009474,29.8783937828);
 var marker14 = new BMap.Marker(point14);
 marker14.setTitle("北仑区白峰街道官庄终端330206010202-01-020-D2");
 map.addOverlay(marker14);
-marker14.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker14.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_guanzhuang");});
 
 var point15 = new BMap.Point(121.9814911896,29.8392335856);
 var marker15 = new BMap.Marker(point15);
 marker15.setTitle("北仑区白峰街道上阳村终端330206010208-01-046-D2");
 map.addOverlay(marker15);
-marker15.addEventListener("click", function showInfo(){ window.open("http://www.baidu.com");});
+marker15.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_shangyang");});
 
 
 	
@@ -1477,20 +1591,74 @@ $scope.my_tree_handler = function(branch) {
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = "APPLE! : " + branch.label;
-    return $scope.output;
+    $scope.output = branch.data.description;
+	$state.go($scope.output);
   };
 
   var treedata_avm = [
     {
-      label: 'xxxxx县',
+      label: '北仑区',
+      data: {
+            description: "app.equipment.equipment_1"
+          },
+          onSelect: apple_selected,
       children: [
         {
-          label: 'xxxx镇',
+          label: '白峰街道',
           data: {
-            description: "man's best friend"
+            description: "app.equipment.equipment_3"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected,
+          children: [
+          {label:'白峰村',
+          data: {
+            description: "app.county-equipment_baifeng"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'官庄村',
+          data: {
+            description: "app.county-equipment_guanzhuang"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'司岩村',
+          data: {
+            description: "app.county-equipment_siyan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'新峰村',
+          data: {
+            description: "app.county-equipment_xinfeng"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'阳东村',
+          data: {
+            description: "app.county-equipment_yangdong"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'勤山村',
+          data: {
+            description: "app.county-equipment_qinshan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'上阳村',
+          data: {
+            description: "app.county-equipment_shangyang"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'下阳村',
+          data: {
+            description: "app.county-equipment_xiayang"
+          },
+          onSelect: apple_selected,
+         }
+         ]
         }, {
           label: 'xxxx镇',
           data: {
@@ -1511,11 +1679,11 @@ $scope.my_tree_handler = function(branch) {
     }, {
       label: 'xxxxx县',
       data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        definition: "",
         data_can_contain_anything: true
       },
       onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
+        $scope.output = "" + branch.data.definition;
         return $scope.output;
       },
       children: [
@@ -1536,17 +1704,6 @@ $scope.my_tree_handler = function(branch) {
               onSelect: apple_selected
             }
           ]
-        }
-      ]
-    }, {
-      label: 'xxxxx县',
-      children: [
-        {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
         }
       ]
     }

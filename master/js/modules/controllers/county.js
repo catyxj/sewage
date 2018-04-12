@@ -131,17 +131,6 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           ]
         }
       ]
-    }, {
-      label: 'xxxxx县',
-      children: [
-        {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }
-      ]
     }
   ];
   

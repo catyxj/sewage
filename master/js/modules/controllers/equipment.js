@@ -19,20 +19,74 @@ $scope.my_tree_handler = function(branch) {
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = "APPLE! : " + branch.label;
-    return $scope.output;
+    $scope.output = branch.data.description;
+	$state.go($scope.output);
   };
 
   var treedata_avm = [
     {
-      label: 'xxxxx县',
+      label: '北仑区',
+      data: {
+            description: "app.equipment.equipment_1"
+          },
+          onSelect: apple_selected,
       children: [
         {
-          label: 'xxxx镇',
+          label: '白峰街道',
           data: {
-            description: "man's best friend"
+            description: "app.equipment.equipment_3"
           },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          onSelect: apple_selected,
+          children: [
+          {label:'白峰村',
+          data: {
+            description: "app.county-equipment_baifeng"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'官庄村',
+          data: {
+            description: "app.county-equipment_guanzhuang"
+          },
+          onSelect: apple_selected,
+          },
+          {label:'司岩村',
+          data: {
+            description: "app.county-equipment_siyan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'新峰村',
+          data: {
+            description: "app.county-equipment_xinfeng"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'阳东村',
+          data: {
+            description: "app.county-equipment_yangdong"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'勤山村',
+          data: {
+            description: "app.county-equipment_qinshan"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'上阳村',
+          data: {
+            description: "app.county-equipment_shangyang"
+          },
+          onSelect: apple_selected,
+         },
+         {label:'下阳村',
+          data: {
+            description: "app.county-equipment_xiayang"
+          },
+          onSelect: apple_selected,
+         }
+         ]
         }, {
           label: 'xxxx镇',
           data: {
@@ -53,11 +107,11 @@ $scope.my_tree_handler = function(branch) {
     }, {
       label: 'xxxxx县',
       data: {
-        definition: "A plant or part of a plant used as food, typically as accompaniment to meat or fish, such as a cabbage, potato, carrot, or bean.",
+        definition: "",
         data_can_contain_anything: true
       },
       onSelect: function(branch) {
-        $scope.output = "Vegetable: " + branch.data.definition;
+        $scope.output = "" + branch.data.definition;
         return $scope.output;
       },
       children: [
@@ -78,17 +132,6 @@ $scope.my_tree_handler = function(branch) {
               onSelect: apple_selected
             }
           ]
-        }
-      ]
-    }, {
-      label: 'xxxxx县',
-      children: [
-        {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
         }
       ]
     }
