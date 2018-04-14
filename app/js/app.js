@@ -1846,13 +1846,13 @@ $scope.my_tree_handler = function(branch) {
 ];*/
 
 $scope.chartdata2 = [
-      { y: "xxx村", a: 80, b: 90 },
-      { y: "xxx村", a: 75,  b: 65 },
-      { y: "xx村", a: 50,  b: 40 },
-      { y: "xxx村", a: 75,  b: 65 },
-      { y: "xxx村", a: 50,  b: 40 },
-      { y: "xx村", a: 75,  b: 65 },
-      { y: "xxx村", a: 100, b: 90 }
+      { y: "白峰村", a: 80, b: 90 },
+      { y: "官庄村", a: 75,  b: 65 },
+      { y: "司沿村", a: 50,  b: 40 },
+      { y: "新峰村", a: 75,  b: 65 },
+      { y: "阳东村", a: 50,  b: 40 },
+      { y: "勤山村", a: 75,  b: 65 },
+      { y: "上阳村", a: 100, b: 90 }
   ];
 
 
@@ -1980,7 +1980,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 		},    
 		colors:["#31C0BE"],
 		xAxis: {
-	        categories: ['xx镇', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
+	        categories: ['白峰街道', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
 	    },
 	    yAxis: {
 	        title: {
@@ -2120,7 +2120,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
 		},    
 		colors:["#31C0BE"],
 		xAxis: {
-	        categories: ['xx村', 'xxx村', 'xx村', 'xx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']
+	        categories: ['白峰村', '官庄村', '司沿村', '新峰村', '阳东村', '勤山村', '上阳村', '下阳村']
 	    },
 	    yAxis: {
 	        title: {
@@ -2208,17 +2208,18 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
             type: 'pie',
             name: '设备分布情况',
             data: [
-                ['xx镇',   25.0],
-                ['xxx镇',       26.8],
+                ['白峰村',   25.0],
+                ['官庄村',       26.8],
                 {
-                    name: 'x镇',
+                    name: '司沿村',
                     y: 12.8,
                     sliced: true,
                     selected: true
                 },
-                ['xxxx镇',    8.5],
-                ['xxx镇',     6.2],
-                ['xxx镇',   0.7]
+                ['新峰村',    8.5],
+                ['阳东村',     6.2],
+                ['勤山村',   17],
+                ['上阳村',   13]
             ]
         }]
         };
