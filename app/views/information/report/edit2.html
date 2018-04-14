@@ -1,7 +1,7 @@
 <h3>
 	报表信息
 </h3>
-<div class="report">
+<div class="report" ng-controller="reportEditCtrl">
    <div class="row">
       <div class="col-md-12">
       	<form action="#" validate-form="" novalidate="" class="form-horizontal">
@@ -10,7 +10,7 @@
             
             <div class="panel-body">
                <h4>巡检表单</h4>
-               <fieldset>
+               <!--<fieldset>
                   <div class="form-group">
                      <label class="col-sm-2 control-label">设备状态</label>
                      <div class="col-sm-6">
@@ -20,15 +20,70 @@
                         故障设备当前状态：1、已修复 2、报修
                      </div>
                   </div>
+               </fieldset>-->
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">巡检单号</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.id" name="email" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--对应设备发生故障编号-->
+                     </div>
+                  </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">故障编号</label>
+                     <label class="col-sm-2 control-label">巡检名称</label>
                      <div class="col-sm-6">
-                        <input type="text" name="email" class="form-control" />
+                        <input type="text" ng-model="data.name" name="email" class="form-control" />
                      </div>
                      <div class="col-sm-4">
-                        对应设备发生故障编号
+                        <!--对应设备发生故障编号-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">巡检人</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.inspector" name="number" data-parsley-type="number" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">巡检时间</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.date" name="number" data-parsley-type="number" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">巡检卡号</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.cardnum" name="number" data-parsley-type="number" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">站点编号</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.siteNum" name="integer" data-parsley-type="integer" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点编码-->
                      </div>
                   </div>
                </fieldset>
@@ -36,77 +91,56 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">站点名称</label>
                      <div class="col-sm-6">
-                        <input type="text" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.siteName" name="number" data-parsley-type="number" class="form-control" />
                      </div>
                      <div class="col-sm-4">
-                        发生故障设备所属站点名称
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>              
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">区域编号</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.areaCode" name="digits" data-parsley-type="digits" class="form-control" />
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障的设备名称-->
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">站点编码</label>
+                     <label class="col-sm-2 control-label">所属区域</label>
                      <div class="col-sm-6">
-                        <input type="text" name="integer" data-parsley-type="integer" class="form-control" />
+                        <input type="text" ng-model="data.area" name="alphanum" data-parsley-type="alphanum" class="form-control" />
                      </div>
                      <div class="col-sm-4">
-                        发生故障设备所属站点编码
+                        <!--发现设备发生故障日期-->
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">故障设备</label>
+                     <label class="col-sm-2 control-label">评分</label>
                      <div class="col-sm-6">
-                        <input type="text" name="digits" data-parsley-type="digits" class="form-control" />
+                        <input type="text" ng-model="data.score" name="url" data-parsley-type="url" class="form-control" />
                      </div>
                      <div class="col-sm-4">
-                        发生故障的设备名称
+                        <!--故障设备相关负责人名称-->
                      </div>
                   </div>
                </fieldset>
-               <fieldset>
-                  <div class="form-group">
-                     <label class="col-sm-2 control-label">故障日期</label>
-                     <div class="col-sm-6">
-                        <input type="text" name="alphanum" data-parsley-type="alphanum" class="form-control" />
-                     </div>
-                     <div class="col-sm-4">
-                        发现设备发生故障日期
-                     </div>
-                  </div>
-               </fieldset>
-               <fieldset>
-                  <div class="form-group">
-                     <label class="col-sm-2 control-label">登记人</label>
-                     <div class="col-sm-6">
-                        <input type="text" name="url" data-parsley-type="url" class="form-control" />
-                     </div>
-                     <div class="col-sm-4">
-                        故障设备相关负责人名称
-                     </div>
-                  </div>
-               </fieldset>
-               <fieldset>
-                  <div class="form-group">
-                     <label class="col-sm-2 control-label">费用</label>
-                     <div class="col-sm-6">
-                        <input type="text" name="minlength" data-parsley-minlength="6" class="form-control" />
-                     </div>
-                     <div class="col-sm-4">
-                        故障修复相关费用金额数量
-                     </div>
-                  </div>
-               </fieldset>
+            
 
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">备注</label>
+                     <label class="col-sm-2 control-label">巡检内容</label>
                      <div class="col-sm-6">
-                        <input type="text" name="minlength" data-parsley-minlength="6" class="form-control" />
+                        <input type="text" ng-model="data.state" name="minlength" data-parsley-minlength="6" class="form-control" />
                      </div>
                      <div class="col-sm-4">
-                        故障详情描述
+                        <!--巡检详情描述-->
                      </div>
                   </div>
                </fieldset>

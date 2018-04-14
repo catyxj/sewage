@@ -207,7 +207,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/cash3.html',
     })
     
-    
+    //展示
+    .state('app.beneficiary2_beilun', {
+        url: '/beneficiary2_beilun',
+        title: 'beneficiary2_beilun',
+        templateUrl: 'app/views/tables/shows/Beneficiary2_beilun.html'
+    })
+    .state('app.beneficiary3_baifeng', {
+        url: '/beneficiary3_baifeng',
+        title: 'beneficiary3_baifeng',
+        templateUrl: 'app/views/tables/shows/Beneficiary3_baifeng.html'
+    })
     
     
     
@@ -471,8 +481,57 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-equipment-detail_xiayang2',
         templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
     })
-    
-    
+    //工作人员
+    .state('app.county-worker_beilun', {
+        url: '/county-worker_beilun',
+        title: 'county-worker_beilun',
+        templateUrl: 'app/views/information/shows/workers/worker_beilun.html',
+    })
+    .state('app.county-worker2_baifeng', {
+        url: '/county-worker2_baifeng',
+        title: 'county-worker2_baifeng',
+        templateUrl: 'app/views/information/shows/workers/worker2_baifeng.html',
+    })
+    .state('app.county-worker3_baifeng', {
+        url: '/county-worker3_baifeng',
+        title: 'county-worker3_baifeng',
+        templateUrl: 'app/views/information/shows/workers/worker3_baifeng.html',
+    })
+    .state('app.county-worker3_guanzhuang', {
+        url: '/county-worker3_guanzhuang',
+        title: 'county-worker3_guanzhuang',
+        templateUrl: 'app/views/information/shows/workers/worker3_guanzhuang.html',
+    })
+    .state('app.county-worker3_qinshan', {
+        url: '/county-worker3_qinshan',
+        title: 'county-worker3_qinshan',
+        templateUrl: 'app/views/information/shows/workers/worker3_qinshan.html',
+    })
+    .state('app.county-worker3_siyan', {
+        url: '/county-worker3_siyan',
+        title: 'county-worker3_siyan',
+        templateUrl: 'app/views/information/shows/workers/worker3_siyan.html',
+    })
+    .state('app.county-worker3_xinfeng', {
+        url: '/county-worker3_xinfeng',
+        title: 'county-worker3_xinfeng',
+        templateUrl: 'app/views/information/shows/workers/worker3_xinfeng.html',
+    })
+    .state('app.county-worker3_yangdong', {
+        url: '/county-worker3_yangdong',
+        title: 'county-worker3_yangdong',
+        templateUrl: 'app/views/information/shows/workers/worker3_yangdong.html',
+    })
+    .state('app.county-worker3_shangyang', {
+        url: '/county-worker3_shangyang',
+        title: 'county-worker3_shangyang',
+        templateUrl: 'app/views/information/shows/workers/worker3_shangyang.html',
+    })
+    .state('app.county-worker3_xiayang', {
+        url: '/county-worker3_xisyang',
+        title: 'county-worker3_xiayang',
+        templateUrl: 'app/views/information/shows/workers/worker3_xiayang.html',
+    })
     
     
 
@@ -553,6 +612,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report_edit', {
         url: '/report_edit',
         title: 'report_edit',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit.html',
         resolve: helper.resolveFor('parsley')
     })
@@ -584,30 +644,35 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report_edit2', {
         url: '/report_edit2',
         title: 'report_edit2',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
         resolve: helper.resolveFor('parsley')
     })
     .state('app.report_edit3', {
         url: '/report_edit3',
         title: 'report_edit3',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit3.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit4', {
         url: '/report_edit4',
         title: 'report_edit4',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit4.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit5', {
         url: '/report_edit5',
         title: 'report_edit5',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit5.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit6', {
         url: '/report_edit6',
         title: 'report_edit6',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
         resolve: helper.resolveFor('parsley')
     })
@@ -803,7 +868,76 @@ App
 ;
 
 App.controller("beneficiaryCtrl",["$scope",function($scope){
-	$scope.val = 80;
+	$scope.val = 88;
+	
+	$scope.benefitBaifeng = [
+		{
+			name:"白峰村",
+			benefited:540,
+			benefit:590,
+			update:"2018-03",
+					
+		},
+		{
+			name:"官庄村",
+			benefited:217,
+			benefit:250,
+			update:"2018-03",
+					
+		},
+		{
+			name:"勤山村",
+			benefited:180,
+			benefit:210,
+			update:"2018-03",
+					
+		},
+		{
+			name:"上阳村",
+			benefited:175,
+			benefit:193,
+			update:"2018-03",
+					
+		},
+		{
+			name:"神马村",
+			benefited:50,
+			benefit:60,
+			update:"2018-03",
+					
+		},
+		{
+			name:"司沿村",
+			benefited:205,
+			benefit:226,
+			update:"2018-03",
+					
+		},
+		{
+			name:"下阳村",
+			benefited:470,
+			benefit:520,
+			update:"2018-03",
+					
+		},
+		{
+			name:"新峰村",
+			benefited:204,
+			benefit:235,
+			update:"2018-03",
+					
+		},
+		{
+			name:"阳东村",
+			benefited:209,
+			benefit:270,
+			update:"2018-03",
+					
+		}
+	]
+	
+	
+	
 }])
 
 App.controller("cashCtrl",["$scope",function($scope){
@@ -859,7 +993,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           },
           onSelect: apple_selected,
           },
-          {label:'司岩村',
+          {label:'司沿村',
           data: {
             description: "app.county.county_1_3_siyan"
           },
@@ -896,25 +1030,23 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           onSelect: apple_selected,
          }
          ]
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "Felis catus"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "hungry, hungry"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }
+       },
+       {
+          label: '梅山街道',
+          children: ['梅东', '碑塔', '梅中']          
+       },
+       {
+          label: '春晓街道',
+           children: ['昆亭', '三山', '慈岙']         
+       },
+       {
+          label: '新碶街道',
+           children: ['大路', '星阳', '高潮']         
+       }
+       
       ]
     }, {
-      label: 'xxxxx县',
+      label: '镇海区',
       data: {
         definition: "",
         data_can_contain_anything: true
@@ -925,22 +1057,8 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
       },
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '蛟川街道',
+          children: ['清水浦', '迎周', '俞范']
         }
       ]
     }
@@ -1622,7 +1740,7 @@ $scope.my_tree_handler = function(branch) {
           },
           onSelect: apple_selected,
           },
-          {label:'司岩村',
+          {label:'司沿村',
           data: {
             description: "app.county-equipment_siyan"
           },
@@ -1659,25 +1777,31 @@ $scope.my_tree_handler = function(branch) {
           onSelect: apple_selected,
          }
          ]
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "Felis catus"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "hungry, hungry"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, 
+        {
+          label: '梅山街道',
+          children: ['梅东', '碑塔', '梅中']          
+       },
+       {
+          label: '春晓街道',
+           children: ['昆亭', '三山', '慈岙']         
+       },
+       {
+          label: '新碶街道',
+           children: ['大路', '星阳', '高潮']         
+       },
+       {
+          label: '霞浦街道',
+           children: ['河西', '霞南', '霞西']         
+       },
+       {
+          label: '小港街道',
+           children: ['红联']         
         }
       ]
-    }, {
-      label: 'xxxxx县',
+    }, 
+    {
+      label: '镇海区',
       data: {
         definition: "",
         data_can_contain_anything: true
@@ -1688,22 +1812,10 @@ $scope.my_tree_handler = function(branch) {
       },
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '蛟川街道',
+          children: ['清水浦', '迎周', '俞范']
         }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '骆驼街道'          
         }
       ]
     }
@@ -1958,17 +2070,22 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
             type: 'pie',
             name: '设备分布情况',
             data: [
-                ['xx镇',   25.0],
-                ['xxx镇',       26.8],
+                ['溪口镇',   38],
+                ['尚田镇',   29],
                 {
-                    name: 'x镇',
-                    y: 12.8,
+                    name: '大堰镇',
+                    y: 30,
                     sliced: true,
                     selected: true
                 },
-                ['xxxx镇',    8.5],
-                ['xxx镇',     6.2],
-                ['xxx镇',   0.7]
+                ['江口街道',   20],
+                ['锦屏街道',     3],
+                ['岳林街道',   4],
+                ['莼湖镇',   29],
+                ['西坞街道',   17],
+                ['萧王庙街道',   11],
+                ['松岙镇',   4],
+                ['裘村镇',   11]
             ]
         }]
         };
@@ -2192,7 +2309,7 @@ App.controller("installController",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
+                categories: ['北仑区', '镇海区', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -2252,7 +2369,7 @@ App.controller("installController2",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
+                categories: ['白峰街道', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -2285,10 +2402,10 @@ App.controller("installController2",['$scope',function($scope){
 	        },
             series: [{                              // 数据列
                 name: '未安装',                        // 数据列名
-                data: [1, 1, 4, 2, 3, 4]                     // 数据
+                data: [304, 300, 222, 211, 500, 422]                     // 数据
             }, {
                 name: '已安装',
-                data: [5, 7, 3 , 5, 4, 3]
+                data: [2250, 1700, 2118 , 1500, 2424, 1344]
             }]
         };
         // 图表初始化函数
@@ -2354,6 +2471,29 @@ App.controller("installController3",['$scope',function($scope){
         // 图表初始化函数
         var chart = Highcharts.chart('install', options);
 
+ 
+ 		$scope.install3 = [
+ 			{
+ 				name:"白峰村",
+ 				num1:131,
+ 				num2:210
+ 			},
+ 			{
+ 				name:"官庄村",
+ 				num1:217,
+ 				num2:250
+ 			},
+ 			{
+ 				name:"勤山村",
+ 				num1:180,
+ 				num2:210
+ 			},
+ 			{
+ 				name:"上阳村",
+ 				num1:180,
+ 				num2:210
+ 			}
+ 		]
  
 }])
 
@@ -2605,39 +2745,54 @@ App.controller('reportController', ['$scope', '$http','$state',
   $scope.my_data = treedata_avm;
 
   
+
+
+  // Ajax 
+  $scope.table1 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.malfunctions = res.data;
+	  	$scope.totalItems = $scope.malfunctions.length;
+	  })
+  };
+  
+  $scope.table2 = function(){
+  	$http.get("server/inspection.json").then(function(res){
+	  	$scope.inspection = res.data;
+	  	$scope.totalItems = $scope.inspection.length;
+	  })
+  };
+  
+  $scope.table3 = function(){
+  	$http.get("server/laboratory.json").then(function(res){
+	  	$scope.laboratory = res.data;
+	  	$scope.totalItems = $scope.laboratory.length;
+	  })
+  };
+  
+  $scope.table6 = function(){
+  	$http.get("server/equipment.json").then(function(res){
+	  	$scope.equipment = res.data;
+	  	$scope.totalItems = $scope.equipment.length;
+	  })
+  };
+  
+  
+  
   
 
-
-
-
-
-
-
-
-
-  // Ajax
-//$http.get("server/datatable.json").then(function(res){
-//	$scope.persons = res.data;
-//})
+$scope.currentPage = 1;
+$scope.itemsPerPage = 10;
+$scope.selectPage = function(page){
+	$scope.currentPage = page;
+}
 
   // Changing data
-
-  $scope.malfunctions = [{
-      id: "ECW_109321SD_122",
-      name: "流量计变压器损坏",
-      equip: "NSECO193流量计",
-      date:"2018-03-25",
-      state:"未解决"
-    }
-  ];
-
-
-$scope.person2Add = _buildPerson2Add(1);
+/*$scope.person2Add = _buildPerson2Add(1);
 $scope.addPerson = addPerson;
-  $scope.modifyPerson = modifyPerson;
-  $scope.removePerson = removePerson;
+  $scope.modifyPerson = modifyPerson;*/
+//$scope.removePerson = removePerson;
 
-  function _buildPerson2Add(id) {
+  /*function _buildPerson2Add(id) {
       return {
           id: id,
           firstName: 'Foo' + id,
@@ -2651,22 +2806,27 @@ $scope.addPerson = addPerson;
   function modifyPerson(index) {
       $scope.malfunctions.splice(index, 1, angular.copy($scope.person2Add));
       $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
-  }
-  function removePerson(index) {
-      $scope.malfunctions.splice(index, 1);
-  }
+  }*/
+//function removePerson(index) {
+//    $scope.malfunctions.splice(index, 1);
+//}
 
 }]);
 
 
 
-
+App.controller("reportEditCtrl",["$scope","$stateParams",function($scope,$stateParams){
+//	console.log($stateParams.data);
+	$scope.data = $stateParams.data;
+	
+    
+}])
 
 
 App.controller("PaginationCtrl",["$scope",function($scope){
 //	$scope.maxSize = 5;
 //  $scope.totalItems = 175;
-    $scope.currentPage = 1;
+    
 }])
 /**=========================================================
  * Module: sidebar-menu.js
@@ -3170,7 +3330,7 @@ App.controller("waterQualityController2",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）'],
+		        labels: ['西坞街道','溪口镇','江口街道','尚田镇','莼湖镇','萧王庙街道','大堰镇','裘村镇'],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
@@ -3251,6 +3411,308 @@ App.controller("waterQualityController3",["$scope",function($scope){
 	$scope.lineChart();
 	
 }]);
+
+App.controller("countyWorkerCtrl",["$scope",function($scope){
+	
+	
+	/*$scope.cunNames=[
+		"白峰村",
+		"官庄村",
+		"司岩村",
+		"新峰村",
+		"阳东村",
+		"勤山村",
+		"上阳村",
+		"下阳村",
+		"门浦村"
+	]*/
+	
+	
+
+	$scope.workers = [
+		{
+			name:"陈冠俊",
+			work:"镇书记",
+			mobile:"",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"",
+			remark:""
+		},
+		{
+			name:"汪越海",
+			work:"镇长",
+			mobile:"",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"",
+			remark:""
+		},
+		{
+			name:"沃波涛",
+			work:"分管负责人",
+			mobile:"13780078100",
+			phone:"86787801",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"",
+			remark:""
+		},
+		{
+			name:"王志群",
+			work:"部门负责人",
+			mobile:"13819874987",
+			phone:"86787922",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"",
+			remark:""
+		},
+		{
+			name:"汪可韩",
+			work:"部门联系人",
+			mobile:"15058299515",
+			phone:"86787922",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"",
+			remark:""
+		},
+		{
+			name:"张建国",
+			work:"党支部书记、分管负责人",
+			mobile:"13858280218",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"门浦村",
+			remark:""
+		},
+		{
+			name:"胡世红",
+			work:"村委会主任",
+			mobile:"13567910333",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"门浦村",
+			remark:""
+		},
+		{
+			name:"周建成",
+			work:"党支部书记、分管负责人",
+			mobile:"13606842656",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"白峰村",
+			remark:""
+		},
+		{
+			name:"乐建明",
+			work:"村委会主任",
+			mobile:"13566331298",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"白峰村",
+			remark:""
+		},
+		{
+			name:"陈忠",
+			work:"党支部书记、分管负责人",
+			mobile:"13606843205",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"官庄村",
+			remark:""
+		},
+		{
+			name:"马汉东",
+			work:"村委会主任",
+			mobile:"13566517627",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"官庄村",
+			remark:""
+		},
+		{
+			name:"林纪伦",
+			work:"党支部书记、分管负责人",
+			mobile:"13685716090",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"勤山村",
+			remark:""
+		},
+		{
+			name:"胡彩祥",
+			work:"村委会主任",
+			mobile:"15968965198",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"勤山村",
+			remark:""
+		},
+		{
+			name:"王蛟龙",
+			work:"党支部书记、分管负责人",
+			mobile:"13486626223",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"上阳村",
+			remark:""
+		},
+		{
+			name:"王信平",
+			work:"村委会主任",
+			mobile:"15867308000",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"上阳村",
+			remark:""
+		},
+		{
+			name:"周祖青",
+			work:"党支部书记、分管负责人",
+			mobile:"13906692242",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"神马村",
+			remark:""
+		},
+		{
+			name:"曹静飞",
+			work:"村委会主任",
+			mobile:"13858361185",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"神马村",
+			remark:""
+		},
+		{
+			name:"金月芳",
+			work:"党支部书记、分管负责人",
+			mobile:"13906843419",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"司沿村",
+			remark:""
+		},
+		{
+			name:"郑伟",
+			work:"村委会主任",
+			mobile:"13806631586",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"司沿村",
+			remark:""
+		},
+		{
+			name:"方国久",
+			work:"党支部书记、分管负责人",
+			mobile:"13606841783",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"下阳村",
+			remark:""
+		},
+		{
+			name:"王泰君",
+			work:"村委会主任",
+			mobile:"13806631586",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"下阳村",
+			remark:""
+		},
+		{
+			name:"贝伟良",
+			work:"党支部书记、分管负责人",
+			mobile:"13906691340",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"小门村",
+			remark:""
+		},
+		{
+			name:"石夫藏",
+			work:"村委会主任",
+			mobile:"13906842303",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"小门村",
+			remark:""
+		},
+		{
+			name:"周波",
+			work:"党支部书记、分管负责人",
+			mobile:"13515849122",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"新峰村",
+			remark:""
+		},
+		{
+			name:"葛伟军",
+			work:"村委会主任",
+			mobile:"13175166055",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"新峰村",
+			remark:""
+		},
+		{
+			name:"王永红",
+			work:"党支部书记、分管负责人",
+			mobile:"13515848036",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"阳东村",
+			remark:""
+		},
+		{
+			name:"舒红",
+			work:"村委会主任",
+			mobile:"13306600909",
+			phone:"",
+			qu:"宁波市北仑区",
+			jiedao:"白峰街道",
+			cun:"阳东村",
+			remark:""
+		}
+		
+		
+	];
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}])
 
 /**=========================================================
  * Module: chart.js

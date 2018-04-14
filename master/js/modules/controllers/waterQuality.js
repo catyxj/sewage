@@ -56,7 +56,7 @@ App.controller("waterQualityController2",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）','xxx乡镇（街道）'],
+		        labels: ['西坞街道','溪口镇','江口街道','尚田镇','莼湖镇','萧王庙街道','大堰镇','裘村镇'],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',

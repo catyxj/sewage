@@ -1,7 +1,7 @@
 <h3>
 	报表信息
 </h3>
-<div class="report">
+<div class="report" ng-controller="reportEditCtrl">
    <div class="row">
       <div class="col-md-12">
       	<form action="#" validate-form="" novalidate="" class="form-horizontal">
@@ -14,7 +14,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">设备状态</label>
                      <div class="col-sm-6">
-                        <input type="text" name="required" required="required" class="form-control" />
+                        <input type="text" ng-model="data.state" name="required" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-4">
                         故障设备当前状态：1、已修复 2、报修
@@ -25,7 +25,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">故障编号</label>
                      <div class="col-sm-6">
-                        <input type="text" name="email" class="form-control" />
+                        <input type="text" ng-model="data.id" name="email" class="form-control" />
                      </div>
                      <div class="col-sm-4">
                         对应设备发生故障编号
@@ -58,7 +58,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">故障设备</label>
                      <div class="col-sm-6">
-                        <input type="text" name="digits" data-parsley-type="digits" class="form-control" />
+                        <input type="text" ng-model="data.equip" name="digits" data-parsley-type="digits" class="form-control" />
                      </div>
                      <div class="col-sm-4">
                         发生故障的设备名称
@@ -69,7 +69,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">故障日期</label>
                      <div class="col-sm-6">
-                        <input type="text" name="alphanum" data-parsley-type="alphanum" class="form-control" />
+                        <input type="text" ng-model="data.date" name="alphanum" data-parsley-type="alphanum" class="form-control" />
                      </div>
                      <div class="col-sm-4">
                         发现设备发生故障日期
@@ -103,7 +103,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">备注</label>
                      <div class="col-sm-6">
-                        <input type="text" name="minlength" data-parsley-minlength="6" class="form-control" />
+                        <input type="text" ng-model="data.name" name="minlength" data-parsley-minlength="6" class="form-control" />
                      </div>
                      <div class="col-sm-4">
                         故障详情描述

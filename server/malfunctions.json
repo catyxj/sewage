@@ -1,0 +1,29 @@
+[
+	{
+      "id": "GZ53731",
+      "name": "故障：瞬时液位",
+      "equip": "",
+      "date":"2017-07-19",
+      "state":"未解决",
+      "siteNum":"",
+      "siteName":""
+   },
+   {
+      "id": "ECW_109321SD_122",
+      "name": "流量计变压器损坏",
+      "equip": "NSECO193流量计",
+      "date":"2018-03-25",
+      "state":"未解决",
+      "siteNum":"",
+      "siteName":""
+   },
+   {
+      "id": "GZ53711",
+      "name": "水碓头_瞬时液位",
+      "equip": "",
+      "date":"2017-07-04",
+      "state":"未解决",
+      "siteNum":"",
+      "siteName":""
+   }
+]

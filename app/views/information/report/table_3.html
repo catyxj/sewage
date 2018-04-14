@@ -3,7 +3,7 @@
    <div class="panel-heading">
      	化验报表
    </div>
-   <div class="panel-body">
+   <div class="panel-body" ng-init="table3();">
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
@@ -18,12 +18,12 @@
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
-	                Add
+	                添加
 	            </a>
 	        </div>
 	        <div class="pull-right mr-lg">
 	        	搜索:
-	        	<input type="text" class="form-control" style="width: 150px; display: inline-block;"/>
+	        	<input type="text" ng-model="search" class="form-control" style="width: 150px; display: inline-block;"/>
 	        </div>
    		</div>
     	<div>     	
@@ -32,29 +32,57 @@
             	
                <thead>                 
                   <tr>
-                     <th>故障编码</th>
-                     <th>故障名称</th>
-                     <th>故障设备</th>
+                     <th>化验单号</th>
+                     <th>取样日期</th>
+                     <th>化验日期</th>
                      <th>
-                     	故障日期
+                     	化验人
+                     </th>
+                     <!--<th>
+                     	站点编号
+                     </th>-->
+                     <!--<th>
+                     	站点名称
+                     </th>-->
+                     <th>
+                     	CODcr化学耗氧量
                      </th>
                      <th>
-                     	状态
+                     	PH酸碱度
                      </th>
+                     <th>
+                     	SS悬浮物
+                     </th>
+                     <th>
+                     	NH₃N氨氮
+                     </th>
+                     <th>
+                     	TP总磷
+                     </th>
+                     <!--<th>
+                     	备注
+                     </th>-->
                      <th>
                      	操作
                      </th>
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="malfunction in malfunctions">
-                     <td>{{ malfunction.id }}</td>
-                     <td>{{ malfunction.name }}</td>
-                     <td>{{ malfunction.equip }}</td>
-                     <td>{{ malfunction.date }}</td>
-                     <td>{{ malfunction.state }}</td>
+                  <tr ng-repeat="data in laboratory|filter:search">
+                     <td>{{ data.id }}</td>
+                     <td>{{ data.samplingDate }}</td>
+                     <td>{{ data.laboratoryDate }}</td>
+                     <td>{{ data.laboratoryPerson}}</td>
+                     <!--<td>{{ data.siteNum}}</td>-->
+                     <!--<td>{{ data.siteName }}</td>-->
+                     <td>{{ data.CODcr }}</td>
+                     <td>{{ data.PH }}</td>
+                     <td>{{ data.SS }}</td>
+                     <td>{{ data.NHN }}</td>
+                     <td>{{ data.TP }}</td>
+                     <!--<td>{{ data.remark }}</td>-->
                      <td>
-                        <a ui-sref="app.report_edit3" class="btn btn-sm btn-warning">
+                        <a ui-sref="app.report_edit3({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
                         <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
@@ -67,7 +95,7 @@
            
          </form>
          <div ng-controller="PaginationCtrl">
-		         <div uib-pagination total-items="100" ng-model="currentPage" 
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" 
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
 		         	boundary-links="true" boundary-link-numbers="true"
 		         	class="pull-right">

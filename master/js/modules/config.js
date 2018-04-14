@@ -155,7 +155,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/cash3.html',
     })
     
-    
+    //展示
+    .state('app.beneficiary2_beilun', {
+        url: '/beneficiary2_beilun',
+        title: 'beneficiary2_beilun',
+        templateUrl: 'app/views/tables/shows/Beneficiary2_beilun.html'
+    })
+    .state('app.beneficiary3_baifeng', {
+        url: '/beneficiary3_baifeng',
+        title: 'beneficiary3_baifeng',
+        templateUrl: 'app/views/tables/shows/Beneficiary3_baifeng.html'
+    })
     
     
     
@@ -419,8 +429,57 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-equipment-detail_xiayang2',
         templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
     })
-    
-    
+    //工作人员
+    .state('app.county-worker_beilun', {
+        url: '/county-worker_beilun',
+        title: 'county-worker_beilun',
+        templateUrl: 'app/views/information/shows/workers/worker_beilun.html',
+    })
+    .state('app.county-worker2_baifeng', {
+        url: '/county-worker2_baifeng',
+        title: 'county-worker2_baifeng',
+        templateUrl: 'app/views/information/shows/workers/worker2_baifeng.html',
+    })
+    .state('app.county-worker3_baifeng', {
+        url: '/county-worker3_baifeng',
+        title: 'county-worker3_baifeng',
+        templateUrl: 'app/views/information/shows/workers/worker3_baifeng.html',
+    })
+    .state('app.county-worker3_guanzhuang', {
+        url: '/county-worker3_guanzhuang',
+        title: 'county-worker3_guanzhuang',
+        templateUrl: 'app/views/information/shows/workers/worker3_guanzhuang.html',
+    })
+    .state('app.county-worker3_qinshan', {
+        url: '/county-worker3_qinshan',
+        title: 'county-worker3_qinshan',
+        templateUrl: 'app/views/information/shows/workers/worker3_qinshan.html',
+    })
+    .state('app.county-worker3_siyan', {
+        url: '/county-worker3_siyan',
+        title: 'county-worker3_siyan',
+        templateUrl: 'app/views/information/shows/workers/worker3_siyan.html',
+    })
+    .state('app.county-worker3_xinfeng', {
+        url: '/county-worker3_xinfeng',
+        title: 'county-worker3_xinfeng',
+        templateUrl: 'app/views/information/shows/workers/worker3_xinfeng.html',
+    })
+    .state('app.county-worker3_yangdong', {
+        url: '/county-worker3_yangdong',
+        title: 'county-worker3_yangdong',
+        templateUrl: 'app/views/information/shows/workers/worker3_yangdong.html',
+    })
+    .state('app.county-worker3_shangyang', {
+        url: '/county-worker3_shangyang',
+        title: 'county-worker3_shangyang',
+        templateUrl: 'app/views/information/shows/workers/worker3_shangyang.html',
+    })
+    .state('app.county-worker3_xiayang', {
+        url: '/county-worker3_xisyang',
+        title: 'county-worker3_xiayang',
+        templateUrl: 'app/views/information/shows/workers/worker3_xiayang.html',
+    })
     
     
 
@@ -501,6 +560,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report_edit', {
         url: '/report_edit',
         title: 'report_edit',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit.html',
         resolve: helper.resolveFor('parsley')
     })
@@ -532,30 +592,35 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.report_edit2', {
         url: '/report_edit2',
         title: 'report_edit2',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
         resolve: helper.resolveFor('parsley')
     })
     .state('app.report_edit3', {
         url: '/report_edit3',
         title: 'report_edit3',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit3.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit4', {
         url: '/report_edit4',
         title: 'report_edit4',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit4.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit5', {
         url: '/report_edit5',
         title: 'report_edit5',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit5.html',
         resolve: helper.resolveFor('parsley')
     })
 	.state('app.report_edit6', {
         url: '/report_edit6',
         title: 'report_edit6',
+        params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
         resolve: helper.resolveFor('parsley')
     })

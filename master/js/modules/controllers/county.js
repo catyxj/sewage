@@ -47,7 +47,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           },
           onSelect: apple_selected,
           },
-          {label:'司岩村',
+          {label:'司沿村',
           data: {
             description: "app.county.county_1_3_siyan"
           },
@@ -84,25 +84,23 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           onSelect: apple_selected,
          }
          ]
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "Felis catus"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "hungry, hungry"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }
+       },
+       {
+          label: '梅山街道',
+          children: ['梅东', '碑塔', '梅中']          
+       },
+       {
+          label: '春晓街道',
+           children: ['昆亭', '三山', '慈岙']         
+       },
+       {
+          label: '新碶街道',
+           children: ['大路', '星阳', '高潮']         
+       }
+       
       ]
     }, {
-      label: 'xxxxx县',
+      label: '镇海区',
       data: {
         definition: "",
         data_can_contain_anything: true
@@ -113,22 +111,8 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
       },
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '蛟川街道',
+          children: ['清水浦', '迎周', '俞范']
         }
       ]
     }

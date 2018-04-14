@@ -50,7 +50,7 @@ $scope.my_tree_handler = function(branch) {
           },
           onSelect: apple_selected,
           },
-          {label:'司岩村',
+          {label:'司沿村',
           data: {
             description: "app.county-equipment_siyan"
           },
@@ -87,25 +87,31 @@ $scope.my_tree_handler = function(branch) {
           onSelect: apple_selected,
          }
          ]
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "Felis catus"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          data: {
-            description: "hungry, hungry"
-          },
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
-        }, {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+        }, 
+        {
+          label: '梅山街道',
+          children: ['梅东', '碑塔', '梅中']          
+       },
+       {
+          label: '春晓街道',
+           children: ['昆亭', '三山', '慈岙']         
+       },
+       {
+          label: '新碶街道',
+           children: ['大路', '星阳', '高潮']         
+       },
+       {
+          label: '霞浦街道',
+           children: ['河西', '霞南', '霞西']         
+       },
+       {
+          label: '小港街道',
+           children: ['红联']         
         }
       ]
-    }, {
-      label: 'xxxxx县',
+    }, 
+    {
+      label: '镇海区',
       data: {
         definition: "",
         data_can_contain_anything: true
@@ -116,22 +122,10 @@ $scope.my_tree_handler = function(branch) {
       },
       children: [
         {
-          label: 'xxxx镇',
-          children: ['xxxx村', 'xxxx村', 'xxxx村']
+          label: '蛟川街道',
+          children: ['清水浦', '迎周', '俞范']
         }, {
-          label: 'xxxx镇',
-          children: [
-            {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }, {
-              label: 'xxxx村',
-              onSelect: apple_selected
-            }
-          ]
+          label: '骆驼街道'          
         }
       ]
     }
@@ -386,17 +380,22 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
             type: 'pie',
             name: '设备分布情况',
             data: [
-                ['xx镇',   25.0],
-                ['xxx镇',       26.8],
+                ['溪口镇',   38],
+                ['尚田镇',   29],
                 {
-                    name: 'x镇',
-                    y: 12.8,
+                    name: '大堰镇',
+                    y: 30,
                     sliced: true,
                     selected: true
                 },
-                ['xxxx镇',    8.5],
-                ['xxx镇',     6.2],
-                ['xxx镇',   0.7]
+                ['江口街道',   20],
+                ['锦屏街道',     3],
+                ['岳林街道',   4],
+                ['莼湖镇',   29],
+                ['西坞街道',   17],
+                ['萧王庙街道',   11],
+                ['松岙镇',   4],
+                ['裘村镇',   11]
             ]
         }]
         };

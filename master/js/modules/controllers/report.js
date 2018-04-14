@@ -79,39 +79,54 @@ App.controller('reportController', ['$scope', '$http','$state',
   $scope.my_data = treedata_avm;
 
   
+
+
+  // Ajax 
+  $scope.table1 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.malfunctions = res.data;
+	  	$scope.totalItems = $scope.malfunctions.length;
+	  })
+  };
+  
+  $scope.table2 = function(){
+  	$http.get("server/inspection.json").then(function(res){
+	  	$scope.inspection = res.data;
+	  	$scope.totalItems = $scope.inspection.length;
+	  })
+  };
+  
+  $scope.table3 = function(){
+  	$http.get("server/laboratory.json").then(function(res){
+	  	$scope.laboratory = res.data;
+	  	$scope.totalItems = $scope.laboratory.length;
+	  })
+  };
+  
+  $scope.table6 = function(){
+  	$http.get("server/equipment.json").then(function(res){
+	  	$scope.equipment = res.data;
+	  	$scope.totalItems = $scope.equipment.length;
+	  })
+  };
+  
+  
+  
   
 
-
-
-
-
-
-
-
-
-  // Ajax
-//$http.get("server/datatable.json").then(function(res){
-//	$scope.persons = res.data;
-//})
+$scope.currentPage = 1;
+$scope.itemsPerPage = 10;
+$scope.selectPage = function(page){
+	$scope.currentPage = page;
+}
 
   // Changing data
-
-  $scope.malfunctions = [{
-      id: "ECW_109321SD_122",
-      name: "流量计变压器损坏",
-      equip: "NSECO193流量计",
-      date:"2018-03-25",
-      state:"未解决"
-    }
-  ];
-
-
-$scope.person2Add = _buildPerson2Add(1);
+/*$scope.person2Add = _buildPerson2Add(1);
 $scope.addPerson = addPerson;
-  $scope.modifyPerson = modifyPerson;
-  $scope.removePerson = removePerson;
+  $scope.modifyPerson = modifyPerson;*/
+//$scope.removePerson = removePerson;
 
-  function _buildPerson2Add(id) {
+  /*function _buildPerson2Add(id) {
       return {
           id: id,
           firstName: 'Foo' + id,
@@ -125,20 +140,25 @@ $scope.addPerson = addPerson;
   function modifyPerson(index) {
       $scope.malfunctions.splice(index, 1, angular.copy($scope.person2Add));
       $scope.person2Add = _buildPerson2Add($scope.person2Add.id + 1);
-  }
-  function removePerson(index) {
-      $scope.malfunctions.splice(index, 1);
-  }
+  }*/
+//function removePerson(index) {
+//    $scope.malfunctions.splice(index, 1);
+//}
 
 }]);
 
 
 
-
+App.controller("reportEditCtrl",["$scope","$stateParams",function($scope,$stateParams){
+//	console.log($stateParams.data);
+	$scope.data = $stateParams.data;
+	
+    
+}])
 
 
 App.controller("PaginationCtrl",["$scope",function($scope){
 //	$scope.maxSize = 5;
 //  $scope.totalItems = 175;
-    $scope.currentPage = 1;
+    
 }])

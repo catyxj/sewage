@@ -11,7 +11,7 @@ App.controller("installController",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
+                categories: ['北仑区', '镇海区', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -71,7 +71,7 @@ App.controller("installController2",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
+                categories: ['白峰街道', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -104,10 +104,10 @@ App.controller("installController2",['$scope',function($scope){
 	        },
             series: [{                              // 数据列
                 name: '未安装',                        // 数据列名
-                data: [1, 1, 4, 2, 3, 4]                     // 数据
+                data: [304, 300, 222, 211, 500, 422]                     // 数据
             }, {
                 name: '已安装',
-                data: [5, 7, 3 , 5, 4, 3]
+                data: [2250, 1700, 2118 , 1500, 2424, 1344]
             }]
         };
         // 图表初始化函数
@@ -173,6 +173,29 @@ App.controller("installController3",['$scope',function($scope){
         // 图表初始化函数
         var chart = Highcharts.chart('install', options);
 
+ 
+ 		$scope.install3 = [
+ 			{
+ 				name:"白峰村",
+ 				num1:131,
+ 				num2:210
+ 			},
+ 			{
+ 				name:"官庄村",
+ 				num1:217,
+ 				num2:250
+ 			},
+ 			{
+ 				name:"勤山村",
+ 				num1:180,
+ 				num2:210
+ 			},
+ 			{
+ 				name:"上阳村",
+ 				num1:180,
+ 				num2:210
+ 			}
+ 		]
  
 }])
 

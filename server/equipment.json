@@ -1,0 +1,115 @@
+[
+	{  
+      "name": "北仑区白峰街道白峰村终端",
+      "code": "330206010203-01-000-00",
+      "area": "白峰",
+      "capacity": "0",
+      "totalPower":"0",
+      "startDate":"2015/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道官庄终端",
+      "code": "330206010202-01-020-D2",
+      "area": "官庄",
+      "capacity": "20",
+      "totalPower":"7.5",
+      "startDate":"2012/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道官庄终端",
+      "code": "330206010202-02-025-D2",
+      "area": "官庄",
+      "capacity": "25",
+      "totalPower":"7.5",
+      "startDate":"2012/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道官庄终端",
+      "code": "330206010202-03-030-D2",
+      "area": "官庄",
+      "capacity": "30",
+      "totalPower":"7.5",
+      "startDate":"2012/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道司沿村终端",
+      "code": "330206010205-02-200-D2",
+      "area": "司沿",
+      "capacity": "200",
+      "totalPower":"12",
+      "startDate":"2015/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道司沿村管网",
+      "code": "330206010205-01-000-00",
+      "area": "司沿",
+      "capacity": "0",
+      "totalPower":"0",
+      "startDate":"2015/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道新峰村管网",
+      "code": "330206010204-01-000-00",
+      "area": "新峰村",
+      "capacity": "0",
+      "totalPower":"0",
+      "startDate":"2015/11/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道阳东村终端",
+      "code": "330206010209-06-030-D2",
+      "area": "阳东村",
+      "capacity": "30",
+      "totalPower":"1.5",
+      "startDate":"2015/4/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道阳东村终端",
+      "code": "330206010209-05-030-D2",
+      "area": "阳东村",
+      "capacity": "30",
+      "totalPower":"5.2",
+      "startDate":"2013/8/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道阳东村终端",
+      "code": "330206010209-01-040-D2",
+      "area": "阳东村",
+      "capacity": "40",
+      "totalPower":"1.5",
+      "startDate":"2012/11/10",
+      "monitor":"否",
+      "remoteControl":"否"
+  	},
+  	{  
+      "name": "北仑区白峰街道阳东村终端",
+      "code": "330206010209-02-030-D2",
+      "area": "阳东村",
+      "capacity": "30",
+      "totalPower":"1.5",
+      "startDate":"2013/8/20",
+      "monitor":"否",
+      "remoteControl":"否"
+  	}
+ 
+
+   
+]
