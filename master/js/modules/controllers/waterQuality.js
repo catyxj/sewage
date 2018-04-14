@@ -8,7 +8,7 @@ App.controller("waterQualityController",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）'],
+		        labels: ["北仑区","镇海区","鄞州区","江北区","海曙区","奉化区","象山县","宁海县"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
@@ -56,7 +56,7 @@ App.controller("waterQualityController2",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['西坞街道','溪口镇','江口街道','尚田镇','莼湖镇','萧王庙街道','大堰镇','裘村镇'],
+		        labels: ["白峰街道","梅山街道","春晓街道","新碶街道","霞浦街道","小港街道","郭巨街道","柴桥街道"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
@@ -103,7 +103,7 @@ App.controller("waterQualityController3",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村'],
+		        labels: ["白峰村","官庄村","勤山村","阳东村","司沿村","上阳村","下阳村","新峰村"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',

@@ -21,7 +21,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 /*-------百度地图------------*/	
 	var map = new BMap.Map("container");// 创建地图实例  
 
-map.centerAndZoom("宁波", 12);// 初始化地图，设置中心点坐标和地图级别  
+map.centerAndZoom("宁波", 11);// 初始化地图，设置中心点坐标和地图级别  
 map.enableScrollWheelZoom(true);  //开启鼠标滚轮缩放
 map.addControl(new BMap.NavigationControl());//开启左侧标尺工具
 map.addControl(new BMap.MapTypeControl());//右上角地图类型

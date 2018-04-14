@@ -1254,7 +1254,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 /*-------百度地图------------*/	
 	var map = new BMap.Map("container");// 创建地图实例  
 
-map.centerAndZoom("宁波", 12);// 初始化地图，设置中心点坐标和地图级别  
+map.centerAndZoom("宁波", 11);// 初始化地图，设置中心点坐标和地图级别  
 map.enableScrollWheelZoom(true);  //开启鼠标滚轮缩放
 map.addControl(new BMap.NavigationControl());//开启左侧标尺工具
 map.addControl(new BMap.MapTypeControl());//右上角地图类型
@@ -1553,7 +1553,7 @@ $scope.barChart = function(){
 				
 				],
 				labels: [
-					"xx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）","xxx区县（市）"
+					"北仑区","镇海区","鄞州区","江北区","海曙区","奉化区","象山县","宁海县","慈溪市","余姚市"
 				]
 			},
 		    options: {
@@ -1601,7 +1601,7 @@ $scope.barChart = function(){
 				
 				],
 				labels: [
-					"xx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）","xxx乡镇（街道）"
+					"白峰街道","梅山街道","春晓街道","新碶街道","霞浦街道","小港街道","郭巨街道","柴桥街道","大碶街道","大榭街道"
 				]
 			},
 		    options: {
@@ -1643,7 +1643,7 @@ $scope.barChart = function(){
 				
 				],
 				labels: [
-					"xx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村","xxx村"
+					"白峰村","官庄村","勤山村","阳东村","司沿村","上阳村","下阳村","新峰村","神马村","门浦村"
 				]
 			},
 		    options: {
@@ -1855,13 +1855,13 @@ $scope.my_tree_handler = function(branch) {
 ];*/
 
 $scope.chartdata2 = [
-      { y: "白峰村", a: 80, b: 90 },
-      { y: "官庄村", a: 75,  b: 65 },
-      { y: "司沿村", a: 50,  b: 40 },
-      { y: "新峰村", a: 75,  b: 65 },
-      { y: "阳东村", a: 50,  b: 40 },
-      { y: "勤山村", a: 75,  b: 65 },
-      { y: "上阳村", a: 100, b: 90 }
+      { y: "白峰村", a: 80, b: 9 },
+      { y: "官庄村", a: 75,  b: 6 },
+      { y: "司沿村", a: 50,  b: 4 },
+      { y: "新峰村", a: 75,  b: 6 },
+      { y: "阳东村", a: 50,  b: 4 },
+      { y: "勤山村", a: 75,  b: 6 },
+      { y: "上阳村", a: 100, b: 9 }
   ];
 
 
@@ -3307,7 +3307,7 @@ App.controller("waterQualityController",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）','xxx区县（市）'],
+		        labels: ["北仑区","镇海区","鄞州区","江北区","海曙区","奉化区","象山县","宁海县"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
@@ -3355,7 +3355,7 @@ App.controller("waterQualityController2",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['西坞街道','溪口镇','江口街道','尚田镇','莼湖镇','萧王庙街道','大堰镇','裘村镇'],
+		        labels: ["白峰街道","梅山街道","春晓街道","新碶街道","霞浦街道","小港街道","郭巨街道","柴桥街道"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
@@ -3402,7 +3402,7 @@ App.controller("waterQualityController3",["$scope",function($scope){
 		var myChart = new Chart(ctx, {
 		    type: 'line',
 		    data: {
-		        labels: ['xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村','xxx村'],
+		        labels: ["白峰村","官庄村","勤山村","阳东村","司沿村","上阳村","下阳村","新峰村"],
 		        datasets: [
 			        {
 			            label: '实际水质达标率（%）',
