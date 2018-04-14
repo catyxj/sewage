@@ -8,13 +8,13 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$
 
 $scope.my_tree_handler = function(branch) {
 		
-	if(branch.level===1){
+	/*if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
 		$state.go("app.county-equipment");
-	}
+	}*/
 };
 
   // onSelect event handlers
@@ -137,13 +137,13 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "xxx镇", a: 100, b: 90 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xx镇", a: 50,  b: 40 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 50,  b: 40 },
-      { y: "xx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 100, b: 90 }
+      { y: "白峰街道", a: 100, b: 20 },
+      { y: "梅山街道", a: 75,  b: 15 },
+      { y: "春晓街道", a: 50,  b: 4 },
+      { y: "霞浦街道", a: 75,  b: 6 },
+      { y: "新碶街道", a: 50,  b: 4 },
+      { y: "小港街道", a: 75,  b: 15 },
+      { y: "郭巨街道", a: 100, b: 19 }
   ];
 /*$scope.linedata = [
       {y: '2011-2', data: 1000},  
@@ -290,7 +290,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 		},    
 		colors:["#31C0BE"],
 		xAxis: {
-	        categories: ['白峰街道', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
+	        categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道', '郭巨街道', '柴桥街道']
 	    },
 	    yAxis: {
 	        title: {
@@ -302,7 +302,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 	    },
         tooltip: {
             headerFormat: '{point.x}<br>',
-            pointFormat: ' <b>{point.y}</b>',
+            pointFormat: ' <b>{point.y}%</b>',
             style: {                      // 文字内容相关样式
 		        color: "#31C0BE",
 		        fontSize: "12px"
@@ -320,7 +320,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
         series: [{
             name: '设备巡检率',
             data: [
-                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+                24, 20, 29, 29, 32, 30, 38, 40
             ]
         }]
         };
@@ -442,7 +442,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
 	    },
         tooltip: {
             headerFormat: '{point.x}<br>',
-            pointFormat: ' <b>{point.y}</b>',
+            pointFormat: ' <b>{point.y}%</b>',
             style: {                      // 文字内容相关样式
 		        color: "#31C0BE",
 		        fontSize: "12px"
@@ -460,7 +460,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
         series: [{
             name: '设备巡检率',
             data: [
-                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+                24, 14, 21, 29, 32, 30, 38, 40
             ]
         }]
         };

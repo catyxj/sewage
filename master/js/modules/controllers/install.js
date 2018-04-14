@@ -11,7 +11,7 @@ App.controller("installController",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['北仑区', '镇海区', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
+                categories: ['北仑区', '镇海区', '鄞州区', '象山县', '海曙区', '江北区']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -71,7 +71,7 @@ App.controller("installController2",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['白峰街道', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
+                categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -131,7 +131,7 @@ App.controller("installController3",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']   // x 轴分类
+                categories: ['白峰村', '官庄村', '司沿村', '上阳村', '阳东村', '勤山村']   // x 轴分类
             },
             yAxis: {
                 title: {

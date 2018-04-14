@@ -103,6 +103,21 @@ App.controller('reportController', ['$scope', '$http','$state',
 	  })
   };
   
+  $scope.table4 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.adUnit = res.data;
+	  	$scope.totalItems = $scope.adUnit.length;
+	  })
+  };
+  
+  $scope.table5 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.opUnit = res.data;
+	  	$scope.totalItems = $scope.opUnit.length;
+	  })
+  };
+  
+  
   $scope.table6 = function(){
   	$http.get("server/equipment.json").then(function(res){
 	  	$scope.equipment = res.data;

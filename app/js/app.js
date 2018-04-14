@@ -951,13 +951,13 @@ App.controller("cashCtrl",["$scope",function($scope){
 App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
 
   $scope.my_tree_handler = function(branch) {
-	if(branch.level===1){
+	/*if(branch.level===1){
 		$state.go("app.county.county_1_1");
 	}else if(branch.level===2){
 		$state.go("app.county.county_1_2");
 	}else if(!branch.level){
 		$state.go("app.county.county_1_3");
-	}	
+	}*/	
   };
 
   // onSelect event handlers
@@ -968,7 +968,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
 
   var treedata_avm = [
     {
-      label: '北仑区',
+      label: '北仑区',    
       data: {
             description: "app.county.county_1_1"
           },
@@ -976,6 +976,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
       children: [
         {
           label: '白峰街道',
+          expanded:true,
           data: {
             description: "app.county.county_1_2_baifeng"
           },
@@ -1042,7 +1043,15 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
        {
           label: '新碶街道',
            children: ['大路', '星阳', '高潮']         
-       }
+       },
+       {
+          label: '霞浦街道',
+           children: ['河西', '霞南', '霞西']         
+       },
+       {
+          label: '小港街道',
+           children: ['红联']         
+        }
        
       ]
     }, {
@@ -1698,13 +1707,13 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$
 
 $scope.my_tree_handler = function(branch) {
 		
-	if(branch.level===1){
+	/*if(branch.level===1){
 		$state.go("app.equipment.equipment_1");
 	}else if(branch.level===2){
 		$state.go("app.equipment.equipment_3");
 	}else if(!branch.level){
 		$state.go("app.county-equipment");
-	}
+	}*/
 };
 
   // onSelect event handlers
@@ -1827,13 +1836,13 @@ $scope.my_tree_handler = function(branch) {
 
 
   $scope.chartdata = [
-      { y: "xxx镇", a: 100, b: 90 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xx镇", a: 50,  b: 40 },
-      { y: "xxx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 50,  b: 40 },
-      { y: "xx镇", a: 75,  b: 65 },
-      { y: "xxx镇", a: 100, b: 90 }
+      { y: "白峰街道", a: 100, b: 20 },
+      { y: "梅山街道", a: 75,  b: 15 },
+      { y: "春晓街道", a: 50,  b: 4 },
+      { y: "霞浦街道", a: 75,  b: 6 },
+      { y: "新碶街道", a: 50,  b: 4 },
+      { y: "小港街道", a: 75,  b: 15 },
+      { y: "郭巨街道", a: 100, b: 19 }
   ];
 /*$scope.linedata = [
       {y: '2011-2', data: 1000},  
@@ -1980,7 +1989,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 		},    
 		colors:["#31C0BE"],
 		xAxis: {
-	        categories: ['白峰街道', 'xx镇', 'xx镇', 'xx镇', 'xxx镇', 'xxx镇', 'xxx镇', 'xxx镇']
+	        categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道', '郭巨街道', '柴桥街道']
 	    },
 	    yAxis: {
 	        title: {
@@ -1992,7 +2001,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 	    },
         tooltip: {
             headerFormat: '{point.x}<br>',
-            pointFormat: ' <b>{point.y}</b>',
+            pointFormat: ' <b>{point.y}%</b>',
             style: {                      // 文字内容相关样式
 		        color: "#31C0BE",
 		        fontSize: "12px"
@@ -2010,7 +2019,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
         series: [{
             name: '设备巡检率',
             data: [
-                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+                24, 20, 29, 29, 32, 30, 38, 40
             ]
         }]
         };
@@ -2132,7 +2141,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
 	    },
         tooltip: {
             headerFormat: '{point.x}<br>',
-            pointFormat: ' <b>{point.y}</b>',
+            pointFormat: ' <b>{point.y}%</b>',
             style: {                      // 文字内容相关样式
 		        color: "#31C0BE",
 		        fontSize: "12px"
@@ -2150,7 +2159,7 @@ App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', func
         series: [{
             name: '设备巡检率',
             data: [
-                24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434
+                24, 14, 21, 29, 32, 30, 38, 40
             ]
         }]
         };
@@ -2310,7 +2319,7 @@ App.controller("installController",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['北仑区', '镇海区', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）', 'xxx区县（市）']   // x 轴分类
+                categories: ['北仑区', '镇海区', '鄞州区', '象山县', '海曙区', '江北区']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -2370,7 +2379,7 @@ App.controller("installController2",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['白峰街道', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）', 'xxx乡镇（街道）']   // x 轴分类
+                categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -2430,7 +2439,7 @@ App.controller("installController3",['$scope',function($scope){
             },
             colors: ['#9DC2D3','#387AA3'] ,
             xAxis: {
-                categories: ['xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村', 'xxx村']   // x 轴分类
+                categories: ['白峰村', '官庄村', '司沿村', '上阳村', '阳东村', '勤山村']   // x 轴分类
             },
             yAxis: {
                 title: {
@@ -2769,6 +2778,21 @@ App.controller('reportController', ['$scope', '$http','$state',
 	  	$scope.totalItems = $scope.laboratory.length;
 	  })
   };
+  
+  $scope.table4 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.adUnit = res.data;
+	  	$scope.totalItems = $scope.adUnit.length;
+	  })
+  };
+  
+  $scope.table5 = function(){
+  	$http.get("server/malfunctions.json").then(function(res){
+	  	$scope.opUnit = res.data;
+	  	$scope.totalItems = $scope.opUnit.length;
+	  })
+  };
+  
   
   $scope.table6 = function(){
   	$http.get("server/equipment.json").then(function(res){

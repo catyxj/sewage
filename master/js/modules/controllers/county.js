@@ -5,13 +5,13 @@
 App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
 
   $scope.my_tree_handler = function(branch) {
-	if(branch.level===1){
+	/*if(branch.level===1){
 		$state.go("app.county.county_1_1");
 	}else if(branch.level===2){
 		$state.go("app.county.county_1_2");
 	}else if(!branch.level){
 		$state.go("app.county.county_1_3");
-	}	
+	}*/	
   };
 
   // onSelect event handlers
@@ -22,7 +22,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
 
   var treedata_avm = [
     {
-      label: '北仑区',
+      label: '北仑区',    
       data: {
             description: "app.county.county_1_1"
           },
@@ -30,6 +30,7 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
       children: [
         {
           label: '白峰街道',
+          expanded:true,
           data: {
             description: "app.county.county_1_2_baifeng"
           },
@@ -96,7 +97,15 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
        {
           label: '新碶街道',
            children: ['大路', '星阳', '高潮']         
-       }
+       },
+       {
+          label: '霞浦街道',
+           children: ['河西', '霞南', '霞西']         
+       },
+       {
+          label: '小港街道',
+           children: ['红联']         
+        }
        
       ]
     }, {
