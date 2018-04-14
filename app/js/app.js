@@ -2728,13 +2728,13 @@ App.controller('reportController', ['$scope', '$http','$state',
           data: {
 	        description: "app.report.table4"
 	      },
-	      onSelect: apple_selected,
+//	      onSelect: apple_selected,
         }, {
           label: '运维单位信息表',
           data: {
 	        description: "app.report.table5"
 	      },
-	      onSelect: apple_selected,
+//	      onSelect: apple_selected,
         }
       ]
     }, {
