@@ -589,6 +589,16 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'table6',
         templateUrl: 'app/views/information/report/table_6.html'
     })
+    .state('app.report.table7', {
+        url: '/table7',
+        title: 'table7',
+        templateUrl: 'app/views/information/report/table_7.html'
+    })
+    .state('app.report.table8', {
+        url: '/table8',
+        title: 'table8',
+        templateUrl: 'app/views/information/report/table_8.html'
+    })
     .state('app.report_edit2', {
         url: '/report_edit2',
         title: 'report_edit2',
@@ -622,6 +632,20 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report_edit6',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit7', {
+        url: '/report_edit7',
+        title: 'report_edit7',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit7.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit8', {
+        url: '/report_edit8',
+        title: 'report_edit8',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit8.html',
         resolve: helper.resolveFor('parsley')
     })
 

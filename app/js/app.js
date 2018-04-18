@@ -641,6 +641,16 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'table6',
         templateUrl: 'app/views/information/report/table_6.html'
     })
+    .state('app.report.table7', {
+        url: '/table7',
+        title: 'table7',
+        templateUrl: 'app/views/information/report/table_7.html'
+    })
+    .state('app.report.table8', {
+        url: '/table8',
+        title: 'table8',
+        templateUrl: 'app/views/information/report/table_8.html'
+    })
     .state('app.report_edit2', {
         url: '/report_edit2',
         title: 'report_edit2',
@@ -674,6 +684,20 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report_edit6',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit7', {
+        url: '/report_edit7',
+        title: 'report_edit7',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit7.html',
+        resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit8', {
+        url: '/report_edit8',
+        title: 'report_edit8',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit8.html',
         resolve: helper.resolveFor('parsley')
     })
 
@@ -2718,6 +2742,20 @@ App.controller('reportController', ['$scope', '$http','$state',
             description: "app.report.table3"
           },
           onSelect: apple_selected
+        },
+        {
+          label: '运维月报表',
+          data: {
+            description: "app.report.table7"
+          },
+          onSelect: apple_selected
+        },
+        {
+          label: '运维季报表',
+          data: {
+            description: "app.report.table8"
+          },
+          onSelect: apple_selected
         }
       ]
     }, {
@@ -2801,15 +2839,31 @@ App.controller('reportController', ['$scope', '$http','$state',
 	  })
   };
   
+  $scope.table7 = function(){
+  	$http.get("server/monthlyreport.json").then(function(res){
+	  	$scope.monthly = res.data;
+	  	$scope.totalItems = $scope.monthly.length;
+	  })
+  };
   
+  $scope.table8 = function(){
+  	$http.get("server/quarterlyreport.json").then(function(res){
+	  	$scope.jidu = res.data;
+	  	$scope.totalItems = $scope.jidu.length;
+	  })
+  };
   
   
 
 $scope.currentPage = 1;
-$scope.itemsPerPage = 10;
+$scope.itemsPerPage = "10";
 $scope.selectPage = function(page){
 	$scope.currentPage = page;
+};
+$scope.changePageSize = function(page){
+	$scope.itemsPerPage = page;
 }
+
 
   // Changing data
 /*$scope.person2Add = _buildPerson2Add(1);

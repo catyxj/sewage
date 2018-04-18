@@ -1,0 +1,80 @@
+<!-- Chaning data-->
+<div class="panel panel-default">
+   <div class="panel-heading clearfix">
+   	运维季报表
+      
+   </div>
+   <div class="panel-body" ng-init="table8();">
+   		<div class="clearfix mb">
+	   		<div class="pull-left">
+	   			显示 
+	   			<select class="tab_select" ng-model="itemsPerPage">
+	   				<option value="10">10</option>
+	   				<option value="25">25</option>
+	   			</select>	   			
+	   			项
+	   		</div>
+	   		<div class="pull-right">
+	            <a ui-sref="app.report_edit6" class="btn btn-labeled btn-success">
+	                <span class="btn-label">
+	                    <em class="fa fa-plus"></em>
+	                </span>
+	                添加
+	            </a>
+	        </div>
+	        <div class="pull-right mr-lg">
+	        	搜索:
+	        	<input type="text" ng-model="search" class="form-control" style="width: 150px; display: inline-block;"/>
+	        </div>
+   		</div>
+    	<div>     	
+         <form class="form-inline" style="min-height: 300px;">
+            <table class="table row-border hover">
+            	
+               <thead>                 
+                  <tr>
+                     <th>编号</th>
+                     <th>区县（市）</th>
+                     <th>更新时间</th>
+                     <th>
+                     	每吨污水处理能耗费（元）
+                     </th>
+                     <th>
+                     	治理设施平均负荷率（%）
+                     </th>
+                     
+                     <th>
+                     	操作
+                     </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="data in jidu|filter:search | range:currentPage:itemsPerPage">
+                     <td>{{ $index + 1 }}</td>
+                     <td>{{ data.area }}</td>
+                     <td>{{ data.time }}</td>
+                     <td>{{ data.sewageTreatment }}</td>
+                     <td>{{ data.AverageLoadRate }}</td>                            
+                     <td>
+                        <a ui-sref="app.report_edit8({data:data})" class="btn btn-sm btn-warning">
+                           <em class="fa fa-edit"></em>
+                        </a>
+                        <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
+                           <em class="fa fa-trash-o"></em>
+                        </button>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+           
+         </form>
+         <div ng-controller="PaginationCtrl">
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="10"
+		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
+		         	boundary-links="true" boundary-link-numbers="true" ng-change="selectPage(currentPage)"
+		         	class="pull-right">
+		         </div>		         
+		     </div>
+      </div>
+   </div>
+</div>

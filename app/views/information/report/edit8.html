@@ -1,0 +1,183 @@
+<h3>
+	报表信息
+</h3>
+
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form action="#" validate-form="" novalidate="" class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4>运维季报表</h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区县（市）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.area" name="required" required="required" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施运维总数（个）集中式</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.equipment1" name="email" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--对应设备发生故障编号-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施运维总数（个）分散式</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.equipment2" name="number" data-parsley-type="number" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">出水水质全部符合省标准的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.waterQuality1" name="integer" data-parsley-type="integer" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--发生故障设备所属站点编码-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">5项指标全部符合省标准的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.waterQuality2" name="digits" data-parsley-type="digits" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--发生故障的设备名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应安装流量计的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.onlineMonitor1" name="alphanum" data-parsley-type="alphanum" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--发现设备发生故障日期-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已安装流量计的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.onlineMonitor2" name="url" data-parsley-type="url" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障设备相关负责人名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应安装在线监控的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.onlineMonitor3" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已安装在线监控的设施个数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.onlineMonitor4" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">每吨污水处理能耗费（元）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.sewageTreatment" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施平均负荷率（%）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.AverageLoadRate" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+             
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">年度运维资金额（万元）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.maintainFunds1" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已支付资金（万元</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.maintainFunds2" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">支付百分率（%）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.maintainFunds3" name="minlength" data-parsley-minlength="6" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+
+              
+               
+            </div>
+            <div class="panel-footer text-center">
+               <button type="submit" class="btn btn-success">提 交</button>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>
