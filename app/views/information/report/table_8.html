@@ -8,10 +8,9 @@
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
-	   			<select class="tab_select" ng-model="itemsPerPage">
-	   				<option value="10">10</option>
-	   				<option value="25">25</option>
-	   			</select>	   			
+	   			<select ng-options="page for page in pages" class="tab_select" ng-model="itemsPerPage" ng-change="changePageSize(itemsPerPage);">
+	   				
+	   			</select>   			
 	   			项
 	   		</div>
 	   		<div class="pull-right">
@@ -69,7 +68,7 @@
            
          </form>
          <div ng-controller="PaginationCtrl">
-		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="10"
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
 		         	boundary-links="true" boundary-link-numbers="true" ng-change="selectPage(currentPage)"
 		         	class="pull-right">

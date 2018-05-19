@@ -1,10 +1,10 @@
 <!-- Chaning data-->
 <div class="panel panel-default">
    <div class="panel-heading clearfix">
-   	运维月报表
+   	自然村信息表
       
    </div>
-   <div class="panel-body" ng-init="table7();">
+   <div class="panel-body" ng-init="table4();" >
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit6" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -23,34 +23,50 @@
 	        </div>
 	        <div class="pull-right mr-lg">
 	        	搜索:
-	        	<input type="text" ng-model="search" class="form-control" style="width: 150px; display: inline-block;"/>
+	        	<input type="text" ng-model="search"  class="form-control" style="width: 150px; display: inline-block;"/>
 	        </div>
    		</div>
     	<div>     	
+    		
          <form class="form-inline" style="min-height: 300px;">
             <table class="table row-border hover">
             	
                <thead>                 
                   <tr>
-                     <th>编号</th>
-                     <th>区县（市）</th>
-                     <th>更新时间</th>                    
+                     <th>行政村名</th>
+                     <th>区划代码</th>
+                     <th>自然村名</th>
+                     <th>
+                     	是否纳厂
+                     </th>
+                     <th>
+                     	总户数
+                     </th>
+                     <th>
+                     	应接入户数
+                     </th>
+                     <th>
+                     	实际接入户数
+                     </th>
                      <th>
                      	操作
                      </th>
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="data in monthly|filter:search | range:currentPage:itemsPerPage">
-                     <td>{{ $index + 1 }}</td>
+                  <tr ng-repeat="data in adUnit |filter:search | range:currentPage:itemsPerPage">
                      <td>{{ data.area }}</td>
-                     <td>{{ data.time }}</td>
-                    
+                     <td>{{ data.areaCode }}</td>
+                     <td>{{ data.townSecretary}}</td>
+                     <td>{{ data.townMayor}}</td>
+                     <td>{{ data.personInCharge }}</td>
+                     <td>{{ data.phoneInCharge}}</td>
+                     <td>{{ data.department }}</td>
                      <td>
-                        <a ui-sref="app.report_edit7({data:data})" class="btn btn-sm btn-warning">
+                        <a ui-sref="app.report_edit10({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
+                        <button type="button" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>
@@ -59,12 +75,12 @@
             </table>
            
          </form>
-         <div ng-controller="PaginationCtrl">
+         <div>
 		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
 		         	boundary-links="true" boundary-link-numbers="true" ng-change="selectPage(currentPage)"
 		         	class="pull-right">
-		         </div>		         
+		         </div>	         
 		     </div>
       </div>
    </div>

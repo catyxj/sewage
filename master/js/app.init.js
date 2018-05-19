@@ -10,7 +10,7 @@ var App = angular.module('sewageAdmin', [
     "customFilter"
   ]);
 
-App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache', function ($rootScope, $state, $stateParams, $window, $templateCache) {
+App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$http", function ($rootScope, $state, $stateParams, $window, $templateCache,$http) {
   // Set reference to access them from any scope
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
@@ -22,6 +22,14 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache', f
         $templateCache.remove(toState.templateUrl);
       }
   });*/
+ 
+ 
+ 
+ 
+ $http.get("server/county.json").then(function(res){
+			var treedata_avm = res.data;
+			$rootScope.my_county = treedata_avm;
+		});
 
   // Scope Globals
   // ----------------------------------- 

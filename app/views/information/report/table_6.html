@@ -1,16 +1,15 @@
 <!-- Chaning data-->
 <div class="panel panel-default">
    <div class="panel-heading clearfix">
-   	设备信息表
+   	设施设备信息表
       
    </div>
    <div class="panel-body" ng-init="table6();">
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
-	   			<select class="tab_select" ng-model="itemsPerPage">
-	   				<option value="10">10</option>
-	   				<option value="25">25</option>
+	   			<select ng-options="page for page in pages" class="tab_select" ng-model="itemsPerPage" ng-change="changePageSize(itemsPerPage);">
+	   				
 	   			</select>
 	   			项
 	   		</div>
@@ -35,37 +34,31 @@
                   <tr>
                      <th>设施名称</th>
                      <th>设施编码</th>
-                     <th>所属地域</th>
-                     <th width="10%">
-                     	日均污水处理量（吨）
+                     <th>设备名称</th>
+                     <th>
+                     	型号
                      </th>
                      <th>
-                     	设施总功率（kw）
+                     	设备类型
                      </th>
                      <th>
-                     	开始运维日期
+                     	功率（KW）
                      </th>
-                     <th>
-                     	在线监测
-                     </th>
-                     <th>
-                     	远程控制
-                     </th>
+                     
                      <th>
                      	操作
                      </th>
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="data in equipment|filter:search | range:currentPage:10">
+               	
+                  <tr ng-repeat="data in equipment|filter:search | range:currentPage:itemsPerPage">
                      <td>{{ data.name }}</td>
                      <td>{{ data.code }}</td>
                      <td>{{ data.area }}</td>
                      <td>{{ data.capacity }}</td>
                      <td>{{ data.totalPower }}</td>
-                     <td>{{ data.startDate }}</td>
                      <td>{{ data.monitor }}</td>
-                     <td>{{ data.remoteControl }}</td>
                      <td>
                         <a ui-sref="app.report_edit6({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
@@ -80,7 +73,7 @@
            
          </form>
          <div ng-controller="PaginationCtrl">
-		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="10"
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
 		         	boundary-links="true" boundary-link-numbers="true" ng-change="selectPage(currentPage)"
 		         	class="pull-right">

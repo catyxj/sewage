@@ -599,8 +599,32 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'table8',
         templateUrl: 'app/views/information/report/table_8.html'
     })
+    .state('app.report.table9', {
+        url: '/table9',
+        title: 'table9',
+        templateUrl: 'app/views/information/report/table_9.html'
+    })
+    .state('app.report.table10', {
+        url: '/table10',
+        title: 'table10',
+        templateUrl: 'app/views/information/report/table_10.html'
+    })
+    .state('app.report.table11', {
+        url: '/table11',
+        title: 'table11',
+        templateUrl: 'app/views/information/report/table_11.html'
+    })
+    .state('app.report.table12', {
+        url: '/table12',
+        title: 'table12',
+        templateUrl: 'app/views/information/report/table_12.html'
+    })
+    
+    
+    
+    
     .state('app.report_edit2', {
-        url: '/report_edit2',
+        url: '/report_edit2?:data',
         title: 'report_edit2',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
@@ -625,7 +649,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report_edit5',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit5.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor('parsley','ui.select')
     })
 	.state('app.report_edit6', {
         url: '/report_edit6',
@@ -647,6 +671,34 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit8.html',
         resolve: helper.resolveFor('parsley')
+    })
+	.state('app.report_edit9', {
+        url: '/report_edit9',
+        title: 'report_edit9',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit9.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_edit10', {
+        url: '/report_edit10',
+        title: 'report_edit10',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit10.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_edit11', {
+        url: '/report_edit11',
+        title: 'report_edit11',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit11.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_edit12', {
+        url: '/report_edit12',
+        title: 'report_edit12',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/edit12.html',
+        resolve: helper.resolveFor()
     })
 
 //	.state('app.nestable', {

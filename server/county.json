@@ -1,0 +1,87 @@
+[
+    {
+      "label": "北仑区",    
+      "data": {
+            "description": "app.county.county_1_1"
+         },
+      "children": [
+        {
+          "label": "白峰街道",
+          "data": {
+            "description": "app.county.county_1_2_baifeng"
+          },
+          "children": [
+          {"label":"白峰村",
+          "data": {
+            "description": "app.county.county_1_3_baifeng"
+          }
+          },
+          {"label":"官庄村",
+          "data": {
+            "description": "app.county.county_1_3_guanzhuang"
+          }
+          },
+          {"label":"司沿村",
+          "data": {
+            "description": "app.county.county_1_3_siyan"
+          }
+         },
+         {"label":"新峰村",
+          "data": {
+            "description": "app.county.county_1_3_xinfeng"
+          }
+         },
+         {"label":"阳东村",
+          "data": {
+            "description": "app.county.county_1_3_yangdong"
+          }
+         },
+         {"label":"勤山村",
+          "data": {
+            "description": "app.county.county_1_3_qinshan"
+          }
+         },
+         {"label":"上阳村",
+          "data": {
+            "description": "app.county.county_1_3_shangyang"
+          }
+         },
+         {"label":"下阳村",
+          "data": {
+            "description": "app.county.county_1_3_xiayang"
+          }
+         }
+         ]
+       },
+       {
+          "label": "梅山街道",
+          "children": ["梅东", "碑塔", "梅中"]          
+       },
+       {
+          "label": "春晓街道",
+           "children": ["昆亭", "三山", "慈岙"]         
+       },
+       {
+          "label": "新碶街道",
+           "children": ["大路", "星阳", "高潮"]         
+       },
+       {
+          "label": "霞浦街道",
+           "children": ["河西", "霞南", "霞西"]         
+       },
+       {
+          "label": "小港街道",
+           "children": ["红联"]         
+        }
+       
+      ]
+    }, {
+      "label": "镇海区",
+      "children": [
+        {
+          "label": "蛟川街道",
+          "children": ["清水浦", "迎周", "俞范"]
+        }
+      ]
+    }
+  ]

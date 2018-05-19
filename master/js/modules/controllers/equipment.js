@@ -8,13 +8,7 @@ App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$
 
 $scope.my_tree_handler = function(branch) {
 		
-	/*if(branch.level===1){
-		$state.go("app.equipment.equipment_1");
-	}else if(branch.level===2){
-		$state.go("app.equipment.equipment_3");
-	}else if(!branch.level){
-		$state.go("app.county-equipment");
-	}*/
+
 };
 
   // onSelect event handlers

@@ -9,10 +9,10 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>镇基本信息表</h4>
+               <h4>设施监督员关联表</h4>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">行政区域</label>
+                     <label class="col-sm-3 control-label">设施编码</label>
                      <div class="col-sm-6">
                         <input type="text" ng-model="data.area" required="required" class="form-control" />
                      </div>
@@ -23,9 +23,36 @@
                </fieldset>
                <fieldset>
                   <div class="form-group">
+                     <label class="col-sm-3 control-label">姓名</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                     	
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
                      <label class="col-sm-3 control-label">区划代码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.areaCode" class="form-control" />
+                        <input type="text" ng-model="data.townMayor" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">监督员级别</label>
+                     <div class="col-sm-6">
+                        <!--<input type="text" ng-model="data.areaCode" class="form-control" />-->
+                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in supervisorLevels" class="form-control">
+                        	
+                        </select>
                      </div>
                      <div class="col-sm-3">
                        
@@ -34,55 +61,27 @@
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">人员类别</label>
-                     <div class="col-sm-6">
-                        <!--<input type="text" ng-model="data.townSecretary" class="form-control" />-->
-                        <ui-select ng-model="data.category" theme="bootstrap" >
-			               <ui-select-match placeholder="{{data.category}}">{{$select.selected}}</ui-select-match>
-			               <ui-select-choices repeat="cate in personCategories | filter: $select.search">
-			                  <span ng-bind-html="cate"></span>
-			               </ui-select-choices>
-			            </ui-select>
-                     </div>
-                     <div class="col-sm-3">
-                     </div>
-                  </div>
-               </fieldset>
-               <fieldset>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">姓名</label>
-                     <div class="col-sm-6">
-                        <input type="text" ng-model="data.name" class="form-control" />
-                     </div>
-                     <div class="col-sm-3">
-                        
-                     </div>
-                  </div>
-               </fieldset>
-               <fieldset>
-                  <div class="form-group">
                      <label class="col-sm-3 control-label">电话</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.tel" class="form-control" />
+                        <input type="text" ng-model="data.townSecretary" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
                      </div>
                   </div>
                </fieldset>
+               
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">身份证</label>
+                     <label class="col-sm-3 control-label">身份证号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.ID" class="form-control" />
+                        <input type="text" ng-model="data.townMayor" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
                      </div>
                   </div>
                </fieldset>
-               
-               
                
                
             </div>

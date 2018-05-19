@@ -2,31 +2,25 @@
 
  =========================================================*/
 
-App.controller('countyController', ['$scope', '$timeout', '$http',"$state", function($scope, $timeout, $http,$state) {
+App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"$state", function($scope,$rootScope, $timeout, $http,$state) {
 
   $scope.my_tree_handler = function(branch) {
-	/*if(branch.level===1){
-		$state.go("app.county.county_1_1");
-	}else if(branch.level===2){
-		$state.go("app.county.county_1_2");
-	}else if(!branch.level){
-		$state.go("app.county.county_1_3");
-	}*/	
+	$scope.output = branch.data.description;
+	$state.go($scope.output);
   };
 
   // onSelect event handlers
   var apple_selected = function(branch) {
-    $scope.output = branch.data.description;
-	$state.go($scope.output);
+    
   };
 
-  var treedata_avm = [
+  /*var treedata_avm = [
     {
       label: '北仑区',    
       data: {
             description: "app.county.county_1_1"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
       children: [
         {
           label: '白峰街道',
@@ -34,55 +28,55 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
           data: {
             description: "app.county.county_1_2_baifeng"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
           children: [
           {label:'白峰村',
           data: {
             description: "app.county.county_1_3_baifeng"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
           },
           {label:'官庄村',
           data: {
             description: "app.county.county_1_3_guanzhuang"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
           },
           {label:'司沿村',
           data: {
             description: "app.county.county_1_3_siyan"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          },
          {label:'新峰村',
           data: {
             description: "app.county.county_1_3_xinfeng"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          },
          {label:'阳东村',
           data: {
             description: "app.county.county_1_3_yangdong"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          },
          {label:'勤山村',
           data: {
             description: "app.county.county_1_3_qinshan"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          },
          {label:'上阳村',
           data: {
             description: "app.county.county_1_3_shangyang"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          },
          {label:'下阳村',
           data: {
             description: "app.county.county_1_3_xiayang"
           },
-          onSelect: apple_selected,
+//        onSelect: apple_selected,
          }
          ]
        },
@@ -126,9 +120,15 @@ App.controller('countyController', ['$scope', '$timeout', '$http',"$state", func
       ]
     }
   ];
-  
+  */
+	
+	
+	$scope.my_data = $rootScope.my_county;		
+	console.log($scope.my_data);
 
-  $scope.my_data = treedata_avm;
+	
+
+  
 
   
   

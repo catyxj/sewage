@@ -1,16 +1,15 @@
 <!-- Chaning data-->
 <div class="panel panel-default">
    <div class="panel-heading clearfix">
-   	行政单位信息表
+   	镇基本信息表
       
    </div>
-   <div class="panel-body" ng-init="table4();">
+   <div class="panel-body" ng-init="table4();" >
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
-	   			<select class="tab_select">
-	   				<option value="">10</option>
-	   				<option value="">25</option>
+	   			<select ng-options="page for page in pages" class="tab_select" ng-model="itemsPerPage" ng-change="changePageSize(itemsPerPage);">
+	   				
 	   			</select>
 	   			项
 	   		</div>
@@ -19,28 +18,35 @@
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
-	                Add
+	                添加
 	            </a>
 	        </div>
 	        <div class="pull-right mr-lg">
 	        	搜索:
-	        	<input type="text" class="form-control" style="width: 150px; display: inline-block;"/>
+	        	<input type="text" ng-model="search"  class="form-control" style="width: 150px; display: inline-block;"/>
 	        </div>
    		</div>
     	<div>     	
+    		
          <form class="form-inline" style="min-height: 300px;">
             <table class="table row-border hover">
             	
                <thead>                 
                   <tr>
-                     <th>单位编码</th>
-                     <th>单位名称</th>
-                     <th>故障设备</th>
+                     <th>行政区域</th>
+                     <th>区划代码</th>
+                     <th>镇书记</th>
                      <th>
-                     	故障日期
+                     	镇长
                      </th>
                      <th>
-                     	状态
+                     	分管负责人
+                     </th>
+                     <th>
+                     	分管负责人固话
+                     </th>
+                     <th>
+                     	分管部门
                      </th>
                      <th>
                      	操作
@@ -48,17 +54,19 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="data in adUnit">
-                     <td>{{ data.id }}</td>
-                     <td>{{ data.name }}</td>
-                     <td>{{ data.equip }}</td>
-                     <td>{{ data.date }}</td>
-                     <td>{{ data.state }}</td>
+                  <tr ng-repeat="data in adUnit |filter:search | range:currentPage:itemsPerPage">
+                     <td>{{ data.area }}</td>
+                     <td>{{ data.areaCode }}</td>
+                     <td>{{ data.townSecretary}}</td>
+                     <td>{{ data.townMayor}}</td>
+                     <td>{{ data.personInCharge }}</td>
+                     <td>{{ data.phoneInCharge}}</td>
+                     <td>{{ data.department }}</td>
                      <td>
-                        <a ui-sref="app.report_edit4" class="btn btn-sm btn-warning">
+                        <a ui-sref="app.report_edit4({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
+                        <button type="button" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>
@@ -67,12 +75,12 @@
             </table>
            
          </form>
-         <div ng-controller="PaginationCtrl">
-		         <div uib-pagination total-items="10" ng-model="currentPage" 
+         <div>
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
-		         	boundary-links="true" boundary-link-numbers="true"
+		         	boundary-links="true" boundary-link-numbers="true" ng-change="selectPage(currentPage)"
 		         	class="pull-right">
-		         </div>		         
+		         </div>	         
 		     </div>
       </div>
    </div>

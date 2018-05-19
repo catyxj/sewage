@@ -10,92 +10,152 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>设施信息表单</h4>
+               <h4>设施设备信息表单</h4>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">设施名称</label>
+                     <label class="col-sm-3 control-label">设施名称</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.name" name="required" required="required" class="form-control" />
+                        <input type="text" ng-model="data.name" required="required" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--故障设备当前状态：1、已修复 2、报修-->
+                     <div class="col-sm-3">
+                       
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">设施编码</label>
+                     <label class="col-sm-3 control-label">设施编码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.code" name="email" class="form-control" />
+                        <input type="text" ng-model="data.code"  class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--对应设备发生故障编号-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">所属地域</label>
+                     <label class="col-sm-3 control-label">设备名称</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.area" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--发生故障设备所属站点名称-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">日均污水处理量（吨）</label>
+                     <label class="col-sm-3 control-label">型号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.capacity" name="integer" data-parsley-type="integer" class="form-control" />
+                        <input type="text" ng-model="data.capacity" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--发生故障设备所属站点编码-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">设施总功率（kw）</label>
+                     <label class="col-sm-3 control-label">设备类型</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.totalPower" name="digits" data-parsley-type="digits" class="form-control" />
+                        <input type="text" ng-model="data.totalPower" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--发生故障的设备名称-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">开始运维日期</label>
+                     <label class="col-sm-3 control-label">生产厂家</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.startDate" name="alphanum" data-parsley-type="alphanum" class="form-control" />
+                        <input type="text" ng-model="data.startDate" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--发现设备发生故障日期-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">在线监测</label>
+                     <label class="col-sm-3 control-label">品牌</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.monitor" name="url" data-parsley-type="url" class="form-control" />
+                        <input type="text" ng-model="data.monitor" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--故障设备相关负责人名称-->
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-2 control-label">远程控制</label>
+                     <label class="col-sm-3 control-label">出厂日期</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.remoteControl" name="minlength" data-parsley-minlength="6" class="form-control" />
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
                      </div>
-                     <div class="col-sm-4">
-                        <!--故障修复相关费用金额数量-->
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">使用说明书</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">安装日期</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">功率（KW）</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">经销商</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">备注</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.remoteControl" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
                      </div>
                   </div>
                </fieldset>

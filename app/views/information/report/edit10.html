@@ -9,10 +9,11 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>镇基本信息表</h4>
+               <h4>自然村信息表</h4>
+              
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">行政区域</label>
+                     <label class="col-sm-3 control-label">行政村名</label>
                      <div class="col-sm-6">
                         <input type="text" ng-model="data.area" required="required" class="form-control" />
                      </div>
@@ -34,25 +35,9 @@
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">人员类别</label>
+                     <label class="col-sm-3 control-label">自然村名</label>
                      <div class="col-sm-6">
-                        <!--<input type="text" ng-model="data.townSecretary" class="form-control" />-->
-                        <ui-select ng-model="data.category" theme="bootstrap" >
-			               <ui-select-match placeholder="{{data.category}}">{{$select.selected}}</ui-select-match>
-			               <ui-select-choices repeat="cate in personCategories | filter: $select.search">
-			                  <span ng-bind-html="cate"></span>
-			               </ui-select-choices>
-			            </ui-select>
-                     </div>
-                     <div class="col-sm-3">
-                     </div>
-                  </div>
-               </fieldset>
-               <fieldset>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">姓名</label>
-                     <div class="col-sm-6">
-                        <input type="text" ng-model="data.name" class="form-control" />
+                        <input type="text" ng-model="data.townSecretary" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -61,20 +46,24 @@
                </fieldset>
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">电话</label>
+                     <label class="col-sm-3 control-label">是否纳厂</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.tel" class="form-control" />
+                        <!--<input type="text" ng-model="data.townMayor" class="form-control" />-->
+                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in monitor" class="form-control">
+                        	
+                        </select>
                      </div>
                      <div class="col-sm-3">
                         
                      </div>
                   </div>
-               </fieldset>
+               </fieldset>    
+               
                <fieldset>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label">身份证</label>
+                     <label class="col-sm-3 control-label">总户数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.ID" class="form-control" />
+                        <input type="text" ng-model="data.departmentContactsPhone" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -82,7 +71,53 @@
                   </div>
                </fieldset>
                
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应接入户数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.departmentContactsIdentity" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
                
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际接入户数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.complaints" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应受益人口数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.complaintAcceptor" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际受益人口数</label>
+                     <div class="col-sm-6">
+                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
                
                
             </div>
