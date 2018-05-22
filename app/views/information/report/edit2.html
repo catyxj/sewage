@@ -4,7 +4,7 @@
 <div class="report" ng-controller="reportEditCtrl">
    <div class="row">
       <div class="col-md-12">
-      	<form action="#" validate-form="" novalidate="" class="form-horizontal">
+      	<form class="form-horizontal">
          <!-- START panel-->
          <div class="panel panel-default">
             
@@ -26,7 +26,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检名称</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.name" name="email" class="form-control" />
+                        <input type="text" ng-model="data.name" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                        
@@ -37,7 +37,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检人</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.inspector" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.inspector"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -48,7 +48,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检时间</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.date" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.date"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -59,7 +59,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检卡号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.cardnum" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.cardnum"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -70,7 +70,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">站点编号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.siteNum" name="integer" data-parsley-type="integer" class="form-control" />
+                        <input type="text" ng-model="data.siteNum"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点编码-->
@@ -81,7 +81,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">站点名称</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.siteName" name="number" data-parsley-type="number" class="form-control" />
+                        <input type="text" ng-model="data.siteName"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -92,7 +92,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">区域编号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.areaCode" name="digits" data-parsley-type="digits" class="form-control" />
+                        <input type="text" ng-model="data.areaCode"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障的设备名称-->
@@ -103,7 +103,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">所属区域</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" name="alphanum" data-parsley-type="alphanum" class="form-control" />
+                        <input type="text" ng-model="data.area"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发现设备发生故障日期-->
@@ -114,7 +114,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">评分</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.score" name="url" data-parsley-type="url" class="form-control" />
+                        <input type="text" ng-model="data.score"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障设备相关负责人名称-->
@@ -127,7 +127,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检内容</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.state" name="minlength" data-parsley-minlength="6" class="form-control" />
+                        <input type="text" ng-model="data.state" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--巡检详情描述-->
@@ -137,7 +137,7 @@
                
             </div>
             <div class="panel-footer text-center">
-               <button type="submit" class="btn btn-success">提 交</button>
+               <button type="submit" ng-click="update2();" class="btn btn-success">提 交</button>
             </div>
          </div>
          <!-- END panel-->

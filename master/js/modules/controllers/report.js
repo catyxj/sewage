@@ -119,35 +119,35 @@ App.controller('reportController', ['$scope', '$http','$state',
 
   // Ajax 
   $scope.table1 = function(){
-  	$http.get("server/malfunctions.json").then(function(res){
+  	$http.get("/mrc/get").then(function(res){
 	  	$scope.malfunctions = res.data;
 	  	$scope.totalItems = $scope.malfunctions.length;
 	  })
   };
   
   $scope.table2 = function(){
-  	$http.get("server/inspection.json").then(function(res){
+  	$http.get("/irs/get").then(function(res){
 	  	$scope.inspection = res.data;
 	  	$scope.totalItems = $scope.inspection.length;
 	  })
   };
   
   $scope.table3 = function(){
-  	$http.get("server/laboratory.json").then(function(res){
+  	$http.get("/arc/get").then(function(res){
 	  	$scope.laboratory = res.data;
 	  	$scope.totalItems = $scope.laboratory.length;
 	  })
   };
   
   $scope.table4 = function(){
-  	$http.get("server/town-basic.json").then(function(res){
+  	$http.get("/tbc/get").then(function(res){
 	  	$scope.adUnit = res.data;
 	  	$scope.totalItems = $scope.adUnit.length;
 	  })
   };
   
   $scope.table5 = function(){
-  	$http.get("server/town-worker.json").then(function(res){
+  	$http.get("/pic/get").then(function(res){
 	  	$scope.opUnit = res.data;
 	  	$scope.totalItems = $scope.opUnit.length;
 	  		  	
@@ -156,33 +156,53 @@ App.controller('reportController', ['$scope', '$http','$state',
   
   
   $scope.table6 = function(){
-  	$http.get("server/equipment.json").then(function(res){
+  	$http.get("/equipmentc/get").then(function(res){
 	  	$scope.equipment = res.data;
 	  	$scope.totalItems = $scope.equipment.length;
 	  })
   };
   
   $scope.table7 = function(){
-  	$http.get("server/monthlyreport.json").then(function(res){
+  	$http.get("/mmrc/get").then(function(res){
 	  	$scope.monthly = res.data;
 	  	$scope.totalItems = $scope.monthly.length;
 	  })
   };
   
   $scope.table8 = function(){
-  	$http.get("server/quarterlyreport.json").then(function(res){
+  	$http.get("/msrc/get").then(function(res){
 	  	$scope.jidu = res.data;
 	  	$scope.totalItems = $scope.jidu.length;
 	  })
   };
   
   $scope.table9 = function(){
-  	$http.get("server/village-basic.json").then(function(res){
+  	$http.get("/aVillagec/get").then(function(res){
 	  	$scope.vBasic = res.data;
 	  	$scope.totalItems = $scope.vBasic.length;
 	  })
   };
   
+  $scope.table10 = function(){
+  	$http.get("/avuvc/get").then(function(res){
+	  	$scope.vBasic = res.data;
+	  	$scope.totalItems = $scope.vBasic.length;
+	  })
+  };
+  
+  $scope.table11 = function(){
+  	$http.get("/fc/get").then(function(res){
+	  	$scope.vBasic = res.data;
+	  	$scope.totalItems = $scope.vBasic.length;
+	  })
+  };
+  
+  $scope.table12 = function(){
+  	$http.get("/fmsc/get").then(function(res){
+	  	$scope.vBasic = res.data;
+	  	$scope.totalItems = $scope.vBasic.length;
+	  })
+  };
   
 $scope.pages=[5,10,25];
 $scope.currentPage = 1;
@@ -194,20 +214,21 @@ $scope.changePageSize = function(page){
 	$scope.itemsPerPage = page;
 }
 
-$scope.edit = function(data){
-	console.log("edit",data);
-	$state.go("app.report_edit10",{data:JSON.stringify(data)});
-};
+//$scope.edit = function(data){
+//	console.log("edit",data);
+//	$state.go("app.report_edit10",{data:JSON.stringify(data)});
+//};
 
 
 }]);
 
 
 
-App.controller("reportEditCtrl",["$scope","$stateParams",function($scope,$stateParams){
+App.controller("reportEditCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
 //	console.log(JSON.parse($stateParams.data));
 //	$scope.data =JSON.parse($stateParams.data);
 	$scope.data = $stateParams.data;
+	console.log($stateParams.data);
 	
 		//人员类别
 		$scope.personCategories=["1-工作人员","2-部门联系人","3-部门负责人","4-分管负责人","5-单位负责人","6-投诉受理人"];
@@ -252,6 +273,79 @@ App.controller("reportEditCtrl",["$scope","$stateParams",function($scope,$stateP
         };
 	
 	
+    
+    	$scope.update1 = function(){
+    		$http.post("/mrc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update2 = function(){
+    		$http.post("/irs/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update3 = function(){
+    		$http.post("/arc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update4 = function(){
+    		$http.post("/tbc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update5 = function(){
+    		$http.post("/pic/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update6 = function(){
+    		$http.post("/equipmentc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update7 = function(){
+    		$http.post("/mmrc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update8 = function(){
+    		$http.post("/msrc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update9 = function(){
+    		$http.post("/aVillagec/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update10 = function(){
+    		$http.post("/avuvc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update11 = function(){
+    		$http.post("/fc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    	
+    	$scope.update12 = function(){
+    		$http.post("/fmsc/post",{data:$scope.data}).then(function(res){
+    			
+    		},function(err){});
+    	};
+    
     
 }])
 

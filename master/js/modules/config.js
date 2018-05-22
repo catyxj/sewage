@@ -624,7 +624,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     
     
     .state('app.report_edit2', {
-        url: '/report_edit2?:data',
+        url: '/report_edit2',
         title: 'report_edit2',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
