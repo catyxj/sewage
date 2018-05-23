@@ -2978,15 +2978,30 @@ $scope.changePageSize = function(page){
 
 
 
-App.controller("reportEditCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
+App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",function($scope,$state,$stateParams,$http){
 //	console.log(JSON.parse($stateParams.data));
 //	$scope.data =JSON.parse($stateParams.data);
 	$scope.data = $stateParams.data;
 	console.log($stateParams.data);
-	if(!$scope.data){
+	if(($state.current.name ==="app.report_edit4"|| $state.current.name ==="app.report_edit10")&&!$scope.data){
 		$scope.data = {
 			image:null,
 		};
+		//image	
+		var input  = document.getElementById("image"); // input file
+		input.onchange = function(){		
+		    var file = this.files[0];
+		        if(!!file){
+		            var reader = new FileReader();
+		            // 图片文件转换为base64
+		            reader.readAsDataURL(file);
+		            reader.onload = function(){
+		                // 显示图片
+		                document.getElementById("file_img").src = this.result;
+		                $scope.data.image = this.result;
+		        }
+		    }
+		}
 	}
 	
 		//人员类别
@@ -3033,22 +3048,7 @@ App.controller("reportEditCtrl",["$scope","$stateParams","$http",function($scope
 	
 	
 	
-	//image	
 	
-	var input  = document.getElementById("image"); // input file
-	input.onchange = function(){		
-	    var file = this.files[0];
-	        if(!!file){
-	            var reader = new FileReader();
-	            // 图片文件转换为base64
-	            reader.readAsDataURL(file);
-	            reader.onload = function(){
-	                // 显示图片
-	                document.getElementById("file_img").src = this.result;
-	                $scope.data.image = this.result;
-	        }
-	    }
-	}
 	
 	
 	
