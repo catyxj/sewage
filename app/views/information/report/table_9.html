@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit9" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -56,19 +56,19 @@
                </thead>
                <tbody>
                   <tr ng-repeat="data in vBasic |filter:search | range:currentPage:itemsPerPage">
-                  	<td>{{ data.superior }}</td>
-                     <td>{{ data.area }}</td>
-                     <td>{{ data.areaCode }}</td>
-                     <td>{{ data.townSecretary}}</td>
-                     <td>{{ data.townMayor}}</td>
-                     <td>{{ data.villageDirector}}</td>
-                     <td>{{ data.villageDirectorPhone}}</td>
-                     <td>{{ data.villageNum }}</td>
+                  	<td>{{ data.ts_BasicInformation }}</td>
+                     <td>{{ data.village }}</td>
+                     <td>{{ data.zoningCode }}</td>
+                     <td>{{ data.pbs }}</td>
+                     <td>{{ data.pbs_mp }}</td>
+                     <td>{{ data.vcd }}</td>
+                     <td>{{ data.vcd_mp }}</td>
+                     <td>{{ data.farmersNumber }}</td>
                      <td>
                         <a ui-sref="app.report_edit9({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove(data.id)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>

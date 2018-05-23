@@ -9,12 +9,14 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>设施基本信息表</h4>
+               <h4>设施基本信息表
+               		<!--<a class="btn btn-default pull-right" ui-sref="app.report.table11">返回</a>-->
+               </h4>
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">乡镇区划代码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.zoningCode" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -25,7 +27,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施所在行政村</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.administrativeVillage" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -36,7 +38,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施所在自然村</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.areaCode" class="form-control" />
+                        <input type="text" ng-model="data.naturalVillage" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                        
@@ -47,7 +49,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施名称</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townSecretary" class="form-control" />
+                        <input type="text" ng-model="data.name" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -58,14 +60,14 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施编码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townMayor" class="form-control" />
+                        <input type="text" ng-model="data.facilityCode" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
                      </div>
                   </div>
                </fieldset>
-               <fieldset>
+               <!--<fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">行政村区划代码</label>
                      <div class="col-sm-6">
@@ -75,12 +77,12 @@
                         
                      </div>
                   </div>
-               </fieldset>
+               </fieldset>-->
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">经度E</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.latitude" class="form-control" />
+                        <input type="text" ng-model="data.longitude_E" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -91,14 +93,14 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">纬度N</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.personInCharge" class="form-control" />
+                        <input type="text" ng-model="data.latitude_N" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
                      </div>
                   </div>
                </fieldset>
-               <fieldset>
+               <!--<fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">应接入户数</label>
                      <div class="col-sm-6">
@@ -144,13 +146,13 @@
                         
                      </div>
                   </div>
-               </fieldset>
+               </fieldset>-->
                
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设计日处理量（吨）</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentHead" class="form-control" />
+                        <input type="text" ng-model="data.dailyProcessing" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -162,7 +164,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施总功率（KW）</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentHeadPhone" class="form-control" />
+                        <input type="text" ng-model="data.totalPower" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -175,7 +177,7 @@
                      <label class="col-sm-3 control-label">带在线监测</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentHeadIdentity" class="form-control" />-->
-                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in supervisorLevels" class="form-control">
+                        <select ng-model="data.onLineonitoring" ng-options="x for x in supervisorLevels" class="form-control">
                         	
                         </select>
                      </div>
@@ -190,7 +192,7 @@
                      <label class="col-sm-3 control-label">带远程监控</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentContacts" class="form-control" />-->
-                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in monitor" class="form-control">
+                        <select ng-model="data.remoteMonitoring" ng-options="x for x in monitor" class="form-control">
                         	
                         </select>
                      </div>
@@ -204,7 +206,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">处理工艺模式</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentContactsPhone" class="form-control" />
+                        <input type="text" ng-model="data.ptm" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -216,7 +218,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设计出水水质标准</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentContactsIdentity" class="form-control" />
+                        <input type="text" ng-model="data.dewqs" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -229,7 +231,7 @@
                      <label class="col-sm-3 control-label">设施状态</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.complaints" class="form-control" />-->
-                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in facilitieStatus" class="form-control">
+                        <select ng-model="data.facilityState" ng-options="x for x in facilitieStatus" class="form-control">
                         	
                         </select>
                      </div>
@@ -243,7 +245,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">终端建设单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintAcceptor" class="form-control" />
+                        <input type="text" ng-model="data.tcsUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -255,7 +257,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">终端设计单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.tdUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -267,7 +269,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">终端施工单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.tcnUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -279,7 +281,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">终端监理单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.tsUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -291,7 +293,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">管网建设单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.ncsUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -303,7 +305,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">管网设计单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.ndUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -315,7 +317,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">管网施工单位</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.ncnUnit" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -327,7 +329,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">管网长(m)</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.nlong" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -339,7 +341,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">管网材质</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.nmTexture" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -351,7 +353,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">主管网管直径(mm)</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.pdc" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -366,7 +368,7 @@
                         <!--<input type="text" ng-model="data.complaintPhone" class="form-control" />-->
                         <div class="input-group">
 			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
-			                 		ng-model="data.complaintPhone" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                 		ng-model="data.completionDate" is-open="popup1.opened" ng-required="true" close-text="关闭"
 			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
 			                 <span class="input-group-btn">
 			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
@@ -386,7 +388,7 @@
                         <!--<input type="text" ng-model="data.complaintPhone" class="form-control" />-->
                         <div class="input-group">
 			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
-			                 		ng-model="data.dt" is-open="popup2.opened" ng-required="true" close-text="关闭"
+			                 		ng-model="data.receivingDate" is-open="popup2.opened" ng-required="true" close-text="关闭"
 			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
 			                 <span class="input-group-btn">
 			                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
@@ -406,7 +408,7 @@
                         <!--<input type="text" ng-model="data.complaintPhone" class="form-control" />-->
                         <div class="input-group">
 			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
-			                 		ng-model="data.dt" is-open="popup3.opened" ng-required="true" close-text="关闭"
+			                 		ng-model="data.maintenanceDate" is-open="popup3.opened" ng-required="true" close-text="关闭"
 			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
 			                 <span class="input-group-btn">
 			                     <button type="button" class="btn btn-default" ng-click="open3()"><i class="fa fa-calendar"></i></button>
@@ -422,6 +424,7 @@
             </div>
             <div class="panel-footer text-center">
                <button type="submit" ng-click="update11();" class="btn btn-success">提 交</button>
+               <a class="btn btn-default" ui-sref="app.report.table11">返回</a>
             </div>
          </div>
          <!-- END panel-->

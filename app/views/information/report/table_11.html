@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit11" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -33,21 +33,21 @@
             	
                <thead>                 
                   <tr>
-                     <th>行政区域</th>
-                     <th>区划代码</th>
-                     <th>镇书记</th>
+                     <th>设施所在行政村</th>
+                     <th>设施所在自然村</th>
+                     <th>设施名称</th>
                      <th>
-                     	镇长
+                     	设施编码
                      </th>
                      <th>
-                     	分管负责人
+                     	设计日处理量（吨）
                      </th>
                      <th>
-                     	分管负责人固话
+                     	设施总功率（KW）
                      </th>
-                     <th>
+                     <!--<th>
                      	分管部门
-                     </th>
+                     </th>-->
                      <th>
                      	操作
                      </th>
@@ -55,18 +55,18 @@
                </thead>
                <tbody>
                   <tr ng-repeat="data in adUnit |filter:search | range:currentPage:itemsPerPage">
-                     <td>{{ data.area }}</td>
-                     <td>{{ data.areaCode }}</td>
-                     <td>{{ data.townSecretary}}</td>
-                     <td>{{ data.townMayor}}</td>
-                     <td>{{ data.personInCharge }}</td>
-                     <td>{{ data.phoneInCharge}}</td>
-                     <td>{{ data.department }}</td>
+                     <td>{{ data.administrativeVillage}}</td>
+                     <td>{{ data.naturalVillage }}</td>
+                     <td>{{ data.name}}</td>
+                     <td>{{ data.facilityCode}}</td>
+                     <td>{{ data.dailyProcessing}}</td>
+                     <td>{{ data.totalPower}}</td>
+                     <!--<td>{{ data.department }}</td>-->
                      <td>
                         <a ui-sref="app.report_edit11({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove(data.fid)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>

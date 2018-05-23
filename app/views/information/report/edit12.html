@@ -14,7 +14,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">设施编码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.facilityCode" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -25,7 +25,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">姓名</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.name" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -50,7 +50,7 @@
                      <label class="col-sm-3 control-label">监督员级别</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.areaCode" class="form-control" />-->
-                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in supervisorLevels" class="form-control">
+                        <select ng-model="data.mslevel" ng-options="x for x in supervisorLevels" class="form-control">
                         	
                         </select>
                      </div>
@@ -63,7 +63,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">电话</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townSecretary" class="form-control" />
+                        <input type="text" ng-model="data.mp" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -75,7 +75,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">身份证号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townMayor" class="form-control" />
+                        <input type="text" ng-model="data.id_card" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -87,6 +87,7 @@
             </div>
             <div class="panel-footer text-center">
                <button type="submit" ng-click="update12();" class="btn btn-success">提 交</button>
+               <a class="btn btn-default" ui-sref="app.report.table12">返回</a>
             </div>
          </div>
          <!-- END panel-->

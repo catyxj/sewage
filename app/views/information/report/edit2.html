@@ -9,13 +9,15 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>巡检表单</h4>
+               <h4>巡检表单
+               		<!--<a class="btn btn-default pull-right" ui-sref="app.report.table2">返回</a>-->
+               </h4>
 
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检单号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.id" name="email" class="form-control" />
+                        <input type="text" ng-model="data.inspectionCode" name="email" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -37,7 +39,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检人</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.inspector"  class="form-control" />
+                        <input type="text" ng-model="data.inspectionPeople"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -48,7 +50,15 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检时间</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.date"  class="form-control" />
+                        <!--<input type="text" ng-model="data.inspectionDate"  class="form-control" />-->
+                        <div class="input-group">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="data.inspectionDate" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			            </div>
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -59,7 +69,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检卡号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.cardnum"  class="form-control" />
+                        <input type="text" ng-model="data.inspectionCard"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -70,7 +80,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">站点编号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.siteNum"  class="form-control" />
+                        <input type="text" ng-model="data.siteCode"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点编码-->
@@ -92,7 +102,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">区域编号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.areaCode"  class="form-control" />
+                        <input type="text" ng-model="data.regionCode"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障的设备名称-->
@@ -103,7 +113,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">所属区域</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area"  class="form-control" />
+                        <input type="text" ng-model="data.regionName"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发现设备发生故障日期-->
@@ -127,7 +137,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">巡检内容</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.state" class="form-control" />
+                        <input type="text" ng-model="data.inspectionContent" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--巡检详情描述-->
@@ -138,6 +148,7 @@
             </div>
             <div class="panel-footer text-center">
                <button type="submit" ng-click="update2();" class="btn btn-success">提 交</button>
+               <a class="btn btn-default" ui-sref="app.report.table2">返回</a>
             </div>
          </div>
          <!-- END panel-->

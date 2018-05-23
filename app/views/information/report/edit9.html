@@ -9,12 +9,14 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>镇基本信息表</h4>
+               <h4>行政村基本信息表
+               		<!--<a class="btn btn-default pull-right" ui-sref="app.report.table9">返回</a>-->
+               </h4>
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">上级行政区域</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.ts_BasicInformation" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -25,7 +27,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">行政村名</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.area" required="required" class="form-control" />
+                        <input type="text" ng-model="data.village" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -36,7 +38,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">区划代码</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.areaCode" class="form-control" />
+                        <input type="text" ng-model="data.zoningCode" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                        
@@ -47,7 +49,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">党支部书记</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townSecretary" class="form-control" />
+                        <input type="text" ng-model="data.pbs" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -58,7 +60,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">党支部书记电话</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.townMayor" class="form-control" />
+                        <input type="text" ng-model="data.pbs_mp" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -69,7 +71,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">村委会主任</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.villageDirector" class="form-control" />
+                        <input type="text" ng-model="data.vcd" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -80,7 +82,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">村委会主任电话</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.villageDirectorPhone" class="form-control" />
+                        <input type="text" ng-model="data.vcd_mp" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -91,7 +93,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">分管负责人</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.personInCharge" class="form-control" />
+                        <input type="text" ng-model="data.md" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -102,7 +104,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">分管负责人电话</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.phoneInCharge" class="form-control" />
+                        <input type="text" ng-model="data.md_mp" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -114,7 +116,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">行政村农户数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.villageNum" class="form-control" />
+                        <input type="text" ng-model="data.farmersNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -126,7 +128,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">户籍人口数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.department" class="form-control" />
+                        <input type="text" ng-model="data.rpn" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -138,7 +140,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">常住人口数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentPhone" class="form-control" />
+                        <input type="text" ng-model="data.prpn" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -150,7 +152,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">人均GDP（元）</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentHead" class="form-control" />
+                        <input type="text" ng-model="data.perCapita_GDP" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -162,7 +164,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">农家乐数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentHeadPhone" class="form-control" />
+                        <input type="text" ng-model="data.agritainmentNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -175,7 +177,7 @@
                      <label class="col-sm-3 control-label">纳厂信息</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentHeadIdentity" class="form-control" />-->
-                        <select ng-model="data.departmentHeadIdentity" ng-options="x for x in plants" class="form-control">
+                        <select ng-model="data.intoFactory" ng-options="x for x in plants" class="form-control">
                         	
                         </select>
                      </div>
@@ -190,7 +192,7 @@
                      <label class="col-sm-3 control-label">设施建设</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentContacts" class="form-control" />-->
-                        <select ng-model="data.departmentContacts" ng-options="x for x in facilities" class="form-control">
+                        <select ng-model="data.facilitiesBuild" ng-options="x for x in facilities" class="form-control">
                         	
                         </select>
                      </div>
@@ -204,7 +206,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">总户数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentContactsPhone" class="form-control" />
+                        <input type="text" ng-model="data.thNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -216,7 +218,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">应接入户数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.departmentContactsIdentity" class="form-control" />
+                        <input type="text" ng-model="data.scNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -228,7 +230,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">实际接入户数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaints" class="form-control" />
+                        <input type="text" ng-model="data.aaNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -240,7 +242,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">应受益人口数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintAcceptor" class="form-control" />
+                        <input type="text" ng-model="data.bpNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -252,7 +254,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">实际受益人口数</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.complaintPhone" class="form-control" />
+                        <input type="text" ng-model="data.abNumber" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         
@@ -264,6 +266,7 @@
             </div>
             <div class="panel-footer text-center">
                <button type="submit" ng-click="update9();" class="btn btn-success">提 交</button>
+               <a class="btn btn-default" ui-sref="app.report.table9">返回</a>
             </div>
          </div>
          <!-- END panel-->

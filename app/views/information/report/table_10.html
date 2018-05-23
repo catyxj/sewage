@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit10" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -33,7 +33,7 @@
             	
                <thead>                 
                   <tr>
-                     <th>行政村名</th>
+                     <!--<th>行政村名</th>-->
                      <th>区划代码</th>
                      <th>自然村名</th>
                      <th>
@@ -55,18 +55,18 @@
                </thead>
                <tbody>
                   <tr ng-repeat="data in adUnit |filter:search | range:currentPage:itemsPerPage">
-                     <td>{{ data.area }}</td>
-                     <td>{{ data.areaCode }}</td>
-                     <td>{{ data.townSecretary}}</td>
-                     <td>{{ data.townMayor}}</td>
-                     <td>{{ data.personInCharge }}</td>
-                     <td>{{ data.phoneInCharge}}</td>
-                     <td>{{ data.department }}</td>
+                     <!--<td>{{ data.area }}</td>-->
+                     <td>{{ data.zoningCode }}</td>
+                     <td>{{ data.name }}</td>
+                     <td>{{ data.intoFactory}}</td>
+                     <td>{{ data.thNumber}}</td>
+                     <td>{{ data.scNumber}}</td>
+                     <td>{{ data.aaNumber }}</td>
                      <td>
                         <a ui-sref="app.report_edit10({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove(data.vs_id)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>

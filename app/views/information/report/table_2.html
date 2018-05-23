@@ -7,9 +7,8 @@
    		<div class="clearfix mb">
 	   		<div class="pull-left">
 	   			显示 
-	   			<select class="tab_select">
-	   				<option value="">10</option>
-	   				<option value="">25</option>
+	   			<select ng-options="page for page in pages" class="tab_select" ng-model="itemsPerPage" ng-change="changePageSize(itemsPerPage);">
+	   				
 	   			</select>
 	   			项
 	   		</div>
@@ -50,9 +49,9 @@
                      <th>
                      	区域编号
                      </th>
-                     <th>
+                     <!--<th>
                      	所属区域
-                     </th>
+                     </th>-->
                      <th>
                      	评分
                      </th>
@@ -63,23 +62,23 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="data in inspection|filter:search">
-                     <td>{{ data.id }}</td>
+                  <tr ng-repeat="data in inspection|filter:search| range:currentPage:itemsPerPage">
+                     <td>{{ data.inspectionCode}}</td>
                      <td>{{ data.name }}</td>
-                     <td>{{ data.inspector }}</td>
-                     <td>{{ data.date }}</td>
-                     <td>{{ data.cardnum }}</td>
-                     <td>{{ data.siteNum }}</td>
+                     <td>{{ data.inspectionPeople }}</td>
+                     <td>{{ data.inspectionDate }}</td>
+                     <td>{{ data.inspectionCard }}</td>
+                     <td>{{ data.siteCode }}</td>
                      <td>{{ data.siteName }}</td>
-                     <td>{{ data.areaCode}}</td>
-                     <td>{{ data.area }}</td>
+                     <td>{{ data.regionCode}}</td>
+                     <!--<td>{{ data.regionName }}</td>-->
                      <td>{{	data.score }}</td>                                   
                      
                      <td>
                         <a ui-sref="app.report_edit2({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove(data.id)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>
@@ -89,7 +88,10 @@
            
          </form>
          <div ng-controller="PaginationCtrl">
-		         <div uib-pagination total-items="totalItems" ng-model="currentPage" 
+         		<div class="pull-left">
+         			共 {{totalItems}} 项
+         		</div>
+		         <div uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
 		         	max-size="5" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" 
 		         	boundary-links="true" boundary-link-numbers="true"
 		         	class="pull-right">

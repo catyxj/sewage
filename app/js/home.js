@@ -1,6 +1,6 @@
 //登录页
 
-angular.module("sewageHome",[]).controller("accountCtrl",["$rootScope","$scope" ,function($rootScope,$scope){
+angular.module("sewageHome",[]).controller("accountCtrl",["$rootScope","$scope" ,"$http",function($rootScope,$scope,$http){
 	var account = this;
 	account.remember = false;	
 	if(localStorage.sewage_user){
@@ -8,7 +8,15 @@ angular.module("sewageHome",[]).controller("accountCtrl",["$rootScope","$scope" 
 	}
 	
 	account.login = function(){
-		window.location.href = "admin.html";
+		$http.post("/userC/login",{user:account.user,password:account.password}).then(function(res){
+			window.location.href = "admin.html";
+		},function(err){
+			$scope.errMes = err.data;
+			console.log($scope.errMes);
+		});
+		
+		
+		
 		if(account.remember){
 			localStorage.sewage_user= account.user;
 		}

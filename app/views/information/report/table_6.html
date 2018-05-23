@@ -32,7 +32,7 @@
             	
                <thead>                 
                   <tr>
-                     <th>设施名称</th>
+                     <!--<th>设施名称</th>-->
                      <th>设施编码</th>
                      <th>设备名称</th>
                      <th>
@@ -53,12 +53,12 @@
                <tbody>
                	
                   <tr ng-repeat="data in equipment|filter:search | range:currentPage:itemsPerPage">
+                     <!--<td>{{ data.name }}</td>-->
+                     <td>{{ data.facilityCode }}</td>
                      <td>{{ data.name }}</td>
-                     <td>{{ data.code }}</td>
-                     <td>{{ data.area }}</td>
-                     <td>{{ data.capacity }}</td>
-                     <td>{{ data.totalPower }}</td>
-                     <td>{{ data.monitor }}</td>
+                     <td>{{ data.modelNumber }}</td>
+                     <td>{{ data.type }}</td>
+                     <td>{{ data.power }}</td>
                      <td>
                         <a ui-sref="app.report_edit6({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>

@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit6" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit7" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -34,6 +34,8 @@
                   <tr>
                      <th>编号</th>
                      <th>区县（市）</th>
+                     <th>治理设施建设行政村数（个）</th>
+                     <th>接收治理设施行政村数（个）</th>
                      <th>更新时间</th>                    
                      <th>
                      	操作
@@ -43,15 +45,20 @@
                <tbody>
                   <tr ng-repeat="data in monthly|filter:search | range:currentPage:itemsPerPage">
                      <td>{{ $index + 1 }}</td>
-                     <td>{{ data.area }}</td>
-                     <td>{{ data.time }}</td>
+                     <td>{{ data.dcc }}</td>
+                     <td>{{ data.governVillageNumber }}</td>
+                     <td>{{ data.receiveVillageNumber }}</td>
+                     <td>{{ data.updateDate }}</td>
                     
                      <td>
                         <a ui-sref="app.report_edit7({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="removePerson($index)" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove(data.id)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
+                        </button>
+                        <button type="button" ng-click="" class="btn btn-sm btn-success" ng-if="false">
+                           <em class="fa fa-check-square-o "></em>
                         </button>
                      </td>
                   </tr>

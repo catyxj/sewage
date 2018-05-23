@@ -229,6 +229,11 @@ App.controller("reportEditCtrl",["$scope","$stateParams","$http",function($scope
 //	$scope.data =JSON.parse($stateParams.data);
 	$scope.data = $stateParams.data;
 	console.log($stateParams.data);
+	if(!$scope.data){
+		$scope.data = {
+			image:null,
+		};
+	}
 	
 		//人员类别
 		$scope.personCategories=["1-工作人员","2-部门联系人","3-部门负责人","4-分管负责人","5-单位负责人","6-投诉受理人"];
@@ -271,6 +276,27 @@ App.controller("reportEditCtrl",["$scope","$stateParams","$http",function($scope
         $scope.open3 = function () {
             $scope.popup3.opened = true;
         };
+	
+	
+	
+	//image	
+	
+	var input  = document.getElementById("image"); // input file
+	input.onchange = function(){		
+	    var file = this.files[0];
+	        if(!!file){
+	            var reader = new FileReader();
+	            // 图片文件转换为base64
+	            reader.readAsDataURL(file);
+	            reader.onload = function(){
+	                // 显示图片
+	                document.getElementById("file_img").src = this.result;
+	                $scope.data.image = this.result;
+	        }
+	    }
+	}
+	
+	
 	
 	
     

@@ -9,12 +9,14 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>化验表单</h4>
+               <h4>化验表单
+               		<!--<a class="btn btn-default pull-right" ui-sref="app.report.table3">返回</a>-->
+               </h4>
                <fieldset>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">化验单号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.id" name="required" required="required" class="form-control" />
+                        <input type="text" ng-model="data.assayCode" required="required" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障设备当前状态：1、已修复 2、报修-->
@@ -25,7 +27,15 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">取样日期</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.samplingDate"  class="form-control" />
+                        <!--<input type="text" ng-model="data.samplingDate"  class="form-control" />-->
+                        <div class="input-group">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="data.samplingDate" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			            </div>
                      </div>
                      <div class="col-sm-3">
                         <!--对应设备发生故障编号-->
@@ -36,7 +46,15 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">化验日期</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.laboratoryDate"  class="form-control" />
+                        <input type="text" ng-model="data.assayDate"  class="form-control" />
+                        <div class="input-group">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="data.assayDate" is-open="popup2.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			            </div>
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点名称-->
@@ -47,7 +65,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">化验人</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.laboratoryPerson"  class="form-control" />
+                        <input type="text" ng-model="data.assayPeople"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障设备所属站点编码-->
@@ -58,7 +76,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">站点编号</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.siteNum"  class="form-control" />
+                        <input type="text" ng-model="data.siteCode"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--发生故障的设备名称-->
@@ -80,7 +98,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">CODcr化学耗氧量</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.CODcr"  class="form-control" />
+                        <input type="text" ng-model="data.codcr"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障设备相关负责人名称-->
@@ -91,7 +109,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">PH酸碱度</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.PH"  class="form-control" />
+                        <input type="text" ng-model="data.ph"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障修复相关费用金额数量-->
@@ -103,7 +121,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">SS悬浮物</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.SS"  class="form-control" />
+                        <input type="text" ng-model="data.ss"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障详情描述-->
@@ -114,7 +132,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">NH₃N氨氮</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.NHN"  class="form-control" />
+                        <input type="text" ng-model="data.an"  class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障修复相关费用金额数量-->
@@ -125,7 +143,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">TP总磷</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.TP" class="form-control" />
+                        <input type="text" ng-model="data.tp" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障修复相关费用金额数量-->
@@ -136,7 +154,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">备注</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.remark" class="form-control" />
+                        <input type="text" ng-model="data.remarks" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                         <!--故障修复相关费用金额数量-->
@@ -147,6 +165,7 @@
             </div>
             <div class="panel-footer text-center">
                <button type="submit" ng-click="update3();" class="btn btn-success">提 交</button>
+               <a class="btn btn-default" ui-sref="app.report.table3">返回</a>
             </div>
          </div>
          <!-- END panel-->

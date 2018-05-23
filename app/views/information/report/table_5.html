@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit5" class="btn btn-labeled btn-success">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -34,7 +34,7 @@
                <thead>                 
                   <tr>
                      <th>行政区域</th>
-                     <th>区划代码</th>
+                     <!--<th>区划代码</th>-->
                      <th>人员类别</th>
                      <th>
                      	姓名
@@ -53,11 +53,11 @@
                <tbody>
                   <tr ng-repeat="data in opUnit |filter:search | range:currentPage:itemsPerPage">
                      <td>{{ data.area }}</td>
-                     <td>{{ data.areaCode }}</td>
+                     <!--<td>{{ data.areaCode }}</td>-->
                      <td>{{ data.category}}</td>
                      <td>{{ data.name}}</td>
-                     <td>{{ data.tel }}</td>
-                     <td>{{ data.ID}}</td>
+                     <td>{{ data.mobilePhone }}</td>
+                     <td>{{ data.id_card}}</td>
                      <td>
                         <a ui-sref="app.report_edit5({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>

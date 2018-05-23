@@ -241,4 +241,9 @@ ul,li{
 
 
 
-
+/*report*/
+.img_input{
+	width: 200px;
+	height: 100px;
+	margin-bottom: 10px;
+}
