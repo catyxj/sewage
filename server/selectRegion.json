@@ -1,0 +1,25 @@
+[
+	{
+		"administrativeVillage":"白峰村",
+		"facilityState":1
+	},
+	{
+		"administrativeVillage":"官庄村",
+		"facilityState":2
+	}
+	,
+	{
+		"administrativeVillage":"阳东村",
+		"facilityState":3
+	}
+	,
+	{
+		"administrativeVillage":"勤山村",
+		"facilityState":4
+	}
+	,
+	{
+		"administrativeVillage":"上阳村",
+		"facilityState":5
+	}
+]

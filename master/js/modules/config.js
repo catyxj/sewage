@@ -34,22 +34,25 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     .state('app.warning', {
         url: '/warning',
-        title: 'warning',
+        title: 'warning',        
         templateUrl: 'app/views/master-station/warning.html'
     })
     .state('app.warning.current', {
         url: '/warning_current',
         title: 'warning_current',
+        controller: 'warningCurrentCtrl',
         templateUrl: 'app/views/master-station/warning_current.html'
     })
     .state('app.warning.history', {
         url: '/warning_history',
         title: 'warning_history',
+        controller: 'warningHistoryCtrl',
         templateUrl: 'app/views/master-station/warning_history.html'
     })
     .state('app.malfunction', {
         url: '/malfunction',
         title: 'malfunction',
+        controller: 'malfunctionCtrl',
         templateUrl: 'app/views/master-station/malfunction.html'
     })
     .state('app.malfunction.unsolved', {
@@ -94,12 +97,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     .state('app.cash', {
-        url: '/cash',
+        url: '/cash?area',
         title: 'cash',
         templateUrl: 'app/views/tables/cash.html',
     })
     .state('app.beneficiary', {
-        url: '/beneficiary',
+        url: '/beneficiary?area',
         title: 'beneficiary',
         templateUrl: 'app/views/tables/Beneficiary.html'
     })
@@ -134,16 +137,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/install_3.html',
         resolve: helper.resolveFor('highcharts.plugin')
     })
-    .state('app.beneficiary2', {
-        url: '/beneficiary2',
-        title: 'beneficiary2',
-        templateUrl: 'app/views/tables/Beneficiary2.html'
-    })
-    .state('app.beneficiary3', {
-        url: '/beneficiary3',
-        title: 'beneficiary3',
-        templateUrl: 'app/views/tables/Beneficiary3.html'
-    })
     .state('app.cash2', {
         url: '/cash2',
         title: 'cash2',
@@ -174,7 +167,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county',
         title: 'county',
         templateUrl: 'app/views/information/county/main.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs')
+        resolve: helper.resolveFor('angularBootstrapNavTree')
     })
     .state('app.county.county_1_1', {
         url: '/county_1_1',
@@ -489,7 +482,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment',
         templateUrl: 'app/views/information/equipment/main.html',
         controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs','morris')
+        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
     })
     .state('app.equipment.equipment_1', {
         url: '/equipment_1',
@@ -628,49 +621,49 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report_edit2',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
     .state('app.report_edit3', {
         url: '/report_edit3',
         title: 'report_edit3',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit3.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit4', {
         url: '/report_edit4',
         title: 'report_edit4',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit4.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit5', {
         url: '/report_edit5',
         title: 'report_edit5',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit5.html',
-        resolve: helper.resolveFor('parsley','ui.select')
+        resolve: helper.resolveFor('ui.select')
     })
 	.state('app.report_edit6', {
         url: '/report_edit6',
         title: 'report_edit6',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit7', {
         url: '/report_edit7',
         title: 'report_edit7',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit7.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit8', {
         url: '/report_edit8',
         title: 'report_edit8',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit8.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit9', {
         url: '/report_edit9',

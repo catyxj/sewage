@@ -35,7 +35,7 @@ App
       'classyloader':       ['vendor/jquery-classyloader/js/jquery.classyloader.min.js'],
       'sparklines':         ['app/vendor/sparklines/jquery.sparkline.min.js'],
       'screenfull':         ['vendor/screenfull/dist/screenfull.js'], 
-      'chartjs':            ['vendor/Chart.js/dist/Chart.js'],
+      'chartjs':            ['vendor/chart.js/dist/Chart.min.js'],
       'highcharts':         ['vendor/highcharts/highcharts.js'],
       'highcharts.plugin':  [
 //    						'vendor/highcharts/modules/exporting.js',

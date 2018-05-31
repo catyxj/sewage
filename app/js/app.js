@@ -94,22 +94,25 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     .state('app.warning', {
         url: '/warning',
-        title: 'warning',
+        title: 'warning',        
         templateUrl: 'app/views/master-station/warning.html'
     })
     .state('app.warning.current', {
         url: '/warning_current',
         title: 'warning_current',
+        controller: 'warningCurrentCtrl',
         templateUrl: 'app/views/master-station/warning_current.html'
     })
     .state('app.warning.history', {
         url: '/warning_history',
         title: 'warning_history',
+        controller: 'warningHistoryCtrl',
         templateUrl: 'app/views/master-station/warning_history.html'
     })
     .state('app.malfunction', {
         url: '/malfunction',
         title: 'malfunction',
+        controller: 'malfunctionCtrl',
         templateUrl: 'app/views/master-station/malfunction.html'
     })
     .state('app.malfunction.unsolved', {
@@ -154,12 +157,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     .state('app.cash', {
-        url: '/cash',
+        url: '/cash?area',
         title: 'cash',
         templateUrl: 'app/views/tables/cash.html',
     })
     .state('app.beneficiary', {
-        url: '/beneficiary',
+        url: '/beneficiary?area',
         title: 'beneficiary',
         templateUrl: 'app/views/tables/Beneficiary.html'
     })
@@ -194,16 +197,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/install_3.html',
         resolve: helper.resolveFor('highcharts.plugin')
     })
-    .state('app.beneficiary2', {
-        url: '/beneficiary2',
-        title: 'beneficiary2',
-        templateUrl: 'app/views/tables/Beneficiary2.html'
-    })
-    .state('app.beneficiary3', {
-        url: '/beneficiary3',
-        title: 'beneficiary3',
-        templateUrl: 'app/views/tables/Beneficiary3.html'
-    })
     .state('app.cash2', {
         url: '/cash2',
         title: 'cash2',
@@ -234,7 +227,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/county',
         title: 'county',
         templateUrl: 'app/views/information/county/main.html',
-        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs')
+        resolve: helper.resolveFor('angularBootstrapNavTree')
     })
     .state('app.county.county_1_1', {
         url: '/county_1_1',
@@ -549,7 +542,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment',
         templateUrl: 'app/views/information/equipment/main.html',
         controller: 'equipmentController',
-        resolve: helper.resolveFor('angularBootstrapNavTree','chartjs','morris')
+        resolve: helper.resolveFor('angularBootstrapNavTree','morris')
     })
     .state('app.equipment.equipment_1', {
         url: '/equipment_1',
@@ -688,49 +681,49 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'report_edit2',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit2.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
     .state('app.report_edit3', {
         url: '/report_edit3',
         title: 'report_edit3',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit3.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit4', {
         url: '/report_edit4',
         title: 'report_edit4',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit4.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit5', {
         url: '/report_edit5',
         title: 'report_edit5',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit5.html',
-        resolve: helper.resolveFor('parsley','ui.select')
+        resolve: helper.resolveFor('ui.select')
     })
 	.state('app.report_edit6', {
         url: '/report_edit6',
         title: 'report_edit6',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit6.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit7', {
         url: '/report_edit7',
         title: 'report_edit7',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit7.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit8', {
         url: '/report_edit8',
         title: 'report_edit8',
         params:{"data":null},
         templateUrl: 'app/views/information/report/edit8.html',
-        resolve: helper.resolveFor('parsley')
+        resolve: helper.resolveFor()
     })
 	.state('app.report_edit9', {
         url: '/report_edit9',
@@ -904,7 +897,7 @@ App
       'classyloader':       ['vendor/jquery-classyloader/js/jquery.classyloader.min.js'],
       'sparklines':         ['app/vendor/sparklines/jquery.sparkline.min.js'],
       'screenfull':         ['vendor/screenfull/dist/screenfull.js'], 
-      'chartjs':            ['vendor/Chart.js/dist/Chart.js'],
+      'chartjs':            ['vendor/chart.js/dist/Chart.min.js'],
       'highcharts':         ['vendor/highcharts/highcharts.js'],
       'highcharts.plugin':  [
 //    						'vendor/highcharts/modules/exporting.js',
@@ -951,83 +944,46 @@ App
   })
 ;
 
-App.controller("beneficiaryCtrl",["$scope",function($scope){
-	$scope.val = 88;
+App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
+		
+	var area = $stateParams.area;
 	
-	$scope.benefitBaifeng = [
-		{
-			name:"白峰村",
-			benefited:540,
-			benefit:590,
-			update:"2018-03",
-					
-		},
-		{
-			name:"官庄村",
-			benefited:217,
-			benefit:250,
-			update:"2018-03",
-					
-		},
-		{
-			name:"勤山村",
-			benefited:180,
-			benefit:210,
-			update:"2018-03",
-					
-		},
-		{
-			name:"上阳村",
-			benefited:175,
-			benefit:193,
-			update:"2018-03",
-					
-		},
-		{
-			name:"神马村",
-			benefited:50,
-			benefit:60,
-			update:"2018-03",
-					
-		},
-		{
-			name:"司沿村",
-			benefited:205,
-			benefit:226,
-			update:"2018-03",
-					
-		},
-		{
-			name:"下阳村",
-			benefited:470,
-			benefit:520,
-			update:"2018-03",
-					
-		},
-		{
-			name:"新峰村",
-			benefited:204,
-			benefit:235,
-			update:"2018-03",
-					
-		},
-		{
-			name:"阳东村",
-			benefited:209,
-			benefit:270,
-			update:"2018-03",
-					
-		}
-	]
+	$scope.refreshBene = function(area){
+		$http.post("/Seom/bhc/select",{area}).then(function(res){
+			$scope.benefit = res.data;
+			$scope.currentPage = 1;
+			$scope.totalItems = $scope.benefit.length;			
+		},function(err){
+			
+		})
+	};
+	
+	$scope.refreshBene(area);
 	
 	
 	
 }])
 
-App.controller("cashCtrl",["$scope",function($scope){
-	$scope.val = 80;
-}]);
 
+App.controller("cashCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
+		
+	var area = $stateParams.area;
+	
+	$scope.refreshCash = function(area){
+		$http.post("/Seom/msrc/select ",{area}).then(function(res){
+			$scope.cash = res.data;
+			$scope.currentPage = 1;
+			$scope.totalItems = $scope.cash.length;			
+		},function(err){
+			
+		})
+	};
+	
+	$scope.refreshCash(area);
+	
+	
+	
+}])
 /**=========================================================
 
  =========================================================*/
@@ -1318,12 +1274,62 @@ $scope.RadarChart();
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state",function($scope,$rootScope,$http,$state){
 	
+	//站点数
+	$http.get("/Seom/fc/selectTotal").then(function(res){
+		$scope.siteNum = res.data;
+	},function(err){
+		
+	});
+	
+	//故障数
+	$http.get("/Seom/mrc/selectUnsolved").then(function(res){
+		$scope.malfunction = res.data;
+	},function(err){
+		
+	});
+	
+	
+	$scope.alarmNum = 2;
+	
+	$scope.waterInfo1 = 70;
+	
+	
+	//站点搜索
+	$http.get("/Seom/fc/selectRegion").then(function(res){
+		$scope.selectRegion = res.data;
+		for(var i=0; i<$scope.selectRegion.length; i++){
+			switch($scope.selectRegion[i].facilityState){
+				case 1:
+					$scope.selectRegion[i].name = "建设";
+					break;
+				case 2:
+					$scope.selectRegion[i].name = "运维";
+					break;
+				case 3:
+					$scope.selectRegion[i].name = "大修";
+					break;
+				case 4:
+					$scope.selectRegion[i].name = "重建";
+					break;
+				case 5:
+					$scope.selectRegion[i].name = "报废";				
+			}
+		}
+		
+
+	},function(err){
+		
+	});
+	
+	
+	
+	
 /**=========================================================
  * Module: vmaps,js
  * jVector Maps support
  =========================================================*/
 	
-	 $scope.seriesData = {
+	/* $scope.seriesData = {
 	    'CN-33': 138,   // 浙江
 	  
 	  };
@@ -1333,7 +1339,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	
 	  ];	
 	
-	$scope.mapName = "cn_mill";
+	$scope.mapName = "cn_mill";*/
 	
 /*-------百度地图------------*/	
 	var map = new BMap.Map("container");// 创建地图实例  
@@ -2384,7 +2390,15 @@ App.controller('equipDateCtrl', function ($scope) {
              
              
          });
-App.controller("installController",['$scope',function($scope){
+App.controller("installController",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+	
+	$scope.refresh = function(){
+		$http.post("",{}).then(function(res){
+			
+		},function(err){
+			
+		})
+	}
 	// 图表配置
         var options = {
             chart: {
@@ -2684,6 +2698,23 @@ App.controller('AppController',
 
 }]);
 
+App.controller("malfunctionCtrl",["$scope","$http",function($scope,$http){
+
+	$scope.updateMal = function(){
+		$http.get("server/malfunctions.json").then(function(res){
+			$scope.malData = res.data;
+			$scope.currentPage = 1;			
+			$scope.totalItems = $scope.malData.length;
+			
+		},function(err){
+			
+		})
+	};
+	
+	$scope.updateMal();
+	
+	
+}])
 /**=========================================================
  * Module: nestable.js
  * Nestable controller
@@ -2873,35 +2904,35 @@ App.controller('reportController', ['$scope', '$http','$state',
 
   // Ajax 
   $scope.table1 = function(){
-  	$http.get("/mrc/get").then(function(res){
+  	$http.get("/Seom/mrc/get").then(function(res){
 	  	$scope.malfunctions = res.data;
 	  	$scope.totalItems = $scope.malfunctions.length;
 	  })
   };
   
   $scope.table2 = function(){
-  	$http.get("/irs/get").then(function(res){
+  	$http.get("/Seom/irs/get").then(function(res){
 	  	$scope.inspection = res.data;
 	  	$scope.totalItems = $scope.inspection.length;
 	  })
   };
   
   $scope.table3 = function(){
-  	$http.get("/arc/get").then(function(res){
+  	$http.get("/Seom/arc/get").then(function(res){
 	  	$scope.laboratory = res.data;
 	  	$scope.totalItems = $scope.laboratory.length;
 	  })
   };
   
   $scope.table4 = function(){
-  	$http.get("/tbc/get").then(function(res){
+  	$http.get("/Seom/tbc/get").then(function(res){
 	  	$scope.adUnit = res.data;
 	  	$scope.totalItems = $scope.adUnit.length;
 	  })
   };
   
   $scope.table5 = function(){
-  	$http.get("/pic/get").then(function(res){
+  	$http.get("/Seom/pic/get").then(function(res){
 	  	$scope.opUnit = res.data;
 	  	$scope.totalItems = $scope.opUnit.length;
 	  		  	
@@ -2910,35 +2941,35 @@ App.controller('reportController', ['$scope', '$http','$state',
   
   
   $scope.table6 = function(){
-  	$http.get("/equipmentc/get").then(function(res){
+  	$http.get("/Seom/equipmentc/get").then(function(res){
 	  	$scope.equipment = res.data;
 	  	$scope.totalItems = $scope.equipment.length;
 	  })
   };
   
   $scope.table7 = function(){
-  	$http.get("/mmrc/get").then(function(res){
+  	$http.get("/Seom/mmrc/get").then(function(res){
 	  	$scope.monthly = res.data;
 	  	$scope.totalItems = $scope.monthly.length;
 	  })
   };
   
   $scope.table8 = function(){
-  	$http.get("/msrc/get").then(function(res){
+  	$http.get("/Seom/msrc/get").then(function(res){
 	  	$scope.jidu = res.data;
 	  	$scope.totalItems = $scope.jidu.length;
 	  })
   };
   
   $scope.table9 = function(){
-  	$http.get("/aVillagec/get").then(function(res){
+  	$http.get("/Seom/aVillagec/get").then(function(res){
 	  	$scope.vBasic = res.data;
 	  	$scope.totalItems = $scope.vBasic.length;
 	  })
   };
   
   $scope.table10 = function(){
-  	$http.get("/avuvc/get").then(function(res){
+  	$http.get("/Seom/avuvc/get").then(function(res){
 	  	$scope.vBasic = res.data;
 	  	$scope.totalItems = $scope.vBasic.length;
 	  })
@@ -2952,7 +2983,7 @@ App.controller('reportController', ['$scope', '$http','$state',
   };
   
   $scope.table12 = function(){
-  	$http.get("/fmsc/get").then(function(res){
+  	$http.get("/Seom/fmsc/get").then(function(res){
 	  	$scope.vBasic = res.data;
 	  	$scope.totalItems = $scope.vBasic.length;
 	  })
@@ -2972,6 +3003,98 @@ $scope.changePageSize = function(page){
 //	console.log("edit",data);
 //	$state.go("app.report_edit10",{data:JSON.stringify(data)});
 //};
+
+
+
+//删除
+$scope.remove1 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table1();
+	},function(err){
+		
+	})
+}
+$scope.remove2 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table2();
+	},function(err){
+		
+	})
+}
+$scope.remove3 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table3();
+	},function(err){
+		
+	})
+}
+$scope.remove4 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table4();
+	},function(err){
+		
+	})
+}
+$scope.remove5 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table5();
+	},function(err){
+		
+	})
+}
+$scope.remove6 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table6();
+	},function(err){
+		
+	})
+}
+$scope.remove7 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table7();
+	},function(err){
+		
+	})
+}
+$scope.remove8 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table8();
+	},function(err){
+		
+	})
+}
+
+$scope.remove9 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table9();
+	},function(err){
+		
+	})
+}
+$scope.remove10 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table10();
+	},function(err){
+		
+	})
+}
+$scope.remove11 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table11();
+	},function(err){
+		
+	})
+}
+
+$scope.remove12 = function(id){
+	$http.post("22",{id:id}).then(function(res){
+		$scope.table12();
+	},function(err){
+		
+	})
+}
+
+
 
 
 }]);
@@ -3004,20 +3127,34 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
 		}
 	}
 	
+	
 		//人员类别
-		$scope.personCategories=["1-工作人员","2-部门联系人","3-部门负责人","4-分管负责人","5-单位负责人","6-投诉受理人"];
+		$scope.personCategories=[
+			{id:1, name:"1-工作人员"},
+			{id:2, name:"2-部门联系人"},
+			{id:3, name:"3-部门负责人"},
+			{id:4, name:"4-分管负责人"},
+			{id:5, name:"5-单位负责人"},
+			{id:6, name:"6-投诉受理人"}
+		];
 	  	//纳厂信息
-	  	$scope.plants = ["1-全部纳厂", "2-全部非纳厂", "3-部分纳厂"];
+	  	$scope.plants = [
+	  		{id:1, name:"1-全部纳厂"}, {id:2, name:"2-全部非纳厂"}, {id:3, name:"3-部分纳厂"}
+	  	];
 	  	//设施建设
-	  	$scope.facilities = ["1-未建（农污）", "2-全部建（农污）", "3-部分建（农污）"];
+	  	$scope.facilities = [
+	  		{id:1, name:"1-未建（农污）"}, {id:2, name:"2-全部建（农污）"}, {id:3, name:"3-部分建（农污）"}
+	  	];
 	  	//设施状态
-	  	$scope.facilitieStatus = ["1-建设", "2-运维", "3-大修", "4-重建", "5-报废"];
+	  	$scope.facilitieStatus = [
+	  		{id:1, name:"1-建设"}, {id:2, name:"2-运维"}, {id:3, name:"3-大修"}, {id:4, name:"4-重建"}, {id:5, name:"5-报废"}
+	  	];
 	  	//监测监控
-	  	$scope.monitor = ["1-是 ","2-否"];
+	  	$scope.monitor = [{id:1, name:"1-是 "},{id:2, name:"2-否"}];
 	  	//监督员级别
-	  	$scope.supervisorLevels = ["1-村", "2-镇", "3-县（区、市）"];
+	  	$scope.supervisorLevels = [{id:1, name:"1-村"}, {id:2, name:"2-镇"}, {id:3, name:"3-县（区、市）"}];
 	  	//设备类型
-	  	$scope.equipmentYypes = ["1-土建", "2-机电", "3-监测", "4-监控", "0-其他"];
+	  	$scope.equipmentYypes = [{id:1, name:"1-土建"}, {id:2, name:"2-机电"}, {id:3, name:"3-监测"}, {id:4, name:"4-监控"}, {id:0, name:"0-其他"}];
 	
 	
 	//datepicker
@@ -3055,43 +3192,44 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
 	
     
     	$scope.update1 = function(){
-    		$http.post("/mrc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/mrc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update2 = function(){
-    		$http.post("/irs/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/irs/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update3 = function(){
-    		$http.post("/arc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/arc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update4 = function(){
-    		$http.post("/tbc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/tbc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update5 = function(){
-    		$http.post("/pic/post",{data:$scope.data}).then(function(res){
+    		console.log($scope.data);
+    		$http.post("/Seom/pic/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update6 = function(){
-    		$http.post("/equipmentc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/equipmentc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update7 = function(){
-    		$http.post("/mmrc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/mmrc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
@@ -3103,25 +3241,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	};
     	
     	$scope.update9 = function(){
-    		$http.post("/aVillagec/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/aVillagec/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update10 = function(){
-    		$http.post("/avuvc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/avuvc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update11 = function(){
-    		$http.post("/fc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/fc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
     	
     	$scope.update12 = function(){
-    		$http.post("/fmsc/post",{data:$scope.data}).then(function(res){
+    		$http.post("/Seom/fmsc/post",{data:$scope.data}).then(function(res){
     			
     		},function(err){});
     	};
@@ -3251,17 +3389,44 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
  =========================================================*/
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
-	$scope.project = [
-		{ value: "65", type: "darkblue" },
-        { value: "35", type: "lightblue" }
-    ];
-    $scope.funds = [
-		{ value: "60", type: "darkorange" },
-        { value: "40", type: "lightorange" }
-    ];
+	//受益户数
+	$http.get("/Seom/tbc/ph").then(function(res){
+		var project = res.data;	
+		var alreadybene =100*parseInt(project.alreadyAreaBeneficiary)/parseInt(project.shouldAreaBeneficiary);
+		var unbene = 100*(parseInt(project.shouldAreaBeneficiary) - parseInt(project.alreadyAreaBeneficiary))/parseInt(project.shouldAreaBeneficiary);
+		$scope.project = [
+			{ value: alreadybene, type: "darkblue" },
+	        { value: unbene, type: "lightblue" }
+	    ];
+	    $scope.phAddress = project.address;
+//	    console.log(project);
+	},function(err){
+		
+	})
+	
+	
+	//资金进度
+	$http.get("/Seom/msrc/paymentMoney").then(function(res){
+		var fund = res.data;	
+		var f1 = parseInt(fund.paymentMoney);
+		var f2 = parseInt(fund.NOpaymentMoney);
+		var f0 = f1 + f2;
+		var pay =100*f1/f0;
+		var nopay = 100*f2/f0;
+	    $scope.funds = [
+			{ value: pay, type: "darkorange" },
+	        { value: nopay, type: "lightorange" }
+	    ];
+	    $scope.fundsAddress = fund.address;
+	    console.log($scope.funds);
+	},function(err){
+		
+	})
+	
+    
 
 
-// BAR STACKED
+// 耗能统计
  // ----------------------------------- 
 
 	$http.get("server/chart/barstacked.json").then(function(res){
@@ -3311,98 +3476,70 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 
 
 	
-// Pie chart
+// 设备统计
 // ----------------------------------- 
-
-/*	$scope.pieChart = function(){		
-		var ctx = document.getElementById("pieChart").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'pie',
-		    data: {
-				datasets: [{
-					data: [
-						80,
-						20
-					],
-					backgroundColor: [
-						'#7266ba',
-						'#ffef2b'
-					],
-				}],
-				labels: [
-					'安装完成（台）',
-					'等待安装（台）'
-				]
-			},
-		    options: {
-//		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'bottom',
-		          boxWidth: 20,
-		        }
-		
-		    }
-		});
-	}
 	
-	$scope.pieChart();*/
-
-var options = {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        colors: ['#7266ba',
-				'#ffef2b'],
-        title: {
-            text: ''
-        },
-        exporting:{
-        	buttons:{
-        		contextButton:{
-        			enabled:false,
-        		}
-        	}
-        },
-		credits:{
-		     enabled: false // 禁用版权信息
-		},        
-        tooltip: {
-            headerFormat: '{point.key}<br>',
-            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-            	minSize: 180,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    distance: 10,                   
-                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
-                    style: {
-                        color: "#666666",
-                        fontSize: "12px",
-                        fontWeight: "normal",
-                        textOutline: "1px 1px contrast"
-                    }
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '设备分布情况',
-            data: [
-                ['安装完成',   160],
-                ['等待安装',       40]                
-            ]
-        }]
+	$http.get("/Seom/equipmentc/selectInstall").then(function(res){
+		$scope.installNum = res.data;
+		var options = {
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: null,
+	            plotShadow: false
+	        },
+	        colors: ['#7266ba',
+					'#ffef2b'],
+	        title: {
+	            text: ''
+	        },
+	        exporting:{
+	        	buttons:{
+	        		contextButton:{
+	        			enabled:false,
+	        		}
+	        	}
+	        },
+			credits:{
+			     enabled: false // 禁用版权信息
+			},        
+	        tooltip: {
+	            headerFormat: '{point.key}<br>',
+	            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	            	minSize: 180,
+	                allowPointSelect: true,
+	                cursor: 'pointer',
+	                dataLabels: {
+	                    enabled: true,
+	                    distance: 10,                   
+	                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
+	                    style: {
+	                        color: "#666666",
+	                        fontSize: "12px",
+	                        fontWeight: "normal",
+	                        textOutline: "1px 1px contrast"
+	                    }
+	                },
+	                showInLegend: true
+	            }
+	        },
+	        series: [{
+	            type: 'pie',
+	            name: '设备分布情况',
+	            data: [
+	                ['安装完成',   parseInt($scope.installNum.install)],
+	                ['等待安装',   parseInt($scope.installNum.installNO)]                
+	            ]
+	        }]
         };
-        // 图表初始化函数
-        var chart = Highcharts.chart('statPieChart', options);
+	    // 图表初始化函数
+	    var chart = Highcharts.chart('statPieChart', options);
+	},function(err){
+		
+	})
+	
 
 
 
@@ -3584,6 +3721,47 @@ App.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
         });
 
 
+//实时告警
+App.controller("warningCurrentCtrl",["$scope","$http",function($scope,$http){
+
+	$scope.updateWarn = function(){
+		$http.get("server/inspection.json").then(function(res){
+			$scope.warnData = res.data;
+			$scope.currentPage = 1;
+			
+			$scope.totalItems = $scope.warnData.length;
+			
+		},function(err){
+			
+		})
+	};
+	
+	$scope.updateWarn();
+	
+	
+}]);
+
+
+
+//历史告警
+App.controller("warningHistoryCtrl",["$scope","$http",function($scope,$http){
+
+	$scope.updateWarnHistory = function(){
+		$http.get("server/malfunctions.json").then(function(res){
+			$scope.warnHistoryData = res.data;
+			$scope.currentPage = 1;
+			
+			$scope.totalItems = $scope.warnHistoryData.length;
+			
+		},function(err){
+			
+		})
+	};
+	
+	$scope.updateWarnHistory();
+	
+	
+}])
 
 App.controller("waterQualityController",["$scope",function($scope){
 	// Line chart
@@ -4431,6 +4609,27 @@ App.directive("now", ['dateFilter', '$interval', function(dateFilter, $interval)
       }
     };
 }]);
+
+App.directive("pagination", function() {
+    return {
+        restrict: 'AE',
+        templateUrl: './app/views/directives/pagination.html',
+        replace: true
+    }
+});
+
+App.controller("PaginationDirCtrl",["$scope",function($scope){
+	$scope.pages=[10,25,50];
+	$scope.itemsPerPage = 10;
+	$scope.selectPage = function(page){
+		$scope.currentPage = page;
+	};
+	$scope.changePageSize = function(page){
+		$scope.itemsPerPage = page;
+	}
+
+    
+}])
 /**=========================================================
  * Module: sparkline.js
  * SparkLines Mini Charts

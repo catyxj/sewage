@@ -10,7 +10,7 @@
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
 			  <li role="presentation" class="active"><a href="#">受益户数</a></li>			  
-			  	<a ui-sref="app.county.county_1_2" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  	<a ui-sref="app.county.county_1_2_baifeng" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
@@ -32,18 +32,18 @@
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	            <tr ng-repeat="data in benefitBaifeng">
+	               <td>{{$index + 1}}</td>
 	               <td>
-	                  xx村
+	                  {{data.name}}
 	               </td>
-	               <td>165</td>
-	               <td>应受益户数</td>
-	               <td>2018-03</td>
+	               <td>{{data.benefited}}</td>
+	               <td>{{data.benefit}}</td>
+	               <td>{{data.update}}</td>
 	               <td>
 	               		<uib-progressbar value="val" type="success" class="progress progress-xs" style="width: 70%; display: inline-block;"></uib-progressbar>
 	               		<span class="font_sm">
-		                    {{val}}%
+		                    {{val=data.benefited/data.benefit*100|number : 1}}%
 		                </span>
 	               </td>
 	               <td>
@@ -75,7 +75,10 @@
 			      </a>
 			    </li>
 			    <li><a href="#">1</a></li>
-			
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
 			    <li>
 			      <a href="#" aria-label="Next">
 			        <span aria-hidden="true">&raquo;</span>

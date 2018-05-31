@@ -39,12 +39,15 @@
                      <label class="col-sm-3 control-label">人员类别</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.townSecretary" class="form-control" />-->
-                        <ui-select ng-model="data.category" theme="bootstrap" >
-			               <ui-select-match placeholder="{{data.category}}">{{$select.selected}}</ui-select-match>
-			               <ui-select-choices repeat="cate in personCategories | filter: $select.search">
-			                  <span ng-bind-html="cate"></span>
+                        <!--<ui-select ng-model="data.category" theme="bootstrap">
+			               <ui-select-match>{{$select.selected}}</ui-select-match>
+			               <ui-select-choices repeat="cate.id as cate in personCategories | filter: $select.search">
+			                  <span> {{cate.id}}-{{cate.name}} </span>
 			               </ui-select-choices>
-			            </ui-select>
+			            </ui-select>			           -->
+			            <select ng-model="data.category" ng-options="x.id as x.name for x in personCategories" class="form-control">
+                        	
+                        </select>
                      </div>
                      <div class="col-sm-3">
                      </div>

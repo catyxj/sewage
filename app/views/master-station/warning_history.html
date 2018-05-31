@@ -1,7 +1,7 @@
 
 <!-- START table-responsive-->
-		   <div class="" style="height: 320px;">
-		   		<div class="table-responsive" style="height: 280px; overflow: auto;">
+		   <div class="" style="height: 450px;">
+		   		<div class="table-responsive" style="height: 420px; overflow: auto;">
 			      <table class="table table-bordered table-hover table-striped">
 			         <thead>
 			            <tr>
@@ -15,56 +15,30 @@
 			            </tr>
 			         </thead>
 			         <tbody>
-			            <tr>
-			               <td>1</td>
-			               <td>
-			                  高液位报警
-			               </td>
-			               <td>	射流曝气机</td>
-			               <td>北仑区白峰村司沿村</td>
-			               <td>张三</td>
-			               <td>2018-03-18 12:15:11</td>
-			               <td>
-			               	<a ui-sref="app.warning3">查看更多</a>
-			               </td>
-            
-			            </tr>
+			         	<tr ng-repeat="data in warnHistoryData | range:currentPage:itemsPerPage">
+							<td> {{data.id}} </td>
+							<td>
+								{{data.name}}
+							</td>
+							<td> 
+								{{ data.equip }}
+							</td>
+							<td> {{ data.equip }} </td>	
+							<td> {{ data.equip }} </td>	
+							<td> {{ data.date }} </td>			
+							<td>
+								<a ui-sref="app.warning3">查看更多</a>
+							</td>
+		
+						</tr>
+			            
 			            
 			         </tbody>
 			      </table>
 			   </div>
 			   
-			   <div class="row">
-			   	
-			   	<div class="col-lg-6">
-			   		共1条记录
-			   		pageSize: 
-			   		<select style="padding: 3px 10px;">
-			   			<option value="250">250</option>
-			   			<option value="150">150</option>
-			   		</select>
-			   	</div>
-			   	<div class="col-lg-6">
-			   		<nav>
-					  <ul class="pagination pull-right" style="margin: 0;">
-					    <li>
-					      <a href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li><a href="#">1</a></li>
-					   
-					    <li>
-					      <a href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>
-			   	</div>
-			   	
-		   		
-		   	</div>
+			   <pagination></pagination>
+			   
 		   </div>
 		   
 		   <!-- END table-responsive-->

@@ -50,7 +50,7 @@
                      <label class="col-sm-3 control-label">监督员级别</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.areaCode" class="form-control" />-->
-                        <select ng-model="data.mslevel" ng-options="x for x in supervisorLevels" class="form-control">
+                        <select ng-model="data.mslevel" ng-options="x.id as x.name for x in supervisorLevels" class="form-control">
                         	
                         </select>
                      </div>

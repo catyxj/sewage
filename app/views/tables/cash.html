@@ -16,7 +16,7 @@
    	
    	<!-- START table-responsive-->
    <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
-   		<div class="table-responsive" style="height: 450px; overflow: auto;">
+   		<div class="table-responsive" style="height: 440px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
@@ -24,28 +24,28 @@
 	               <th>地域</th>
 	               <th>已支付资金（万元）</th>
 	               <th>年度运维资金（万元）</th>
-	               <th>更新时间</th>
+	               <!--<th>更新时间</th>-->
 	               <th style="width: 15%;">支付百分率</th>
 	               <th>操作</th>              
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	            <tr ng-repeat="data in cash | range:currentPage:itemsPerPage">
+	               <td>{{$index + 1}}</td>
 	               <td>
-	                  北仑区
+	                  {{data.name}}
 	               </td>
-	               <td>165</td>
-	               <td>230</td>
-	               <td>2018-03</td>
+	               <td>{{data.alreadyPaidMoney}}</td>
+	               <td>{{data.maintenanceMoney}}</td>
+	               <!--<td>{{data.update}}</td>-->
 	               <td>
-	               		<uib-progressbar value="val" type="success" class="progress progress-xs" style="width: 70%;display: inline-block;"></uib-progressbar>		                           
-		                <span class="font_sm">
-		                    {{val}}%
+	               		<uib-progressbar value="data.PaidRate" type="success" class="progress progress-xs" style="width: 70%; display: inline-block;"></uib-progressbar>
+	               		<span class="font_sm">
+		                    {{PaidRate}}%
 		                </span>
 	               </td>
 	               <td>
-	               	<a ui-sref="app.cash2">查看更多</a>
+	               	<a ng-click="refreshCash(data.name)">查看更多</a>
 	               </td>               
 	            </tr>
 	            	            	            
@@ -53,40 +53,11 @@
 	      </table>
 	   </div>
 	   
-	   <div class="row">	   	
-	   	<div class="col-lg-6">
-	   		共518条记录
-	   		pageSize: 
-	   		<select style="padding: 3px 10px;">
-	   			<option value="250">250</option>
-	   			<option value="150">150</option>
-	   		</select>
-	   	</div>
-	   	<div class="col-lg-6">
-	   		<nav>
-			  <ul class="pagination pull-right" style="margin: 0;">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li><a href="#">1</a></li>
-			
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-	   	</div>
-	   	
-   		
-   	</div>
+	   <pagination></pagination>
+	   
    </div>
    
    <!-- END table-responsive-->
-   	
    	
    	
   	

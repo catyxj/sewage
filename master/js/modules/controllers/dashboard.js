@@ -1,12 +1,62 @@
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state",function($scope,$rootScope,$http,$state){
 	
+	//站点数
+	$http.get("/Seom/fc/selectTotal").then(function(res){
+		$scope.siteNum = res.data;
+	},function(err){
+		
+	});
+	
+	//故障数
+	$http.get("/Seom/mrc/selectUnsolved").then(function(res){
+		$scope.malfunction = res.data;
+	},function(err){
+		
+	});
+	
+	
+	$scope.alarmNum = 2;
+	
+	$scope.waterInfo1 = 70;
+	
+	
+	//站点搜索
+	$http.get("/Seom/fc/selectRegion").then(function(res){
+		$scope.selectRegion = res.data;
+		for(var i=0; i<$scope.selectRegion.length; i++){
+			switch($scope.selectRegion[i].facilityState){
+				case 1:
+					$scope.selectRegion[i].name = "建设";
+					break;
+				case 2:
+					$scope.selectRegion[i].name = "运维";
+					break;
+				case 3:
+					$scope.selectRegion[i].name = "大修";
+					break;
+				case 4:
+					$scope.selectRegion[i].name = "重建";
+					break;
+				case 5:
+					$scope.selectRegion[i].name = "报废";				
+			}
+		}
+		
+
+	},function(err){
+		
+	});
+	
+	
+	
+	
 /**=========================================================
  * Module: vmaps,js
  * jVector Maps support
  =========================================================*/
 	
-	 $scope.seriesData = {
+	/* $scope.seriesData = {
 	    'CN-33': 138,   // 浙江
 	  
 	  };
@@ -16,7 +66,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	
 	  ];	
 	
-	$scope.mapName = "cn_mill";
+	$scope.mapName = "cn_mill";*/
 	
 /*-------百度地图------------*/	
 	var map = new BMap.Map("container");// 创建地图实例  

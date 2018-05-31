@@ -177,7 +177,7 @@
                      <label class="col-sm-3 control-label">带在线监测</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentHeadIdentity" class="form-control" />-->
-                        <select ng-model="data.onLineonitoring" ng-options="x for x in supervisorLevels" class="form-control">
+                        <select ng-model="data.onLineonitoring" ng-options="x.id as x.name for x in supervisorLevels" class="form-control">
                         	
                         </select>
                      </div>
@@ -192,7 +192,7 @@
                      <label class="col-sm-3 control-label">带远程监控</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentContacts" class="form-control" />-->
-                        <select ng-model="data.remoteMonitoring" ng-options="x for x in monitor" class="form-control">
+                        <select ng-model="data.remoteMonitoring" ng-options="x.id as x.name for x in monitor" class="form-control">
                         	
                         </select>
                      </div>
@@ -231,7 +231,7 @@
                      <label class="col-sm-3 control-label">设施状态</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.complaints" class="form-control" />-->
-                        <select ng-model="data.facilityState" ng-options="x for x in facilitieStatus" class="form-control">
+                        <select ng-model="data.facilityState" ng-options="x.id as x.name for x in facilitieStatus" class="form-control">
                         	
                         </select>
                      </div>

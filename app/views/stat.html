@@ -12,7 +12,7 @@
 	         	<div class="">
 	         		<div class="stat-heading">
 	         			总体受益户数统计
-	         			<a class="more btn btn-default" ui-sref="app.beneficiary">点击详情</a>
+	         			<a class="more btn btn-default" ui-sref="app.beneficiary({area:phAddress})">点击详情</a>
 	         		</div>         		
 		            <uib-progress>
 			         	<uib-bar ng-repeat="bar in project track by $index" value="bar.value" type="{{bar.type}}">
@@ -39,7 +39,7 @@
 	      		<div class="">
 	         		<div class="stat-heading">
 	         			总体资金进度
-	         			<a class="more btn btn-default" ui-sref="app.cash">点击详情</a>
+	         			<a class="more btn btn-default" ui-sref="app.cash({area:fundsAddress})">点击详情</a>
 	         		</div>         		
 		            <uib-progress>
 			         	<uib-bar ng-repeat="bar in funds track by $index" value="bar.value" type="{{bar.type}}">

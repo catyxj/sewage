@@ -1,0 +1,14 @@
+<div ng-controller="PaginationDirCtrl" style="margin-top: 10px;">
+	<div class="pull-left">
+		共 {{totalItems}} 条记录 显示
+		<select ng-options="page for page in pages" class="tab_select" ng-model="itemsPerPage" ng-change="changePageSize(itemsPerPage);">
+
+		</select>
+		项
+	</div>
+	<div uib-pagination total-items="totalItems" 
+		ng-model="currentPage" items-per-page="itemsPerPage" 
+		max-size="5" first-text="<<" previous-text="<" next-text=">" last-text=">>" 
+		boundary-links="true" boundary-link-numbers="true" class="pull-right" style="margin: 0;">
+	</div>
+</div>

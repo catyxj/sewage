@@ -16,7 +16,7 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">上级行政区域</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.ts_BasicInformation" required="required" class="form-control" />
+                        <input type="text" ng-model="data.ts_BasicInformation.administrativeDivision" class="form-control" />
                      </div>
                      <div class="col-sm-3">
                      	
@@ -177,7 +177,7 @@
                      <label class="col-sm-3 control-label">纳厂信息</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentHeadIdentity" class="form-control" />-->
-                        <select ng-model="data.intoFactory" ng-options="x for x in plants" class="form-control">
+                        <select ng-model="data.intoFactory" ng-options="x.id as x.name for x in plants" class="form-control">
                         	
                         </select>
                      </div>
@@ -192,7 +192,7 @@
                      <label class="col-sm-3 control-label">设施建设</label>
                      <div class="col-sm-6">
                         <!--<input type="text" ng-model="data.departmentContacts" class="form-control" />-->
-                        <select ng-model="data.facilitiesBuild" ng-options="x for x in facilities" class="form-control">
+                        <select ng-model="data.facilitiesBuild" ng-options="x.id as x.name for x in facilities" class="form-control">
                         	
                         </select>
                      </div>

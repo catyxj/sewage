@@ -1,4 +1,12 @@
-App.controller("installController",['$scope',function($scope){
+App.controller("installController",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+	
+	$scope.refresh = function(){
+		$http.post("",{}).then(function(res){
+			
+		},function(err){
+			
+		})
+	}
 	// 图表配置
         var options = {
             chart: {

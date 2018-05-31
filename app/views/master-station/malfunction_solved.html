@@ -1,7 +1,7 @@
 
 <!-- START table-responsive-->
-		   <div class="" style="height: 320px; ">
-		   		<div class="table-responsive" style="height: 280px; overflow: auto;">
+		   <div class="" style="height: 450px; ">
+		   		<div class="table-responsive" style="height: 420px; overflow: auto;">
 			      <table class="table table-bordered table-hover table-striped">
 			         <thead>
 			            <tr>
@@ -18,30 +18,34 @@
 			            </tr>
 			         </thead>
 			         <tbody>
-			            <tr>
-			               <td>1</td>
-			               <td>
-			                  瞬时液位
-			               </td>
-			               <td>	污水提升泵</td>
-			               <td>北仑区白峰街道白峰村</td>
-			               <td>张三</td>
-			               <td>上海水泵集团有限公司</td>
-			               <td>2018-03-21</td>
-			               <td>已解决</td>
-			               <td>运维供应商已安排相关工作人员至现场维修</td>
-			               <td>
-			               	<a href="">查看更多</a>
-			               </td>
-            
-			            </tr>
+			            <tr ng-repeat="data in malData | range:currentPage:itemsPerPage">
+							<td> {{data.id}} </td>
+							<td>
+								{{data.name}}
+							</td>
+							<td> 
+								{{ data.equip }}
+							</td>
+							<td> {{ data.equip }} </td>
+							<td> {{ data.equip }} </td>
+							<td> {{ data.equip }} </td>
+							<td> {{ data.date }} </td>
+							<td>{{ data.state }} </td>
+							<td>{{ data.equip }} </td>
+							<td>
+								<a href="">查看更多</a>
+							</td>
+		
+						</tr>
 			            
 			            
 			         </tbody>
 			      </table>
 			   </div>
 			   
-			   <div class="row">
+			   <pagination></pagination>
+			   
+			  <!-- <div class="row">
 			   
 			   	<div class="col-lg-6">
 			   		共1条记录
@@ -71,7 +75,7 @@
 			   	</div>
 			   	
 		   		
-		   	</div>
+		   	</div>-->
 		   </div>
 		   
 		   <!-- END table-responsive-->

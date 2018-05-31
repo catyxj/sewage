@@ -4,17 +4,44 @@
  =========================================================*/
 App.controller('statController', ['$scope','$http',"colors", function($scope,$http,colors){
 
-	$scope.project = [
-		{ value: "65", type: "darkblue" },
-        { value: "35", type: "lightblue" }
-    ];
-    $scope.funds = [
-		{ value: "60", type: "darkorange" },
-        { value: "40", type: "lightorange" }
-    ];
+	//受益户数
+	$http.get("/Seom/tbc/ph").then(function(res){
+		var project = res.data;	
+		var alreadybene =100*parseInt(project.alreadyAreaBeneficiary)/parseInt(project.shouldAreaBeneficiary);
+		var unbene = 100*(parseInt(project.shouldAreaBeneficiary) - parseInt(project.alreadyAreaBeneficiary))/parseInt(project.shouldAreaBeneficiary);
+		$scope.project = [
+			{ value: alreadybene, type: "darkblue" },
+	        { value: unbene, type: "lightblue" }
+	    ];
+	    $scope.phAddress = project.address;
+//	    console.log(project);
+	},function(err){
+		
+	})
+	
+	
+	//资金进度
+	$http.get("/Seom/msrc/paymentMoney").then(function(res){
+		var fund = res.data;	
+		var f1 = parseInt(fund.paymentMoney);
+		var f2 = parseInt(fund.NOpaymentMoney);
+		var f0 = f1 + f2;
+		var pay =100*f1/f0;
+		var nopay = 100*f2/f0;
+	    $scope.funds = [
+			{ value: pay, type: "darkorange" },
+	        { value: nopay, type: "lightorange" }
+	    ];
+	    $scope.fundsAddress = fund.address;
+	    console.log($scope.funds);
+	},function(err){
+		
+	})
+	
+    
 
 
-// BAR STACKED
+// 耗能统计
  // ----------------------------------- 
 
 	$http.get("server/chart/barstacked.json").then(function(res){
@@ -64,98 +91,70 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 
 
 	
-// Pie chart
+// 设备统计
 // ----------------------------------- 
-
-/*	$scope.pieChart = function(){		
-		var ctx = document.getElementById("pieChart").getContext('2d');		
-		var myChart = new Chart(ctx, {
-		    type: 'pie',
-		    data: {
-				datasets: [{
-					data: [
-						80,
-						20
-					],
-					backgroundColor: [
-						'#7266ba',
-						'#ffef2b'
-					],
-				}],
-				labels: [
-					'安装完成（台）',
-					'等待安装（台）'
-				]
-			},
-		    options: {
-//		        responsive: true,
-		        legend: {
-		          display: true,
-		          position: 'bottom',
-		          boxWidth: 20,
-		        }
-		
-		    }
-		});
-	}
 	
-	$scope.pieChart();*/
-
-var options = {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        colors: ['#7266ba',
-				'#ffef2b'],
-        title: {
-            text: ''
-        },
-        exporting:{
-        	buttons:{
-        		contextButton:{
-        			enabled:false,
-        		}
-        	}
-        },
-		credits:{
-		     enabled: false // 禁用版权信息
-		},        
-        tooltip: {
-            headerFormat: '{point.key}<br>',
-            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-            	minSize: 180,
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    distance: 10,                   
-                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
-                    style: {
-                        color: "#666666",
-                        fontSize: "12px",
-                        fontWeight: "normal",
-                        textOutline: "1px 1px contrast"
-                    }
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: '设备分布情况',
-            data: [
-                ['安装完成',   160],
-                ['等待安装',       40]                
-            ]
-        }]
+	$http.get("/Seom/equipmentc/selectInstall").then(function(res){
+		$scope.installNum = res.data;
+		var options = {
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: null,
+	            plotShadow: false
+	        },
+	        colors: ['#7266ba',
+					'#ffef2b'],
+	        title: {
+	            text: ''
+	        },
+	        exporting:{
+	        	buttons:{
+	        		contextButton:{
+	        			enabled:false,
+	        		}
+	        	}
+	        },
+			credits:{
+			     enabled: false // 禁用版权信息
+			},        
+	        tooltip: {
+	            headerFormat: '{point.key}<br>',
+	            pointFormat: '{point.y} 台 <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	            	minSize: 180,
+	                allowPointSelect: true,
+	                cursor: 'pointer',
+	                dataLabels: {
+	                    enabled: true,
+	                    distance: 10,                   
+	                    format: '<span>{point.name}</span>: {point.percentage:.1f} %',
+	                    style: {
+	                        color: "#666666",
+	                        fontSize: "12px",
+	                        fontWeight: "normal",
+	                        textOutline: "1px 1px contrast"
+	                    }
+	                },
+	                showInLegend: true
+	            }
+	        },
+	        series: [{
+	            type: 'pie',
+	            name: '设备分布情况',
+	            data: [
+	                ['安装完成',   parseInt($scope.installNum.install)],
+	                ['等待安装',   parseInt($scope.installNum.installNO)]                
+	            ]
+	        }]
         };
-        // 图表初始化函数
-        var chart = Highcharts.chart('statPieChart', options);
+	    // 图表初始化函数
+	    var chart = Highcharts.chart('statPieChart', options);
+	},function(err){
+		
+	})
+	
 
 
 

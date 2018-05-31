@@ -56,7 +56,7 @@
                </thead>
                <tbody>
                   <tr ng-repeat="data in vBasic |filter:search | range:currentPage:itemsPerPage">
-                  	<td>{{ data.ts_BasicInformation }}</td>
+                  	<td>{{ data.ts_BasicInformation.administrativeDivision }}</td>
                      <td>{{ data.village }}</td>
                      <td>{{ data.zoningCode }}</td>
                      <td>{{ data.pbs }}</td>
@@ -68,7 +68,7 @@
                         <a ui-sref="app.report_edit9({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="remove(data.id)" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove9(data.aid)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
                         </button>
                      </td>
