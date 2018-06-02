@@ -15,34 +15,23 @@
 			            </tr>
 			         </thead>
 			         <tbody>
-			            <tr>
-			               <td>1</td>
-			               <td>
-			                  高液位报警
-			               </td>
-			               <td>	射流曝气机</td>
-			               <td>北仑区白峰街道官庄村</td>
-			               <td>张三</td>
-			               <td>2018-03-18 12:15:11</td>
-			               <td>
-			               	<a ui-sref="app.warning3">查看更多</a>
-			               </td>
-            
-			            </tr>
-			            <tr>
-			               <td>2</td>
-			               <td>
-			                  高液位报警
-			               </td>
-			               <td>	污水提升泵</td>
-			               <td>北仑区白峰街道白峰村</td>
-			               <td>张三</td>
-			               <td>2018-03-18 12:15:11</td>
-			               <td>
-			               	<a ui-sref="app.warning3">查看更多</a>
-			               </td>
-            
-			            </tr>
+			            <tr ng-repeat="data in warnData | range:currentPage:itemsPerPage">
+							<td> {{data.id}} </td>
+							<td>
+								{{data.name}}
+							</td>
+							<td> 
+								{{ data.equip }}
+							</td>
+							<td> {{ data.equip }} </td>	
+							<td> {{ data.equip }} </td>	
+							<td> {{ data.date }} </td>			
+							<td>
+								<a ui-sref="app.warning3">查看更多</a>
+							</td>
+		
+						</tr>
+			            
 			            
 			         </tbody>
 			      </table>

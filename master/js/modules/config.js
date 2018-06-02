@@ -90,12 +90,26 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.install', {
-        url: '/install',
+        url: '/install?area',
         title: 'install',
+        controller: 'installController',
         templateUrl: 'app/views/tables/install.html',
         resolve: helper.resolveFor('highcharts.plugin')
     })
-    
+    .state('app.install2', {
+        url: '/install2?area',
+        title: 'install2',
+        controller: 'installController2',
+        templateUrl: 'app/views/tables/install_2.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.install3', {
+        url: '/install3?area',
+        title: 'install3',
+        controller: 'installController3',
+        templateUrl: 'app/views/tables/install_3.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
     .state('app.cash', {
         url: '/cash?area',
         title: 'cash',
@@ -125,18 +139,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/water-quality3.html',
         resolve: helper.resolveFor('chartjs')
     })
-    .state('app.install2', {
-        url: '/install2',
-        title: 'install2',
-        templateUrl: 'app/views/tables/install_2.html',
-        resolve: helper.resolveFor('highcharts.plugin')
-    })
-    .state('app.install3', {
-        url: '/install3',
-        title: 'install3',
-        templateUrl: 'app/views/tables/install_3.html',
-        resolve: helper.resolveFor('highcharts.plugin')
-    })
+    
     .state('app.cash2', {
         url: '/cash2',
         title: 'cash2',
@@ -148,17 +151,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/cash3.html',
     })
     
-    //展示
-    .state('app.beneficiary2_beilun', {
-        url: '/beneficiary2_beilun',
-        title: 'beneficiary2_beilun',
-        templateUrl: 'app/views/tables/shows/Beneficiary2_beilun.html'
-    })
-    .state('app.beneficiary3_baifeng', {
-        url: '/beneficiary3_baifeng',
-        title: 'beneficiary3_baifeng',
-        templateUrl: 'app/views/tables/shows/Beneficiary3_baifeng.html'
-    })
+ 
     
     
     
@@ -196,8 +189,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
 //      templateUrl: 'app/views/information/county/analysis.html',
 //  })
     .state('app.county-equipment', {
-        url: '/county-equipment',
+        url: '/county-equipment?area',
         title: 'county-equipment',
+        controller: 'countyEquipCtrl',
         templateUrl: 'app/views/information/county/equipment.html',
     })
     .state('app.county-worker', {
@@ -245,8 +239,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-equipment-detail', {
-        url: '/county-equipment-detail',
+        url: '/county-equipment-detail?code',
         title: 'county-equipment-detail',
+        controller: 'countyEquipDetailCtrl',
         templateUrl: 'app/views/information/county/equipment_detail.html',
     })
     
@@ -490,7 +485,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2', {
+    /*.state('app.equipment.equipment_2', {
         url: '/equipment_2',
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2.html',
@@ -501,7 +496,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2_1.html',
         resolve: helper.resolveFor()
-    })
+    })*/
     .state('app.equipment.equipment_3', {
         url: '/equipment_3',
         title: 'equipment_3',
@@ -511,6 +506,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.equip_table_1', {
         url: '/table_1',
         title: 'table_1',
+        controller: 'equipOperaCtrl',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })

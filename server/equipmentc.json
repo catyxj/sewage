@@ -1,0 +1,38 @@
+[
+	{
+		"region":"北仑区",
+		"alreadyInstalled":"131",
+		"shouldInstalled":"210"
+		
+	},
+	{
+		"region":"镇海区",
+		"alreadyInstalled":"222",
+		"shouldInstalled":"233"
+		
+	},
+	{
+		"region":"鄞州区",
+		"alreadyInstalled":"122",
+		"shouldInstalled":"133"
+		
+	},
+	{
+		"region":"象山县",
+		"alreadyInstalled":"162",
+		"shouldInstalled":"183"
+		
+	},
+	{
+		"region":"海曙区",
+		"alreadyInstalled":"132",
+		"shouldInstalled":"143"
+		
+	},
+	{
+		"region":"江北区",
+		"alreadyInstalled":"152",
+		"shouldInstalled":"163"
+		
+	}
+]

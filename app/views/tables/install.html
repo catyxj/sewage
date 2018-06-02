@@ -2,7 +2,7 @@
 	统计分析
 </h3>
 
-<div class="row" ng-controller="installController">
+<div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">	      
 	      <div class="panel-body">
@@ -28,8 +28,8 @@
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 300px; padding:10px; border: 1px solid #ddd; border-top: none;">
-   		<div class="table-responsive" style="height: 250px; overflow: auto;">
+   <div class="" style="height: 320px; padding:10px; border: 1px solid #ddd; border-top: none;">
+   		<div class="table-responsive" style="height: 260px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
@@ -38,22 +38,22 @@
 	               <th>完成度</th>
 	               <th>已安装数量</th>
 	               <th>应安装数量</th>
-	               <th>更新时间</th>
+	               <!--<th>更新时间</th>-->
 	               <th>操作</th>              
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	            <tr ng-repeat="data in equipment | range:currentPage:itemsPerPage">
+	               <td> {{ $index+1 }} </td>
 	               <td>
-	                  宁波市北仑区
+	                 {{ data.region }}
 	               </td>
-	               <td>80%</td>
-	               <td>131</td>
-	               <td>210</td>
-	               <td>2018-03</td>
+	               <td> {{ data.completion }} % </td>
+	               <td> {{ data.alreadyInstalled }} </td>
+	               <td> {{ data.shouldInstalled }} </td>	               
+	               <!--<td>2018-03</td>-->
 	               <td>
-	               	<a ui-sref="app.install2">查看更多</a>
+	               	<a ui-sref="app.install2({area:data.region})">查看更多</a>
 	               </td>               
 	            </tr>
 	            	            
@@ -61,37 +61,7 @@
 	      </table>
 	   </div>
 	   
-	   <div class="row">
-	   	
-	   	<div class="col-lg-6">
-	   		共518条记录
-	   		pageSize: 
-	   		<select style="padding: 3px 10px;">
-	   			<option value="250">250</option>
-	   			<option value="150">150</option>
-	   		</select>
-	   	</div>
-	   	<div class="col-lg-6">
-	   		<nav>
-			  <ul class="pagination pull-right" style="margin: 0;">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li><a href="#">1</a></li>
-		
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-	   	</div>
-	   	
-   		
-   	</div>
+	   <pagination></pagination>
    </div>
    
    <!-- END table-responsive-->

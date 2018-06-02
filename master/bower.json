@@ -45,6 +45,7 @@
     "angular-bootstrap-nav-tree": "*",
     "morris.js": "^0.5.1",
     "raphael": "^2.2.7",
-    "parsleyjs": "^2.8.1"
+    "parsleyjs": "^2.8.1",
+    "sweetalert2": "^7.21.1"
   }
 }

@@ -150,12 +150,26 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.install', {
-        url: '/install',
+        url: '/install?area',
         title: 'install',
+        controller: 'installController',
         templateUrl: 'app/views/tables/install.html',
         resolve: helper.resolveFor('highcharts.plugin')
     })
-    
+    .state('app.install2', {
+        url: '/install2?area',
+        title: 'install2',
+        controller: 'installController2',
+        templateUrl: 'app/views/tables/install_2.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
+    .state('app.install3', {
+        url: '/install3?area',
+        title: 'install3',
+        controller: 'installController3',
+        templateUrl: 'app/views/tables/install_3.html',
+        resolve: helper.resolveFor('highcharts.plugin')
+    })
     .state('app.cash', {
         url: '/cash?area',
         title: 'cash',
@@ -185,18 +199,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/water-quality3.html',
         resolve: helper.resolveFor('chartjs')
     })
-    .state('app.install2', {
-        url: '/install2',
-        title: 'install2',
-        templateUrl: 'app/views/tables/install_2.html',
-        resolve: helper.resolveFor('highcharts.plugin')
-    })
-    .state('app.install3', {
-        url: '/install3',
-        title: 'install3',
-        templateUrl: 'app/views/tables/install_3.html',
-        resolve: helper.resolveFor('highcharts.plugin')
-    })
+    
     .state('app.cash2', {
         url: '/cash2',
         title: 'cash2',
@@ -208,17 +211,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/tables/cash3.html',
     })
     
-    //展示
-    .state('app.beneficiary2_beilun', {
-        url: '/beneficiary2_beilun',
-        title: 'beneficiary2_beilun',
-        templateUrl: 'app/views/tables/shows/Beneficiary2_beilun.html'
-    })
-    .state('app.beneficiary3_baifeng', {
-        url: '/beneficiary3_baifeng',
-        title: 'beneficiary3_baifeng',
-        templateUrl: 'app/views/tables/shows/Beneficiary3_baifeng.html'
-    })
+ 
     
     
     
@@ -256,8 +249,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
 //      templateUrl: 'app/views/information/county/analysis.html',
 //  })
     .state('app.county-equipment', {
-        url: '/county-equipment',
+        url: '/county-equipment?area',
         title: 'county-equipment',
+        controller: 'countyEquipCtrl',
         templateUrl: 'app/views/information/county/equipment.html',
     })
     .state('app.county-worker', {
@@ -305,8 +299,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-equipment-detail', {
-        url: '/county-equipment-detail',
+        url: '/county-equipment-detail?code',
         title: 'county-equipment-detail',
+        controller: 'countyEquipDetailCtrl',
         templateUrl: 'app/views/information/county/equipment_detail.html',
     })
     
@@ -550,7 +545,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/equipment/equipment_1.html',
         resolve: helper.resolveFor()
     })
-    .state('app.equipment.equipment_2', {
+    /*.state('app.equipment.equipment_2', {
         url: '/equipment_2',
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2.html',
@@ -561,7 +556,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'equipment_2',
         templateUrl: 'app/views/information/equipment/equipment_2_1.html',
         resolve: helper.resolveFor()
-    })
+    })*/
     .state('app.equipment.equipment_3', {
         url: '/equipment_3',
         title: 'equipment_3',
@@ -571,6 +566,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.equip_table_1', {
         url: '/table_1',
         title: 'table_1',
+        controller: 'equipOperaCtrl',
         templateUrl: 'app/views/information/equipment/equipment_table_1.html',
         resolve: helper.resolveFor()
     })
@@ -921,6 +917,8 @@ App
       'morris':             ['vendor/raphael/raphael.js',
                              'vendor/morris.js/morris.js',
                              'vendor/morris.js/morris.css'],
+      'sweetalert':         ['vendor/sweetalert2/dist/sweetalert2.min.css',
+      						 'vendor/sweetalert2/dist/sweetalert2.min.js']
                              
 
     },
@@ -945,7 +943,11 @@ App
 ;
 
 App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
-		
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
 	var area = $stateParams.area;
 	
 	$scope.refreshBene = function(area){
@@ -967,6 +969,10 @@ App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($sc
 
 App.controller("cashCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
 		
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
 	var area = $stateParams.area;
 	
 	$scope.refreshCash = function(area){
@@ -1271,6 +1277,78 @@ $scope.RadarChart();
 }])
 
 
+App.controller("countyEquipCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+		
+	
+	$scope.refreshEquip = function(){
+		$http.post("/Seom/fc/selectVillage",{area:$stateParams.area}).then(function(res){
+			$scope.equip = res.data;
+
+		},function(err){
+			
+		})
+	}
+	
+	$scope.refreshEquip();
+	
+}])
+
+App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
+	var code = $stateParams.code
+	
+	
+	$scope.refreshEquipDel = function(){
+		//设施信息
+		$http.post("/Seom/equipmentc/selectCode",{facilityCode:code}).then(function(res){
+			$scope.equipInfo = res.data[0];
+			
+			//设施状态
+		  	$scope.facilitieStatus = [
+		  		{id:1, name:"建设"}, {id:2, name:"运维"}, {id:3, name:"大修"}, {id:4, name:"重建"}, {id:5, name:"报废"}
+		  	];
+		  	for (var i = 0; i< $scope.facilitieStatus.length; i++) {
+		  		if($scope.equipInfo.facilityState === $scope.facilitieStatus[i].id){
+		  			$scope.equipInfo.facilityStateName = $scope.facilitieStatus[i].name;
+		  		}
+		  	}		  	
+		},function(err){
+			
+		});
+		
+		//设施列表
+		$http.post("/Seom/equipmentc/selectFacilityCode",{facilityCode:code}).then(function(res){
+			$scope.equipList = res.data;
+			if(!$scope.equipList){
+				return;
+			}
+			
+			//设备类型
+	  		$scope.equipmentYypes = [{id:1, name:"土建"}, {id:2, name:"机电"}, {id:3, name:"监测"}, {id:4, name:"监控"}, {id:0, name:"其他"}];
+	  		for (var i = 0; i<$scope.equipList.length; i++) {
+	  			for(var j = 0; j<$scope.equipmentYypes.length; j++){
+	  				if($scope.equipList[i].type === $scope.equipmentYypes[j].id){
+	  					$scope.equipList[i].typeName = $scope.equipmentYypes[j].name;
+	  				}
+	  			}
+	  		}
+
+		},function(err){
+			
+		});
+	}
+	
+	$scope.refreshEquipDel();
+	
+}])
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state",function($scope,$rootScope,$http,$state){
 	
@@ -1289,7 +1367,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	});
 	
 	
-	$scope.alarmNum = 2;
+	$scope.alarmNum = 0;
 	
 	$scope.waterInfo1 = 70;
 	
@@ -1788,7 +1866,7 @@ $scope.barChart = function(){
 $scope.barChart();
 }]);
 /**=========================================================
- * Module: morris.js
+ * Module: 设备信息
  =========================================================*/
 
 App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
@@ -1928,15 +2006,6 @@ $scope.my_tree_handler = function(branch) {
       { y: "小港街道", a: 75,  b: 15 },
       { y: "郭巨街道", a: 100, b: 19 }
   ];
-/*$scope.linedata = [
-      {y: '2011-2', data: 1000},  
-      {y: '2011-3', data: 8000},  
-      {y: '2011-4', data: 6000},  
-      {y: '2011-5', data: 4000},  
-      {y: '2012-1', data: 5000},  
-      {y: '2012-2', data: 6000},  
-      {y: '2012-3', data: 7000},  
-];*/
 
 $scope.chartdata2 = [
       { y: "白峰村", a: 80, b: 9 },
@@ -1957,14 +2026,6 @@ $scope.chartdata2 = [
     barColors: [ colors.byName('info'), colors.byName('danger') ],
     resize: true
   };
-
-/*  $scope.lineOptions = {
-    xkey: 'y',
-    ykeys: ["data"],
-    labels: ["xxx镇"],
-    lineColors: ["#31C0BE"],
-    resize: true
-  };*/
 
 
 
@@ -2050,7 +2111,7 @@ $scope.today = function() {
 }]);
 
 
-
+//区级
 App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 //设备巡检率
@@ -2190,7 +2251,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 
 
 
-
+//街道级
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 //设备巡检率
@@ -2369,234 +2430,319 @@ $scope.pieChart();*/
 }]);
 
 
-App.controller('equipDateCtrl', function ($scope) {
-             $scope.dat = new Date();
-             $scope.format = "yyyy/MM/dd";
-             $scope.altInputFormats = ['yyyy/M!/d!'];
- 
-             $scope.popup1 = {
-                 opened: false
-             };
-             $scope.open1 = function () {
-                 $scope.popup1.opened = true;
-             };
-             
-             $scope.popup2 = {
-                 opened: false
-             };
-             $scope.open2 = function () {
-                 $scope.popup2.opened = true;
-             };
-             
-             
-         });
-App.controller("installController",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+//日期选择
+App.controller('equipDateCtrl', function($scope) {
+	$scope.dat = new Date();
+	$scope.format = "yyyy/MM/dd";
+	$scope.altInputFormats = ['yyyy/M!/d!'];
+
+	$scope.popup1 = {
+		opened: false
+	};
+	$scope.open1 = function() {
+		$scope.popup1.opened = true;
+	};
+
+	$scope.popup2 = {
+		opened: false
+	};
+	$scope.open2 = function() {
+		$scope.popup2.opened = true;
+	};
+
+});
+
+
+
+//运行记录
+App.controller("equipOperaCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
 	
-	$scope.refresh = function(){
-		$http.post("",{}).then(function(res){
-			
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
+	console.log($stateParams.area);
+	
+	$scope.refreshEquip = function(){
+		$http.get("server/selectVillage.json").then(function(res){
+			$scope.opera = res.data;
+
 		},function(err){
 			
 		})
 	}
-	// 图表配置
-        var options = {
-            chart: {
-                type: 'column'                          //指定图表的类型，默认是折线图（line）
-            },
-            title: {
-                text: '设备安装' ,                // 标题
-                align:"left",
-                style:{fontWeight: 'bold',fontSize: '16px'}
-            },
-            colors: ['#9DC2D3','#387AA3'] ,
-            xAxis: {
-                categories: ['北仑区', '镇海区', '鄞州区', '象山县', '海曙区', '江北区']   // x 轴分类
-            },
-            yAxis: {
-                title: {
-                    text: ''                // y 轴标题
-                }
-            },
-            exporting:{
-	        	buttons:{
-	        		contextButton:{
-	        			enabled:false,
-	        		}
-	        	}
-	        },
-			credits:{
-			     enabled: false // 禁用版权信息
-			},   
-			legend: {
-	            align: 'right',	            
-	            verticalAlign: 'top',	
-	            floating: true,
-	        },
-	        tooltip: {
-		         headerFormat: '{point.key}<br>',
-	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
-	        }, 
-            plotOptions: {
-	            column: {
-	                stacking: 'normal'
-	            }
-	        },
-            series: [{                              // 数据列
-                name: '未安装',                        // 数据列名
-                data: [1, 1, 4, 2, 3, 4]                     // 数据
-            }, {
-                name: '已安装',
-                data: [5, 7, 3 , 5, 4, 3]
-            }]
-        };
-        // 图表初始化函数
-        var chart = Highcharts.chart('install', options);
+	
+	$scope.refreshEquip();
+	
+}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+App.controller("installController",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+	console.log($stateParams.area);
+	
+	$scope.refresh = function(){
+		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
+			$scope.equipment = res.data;
+			
+			$scope.areas = [];
+			$scope.uninstalls = [];
+			$scope.installs = [];
+			for (var i=0; i<$scope.equipment.length; i++) {
+				$scope.areas[i] = $scope.equipment[i].region;
+				$scope.uninstalls[i] = parseInt($scope.equipment[i].shouldInstalled) - parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.installs[i] = parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.equipment[i].completion = (100*$scope.installs[i]/parseInt($scope.equipment[i].shouldInstalled)).toFixed(2);
+				}
+			
+			
+			// 图表配置
+	        var options = {
+	            chart: {
+	                type: 'column'                          //指定图表的类型，默认是折线图（line）
+	            },
+	            title: {
+	                text: '设备安装' ,                // 标题
+	                align:"left",
+	                style:{fontWeight: 'bold',fontSize: '16px'}
+	            },
+	            colors: ['#9DC2D3','#387AA3'] ,
+	            xAxis: {
+	                categories: $scope.areas   // x 轴分类
+	            },
+	            yAxis: {
+	                title: {
+	                    text: ''                // y 轴标题
+	                }
+	            },
+	            exporting:{
+		        	buttons:{
+		        		contextButton:{
+		        			enabled:false,
+		        		}
+		        	}
+		        },
+				credits:{
+				     enabled: false // 禁用版权信息
+				},   
+				legend: {
+		            align: 'right',	            
+		            verticalAlign: 'top',	
+		            floating: true,
+		        },
+		        tooltip: {
+			         headerFormat: '{point.key}<br>',
+		            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+		        }, 
+	            plotOptions: {
+		            column: {
+		                stacking: 'normal'
+		            }
+		        },
+	            series: [{                              // 数据列
+	                name: '未安装',                        // 数据列名
+	                data: $scope.uninstalls                    // 数据
+	            }, {
+	                name: '已安装',
+	                data: $scope.installs
+	            }]
+	        };
+	        // 图表初始化函数
+	        var chart = Highcharts.chart('install', options);
+	        
+		},function(err){
+			
+		})
+	}
+	
+	$scope.refresh();
+ 	
+}])
+
+
+
+App.controller("installController2",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
+	
+	$scope.refresh = function(){
+		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
+			$scope.equipment = res.data;
+			
+			$scope.areas = [];
+			$scope.uninstalls = [];
+			$scope.installs = [];
+			for (var i=0; i<$scope.equipment.length; i++) {
+				$scope.areas[i] = $scope.equipment[i].region;
+				$scope.uninstalls[i] = parseInt($scope.equipment[i].shouldInstalled) - parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.installs[i] = parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.equipment[i].completion = (100*$scope.installs[i]/parseInt($scope.equipment[i].shouldInstalled)).toFixed(2);
+				}
+			
+			
+			// 图表配置
+	        var options = {
+	            chart: {
+	                type: 'column'                          //指定图表的类型，默认是折线图（line）
+	            },
+	            title: {
+	                text: '设备安装' ,                // 标题
+	                align:"left",
+	                style:{fontWeight: 'bold',fontSize: '16px'}
+	            },
+	            colors: ['#9DC2D3','#387AA3'] ,
+	            xAxis: {
+	                categories: $scope.areas   // x 轴分类
+	            },
+	            yAxis: {
+	                title: {
+	                    text: ''                // y 轴标题
+	                }
+	            },
+	            exporting:{
+		        	buttons:{
+		        		contextButton:{
+		        			enabled:false,
+		        		}
+		        	}
+		        },
+				credits:{
+				     enabled: false // 禁用版权信息
+				},   
+				legend: {
+		            align: 'right',	            
+		            verticalAlign: 'top',	
+		            floating: true,
+		        },
+		        tooltip: {
+			         headerFormat: '{point.key}<br>',
+		            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+		        }, 
+	            plotOptions: {
+		            column: {
+		                stacking: 'normal'
+		            }
+		        },
+	            series: [{                              // 数据列
+	                name: '未安装',                        // 数据列名
+	                data: $scope.uninstalls                    // 数据
+	            }, {
+	                name: '已安装',
+	                data: $scope.installs
+	            }]
+	        };
+	        // 图表初始化函数
+	        var chart = Highcharts.chart('install', options);
+	        
+		},function(err){
+			
+		})
+	}
+	
+	$scope.refresh();
 
  
 }])
 
 
 
-App.controller("installController2",['$scope',function($scope){
-	// 图表配置
-        var options = {
-            chart: {
-                type: 'column'                          //指定图表的类型，默认是折线图（line）
-            },
-            title: {
-                text: '设备安装' ,                // 标题
-                align:"left",
-                style:{fontWeight: 'bold',fontSize: '16px'}
-            },
-            colors: ['#9DC2D3','#387AA3'] ,
-            xAxis: {
-                categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道']   // x 轴分类
-            },
-            yAxis: {
-                title: {
-                    text: ''                // y 轴标题
-                }
-            },
-            exporting:{
-	        	buttons:{
-	        		contextButton:{
-	        			enabled:false,
-	        		}
-	        	}
-	        },
-			credits:{
-			     enabled: false // 禁用版权信息
-			},   
-			legend: {
-	            align: 'right',	            
-	            verticalAlign: 'top',	
-	            floating: true,
-	        },
-	        tooltip: {
-		         headerFormat: '{point.key}<br>',
-	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
-	        }, 
-            plotOptions: {
-	            column: {
-	                stacking: 'normal'
-	            }
-	        },
-            series: [{                              // 数据列
-                name: '未安装',                        // 数据列名
-                data: [304, 300, 222, 211, 500, 422]                     // 数据
-            }, {
-                name: '已安装',
-                data: [2250, 1700, 2118 , 1500, 2424, 1344]
-            }]
-        };
-        // 图表初始化函数
-        var chart = Highcharts.chart('install', options);
-
+App.controller("installController3",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
+	
+	$scope.refresh = function(){
+		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
+			$scope.equipment = res.data;
+			
+			$scope.areas = [];
+			$scope.uninstalls = [];
+			$scope.installs = [];
+			for (var i=0; i<$scope.equipment.length; i++) {
+				$scope.areas[i] = $scope.equipment[i].region;
+				$scope.uninstalls[i] = parseInt($scope.equipment[i].shouldInstalled) - parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.installs[i] = parseInt($scope.equipment[i].alreadyInstalled);
+				$scope.equipment[i].completion = (100*$scope.installs[i]/parseInt($scope.equipment[i].shouldInstalled)).toFixed(2);
+				}
+			
+			
+			// 图表配置
+	        var options = {
+	            chart: {
+	                type: 'column'                          //指定图表的类型，默认是折线图（line）
+	            },
+	            title: {
+	                text: '设备安装' ,                // 标题
+	                align:"left",
+	                style:{fontWeight: 'bold',fontSize: '16px'}
+	            },
+	            colors: ['#9DC2D3','#387AA3'] ,
+	            xAxis: {
+	                categories: $scope.areas   // x 轴分类
+	            },
+	            yAxis: {
+	                title: {
+	                    text: ''                // y 轴标题
+	                }
+	            },
+	            exporting:{
+		        	buttons:{
+		        		contextButton:{
+		        			enabled:false,
+		        		}
+		        	}
+		        },
+				credits:{
+				     enabled: false // 禁用版权信息
+				},   
+				legend: {
+		            align: 'right',	            
+		            verticalAlign: 'top',	
+		            floating: true,
+		        },
+		        tooltip: {
+			         headerFormat: '{point.key}<br>',
+		            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
+		        }, 
+	            plotOptions: {
+		            column: {
+		                stacking: 'normal'
+		            }
+		        },
+	            series: [{                              // 数据列
+	                name: '未安装',                        // 数据列名
+	                data: $scope.uninstalls                    // 数据
+	            }, {
+	                name: '已安装',
+	                data: $scope.installs
+	            }]
+	        };
+	        // 图表初始化函数
+	        var chart = Highcharts.chart('install', options);
+	        
+		},function(err){
+			
+		})
+	}
+	
+	$scope.refresh();
  
-}])
-
-
-
-App.controller("installController3",['$scope',function($scope){
-	// 图表配置
-        var options = {
-            chart: {
-                type: 'column'                          //指定图表的类型，默认是折线图（line）
-            },
-            title: {
-                text: '设备安装' ,                // 标题
-                align:"left",
-                style:{fontWeight: 'bold',fontSize: '16px'}
-            },
-            colors: ['#9DC2D3','#387AA3'] ,
-            xAxis: {
-                categories: ['白峰村', '官庄村', '司沿村', '上阳村', '阳东村', '勤山村']   // x 轴分类
-            },
-            yAxis: {
-                title: {
-                    text: ''                // y 轴标题
-                }
-            },
-            exporting:{
-	        	buttons:{
-	        		contextButton:{
-	        			enabled:false,
-	        		}
-	        	}
-	        },
-			credits:{
-			     enabled: false // 禁用版权信息
-			},   
-			legend: {
-	            align: 'right',	            
-	            verticalAlign: 'top',	
-	            floating: true,
-	        },
-	        tooltip: {
-		         headerFormat: '{point.key}<br>',
-	            pointFormat: '{point.series.name}  {point.y}台 <br/> <b>{point.percentage:.1f}%</b>'
-	        }, 
-            plotOptions: {
-	            column: {
-	                stacking: 'normal'
-	            }
-	        },
-            series: [{                              // 数据列
-                name: '未安装',                        // 数据列名
-                data: [1, 1, 4, 2, 3, 4]                     // 数据
-            }, {
-                name: '已安装',
-                data: [5, 7, 3 , 5, 4, 3]
-            }]
-        };
-        // 图表初始化函数
-        var chart = Highcharts.chart('install', options);
-
- 
- 		$scope.install3 = [
- 			{
- 				name:"白峰村",
- 				num1:131,
- 				num2:210
- 			},
- 			{
- 				name:"官庄村",
- 				num1:217,
- 				num2:250
- 			},
- 			{
- 				name:"勤山村",
- 				num1:180,
- 				num2:210
- 			},
- 			{
- 				name:"上阳村",
- 				num1:180,
- 				num2:210
- 			}
- 		]
- 
+ 		
 }])
 
 
@@ -3193,75 +3339,195 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     
     	$scope.update1 = function(){
     		$http.post("/Seom/mrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update2 = function(){
     		$http.post("/Seom/irs/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update3 = function(){
     		$http.post("/Seom/arc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update4 = function(){
     		$http.post("/Seom/tbc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update5 = function(){
     		console.log($scope.data);
     		$http.post("/Seom/pic/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update6 = function(){
     		$http.post("/Seom/equipmentc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update7 = function(){
     		$http.post("/Seom/mmrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update8 = function(){
     		$http.post("/msrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update9 = function(){
     		$http.post("/Seom/aVillagec/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update10 = function(){
     		$http.post("/Seom/avuvc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update11 = function(){
     		$http.post("/Seom/fc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update12 = function(){
     		$http.post("/Seom/fmsc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     
     
@@ -3725,9 +3991,13 @@ App.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
 App.controller("warningCurrentCtrl",["$scope","$http",function($scope,$http){
 
 	$scope.updateWarn = function(){
-		$http.get("server/inspection.json").then(function(res){
+		$http.get("1").then(function(res){
 			$scope.warnData = res.data;
 			$scope.currentPage = 1;
+			if(!$scope.warnData){
+				$scope.totalItems=0;
+				return;
+			}
 			
 			$scope.totalItems = $scope.warnData.length;
 			
@@ -3747,10 +4017,13 @@ App.controller("warningCurrentCtrl",["$scope","$http",function($scope,$http){
 App.controller("warningHistoryCtrl",["$scope","$http",function($scope,$http){
 
 	$scope.updateWarnHistory = function(){
-		$http.get("server/malfunctions.json").then(function(res){
+		$http.get("2").then(function(res){
 			$scope.warnHistoryData = res.data;
 			$scope.currentPage = 1;
-			
+			if(!$scope.warnHistoryData){
+				$scope.totalItems=0;
+				return;
+			}
 			$scope.totalItems = $scope.warnHistoryData.length;
 			
 		},function(err){

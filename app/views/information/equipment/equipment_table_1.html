@@ -9,11 +9,17 @@
 	   	<div class="row">
 	   		<div class="col-md-12" role="navigation">
 	   			<ul class="nav nav-tabs">
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_1'}"><a ui-sref="app.equip_table_1">运行记录</a></li>			  
-				  <!--<li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_2'}"><a ui-sref="app.equip_table_2">巡检记录</a></li>
-				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_3'}"><a ui-sref="app.equip_table_3">故障记录</a></li>-->
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_1'}">
+				  	<a ui-sref="app.equip_table_1">运行记录</a>
+				  </li>			  
+				  <!--<li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_2'}">
+				  	<a ui-sref="app.equip_table_2">巡检记录</a>
+				  </li>
+				  <li role="presentation" ng-class="{active:$state.current.name=='app.equip_table_3'}">
+				  	<a ui-sref="app.equip_table_3">故障记录</a>
+				  </li>-->
 				  
-				  <div class="input-group pull-left ml-lg" style="width: 20%;">
+				  <div class="input-group pull-left ml-lg" style="width: 15%;">
 						<input type="text" placeholder="输入关键字进行搜索" class="form-control input-sm" />
 						<span class="input-group-btn">
 						    <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
@@ -52,7 +58,7 @@
 				  </div>
 				  
 				  					  	
-				  <a ui-sref="app.county.county_1_3_baifeng" class="btn btn-default pull-right">返回</a>
+				  <a ng-click="back();" class="btn btn-default pull-right">返回</a>
 				  	
 				  
 				</ul>

@@ -16,7 +16,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	});
 	
 	
-	$scope.alarmNum = 2;
+	$scope.alarmNum = 0;
 	
 	$scope.waterInfo1 = 70;
 	

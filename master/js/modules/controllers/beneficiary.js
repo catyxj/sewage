@@ -1,6 +1,10 @@
 
 App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
-		
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
 	var area = $stateParams.area;
 	
 	$scope.refreshBene = function(area){

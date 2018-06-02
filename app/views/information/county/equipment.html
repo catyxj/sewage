@@ -8,14 +8,14 @@
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
 			  <li role="presentation" class="active"><a href="#">设施列表</a></li>			  
-			  	<a ui-sref="app.county.county_1_3" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  	<a ng-click="back();" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
+   <div class="" style="height: 510px; padding:10px; border: 1px solid #ddd; border-top: none;">
    		<div class="table-responsive" style="height: 450px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
@@ -33,20 +33,36 @@
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	            <tr ng-repeat="data in equip | range:currentPage:itemsPerPage">
 	               <td>
-	                  北仑区郭巨街道双岙村终端
+	               	{{ $index + 1 }}
 	               </td>
-	               <td>330203011211-02-045-D2</td>
-	               <td>北仑区郭巨街道双岙村</td>
-	               <td>45</td>
-	               <td>1.5</td>
-	               <td>2016-09-20</td>
-	               <td>无</td>  
-	               <td>无</td> 
 	               <td>
-	               	<a ui-sref="app.county-equipment-detail">查看更多</a>
+	                  {{ data.name }}
+	               </td>
+	               <td> {{data.facilityCode}} </td>
+	               <td> {{data.administrativeVillage}} </td>
+	               <td> {{data.dailyProcessing}} </td>
+	               <td> {{data.totalPower}} </td>
+	               <td>	{{data.maintenanceDate}} </td>
+	               <td> 
+	               		<span ng-if="data.onLineonitoring===1">
+		               		是
+		               	</span>
+		               	<span ng-if="data.onLineonitoring===2">
+		               		否
+		               	</span>	               		
+	               </td>  
+	               <td> 
+	               		<span ng-if="data.remoteMonitoring===1">
+		               		是
+		               	</span>
+		               	<span ng-if="data.remoteMonitoring===2">
+		               		否
+		               	</span>	
+	               </td> 
+	               <td>
+	               	<a ui-sref="app.county-equipment-detail({code:data.facilityCode})">查看更多</a>
 	               </td> 
 	            </tr>
 	            
@@ -55,39 +71,7 @@
 	      </table>
 	   </div>
 	   
-	   <div class="row">	   	
-	   	<div class="col-lg-6">
-	   		共518条记录
-	   		pageSize: 
-	   		<select style="padding: 3px 10px;">
-	   			<option value="250">250</option>
-	   			<option value="150">150</option>
-	   		</select>
-	   	</div>
-	   	<div class="col-lg-6">
-	   		<nav>
-			  <ul class="pagination pull-right" style="margin: 0;">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-	   	</div>
-	   	
-   		
-   	</div>
+	   <pagination></pagination>
    </div>
    
    <!-- END table-responsive-->

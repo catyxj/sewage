@@ -1,5 +1,5 @@
 /**=========================================================
- * Module: morris.js
+ * Module: 设备信息
  =========================================================*/
 
 App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
@@ -139,15 +139,6 @@ $scope.my_tree_handler = function(branch) {
       { y: "小港街道", a: 75,  b: 15 },
       { y: "郭巨街道", a: 100, b: 19 }
   ];
-/*$scope.linedata = [
-      {y: '2011-2', data: 1000},  
-      {y: '2011-3', data: 8000},  
-      {y: '2011-4', data: 6000},  
-      {y: '2011-5', data: 4000},  
-      {y: '2012-1', data: 5000},  
-      {y: '2012-2', data: 6000},  
-      {y: '2012-3', data: 7000},  
-];*/
 
 $scope.chartdata2 = [
       { y: "白峰村", a: 80, b: 9 },
@@ -168,14 +159,6 @@ $scope.chartdata2 = [
     barColors: [ colors.byName('info'), colors.byName('danger') ],
     resize: true
   };
-
-/*  $scope.lineOptions = {
-    xkey: 'y',
-    ykeys: ["data"],
-    labels: ["xxx镇"],
-    lineColors: ["#31C0BE"],
-    resize: true
-  };*/
 
 
 
@@ -261,7 +244,7 @@ $scope.today = function() {
 }]);
 
 
-
+//区级
 App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 //设备巡检率
@@ -401,7 +384,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 
 
 
-
+//街道级
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
 
 //设备巡检率
@@ -580,24 +563,60 @@ $scope.pieChart();*/
 }]);
 
 
-App.controller('equipDateCtrl', function ($scope) {
-             $scope.dat = new Date();
-             $scope.format = "yyyy/MM/dd";
-             $scope.altInputFormats = ['yyyy/M!/d!'];
- 
-             $scope.popup1 = {
-                 opened: false
-             };
-             $scope.open1 = function () {
-                 $scope.popup1.opened = true;
-             };
-             
-             $scope.popup2 = {
-                 opened: false
-             };
-             $scope.open2 = function () {
-                 $scope.popup2.opened = true;
-             };
-             
-             
-         });
+//日期选择
+App.controller('equipDateCtrl', function($scope) {
+	$scope.dat = new Date();
+	$scope.format = "yyyy/MM/dd";
+	$scope.altInputFormats = ['yyyy/M!/d!'];
+
+	$scope.popup1 = {
+		opened: false
+	};
+	$scope.open1 = function() {
+		$scope.popup1.opened = true;
+	};
+
+	$scope.popup2 = {
+		opened: false
+	};
+	$scope.open2 = function() {
+		$scope.popup2.opened = true;
+	};
+
+});
+
+
+
+//运行记录
+App.controller("equipOperaCtrl",["$scope","$stateParams","$http",function($scope,$stateParams,$http){
+	
+	$scope.back = function(){
+		history.go(-1);
+	}
+	
+	console.log($stateParams.area);
+	
+	$scope.refreshEquip = function(){
+		$http.get("server/selectVillage.json").then(function(res){
+			$scope.opera = res.data;
+
+		},function(err){
+			
+		})
+	}
+	
+	$scope.refreshEquip();
+	
+}])
+
+
+
+
+
+
+
+
+
+
+
+

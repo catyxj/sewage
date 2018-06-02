@@ -1,0 +1,55 @@
+[
+	{
+		"administrativeVillage":"白峰",
+		"naturalVillage":"白峰",
+		"name":"北仑区白峰街道白峰村终端",
+		"facilityCode":"330206010203-01-000-00",
+		"dailyProcessing":"0",
+		"totalPower":"0",
+		"onLineonitoring":2,
+		"remoteMonitoring":2,
+		"maintenanceDate":"2015/11/20",
+		"zoningCode":"330206010203",
+		"longitude_E":"109",
+		"latitude_N":"221",
+		"ptm":"AAO+PKA",
+		"dewqs":"DB33/973-2015 二级",
+		"facilityState":2,
+		"tcsUnit":"白峰街道办事处",
+		"tdUnit":"宁波大学建筑设计研究院有限公司",
+		"tcnUnit":"浙江宸宇建设有限公司",
+		"tsUnit":"宁波海城工程监理有限公司",
+		"ncsUnit":"白峰街道办事处",
+		"ndUnit":"宁波大学建筑设计研究院有限公司",
+		"ncnUnit":"浙江宸宇建设有限公司",
+		"nlong":"10800",
+		"nmTexture":"波纹管",
+		"pdc":"160",
+		"completionDate":"2015/11/20",
+		"receivingDate":"2015/11/20",
+		"maintenanceDate":"2015/11/20"
+		
+	},
+	{
+		"administrativeVillage":"官庄",
+		"naturalVillage":"官庄",
+		"name":"北仑区白峰街道官庄终端",
+		"facilityCode":"330206010202-01-020-D2",
+		"dailyProcessing":"20",
+		"totalPower":"7.5",
+		"onLineonitoring":2,
+		"remoteMonitoring":2,
+		"maintenanceDate":"2012/11/20"
+	},
+	{
+		"administrativeVillage":"官庄",
+		"naturalVillage":"官庄",
+		"name":"北仑区白峰街道官庄终端",
+		"facilityCode":"330206010202-02-025-D2",
+		"dailyProcessing":"25",
+		"totalPower":"7.5",
+		"onLineonitoring":2,
+		"remoteMonitoring":2,
+		"maintenanceDate":"2012/11/20"
+	}
+]

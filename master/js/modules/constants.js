@@ -59,6 +59,8 @@ App
       'morris':             ['vendor/raphael/raphael.js',
                              'vendor/morris.js/morris.js',
                              'vendor/morris.js/morris.css'],
+      'sweetalert':         ['vendor/sweetalert2/dist/sweetalert2.min.css',
+      						 'vendor/sweetalert2/dist/sweetalert2.min.js']
                              
 
     },

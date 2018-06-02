@@ -408,75 +408,195 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     
     	$scope.update1 = function(){
     		$http.post("/Seom/mrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update2 = function(){
     		$http.post("/Seom/irs/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update3 = function(){
     		$http.post("/Seom/arc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update4 = function(){
     		$http.post("/Seom/tbc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update5 = function(){
     		console.log($scope.data);
     		$http.post("/Seom/pic/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update6 = function(){
     		$http.post("/Seom/equipmentc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update7 = function(){
     		$http.post("/Seom/mmrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update8 = function(){
     		$http.post("/msrc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update9 = function(){
     		$http.post("/Seom/aVillagec/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update10 = function(){
     		$http.post("/Seom/avuvc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update11 = function(){
     		$http.post("/Seom/fc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     	
     	$scope.update12 = function(){
     		$http.post("/Seom/fmsc/post",{data:$scope.data}).then(function(res){
-    			
-    		},function(err){});
+    			swal(
+				  '保存成功',
+				  '',
+				  'success'
+				)
+    		},function(err){
+    			swal(
+				  '保存失败',
+				  err.data,
+				  'error'
+				)
+    		});
     	};
     
     

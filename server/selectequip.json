@@ -1,0 +1,22 @@
+[
+	{
+		"name":"污水提升泵",
+		"modelNumber":"WQ10-10-0.75",
+		"type":2,
+		"manufacturer":"上海水泵集团有限公司",
+		"leaveFactoryDate":"",
+		"installDate":"",
+		"power":"0.75",
+		"remarks":""
+	},
+	{
+		"name":"射流曝气机",
+		"modelNumber":"ZN-SLB-D-15",
+		"type":2,
+		"manufacturer":"浏阳市振南环保设备科技有限公司",
+		"leaveFactoryDate":"",
+		"installDate":"",
+		"power":"1.5",
+		"remarks":""
+	}
+]
