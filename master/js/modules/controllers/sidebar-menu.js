@@ -3,8 +3,8 @@
  * Handle sidebar collapsible elements
  =========================================================*/
 
-App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout',
-  function($rootScope, $scope, $state, $http, $timeout){
+App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', '$timeout',"$filter",
+  function($rootScope, $scope, $state, $http, $timeout,$filter){
 
     var collapseList = [];
     // demo: when switch from collapse to hover, close all items
@@ -46,6 +46,13 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
       $http.get(menuURL).then(function(items){
            $scope.menuItems = items.data;
+           if($rootScope.app.level>=2){
+           	$scope.menuItems = $filter("filter")($scope.menuItems,function(item){
+           		if(!item.level){
+           			return true;
+           		}
+           	})
+           }
        },function(err){
        		console.warn(err);
        });

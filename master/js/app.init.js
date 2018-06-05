@@ -26,10 +26,11 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("server/county.json").then(function(res){
-			var treedata_avm = res.data;
-			$rootScope.my_county = treedata_avm;
-		});
+ $http.get("/Seom/acc/selec").then(function(res){
+	var treedata_avm = res.data;
+	$rootScope.my_county = treedata_avm;
+});
+
 
   // Scope Globals
   // ----------------------------------- 
@@ -49,7 +50,8 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
     },
     useFullLayout: false,
     hiddenFooter: false,
-    viewAnimation: 'ng-fadeInUp'
+    viewAnimation: 'ng-fadeInUp',
+    level:1
   };
 
 }]);

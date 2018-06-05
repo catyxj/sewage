@@ -2,53 +2,53 @@
     {
       "label": "北仑区",    
       "data": {
-            "description": "app.county.county_1_1"
+            "description": "county_1_1"
          },
       "children": [
         {
           "label": "白峰街道",
           "data": {
-            "description": "app.county.county_1_2_baifeng"
+            "description": "county_1_2"
           },
           "children": [
           {"label":"白峰村",
           "data": {
-            "description": "app.county.county_1_3_baifeng"
+            "description": "county_1_3"
           }
           },
           {"label":"官庄村",
           "data": {
-            "description": "app.county.county_1_3_guanzhuang"
+            "description": "county_1_3_guanzhuang"
           }
           },
           {"label":"司沿村",
           "data": {
-            "description": "app.county.county_1_3_siyan"
+            "description": "county_1_3_siyan"
           }
          },
          {"label":"新峰村",
           "data": {
-            "description": "app.county.county_1_3_xinfeng"
+            "description": "county_1_3_xinfeng"
           }
          },
          {"label":"阳东村",
           "data": {
-            "description": "app.county.county_1_3_yangdong"
+            "description": "county_1_3_yangdong"
           }
          },
          {"label":"勤山村",
           "data": {
-            "description": "app.county.county_1_3_qinshan"
+            "description": "county_1_3_qinshan"
           }
          },
          {"label":"上阳村",
           "data": {
-            "description": "app.county.county_1_3_shangyang"
+            "description": "county_1_3_shangyang"
           }
          },
          {"label":"下阳村",
           "data": {
-            "description": "app.county.county_1_3_xiayang"
+            "description": "county_1_3_xiayang"
           }
          }
          ]

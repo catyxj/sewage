@@ -4,7 +4,7 @@
 			</div>
 			<div class="cou_text_3">
 				<div class="" style="padding-bottom: 10px;">
-					<h5>白峰村简介</h5>
+					<h5>{{area}} 简介</h5>
 					<p>
 						白峰，明代时为海滨荒滩，明后期开始有乡民来此开荒晒盐而定居。白峰原名白枫，因山上枫树的皮灰白，故名。宋建炎四年（公元1130年）距白峰一公里处山坡上建有白峰巡检司。枫、峰同音，移用之，改称白峰至今。白峰村地处北仑穿山半岛东端，白峰镇中心，距宁波43公里，北仑中心新矸15.5公里，白峰镇人民政府驻于村内。现辖白峰、蒋岙、山防三个组。总人口2107人，总户数865户。现有耕地面积1291亩，其中水田743亩，旱地548亩。近年来，白峰村在上级党委、政府的正确领导下，通过全村党员干部和人民群众的共同努力，“三个文明”建设取得了显著成绩，先后获得了“区级文明村”、“市级卫生村”等光荣称号。在村党支部的带领下，白峰村干群一心，开始朝着建设社会主义新农村的更高目标前进。
 					</p>
@@ -37,7 +37,8 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.equip_table_1" class="btn btn-oval btn-default"> 运 行 记 录 </a>
+	                     <a class="btn btn-oval btn-default" disabled> 运 行 记 录 </a>
+	                     <!--ui-sref="app.equip_table_1"-->
 	                  </div>
 	               </div>
          		</div>
@@ -50,7 +51,7 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county-equipment_baifeng" class="btn btn-oval btn-default"> 设 备 情 况 </a>
+	                     <a ui-sref="app.county-equipment({area:area})" class="btn btn-oval btn-default"> 设 备 情 况 </a>
 	                  </div>
 	               </div>
          		</div>
@@ -108,7 +109,8 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county.county-onsite" class="btn btn-oval btn-default"> 现 场 监 控 </a>
+	                     <a class="btn btn-oval btn-default" disabled> 现 场 监 控 </a>
+	                     <!--ui-sref="app.county.county-onsite" -->
 	                     
 	                  </div>
 	               </div>
@@ -126,7 +128,8 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.warning3" class="btn btn-oval btn-default"> 告 警 记 录 </a>
+	                     <a class="btn btn-oval btn-default" disabled> 告 警 记 录 </a>
+	                     <!-- ui-sref="app.warning3"-->
 	                  </div>
 	               </div>
          		</div>
@@ -139,7 +142,8 @@
 	                     </span>
 	                  </div>
 	                  <div class="media-box-body clearfix">
-	                     <a ui-sref="app.county-monitor" class="btn btn-oval btn-default"> 监 控 图 片 </a>
+	                     <a class="btn btn-oval btn-default" disabled> 监 控 图 片 </a>
+	                     <!--ui-sref="app.county-monitor" -->
 	                  </div>
 	               </div>
          		</div>

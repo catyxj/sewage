@@ -27,7 +27,8 @@
   {
     "text": "区县信息",
     "sref": "app.county.county_1_1",
-    "icon": "icon-grid"
+    "icon": "icon-grid",
+    "level":"2"
   },
   {
     "text": "设备信息",

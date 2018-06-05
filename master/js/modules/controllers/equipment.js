@@ -2,135 +2,84 @@
  * Module: 设备信息
  =========================================================*/
 
-App.controller('equipmentController', ['$scope', '$timeout', 'colors','$http','$state', function ($scope, $timeout, colors,$http,$state) {
+App.controller('equipmentController', ['$scope',"$rootScope" ,'$timeout', 'colors','$http','$state', function ($scope,$rootScope, $timeout, colors,$http,$state) {
 
-	
+	$scope.my_tree = {};
 
 $scope.my_tree_handler = function(branch) {
-		
+
+	$scope.output = branch.label;
+	
+	switch(branch.level){
+		case 1:
+			$state.go("app.equipment.equipment_1",{area:$scope.output});
+			break;
+		case 2:
+			$state.go("app.equipment.equipment_3",{area:$scope.output});
+			break;	
+		case 3:
+			$state.go("app.county-equipment",{area:$scope.output});
+			break;	
+			
+	}	
 
 };
 
   // onSelect event handlers
-  var apple_selected = function(branch) {
-    $scope.output = branch.data.description;
-	$state.go($scope.output);
-  };
+  /*var apple_selected = function(branch) {
+    
+  };*/
 
-  var treedata_avm = [
-    {
-      label: '北仑区',
-      data: {
-            description: "app.equipment.equipment_1"
-          },
-          onSelect: apple_selected,
-      children: [
-        {
-          label: '白峰街道',
-          data: {
-            description: "app.equipment.equipment_3"
-          },
-          onSelect: apple_selected,
-          children: [
-          {label:'白峰村',
-          data: {
-            description: "app.county-equipment_baifeng"
-          },
-          onSelect: apple_selected,
-          },
-          {label:'官庄村',
-          data: {
-            description: "app.county-equipment_guanzhuang"
-          },
-          onSelect: apple_selected,
-          },
-          {label:'司沿村',
-          data: {
-            description: "app.county-equipment_siyan"
-          },
-          onSelect: apple_selected,
-         },
-         {label:'新峰村',
-          data: {
-            description: "app.county-equipment_xinfeng"
-          },
-          onSelect: apple_selected,
-         },
-         {label:'阳东村',
-          data: {
-            description: "app.county-equipment_yangdong"
-          },
-          onSelect: apple_selected,
-         },
-         {label:'勤山村',
-          data: {
-            description: "app.county-equipment_qinshan"
-          },
-          onSelect: apple_selected,
-         },
-         {label:'上阳村',
-          data: {
-            description: "app.county-equipment_shangyang"
-          },
-          onSelect: apple_selected,
-         },
-         {label:'下阳村',
-          data: {
-            description: "app.county-equipment_xiayang"
-          },
-          onSelect: apple_selected,
-         }
-         ]
-        }, 
-        {
-          label: '梅山街道',
-          children: ['梅东', '碑塔', '梅中']          
-       },
-       {
-          label: '春晓街道',
-           children: ['昆亭', '三山', '慈岙']         
-       },
-       {
-          label: '新碶街道',
-           children: ['大路', '星阳', '高潮']         
-       },
-       {
-          label: '霞浦街道',
-           children: ['河西', '霞南', '霞西']         
-       },
-       {
-          label: '小港街道',
-           children: ['红联']         
-        }
-      ]
-    }, 
-    {
-      label: '镇海区',
-      data: {
-        definition: "",
-        data_can_contain_anything: true
-      },
-      onSelect: function(branch) {
-        $scope.output = "" + branch.data.definition;
-        return $scope.output;
-      },
-      children: [
-        {
-          label: '蛟川街道',
-          children: ['清水浦', '迎周', '俞范']
-        }, {
-          label: '骆驼街道'          
-        }
-      ]
-    }
-  ];
   
-  
-  $scope.my_data = treedata_avm;
+  	$scope.my_data = angular.copy($rootScope.my_county);
+  	
+  	
+  	//链接跳转	
+	$scope.goequip = function(area){
+		var b = {}
+		for(var i = 0; i<$scope.my_data.length;i++){
+			if($scope.my_data[i].label.indexOf(area)!==-1){
+				b = $scope.my_data[i];
+				break;
+			}
+			if($scope.my_data[i].children){
+				for(var j=0; j<$scope.my_data[i].children.length; j++){
+					if($scope.my_data[i].children[j].label.indexOf(area)!==-1){
+						b = $scope.my_data[i].children[j];
+						break;
+					}
+					if($scope.my_data[i].children[j].children){
+						for (var n = 0; n<$scope.my_data[i].children[j].children.length; n++) {
+							if($scope.my_data[i].children[j].children[n].label.indexOf(area)!==-1){
+								b = $scope.my_data[i].children[j].children[n];
+								break;
+							}
+						}
+					}
+				}
+			}
+			
+		}
+		$scope.my_tree.select_branch(b);
+						
+	}
+  	
+
+
+}]);
 
 
 
-  $scope.chartdata = [
+App.controller('equipController1', ['$scope', '$stateParams', '$timeout', 'colors','$http', function ($scope,$stateParams, $timeout, colors,$http) {
+	
+	console.log($stateParams.area);
+	$scope.area = $stateParams.area;
+	
+	//设备故障率------------
+	$http.get("server/chart/equipmal.json").then(function(res){
+		$scope.chartdata = res.data;
+	})
+  /*$scope.chartdata = [
       { y: "白峰街道", a: 100, b: 20 },
       { y: "梅山街道", a: 75,  b: 15 },
       { y: "春晓街道", a: 50,  b: 4 },
@@ -138,116 +87,23 @@ $scope.my_tree_handler = function(branch) {
       { y: "新碶街道", a: 50,  b: 4 },
       { y: "小港街道", a: 75,  b: 15 },
       { y: "郭巨街道", a: 100, b: 19 }
-  ];
-
-$scope.chartdata2 = [
-      { y: "白峰村", a: 80, b: 9 },
-      { y: "官庄村", a: 75,  b: 6 },
-      { y: "司沿村", a: 50,  b: 4 },
-      { y: "新峰村", a: 75,  b: 6 },
-      { y: "阳东村", a: 50,  b: 4 },
-      { y: "勤山村", a: 75,  b: 6 },
-      { y: "上阳村", a: 100, b: 9 }
-  ];
-
-
-  $scope.barOptions = {
-    xkey: 'y',
-    ykeys: ["a", "b"],
-    labels: ["已安装", "故障率"],
-    xLabelMargin: 2,
-    barColors: [ colors.byName('info'), colors.byName('danger') ],
-    resize: true
-  };
+  ];*/
 
 
 
+	  $scope.barOptions = {
+	    xkey: 'area',
+	    ykeys: ["a", "b"],
+	    labels: ["已安装", "故障率"],
+	    xLabelMargin: 2,
+	    barColors: [ colors.byName('info'), colors.byName('danger') ],
+	    resize: true
+	  };
 
-// LINE
-  // ----------------------------------- 
-  $http.get("server/chart/line.json").then(function(res){
-		$scope.flowData = res.data;
-
-	})
-
-  $scope.flowOptions = {
-      series: {
-          lines: {
-              show: true,
-              fill: 0.01
-          },
-          points: {
-              show: true,
-              radius: 4
-          }
-      },
-      grid: {
-          borderColor: '#eee',
-          borderWidth: 1,
-          hoverable: true,
-          backgroundColor: '#fcfcfc'
-      },
-      tooltip: true,
-      tooltipOpts: {
-          content: function (label, x, y) { return x + ' : ' + y; }
-      },
-      xaxis: {
-          tickColor: '#eee',
-          mode: 'categories'
-      },
-      yaxis: {
-          position: ($scope.app.layout.isRTL ? 'right' : 'left'),
-          tickColor: '#eee'
-      },
-      shadowSize: 0
-  };
-
-
-//datepicker
-$scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-
-  // Disable weekend selection
-  $scope.disabled = function(date, mode) {
-    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-  };
-
-  $scope.toggleMin = function() {
-    $scope.minDate = $scope.minDate ? null : new Date();
-  };
-  $scope.toggleMin();
-
-  $scope.open = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
-    $scope.opened = true;
-  };
-
-  $scope.dateOptions = {
-    formatYear: 'yy',
-    startingDay: 1
-  };
-
-  $scope.initDate = new Date('2016-15-20');
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0];
-
-
-
-}]);
-
-
-//区级
-App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
-
-//设备巡检率
+	
+	
+	
+	//设备巡检率
 	var options1 = {
         chart: {
             type: 'spline'
@@ -267,7 +123,7 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 		},    
 		colors:["#31C0BE"],
 		xAxis: {
-	        categories: ['白峰街道', '梅山街道', '春晓街道', '新碶街道', '霞浦街道', '小港街道', '郭巨街道', '柴桥街道']
+	        categories: ['2017/11', '2017/12', '2018/1', '2018/2', '2018/3', '2018/4', '2018/5', '2018/6']
 	    },
 	    yAxis: {
 	        title: {
@@ -301,8 +157,8 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
             ]
         }]
         };
-        // 图表初始化函数
-        var chart = Highcharts.chart('xunjianlv', options1);
+    // 图表初始化函数
+    var chart = Highcharts.chart('inspection', options1);
 
 
 
@@ -312,7 +168,9 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
 
 
 //设备分布情况
-	var options = {
+	$http.get("server/chart/distributed.json").then(function(res){
+		$scope.distribution = res.data;
+		var options = {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -356,36 +214,45 @@ App.controller('equipController1', ['$scope', '$timeout', 'colors','$http', func
         series: [{
             type: 'pie',
             name: '设备分布情况',
-            data: [
-                ['溪口镇',   38],
-                ['尚田镇',   29],
-                {
-                    name: '大堰镇',
-                    y: 30,
-                    sliced: true,
-                    selected: true
-                },
-                ['江口街道',   20],
-                ['锦屏街道',     3],
-                ['岳林街道',   4],
-                ['莼湖镇',   29],
-                ['西坞街道',   17],
-                ['萧王庙街道',   11],
-                ['松岙镇',   4],
-                ['裘村镇',   11]
-            ]
+            data: $scope.distribution
         }]
         };
-        // 图表初始化函数
-        var chart = Highcharts.chart('pieChart2', options);
+    // 图表初始化函数
+    var chart = Highcharts.chart('pieChart2', options);
+	},function(err){})
+
+	
 
 
 }]);
 
 
 
-//街道级
+//----------test---------
 App.controller('equipController2', ['$scope', '$timeout', 'colors','$http', function ($scope, $timeout, colors,$http) {
+
+	
+	//设备故障率
+
+$scope.chartdata2 = [
+      { area: "白峰村", a: 80, b: 9 },
+      { area: "官庄村", a: 75,  b: 6 },
+      { area: "司沿村", a: 50,  b: 4 },
+      { area: "新峰村", a: 75,  b: 6 },
+      { area: "阳东村", a: 50,  b: 4 },
+      { area: "勤山村", a: 75,  b: 6 },
+      { area: "上阳村", a: 100, b: 9 }
+  ];
+
+
+  $scope.barOptions = {
+    xkey: 'area',
+    ykeys: ["a", "b"],
+    labels: ["已安装", "故障率"],
+    xLabelMargin: 2,
+    barColors: [ colors.byName('info'), colors.byName('danger') ],
+    resize: true
+  };
 
 //设备巡检率
 	var options1 = {

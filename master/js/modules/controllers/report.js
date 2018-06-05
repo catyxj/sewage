@@ -191,7 +191,7 @@ App.controller('reportController', ['$scope', '$http','$state',
   };
   
   $scope.table11 = function(){
-  	$http.get("/fc/get").then(function(res){
+  	$http.get("/Seom/fc/get").then(function(res){
 	  	$scope.vBasic = res.data;
 	  	$scope.totalItems = $scope.vBasic.length;
 	  })
@@ -408,15 +408,30 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     
     	$scope.update1 = function(){
     		$http.post("/Seom/mrc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
+    			
     		},function(err){
-    			swal(
-				  '保存失败',
+    			swal(				  
 				  err.data,
+				  '',
 				  'error'
 				)
     		});

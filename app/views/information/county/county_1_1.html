@@ -1,118 +1,33 @@
 		<div class="col-lg-7 col-sm-7">
+			<!--<a  class="btn btn-default btn-sm mb">First Branch</a>-->
 			<ul class="county_con row">
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="app.county.county_1_2_baifeng">
+				
+				<li ng-repeat="data in countyList | range:currentPage:itemsPerPage" class="col-xs-6 col-sm-4">
+					<a ng-click="goCounty2(data.name);" >
 						<div class="cou_img">
 							<img src="app/img/county/baifengjiedao.jpg"/>
 						</div>
 						<div class="cou_text">
 							<div class="clearfix">
 								<span class="pull-right">
-									受益户数 645/784
+									受益户数  {{data.alreadyBenefitNumber}}/ {{data.shouldBenefitNumber}}
 								</span>		
 							</div>
 							<div class="text-info">
-								白峰街道
+								{{data.name}}
 							</div>
 							<p>  
-								白峰街道雄踞北仑最东部，矗立于穿山半岛，东与郭巨接壤，南与梅山保税港区隔港相望...
+								{{data.remark}}
 							</p>
 						</div>
-					</a>										
-				</li>
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="">
-						<div class="cou_img">
-							<img src="app/img/county/meishanjiedao.jpg"/>
-						</div>
-						<div class="cou_text">
-							<div class="clearfix">
-								<span class="pull-right">
-									受益户数 645/784
-								</span>		
-							</div>
-							<div class="text-info">
-								梅山街道
-							</div>
-							<p>  梅山岛，像一颗美丽的珍珠，镶嵌在东海之滨，它位于北仑区的东南部，全岛面积为38.3平方公里...</p>
-						</div>
-					</a>										
-				</li>
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="">
-						<div class="cou_img">
-							<img src="app/img/county/chunxiaojiedao.jpg"/>
-						</div>
-						<div class="cou_text">
-							<div class="clearfix">
-								<span class="pull-right">
-									受益户数 645/784
-								</span>		
-							</div>
-							<div class="text-info">
-								春晓街道
-							</div>
-							<p> 春晓街道，位于浙江省宁波市北仑区。原为三山乡，2003年8月撤消三山乡，与柴桥街道的原昆亭等...</p>
-						</div>
-					</a>										
-				</li>
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="">
-						<div class="cou_img">
-							<img src="app/img/county/xinqijiedao.jpg"/>
-						</div>
-						<div class="cou_text">
-							<div class="clearfix">
-								<span class="pull-right">
-									受益户数 645/784
-								</span>		
-							</div>
-							<div class="text-info">
-								新碶街道
-							</div>
-							<p>新碶街道是北仑新区的政治、经济和文化中心，东、西、南三面与霞浦、大碶、小港3个街道接壤...</p>
-						</div>
-					</a>										
-				</li>
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="">
-						<div class="cou_img">
-							<img src="app/img/county/xiapujiedao.jpg"/>
-						</div>
-						<div class="cou_text">
-							<div class="clearfix">
-								<span class="pull-right">
-									受益户数 645/784
-								</span>		
-							</div>
-							<div class="text-info">
-								霞浦街道
-							</div>
-							<p> 霞浦街道位于宁波市北仑区港畔，与舟山群岛隔海相望，距穿山半岛3公里，距宁波市区32公里...</p>
-						</div>
-					</a>										
-				</li>
-				<li class="col-xs-6 col-sm-4">
-					<a ui-sref="">
-						<div class="cou_img">
-							<img src="app/img/county/xiaogangjiedao.jpg"/>
-						</div>
-						<div class="cou_text">
-							<div class="clearfix">
-								<span class="pull-right">
-									受益户数 645/784
-								</span>		
-							</div>
-							<div class="text-info">
-								小港街道
-							</div>
-							<p>北仑区辖街道。位于区境西部，甬江口南岸。东接大碶街道、南与鄞州区五乡镇、邱隘镇毗邻...</p>
-						</div>
-					</a>										
+					</a>
 				</li>
 				
 				
 			</ul>
+			
+			<pagination-c></pagination-c>
+			
 		</div>
 		
 		<div class="col-lg-3 col-sm-6">
@@ -123,14 +38,14 @@
 		               <table id="table-ext-3" class="table table-striped table-bordered table-hover">
 		                  <thead>
 		                     <tr>
-		                        <th>北仑区</th>
+		                        <th>{{area}}</th>
 		                        <th>统计数值</th>
 		                        <th>详情</th>
 		                     </tr>
 		                  </thead>
 		                  <tbody>
 		                     <tr>
-		                        <td>水质达标率</td>
+		                        <td>水质达标率(测)</td>
 		                        <td>		                           
 		                            <uib-progressbar value="val1" type="success" class="progress progress-xs"></uib-progressbar>		                           
 		                           <span class="font_sm"> 
@@ -139,7 +54,8 @@
 		                        </td>
 		                        <td class="text-center">
 		                           	<span>
-		                           		<a ui-sref="app.water2"><i class="fa fa-cog"></i></a>		                             
+		                           		<a><i class="fa fa-cog"></i></a>	
+		                           		<!--ui-sref="app.water2"-->
 		                          	</span>
 		                        </td>
 		                     </tr>
@@ -171,7 +87,7 @@
 		                        </td>
 		                        <td class="text-center">
 		                           <span>
-		                           		<a ui-sref="app.beneficiary2_beilun"><i class="fa fa-cog"></i></a>		                             
+		                           		<a ui-sref="app.beneficiary({area:area})"><i class="fa fa-cog"></i></a>		                             
 		                          </span>
 		                        </td>
 		                     </tr>
@@ -186,7 +102,7 @@
 		                        </td>
 		                        <td class="text-center">
 		                           <span>
-		                           		<a ui-sref="app.cash2"><i class="fa fa-cog"></i></a>		                             
+		                           		<a ui-sref="app.cash({area:area})"><i class="fa fa-cog"></i></a>		                             
 		                          </span>
 		                        </td>
 		                     </tr>
@@ -204,14 +120,15 @@
 						<div class="col-xs-3">
 							<p class="m0">1204</p>
 							<p class="m0">
-								<small>能耗统计</small>
+								<small>能耗统计(测)</small>
 							</p>
 						</div>
 						<div class="col-xs-6 text-center">
 							<div sparkline="" data-bar-color="#23b7e5" data-height="60" data-bar-width="10" data-bar-spacing="6" data-chart-range-min="0" values="{{energy[0]}},{{energy[1]}},{{energy[2]}},{{energy[3]}},{{energy[4]}},{{energy[5]}}"></div>
 						</div>
 						<div class="col-xs-3">
-							<a ui-sref="app.county-Energy" class="more btn btn-default"> 点击详情</a>
+							<a class="more btn btn-default" disabled> 点击详情</a>
+							<!--ui-sref="app.county-Energy"-->
 						</div>
 					</div>
 				</li>
@@ -227,7 +144,7 @@
 							<div sparkline="" data-type="line" data-height="60" data-width="80%" data-line-width="2" data-line-color="#7266ba" data-chart-range-min="0" data-spot-color="#888" data-min-spot-color="{{colorByName('purple')}}" data-max-spot-color="{{colorByName('purple')}}" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="3" values="7,3,4,7,5,9,4,4,7,5,9,6,4" data-resize="true"></div>
 						</div>
 						<div class="col-xs-3">
-							<a ui-sref="app.cash2" class="more btn btn-default"> 点击详情</a>
+							<a ui-sref="app.cash({area:area})" class="more btn btn-default"> 点击详情</a>
 						</div>
 					</div>
 				</li>

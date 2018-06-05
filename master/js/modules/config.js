@@ -75,7 +75,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     
     
     
-    
+    //统计分析----------------   
     .state('app.stat', {
         url: '/stat',
         title: 'stat',
@@ -155,26 +155,30 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     
     
     
-    //区县信息
+    //区县信息----------------------
     .state('app.county', {
         url: '/county',
         title: 'county',
+        controller: 'countyController',
         templateUrl: 'app/views/information/county/main.html',
         resolve: helper.resolveFor('angularBootstrapNavTree')
     })
     .state('app.county.county_1_1', {
-        url: '/county_1_1',
+        url: '/county_1_1?area',
         title: 'county_1_1',
+        controller: 'countyController1',
         templateUrl: 'app/views/information/county/county_1_1.html',
     })
     .state('app.county.county_1_2', {
-        url: '/county_1_2',
+        url: '/county_1_2?area',
         title: 'county_1_2',
+        controller: 'countyController2',
         templateUrl: 'app/views/information/county/county_1_2.html',
     })
     .state('app.county.county_1_3', {
-        url: '/county_1_3',
+        url: '/county_1_3?area',
         title: 'county_1_3',
+        controller: 'countyController3',
         templateUrl: 'app/views/information/county/county_1_3.html',
     })
     .state('app.county.county-onsite', {
@@ -480,7 +484,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('angularBootstrapNavTree','morris')
     })
     .state('app.equipment.equipment_1', {
-        url: '/equipment_1',
+        url: '/equipment_1?area',
         title: 'equipment_1',
         templateUrl: 'app/views/information/equipment/equipment_1.html',
         resolve: helper.resolveFor()
@@ -498,7 +502,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor()
     })*/
     .state('app.equipment.equipment_3', {
-        url: '/equipment_3',
+        url: '/equipment_3?area',
         title: 'equipment_3',
         templateUrl: 'app/views/information/equipment/equipment_3.html',
         resolve: helper.resolveFor()

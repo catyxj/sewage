@@ -50,8 +50,8 @@
                <div class="h2 mt0">
                	{{alarmNum}}
                </div>
-               <div class="text-uppercase">告警</div>
-               <a class="more pull-right" ui-sref="app.warning.current">查看更多</a>
+               <div class="text-uppercase">告警(测试)</div>
+               <a class="more pull-right" ui-sref="app.warning.current" disabled>查看更多</a>
             </div>
          </div>
       </div>
@@ -92,7 +92,7 @@
 		<!-- START loader widget-->
 	      <div class="panel panel-default">
 	         <div class="panel-body">           
-	            <div class="text-info">水质达标情况</div>
+	            <div class="text-info">水质达标情况(测试)</div>
 	            <canvas classyloader="" data-percentage="{{waterInfo1}}" data-speed="20" 
 	            	data-font-size="40px" data-diameter="70" data-line-color="#23b7e5" data-remaining-line-color="rgba(200,200,200,0.4)" data-line-width="10"
 	            	data-rounded-line="true" class="center-block"></canvas>
@@ -118,7 +118,8 @@
 	            	
 	               
 	               <div class="col-md-12 mt-sm">
-	               	<a ui-sref="app.water" class="pull-right">
+	               	<!--ui-sref="app.water"-->
+	               	<a class="pull-right" disabled>
 	               		<span>查看更多</span>
 		            </a>
 	               </div>

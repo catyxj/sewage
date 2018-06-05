@@ -1,152 +1,153 @@
 /**=========================================================
-
+区县信息
  =========================================================*/
 
 App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"$state", function($scope,$rootScope, $timeout, $http,$state) {
-
-  $scope.my_tree_handler = function(branch) {
-	$scope.output = branch.data.description;
-	$state.go($scope.output);
-  };
-
-  // onSelect event handlers
-  var apple_selected = function(branch) {
-    
-  };
-
-  /*var treedata_avm = [
-    {
-      label: '北仑区',    
-      data: {
-            description: "app.county.county_1_1"
-          },
-//        onSelect: apple_selected,
-      children: [
-        {
-          label: '白峰街道',
-          expanded:true,
-          data: {
-            description: "app.county.county_1_2_baifeng"
-          },
-//        onSelect: apple_selected,
-          children: [
-          {label:'白峰村',
-          data: {
-            description: "app.county.county_1_3_baifeng"
-          },
-//        onSelect: apple_selected,
-          },
-          {label:'官庄村',
-          data: {
-            description: "app.county.county_1_3_guanzhuang"
-          },
-//        onSelect: apple_selected,
-          },
-          {label:'司沿村',
-          data: {
-            description: "app.county.county_1_3_siyan"
-          },
-//        onSelect: apple_selected,
-         },
-         {label:'新峰村',
-          data: {
-            description: "app.county.county_1_3_xinfeng"
-          },
-//        onSelect: apple_selected,
-         },
-         {label:'阳东村',
-          data: {
-            description: "app.county.county_1_3_yangdong"
-          },
-//        onSelect: apple_selected,
-         },
-         {label:'勤山村',
-          data: {
-            description: "app.county.county_1_3_qinshan"
-          },
-//        onSelect: apple_selected,
-         },
-         {label:'上阳村',
-          data: {
-            description: "app.county.county_1_3_shangyang"
-          },
-//        onSelect: apple_selected,
-         },
-         {label:'下阳村',
-          data: {
-            description: "app.county.county_1_3_xiayang"
-          },
-//        onSelect: apple_selected,
-         }
-         ]
-       },
-       {
-          label: '梅山街道',
-          children: ['梅东', '碑塔', '梅中']          
-       },
-       {
-          label: '春晓街道',
-           children: ['昆亭', '三山', '慈岙']         
-       },
-       {
-          label: '新碶街道',
-           children: ['大路', '星阳', '高潮']         
-       },
-       {
-          label: '霞浦街道',
-           children: ['河西', '霞南', '霞西']         
-       },
-       {
-          label: '小港街道',
-           children: ['红联']         
-        }
-       
-      ]
-    }, {
-      label: '镇海区',
-      data: {
-        definition: "",
-        data_can_contain_anything: true
-      },
-      onSelect: function(branch) {
-        $scope.output = "" + branch.data.definition;
-        return $scope.output;
-      },
-      children: [
-        {
-          label: '蛟川街道',
-          children: ['清水浦', '迎周', '俞范']
-        }
-      ]
-    }
-  ];
-  */
-	
-	
-	$scope.my_data = $rootScope.my_county;		
-	console.log($scope.my_data);
-
-	
-
-  
-
-  
-  
-  //图表 进度条
-  $scope.energy = [3,6,7,8,4,5];
-	$scope.val1 = 80;
-	$scope.val2 = 20;
-	$scope.val3 = 50;
-	$scope.val4 = 20;
-
-
  
- 
+	 //区县列表
+	 $scope.my_tree = {};
+	 $scope.level = 2;
+	
+	 $scope.my_tree_handler = function(branch) {
+	 	//	$scope.output = branch.data.description;
+	 	$scope.output = branch.label;
+//	 	$scope.area = $scope.output;
+	 	//	console.log(branch);
+	
+	 	switch(branch.level) {
+	 		case 1:
+	 			if($scope.level <= 1) {
+	 				$state.go("app.county.county_1_1", {
+	 					area: $scope.output
+	 				});
+	 			} else {
+	 				swal(
+	 					'您没有查看该区域的权限',
+	 					"",
+	 					'error'
+	 				)
+	 			};
+	 			break;
+	 		case 2:
+	 			if($scope.level <= 2) {
+	 				$state.go("app.county.county_1_2", {
+	 					area: $scope.output
+	 				});
+	 			} else {
+					swal(
+	 					'您没有查看该区域的权限',
+	 					"",
+	 					'error'
+	 				)
+	 			};
+	 			break;
+	 		case 3:
+	 			$state.go("app.county.county_1_3", {
+	 				area: $scope.output
+	 			});
+	 			break;
+	
+	 	}
+	 };
+	
+	 $scope.my_data = angular.copy($rootScope.my_county);
+	
+	 //链接跳转	
+	 $scope.goCounty2 = function(area) {
+	 	//		$rootScope.area = area;
+	 	var b = {}
+	 	for(var i = 0; i < $scope.my_data.length; i++) {
+	 		if($scope.my_data[i].label.indexOf(area) !== -1) {
+	 			b = $scope.my_data[i];
+	 			break;
+	 		}
+	 		if($scope.my_data[i].children) {
+	 			for(var j = 0; j < $scope.my_data[i].children.length; j++) {
+	 				if($scope.my_data[i].children[j].label.indexOf(area) !== -1) {
+	 					b = $scope.my_data[i].children[j];
+	 					break;
+	 				}
+	 				if($scope.my_data[i].children[j].children) {
+	 					for(var n = 0; n < $scope.my_data[i].children[j].children.length; n++) {
+	 						if($scope.my_data[i].children[j].children[n].label.indexOf(area) !== -1) {
+	 							b = $scope.my_data[i].children[j].children[n];
+	 							break;
+	 						}
+	 					}
+	 				}
+	 			}
+	 		}
+	
+	 	}
+	 	$scope.my_tree.select_branch(b);
+	 	//		console.log($scope.my_tree,b);
+	
+	 }
+	
+	 
+	
+	 //图表 进度条
+	
+	 $scope.energy = [3, 6, 7, 8, 4, 5];
+	 
 }]);
 
 
 
+App.controller("countyController1",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
+//	console.log($stateParams.area);
+	$scope.area = $stateParams.area;
 
+	//区县信息
+	 $scope.itemsPerPage = 9;
+	 $scope.currentPage = 1;
+	 $http.get("server/county-11.json").then(function(res) {
+	 	
+	 	var data = res.data;
+	 	
+	 	$scope.countyList = data.street;
+	 	for(var i = 0; i < $scope.countyList.length; i++) {
+	 		//简介
+	 		if($scope.countyList[i].remarks.length > 60) {
+	 			$scope.countyList[i].remark = $scope.countyList[i].remarks.slice(0, 60) + "...";
+	 		}
+	 	}
+	 	$scope.totalItems = $scope.countyList.length;
+	 	
+	 	 
+	 	 
+	 	$scope.val1 = 80;//水质达标率
+	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
+	 	$scope.val3 = (100*parseInt(data.alreadyAreaBeneficiary)/parseInt(data.shouldAreaBeneficiary)).toFixed(1);//受益人数比例
+	 	$scope.val4 = (100*parseInt(data.alreadyAreaPpaymentMoney)/parseInt(data.shouldAreaPpaymentMoney).toFixed(1));//资金支付比例
+	 	
+	 	
+	 }, function(err) {
+	
+	 })
+	
+}]);
+
+App.controller("countyController2",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
+//	console.log($stateParams.area);
+	$scope.area = $stateParams.area;
+	$scope.itemsPerPage = 9;
+	$scope.currentPage = 1;
+	$http.get("server/county-12.json").then(function(res){
+		$scope.countyList = res.data;		
+		$scope.totalItems = $scope.countyList.length;
+		console.log($scope.itemsPerPage);
+	},function(err){
+		
+	})
+	
+}]);
+
+App.controller("countyController3",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
+//	console.log($stateParams.area);
+	$scope.area = $stateParams.area;
+	
+}]);
 
 
 App.controller("countywaterController",['$scope',function($scope){
@@ -218,6 +219,7 @@ $scope.changeSeriesData(0);
 }])
 
 
+//化验报告
 App.controller("countychemistryController",['$scope',function($scope){
 // Radar chart
 // ----------------------------------- 

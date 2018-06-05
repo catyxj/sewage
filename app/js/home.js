@@ -8,7 +8,7 @@ angular.module("sewageHome",[]).controller("accountCtrl",["$rootScope","$scope" 
 	}
 	
 	account.login = function(){
-		$http.post("/userC/login",{user:account.user,password:account.password}).then(function(res){
+		$http.post("/Seom/userC/login",{user:account.user,password:account.password}).then(function(res){
 			window.location.href = "admin.html";
 		},function(err){
 			$scope.errMes = err.data;

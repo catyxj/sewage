@@ -1,0 +1,55 @@
+[
+	{"children":
+		[	{"children":
+			[	{"label":"五马村"},
+				{"label":"上龙泉村"},
+				{"label":"芦江村"},
+				{"label":"后所村"}
+			],
+			"label":"柴桥街道"},
+
+			{"children":
+			[	{"label":"新安村"},
+				{"label":"堍头村"},
+				{"label":"嘉溪村"}
+			],
+			"label":"大碶街道"},
+
+			{"children":
+			[	{"label":"梅港村"},
+				{"label":"梅东村"},
+				{"label":"梅西村"}
+			],
+			"label":"新碶街道"},
+			
+			{
+				"label":"白峰街道",
+				"children":[{"label":"白峰村"}]
+			}
+		],
+	"label":"北仑区"},
+
+
+	{"children":
+		[	{"children":
+			[	{"label":"沈家村"},
+				{"label":"邱二村"},
+				{"label":"回龙村"}
+			],
+			"label":"邱隘镇"},
+
+			{"children":
+			[	{"label":"北岙村"},
+				{"label":"前溪头村"}
+			],
+			"label":"塘溪镇"},
+
+			{"children":
+			[	{"label":"西村"},
+				{"label":"平塘村"},
+				{"label":"勤勇村"}
+			],
+			"label":"东吴镇"}
+		],
+	"label":"鄞州区"}
+]

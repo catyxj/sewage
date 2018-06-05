@@ -1,21 +1,27 @@
-<div class="row" ng-controller="equipController1">
+	<div ng-controller="equipController1">
+		<div class="row">
       <div class="col-md-7">
          <div class="panel panel-default">
             <div class="panel-heading clearfix">
             	<div class="pull-left">
-            		设备巡检率
+            		
+            		<a ui-sref="app.equip_table_2">
+            			设备巡检率
+            		</a>
+            		[{{area}}]
             	</div>
             	
                 <div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <select name="" class="tab_select">
+                     <!--<select name="" class="tab_select">
                      	<option value="">2018-05</option>
                      	<option value="">2018-04</option>
-                     </select>
+                     </select>-->
+                     
                      
                 </div>
             </div>
             <div class="panel-body">
-               <div id="xunjianlv" style="max-width:100%;height:250px"></div>
+               <div id="inspection" style="max-width:100%;height:250px"></div>
             </div>
          </div>
       </div>
@@ -34,7 +40,8 @@
             </div>
          </div>
       </div>
-   </div>
+   
+</div>
    
    
    <div class="row">
@@ -42,14 +49,16 @@
          <div class="panel panel-default">
             <div class="panel-heading clearfix">
             	<div class="pull-left">
-            		设备故障率
+            		
+            		<a ui-sref="app.equip_table_3">设备故障率</a>  
+            		[{{area}}]
             	</div>
             	
             	<div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <select name="" class="tab_select">
+                     <!--<select name="" class="tab_select">
                      	<option value="">2018-05</option>
                      	<option value="">2018-04</option>
-                     </select>
+                     </select>-->
               </div>
             </div>
             <div class="panel-body">
@@ -61,12 +70,12 @@
          <div class="panel panel-default">
             <div class="panel-heading">            	
             	<div class="pull-right">
-            		<div class="pull-left label label-danger">1</div> 液位告警
+            		<div class="pull-left label label-danger">3</div> 液位告警
             	</div>
             	<div class="pull-right" style="margin-right: 10px;">
-            		<div class="pull-left label label-warning">3</div> 流量告警
+            		<div class="pull-left label label-warning">1</div> 流量告警
             	</div>             
-              <div class="panel-title">告警记录</div>
+              <div class="">告警记录(测)</div>
             </div>
             <div class="panel-body" style="height: 220px; overflow: auto;">
             	<div class="media-box-body clearfix">
@@ -122,3 +131,5 @@
          </div>
       </div>
    </div>
+
+</div>

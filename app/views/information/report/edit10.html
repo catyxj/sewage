@@ -9,8 +9,8 @@
          <div class="panel panel-default">
             
             <div class="panel-body">
-               <h4>自然村信息表
-               		<!--<a class="btn btn-default pull-right" ui-sref="app.report.table10">返回</a>-->
+               <h4 style="overflow: hidden;">自然村信息表
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table10">返回</a>
                </h4>
               
                <!--<fieldset>
@@ -138,7 +138,8 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">简介</label>
                      <div class="col-sm-6">
-                        <input type="text" ng-model="data.summary" class="form-control" />
+                        <!--<input type="text" ng-model="data.summary" class="form-control" />-->
+                        <textarea ng-model="data.summary" rows="6" cols="" class="form-control"></textarea>
                      </div>
                      <div class="col-sm-3">
                         
