@@ -26,10 +26,17 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("/Seom/acc/selec").then(function(res){
+ $http.get("/Seom/acc/select").then(function(res){
 	var treedata_avm = res.data;
 	$rootScope.my_county = treedata_avm;
 });
+
+$http.get("/Seom/userC/se").then(function(res){
+	$rootScope.user = res.data;
+	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
+},function(err){
+	
+})
 
 
   // Scope Globals
@@ -50,8 +57,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
     },
     useFullLayout: false,
     hiddenFooter: false,
-    viewAnimation: 'ng-fadeInUp',
-    level:1
+    viewAnimation: 'ng-fadeInUp'
   };
 
 }]);

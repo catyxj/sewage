@@ -33,7 +33,7 @@
             	
                <thead>                 
                   <tr>
-                  	<th>上级行政区域</th>
+                  	<!--<th>上级行政区域</th>-->
                      <th>行政村名</th>
                      <th>区划代码</th>
                      <th>党支部书记</th>
@@ -50,13 +50,16 @@
                      	行政村农户数
                      </th>
                      <th>
+                     	审核
+                     </th>
+                     <th>
                      	操作
                      </th>
                   </tr>
                </thead>
                <tbody>
                   <tr ng-repeat="data in vBasic |filter:search | range:currentPage:itemsPerPage">
-                  	<td>{{ data.ts_BasicInformation.administrativeDivision }}</td>
+                  	<!--<td>{{ data.ts_BasicInformation.administrativeDivision }}</td>-->
                      <td>{{ data.village }}</td>
                      <td>{{ data.zoningCode }}</td>
                      <td>{{ data.pbs }}</td>
@@ -64,6 +67,24 @@
                      <td>{{ data.vcd }}</td>
                      <td>{{ data.vcd_mp }}</td>
                      <td>{{ data.farmersNumber }}</td>
+                     <td>
+                     	<button type="button" ng-click="verify9(data.aid,1);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           通过
+                        </button>
+                        <button type="button" ng-click="verify9(data.aid,2);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           未通过
+                        </button>
+                        <span ng-if="data.verify===1">
+                        	通过
+                        </span>
+                        <span ng-if="data.verify===2">
+                        	未通过
+                        </span>
+                        <span ng-if="user.jurisdiction!==3 && data.verify===0">
+                        	未审核
+                        </span>                       
+                     </td>
+                     
                      <td>
                         <a ui-sref="app.report_edit9({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>

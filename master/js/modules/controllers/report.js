@@ -221,6 +221,133 @@ $scope.changePageSize = function(page){
 
 
 
+
+//审核
+  $scope.verify1 = function(id,verify){
+  	$http.post("/Seom/mrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify2 = function(id,verify){
+  	$http.post("/Seom/irs/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify3 = function(id,verify){
+  	$http.post("/Seom/arc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify4 = function(id,verify){
+  	$http.post("/Seom/tbc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify5 = function(id,verify){
+  	$http.post("/Seom/pic/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  		  	
+	  })
+  };
+  
+  
+  $scope.verify6 = function(id,verify){
+  	$http.post("/Seom/equipmentc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify7 = function(id,verify){
+  	$http.post("/Seom/mmrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify8 = function(id,verify){
+  	$http.post("/Seom/msrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify9 = function(id,verify){
+  	$http.post("/Seom/aVillagec/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify10 = function(id,verify){
+  	$http.post("/Seom/avuvc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify11 = function(id,verify){
+  	$http.post("/Seom/fc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify12 = function(id,verify){
+  	$http.post("/Seom/fmsc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+
+
+
+
 //删除
 $scope.remove1 = function(id){
 	$http.post("22",{id:id}).then(function(res){

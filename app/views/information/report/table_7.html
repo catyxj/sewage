@@ -36,7 +36,10 @@
                      <th>区县（市）</th>
                      <th>治理设施建设行政村数（个）</th>
                      <th>接收治理设施行政村数（个）</th>
-                     <th>更新时间</th>                    
+                     <th>更新时间</th>     
+                     <th>
+                     	审核
+                     </th>
                      <th>
                      	操作
                      </th>
@@ -49,16 +52,29 @@
                      <td>{{ data.governVillageNumber }}</td>
                      <td>{{ data.receiveVillageNumber }}</td>
                      <td>{{ data.updateDate }}</td>
-                    
+                    <td>
+                     	<button type="button" ng-click="verify7(data.id,1);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           通过
+                        </button>
+                        <button type="button" ng-click="verify7(data.id,2);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           未通过
+                        </button>
+                        <span ng-if="data.verify===1">
+                        	通过
+                        </span>
+                        <span ng-if="data.verify===2">
+                        	未通过
+                        </span>
+                        <span ng-if="user.jurisdiction!==3 && data.verify===0">
+                        	未审核
+                        </span>                       
+                     </td>
                      <td>
                         <a ui-sref="app.report_edit7({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>
                         <button type="button" ng-click="remove7(data.id)" class="btn btn-sm btn-danger">
                            <em class="fa fa-trash-o"></em>
-                        </button>
-                        <button type="button" ng-click="" class="btn btn-sm btn-success" ng-if="false">
-                           <em class="fa fa-check-square-o "></em>
                         </button>
                      </td>
                   </tr>

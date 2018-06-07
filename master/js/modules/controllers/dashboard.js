@@ -26,19 +26,19 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 		$scope.selectRegion = res.data;
 		for(var i=0; i<$scope.selectRegion.length; i++){
 			switch($scope.selectRegion[i].facilityState){
-				case 1:
+				case "1":
 					$scope.selectRegion[i].name = "建设";
 					break;
-				case 2:
+				case "2":
 					$scope.selectRegion[i].name = "运维";
 					break;
-				case 3:
+				case "3":
 					$scope.selectRegion[i].name = "大修";
 					break;
-				case 4:
+				case "4":
 					$scope.selectRegion[i].name = "重建";
 					break;
-				case 5:
+				case "5":
 					$scope.selectRegion[i].name = "报废";				
 			}
 		}

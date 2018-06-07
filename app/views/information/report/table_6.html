@@ -44,7 +44,9 @@
                      <th>
                      	功率（KW）
                      </th>
-                     
+                     <th>
+                     	审核
+                     </th>
                      <th>
                      	操作
                      </th>
@@ -59,6 +61,23 @@
                      <td>{{ data.modelNumber }}</td>
                      <td>{{ data.type }}</td>
                      <td>{{ data.power }}</td>
+                     <td>
+                     	<button type="button" ng-click="verify6(data.eid,1);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           通过
+                        </button>
+                        <button type="button" ng-click="verify6(data.eid,2);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           未通过
+                        </button>
+                        <span ng-if="data.verify===1">
+                        	通过
+                        </span>
+                        <span ng-if="data.verify===2">
+                        	未通过
+                        </span>
+                        <span ng-if="user.jurisdiction!==3 && data.verify===0">
+                        	未审核
+                        </span>                       
+                     </td>
                      <td>
                         <a ui-sref="app.report_edit6({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>

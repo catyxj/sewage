@@ -49,6 +49,9 @@
                      	分管部门
                      </th>
                      <th>
+                     	审核
+                     </th>
+                     <th>
                      	操作
                      </th>
                   </tr>
@@ -62,6 +65,23 @@
                      <td>{{ data.managingDirector }}</td>
                      <td>{{ data.md_fl }}</td>
                      <td>{{ data.divisionDepartment }}</td>
+                     <td>
+                     	<button type="button" ng-click="verify4(data.tid,1);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           通过
+                        </button>
+                        <button type="button" ng-click="verify4(data.tid,2);" class="btn btn-sm btn-success" ng-if="user.jurisdiction===3 && data.verify===0">
+                           未通过
+                        </button>
+                        <span ng-if="data.verify===1">
+                        	通过
+                        </span>
+                        <span ng-if="data.verify===2">
+                        	未通过
+                        </span>
+                        <span ng-if="user.jurisdiction!==3 && data.verify===0">
+                        	未审核
+                        </span>                       
+                     </td>
                      <td>
                         <a ui-sref="app.report_edit4({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
