@@ -26,10 +26,17 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("/Seom/acc/selec").then(function(res){
+ $http.get("/Seom/acc/select").then(function(res){
 	var treedata_avm = res.data;
 	$rootScope.my_county = treedata_avm;
 });
+
+$http.get("/Seom/userC/se").then(function(res){
+	$rootScope.user = res.data;
+	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
+},function(err){
+	
+})
 
 
   // Scope Globals
@@ -50,8 +57,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
     },
     useFullLayout: false,
     hiddenFooter: false,
-    viewAnimation: 'ng-fadeInUp',
-    level:1
+    viewAnimation: 'ng-fadeInUp'
   };
 
 }]);
@@ -1004,7 +1010,7 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
  
 	 //区县列表
 	 $scope.my_tree = {};
-	 $scope.level = 2;
+	 $scope.level = $rootScope.user.jurisdiction;//权限
 	
 	 $scope.my_tree_handler = function(branch) {
 	 	//	$scope.output = branch.data.description;
@@ -1385,19 +1391,19 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 		$scope.selectRegion = res.data;
 		for(var i=0; i<$scope.selectRegion.length; i++){
 			switch($scope.selectRegion[i].facilityState){
-				case 1:
+				case "1":
 					$scope.selectRegion[i].name = "建设";
 					break;
-				case 2:
+				case "2":
 					$scope.selectRegion[i].name = "运维";
 					break;
-				case 3:
+				case "3":
 					$scope.selectRegion[i].name = "大修";
 					break;
-				case 4:
+				case "4":
 					$scope.selectRegion[i].name = "重建";
 					break;
-				case 5:
+				case "5":
 					$scope.selectRegion[i].name = "报废";				
 			}
 		}
@@ -3024,6 +3030,133 @@ $scope.changePageSize = function(page){
 //	console.log("edit",data);
 //	$state.go("app.report_edit10",{data:JSON.stringify(data)});
 //};
+
+
+
+
+//审核
+  $scope.verify1 = function(id,verify){
+  	$http.post("/Seom/mrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify2 = function(id,verify){
+  	$http.post("/Seom/irs/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify3 = function(id,verify){
+  	$http.post("/Seom/arc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify4 = function(id,verify){
+  	$http.post("/Seom/tbc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify5 = function(id,verify){
+  	$http.post("/Seom/pic/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  		  	
+	  })
+  };
+  
+  
+  $scope.verify6 = function(id,verify){
+  	$http.post("/Seom/equipmentc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify7 = function(id,verify){
+  	$http.post("/Seom/mmrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify8 = function(id,verify){
+  	$http.post("/Seom/msrc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify9 = function(id,verify){
+  	$http.post("/Seom/aVillagec/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify10 = function(id,verify){
+  	$http.post("/Seom/avuvc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify11 = function(id,verify){
+  	$http.post("/Seom/fc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+  
+  $scope.verify12 = function(id,verify){
+  	$http.post("/Seom/fmsc/verify",{id:id,verify:verify}).then(function(res){
+	  	swal(
+			'审核成功',
+			'',
+			'success'
+		);
+	  })
+  };
+
 
 
 
