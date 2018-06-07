@@ -185,22 +185,22 @@ App.controller('reportController', ['$scope', '$http','$state',
   
   $scope.table10 = function(){
   	$http.get("/Seom/avuvc/get").then(function(res){
-	  	$scope.vBasic = res.data;
-	  	$scope.totalItems = $scope.vBasic.length;
+	  	$scope.avuvc = res.data;
+	  	$scope.totalItems = $scope.avuvc.length;
 	  })
   };
   
   $scope.table11 = function(){
   	$http.get("/Seom/fc/get").then(function(res){
-	  	$scope.vBasic = res.data;
-	  	$scope.totalItems = $scope.vBasic.length;
+	  	$scope.fc = res.data;
+	  	$scope.totalItems = $scope.fc.length;
 	  })
   };
   
   $scope.table12 = function(){
   	$http.get("/Seom/fmsc/get").then(function(res){
-	  	$scope.vBasic = res.data;
-	  	$scope.totalItems = $scope.vBasic.length;
+	  	$scope.fmsc = res.data;
+	  	$scope.totalItems = $scope.fmsc.length;
 	  })
   };
   

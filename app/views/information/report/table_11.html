@@ -57,7 +57,7 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="data in adUnit |filter:search | range:currentPage:itemsPerPage">
+                  <tr ng-repeat="data in fc |filter:search | range:currentPage:itemsPerPage">
                      <td>{{ data.administrativeVillage}}</td>
                      <td>{{ data.naturalVillage }}</td>
                      <td>{{ data.name}}</td>
