@@ -1,46 +1,21 @@
-[
-	{
-		"name":"五马村",
-		"value":"纳管"
-	},
-	{
-		"name":"上龙泉村",
-		"value":"非纳管"
-	},
-	{
-		"name":"芦江村",
-		"value":"纳管"
-	},
-	{
-		"name":"后所村",
-		"value":"非纳管"
-	},
-	{
-		"name":"新安村",
-		"value":"非纳管"
-	},
-	{
-		"name":"芦江村",
-		"value":"纳管"
-	},
-	{
-		"name":"后所村",
-		"value":"非纳管"
-	},
-	{
-		"name":"新安村",
-		"value":"非纳管"
-	},
-	{
-		"name":"芦江村",
-		"value":"纳管"
-	},
-	{
-		"name":"后所村",
-		"value":"非纳管"
-	},
-	{
-		"name":"新安村",
-		"value":"非纳管"
-	}
-]
+{
+	"alreadyAreaPpaymentMoney": "0",
+	"install": "0",
+	"alreadyAreaBeneficiary": "10742",
+	"installNO": "0",
+	"shouldAreaBeneficiary": "12153",
+	"village": [
+		{"pbs":"周建成","aaNumber":"540","md_mp":"86787602","farmersNumber":"590","ts_BasicInformation":null,"zoningCode":"330206010001","intoFactory":"1","facilitiesBuild":"1","rpn":"2200","thNumber":"590","prpn":"2000","scNumber":"590","vcd":"乐建明","vcd_mp":"86787602","md":"乐建明","abNumber":"1950","pbs_mp":"86787601","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"白峰村","aid":1,"bpNumber":"2200"},
+		{"pbs":"陈忠","aaNumber":"217","md_mp":"86787618","farmersNumber":"250","ts_BasicInformation":null,"zoningCode":"330206010002","intoFactory":"2","facilitiesBuild":"2","rpn":"780","thNumber":"250","prpn":"700","scNumber":"250","vcd":"马汉东","vcd_mp":"86787618","md":"马汉东","abNumber":"640","pbs_mp":"86787618","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"官庄村","aid":2,"bpNumber":"780"},
+		{"pbs":"林纪论","aaNumber":"180","md_mp":"86740079","farmersNumber":"210","ts_BasicInformation":null,"zoningCode":"330206010004","intoFactory":"2","facilitiesBuild":"2","rpn":"700","thNumber":"210","prpn":"670","scNumber":"210","vcd":"林纪论","vcd_mp":"86740079","md":"林纪论","abNumber":"590","pbs_mp":"86740079","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"勤山（蕉山）村","aid":3,"bpNumber":"700"},
+		{"pbs":"王蛟龙","aaNumber":"175","md_mp":"86742986","farmersNumber":"193","ts_BasicInformation":null,"zoningCode":"330206010006","intoFactory":"2","facilitiesBuild":"2","rpn":"500","thNumber":"193","prpn":"470","scNumber":"193","vcd":"王信平","vcd_mp":"86742986","md":"王信平","abNumber":"460","pbs_mp":"86741986","agritainmentNumber":"","verify":1,"perCapita_GDP":"","village":"上阳（东园）村","aid":4,"bpNumber":"500"},
+		{"pbs":"金月芳","aaNumber":"205","md_mp":"86787615","farmersNumber":"226","ts_BasicInformation":null,"zoningCode":"330206010009","intoFactory":"2","facilitiesBuild":"2","rpn":"750","thNumber":"226","prpn":"700","scNumber":"226","vcd":"郑伟","vcd_mp":"86787615","md":"郑伟","abNumber":"730","pbs_mp":"86787612","agritainmentNumber":"","verify":1,"perCapita_GDP":"","village":"司沿村","aid":5,"bpNumber":"750"},
+		{"pbs":"方国久","aaNumber":"470","md_mp":"86742197","farmersNumber":"520","ts_BasicInformation":null,"zoningCode":"330206010005","intoFactory":"2","facilitiesBuild":"2","rpn":"1250","thNumber":"520","prpn":"1195","scNumber":"520","vcd":"方国久","vcd_mp":"86742197","md":"方国久","abNumber":"1150","pbs_mp":"86742197","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"下阳村","aid":6,"bpNumber":"1250"},
+		{"pbs":"周波","aaNumber":"204","md_mp":"86787631","farmersNumber":"235","ts_BasicInformation":null,"zoningCode":"330206010008","intoFactory":"1","facilitiesBuild":"1","rpn":"790","thNumber":"235","prpn":"770","scNumber":"235","vcd":"周波","vcd_mp":"86787631","md":"周波","abNumber":"700","pbs_mp":"86787631","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"新峰村","aid":7,"bpNumber":"790"},
+		{"pbs":"王永红","aaNumber":"209","md_mp":"86741987","farmersNumber":"270","ts_BasicInformation":null,"zoningCode":"330206010003","intoFactory":"2","facilitiesBuild":"2","rpn":"943","thNumber":"270","prpn":"925","scNumber":"270","vcd":"舒红","vcd_mp":"86741987","md":"舒红","abNumber":"732","pbs_mp":"86741555","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"阳东村","aid":8,"bpNumber":"943"},
+		{"pbs":"周祖清","aaNumber":"207","md_mp":"86725355","farmersNumber":"210","ts_BasicInformation":null,"zoningCode":"330206010007","intoFactory":"1","facilitiesBuild":"1","rpn":"670","thNumber":"210","prpn":"650","scNumber":"210","vcd":"周祖清","vcd_mp":"86725355","md":"周祖清","abNumber":"650","pbs_mp":"86725355","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"神马村","aid":9,"bpNumber":"670"},
+		{"pbs":"贝伟良","aaNumber":"645","md_mp":"86787625","farmersNumber":"670","ts_BasicInformation":null,"zoningCode":"330206010010","intoFactory":"1","facilitiesBuild":"1","rpn":"2200","thNumber":"670","prpn":"2100","scNumber":"670","vcd":"石夫藏","vcd_mp":"86787627","md":"贝伟良","abNumber":"1990","pbs_mp":"86787625","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"小门村","aid":10,"bpNumber":"2200"},
+		{"pbs":"张建国","aaNumber":"360","md_mp":"86787621","farmersNumber":"450","ts_BasicInformation":null,"zoningCode":"330206010011","intoFactory":"1","facilitiesBuild":"1","rpn":"1370","thNumber":"450","prpn":"1250","scNumber":"450","vcd":"陈胜强","vcd_mp":"86787621","md":"陈胜强","abNumber":"1150","pbs_mp":"86787621","agritainmentNumber":"0","verify":1,"perCapita_GDP":"","village":"门浦村","aid":11,"bpNumber":"1370"}
+	],
+	"shouldAreaPpaymentMoney": "0"
+}

@@ -26,12 +26,12 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("/Seom/acc/select").then(function(res){
+ $http.get("/Seom/acc/select").then(function(res){ //  server/county1.json
 	var treedata_avm = res.data;
 	$rootScope.my_county = treedata_avm;
 });
 
-$http.get("/Seom/userC/se").then(function(res){
+$http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
 	$rootScope.user = res.data;
 	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
 },function(err){
@@ -1105,7 +1105,7 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 	//区县信息
 	 $scope.itemsPerPage = 9;
 	 $scope.currentPage = 1;
-	 $http.get("server/county-11.json").then(function(res) {
+	 $http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res) { //server/county-11.json
 	 	
 	 	var data = res.data;
 	 	
@@ -1124,7 +1124,7 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
 	 	$scope.val3 = (100*parseInt(data.alreadyAreaBeneficiary)/parseInt(data.shouldAreaBeneficiary)).toFixed(1);//受益人数比例
 	 	$scope.val4 = (100*parseInt(data.alreadyAreaPpaymentMoney)/parseInt(data.shouldAreaPpaymentMoney).toFixed(1));//资金支付比例
-	 	
+	 	$scope.pay = data.alreadyAreaPpaymentMoney;
 	 	
 	 }, function(err) {
 	
@@ -1137,10 +1137,17 @@ App.controller("countyController2",["$scope","$rootScope","$http","$stateParams"
 	$scope.area = $stateParams.area;
 	$scope.itemsPerPage = 9;
 	$scope.currentPage = 1;
-	$http.get("server/county-12.json").then(function(res){
-		$scope.countyList = res.data;		
+	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-12.json")
+		var data = res.data;
+		$scope.countyList = data.village;		
 		$scope.totalItems = $scope.countyList.length;
-		console.log($scope.itemsPerPage);
+		
+		$scope.val1 = 80;//水质达标率
+	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
+	 	$scope.val3 = (100*parseInt(data.alreadyAreaBeneficiary)/parseInt(data.shouldAreaBeneficiary)).toFixed(1);//受益人数比例
+	 	$scope.val4 = (100*parseInt(data.alreadyAreaPpaymentMoney)/parseInt(data.shouldAreaPpaymentMoney).toFixed(1));//资金支付比例
+	 	$scope.pay = data.alreadyAreaPpaymentMoney;
+
 	},function(err){
 		
 	})

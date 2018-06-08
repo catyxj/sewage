@@ -101,7 +101,7 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 	//区县信息
 	 $scope.itemsPerPage = 9;
 	 $scope.currentPage = 1;
-	 $http.get("server/county-11.json").then(function(res) {
+	 $http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res) { //server/county-11.json
 	 	
 	 	var data = res.data;
 	 	
@@ -120,7 +120,7 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
 	 	$scope.val3 = (100*parseInt(data.alreadyAreaBeneficiary)/parseInt(data.shouldAreaBeneficiary)).toFixed(1);//受益人数比例
 	 	$scope.val4 = (100*parseInt(data.alreadyAreaPpaymentMoney)/parseInt(data.shouldAreaPpaymentMoney).toFixed(1));//资金支付比例
-	 	
+	 	$scope.pay = data.alreadyAreaPpaymentMoney;
 	 	
 	 }, function(err) {
 	
@@ -133,10 +133,17 @@ App.controller("countyController2",["$scope","$rootScope","$http","$stateParams"
 	$scope.area = $stateParams.area;
 	$scope.itemsPerPage = 9;
 	$scope.currentPage = 1;
-	$http.get("server/county-12.json").then(function(res){
-		$scope.countyList = res.data;		
+	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-12.json")
+		var data = res.data;
+		$scope.countyList = data.village;		
 		$scope.totalItems = $scope.countyList.length;
-		console.log($scope.itemsPerPage);
+		
+		$scope.val1 = 80;//水质达标率
+	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
+	 	$scope.val3 = (100*parseInt(data.alreadyAreaBeneficiary)/parseInt(data.shouldAreaBeneficiary)).toFixed(1);//受益人数比例
+	 	$scope.val4 = (100*parseInt(data.alreadyAreaPpaymentMoney)/parseInt(data.shouldAreaPpaymentMoney).toFixed(1));//资金支付比例
+	 	$scope.pay = data.alreadyAreaPpaymentMoney;
+
 	},function(err){
 		
 	})

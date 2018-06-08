@@ -24,7 +24,13 @@
 			
 			{
 				"label":"白峰街道",
-				"children":[{"label":"白峰村"}]
+				"children":[
+				{"label":"白峰村"},
+				{"label":"官庄村"},
+				{"label":"上阳（东园）村"},
+				{"label":"司沿村"},
+				{"label":"下阳村"}				
+				]
 			}
 		],
 	"label":"北仑区"},
