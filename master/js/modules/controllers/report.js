@@ -448,7 +448,7 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
 //	$scope.data =JSON.parse($stateParams.data);
 	$scope.data = $stateParams.data;
 	console.log($stateParams.data);
-	if(($state.current.name ==="app.report_edit4"|| $state.current.name ==="app.report_edit10")&&!$scope.data){
+	if(($state.current.name ==="app.report_edit4"||$state.current.name ==="app.report_edit9"|| $state.current.name ==="app.report_edit10")&&!$scope.data){
 		$scope.data = {
 			image:null,
 		};

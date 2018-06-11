@@ -3,7 +3,7 @@
 				<li ng-repeat="data in countyList | range:currentPage:itemsPerPage" class="col-xs-6 col-sm-4">
 					<a ng-click="goCounty2(data.village);">
 						<div class="cou_img">
-							<img src="app/img/county/baifengcun.jpg"/>
+							<img src="{{data.image}}"/>
 						</div>
 						<div class="cou_text">
 							<div class="clearfix">

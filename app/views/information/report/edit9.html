@@ -262,6 +262,32 @@
                   </div>
                </fieldset>
                
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">图片</label>
+                     <div class="col-sm-6">
+                     	<img id="file_img" class="img_input"/>
+                        <input type="file" ng-model="data.image" id="image" class="" />
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">简介</label>
+                     <div class="col-sm-6">
+                        <!--<input type="text" ng-model="data.summary" class="form-control" />-->
+                        <textarea ng-model="data.summary" rows="6" cols="" class="form-control"></textarea>
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
                
             </div>
             <div class="panel-footer text-center">

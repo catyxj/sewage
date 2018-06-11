@@ -26,12 +26,12 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("/Seom/acc/select").then(function(res){ //  server/county1.json
+ $http.get("server/county1.json").then(function(res){ //  /Seom/acc/select
 	var treedata_avm = res.data;
 	$rootScope.my_county = treedata_avm;
 });
 
-$http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
+$http.get("server/userC.json").then(function(res){  //  /Seom/userC/se
 	$rootScope.user = res.data;
 	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
 },function(err){
@@ -1020,30 +1020,32 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
 	
 	 	switch(branch.level) {
 	 		case 1:
-	 			if($scope.level <= 1) {
-	 				$state.go("app.county.county_1_1", {
-	 					area: $scope.output
-	 				});
+	 			$state.go("app.county.county_1_1", {
+	 				area: $scope.output
+	 			});
+	 			/*if($scope.level <= 1) {
+	 				
 	 			} else {
 	 				swal(
 	 					'您没有查看该区域的权限',
 	 					"",
 	 					'error'
 	 				)
-	 			};
+	 			};*/
 	 			break;
 	 		case 2:
-	 			if($scope.level <= 2) {
-	 				$state.go("app.county.county_1_2", {
-	 					area: $scope.output
-	 				});
+	 			$state.go("app.county.county_1_2", {
+	 				area: $scope.output
+	 			});
+	 			/*if($scope.level <= 2) {
+	 				
 	 			} else {
 					swal(
 	 					'您没有查看该区域的权限',
 	 					"",
 	 					'error'
 	 				)
-	 			};
+	 			};*/
 	 			break;
 	 		case 3:
 	 			$state.go("app.county.county_1_3", {
@@ -1105,12 +1107,15 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 	//区县信息
 	 $scope.itemsPerPage = 9;
 	 $scope.currentPage = 1;
-	 $http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res) { //server/county-11.json
-	 	
+	 $http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res) { //  get("server/county-11.json")
 	 	var data = res.data;
 	 	
 	 	$scope.countyList = data.street;
 	 	for(var i = 0; i < $scope.countyList.length; i++) {
+	 		//图片
+	 		if(!$scope.countyList[i].image){
+				$scope.countyList[i].image = "app/img/county/baifengjiedao.jpg";
+			}
 	 		//简介
 	 		if($scope.countyList[i].remarks.length > 60) {
 	 			$scope.countyList[i].remark = $scope.countyList[i].remarks.slice(0, 60) + "...";
@@ -1137,10 +1142,15 @@ App.controller("countyController2",["$scope","$rootScope","$http","$stateParams"
 	$scope.area = $stateParams.area;
 	$scope.itemsPerPage = 9;
 	$scope.currentPage = 1;
-	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-12.json")
+	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ // .get("server/county-12.json")
 		var data = res.data;
 		$scope.countyList = data.village;		
 		$scope.totalItems = $scope.countyList.length;
+		angular.forEach($scope.countyList,function(item,index){
+			if(!item.image){
+				item.image = "app/img/county/baifengcun.jpg";
+			}
+		})
 		
 		$scope.val1 = 80;//水质达标率
 	 	$scope.val2 = (100*parseInt(data.install)/(parseInt(data.install)+parseInt(data.installNO))).toFixed(1) ;//设备安装率
@@ -1157,6 +1167,16 @@ App.controller("countyController2",["$scope","$rootScope","$http","$stateParams"
 App.controller("countyController3",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
+	
+	
+	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-13.json")
+		$scope.village = res.data.v;
+		if(!$scope.village.image){
+			$scope.village.image = "app/img/county/baifengcun.jpg";
+		}
+	},function(err){
+		
+	})
 	
 }]);
 
@@ -3267,7 +3287,7 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
 //	$scope.data =JSON.parse($stateParams.data);
 	$scope.data = $stateParams.data;
 	console.log($stateParams.data);
-	if(($state.current.name ==="app.report_edit4"|| $state.current.name ==="app.report_edit10")&&!$scope.data){
+	if(($state.current.name ==="app.report_edit4"||$state.current.name ==="app.report_edit9"|| $state.current.name ==="app.report_edit10")&&!$scope.data){
 		$scope.data = {
 			image:null,
 		};

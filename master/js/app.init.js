@@ -26,12 +26,12 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
  
  
  
- $http.get("/Seom/acc/select").then(function(res){ //  server/county1.json
+ $http.get("server/county1.json").then(function(res){ //  /Seom/acc/select
 	var treedata_avm = res.data;
 	$rootScope.my_county = treedata_avm;
 });
 
-$http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
+$http.get("server/userC.json").then(function(res){  //  /Seom/userC/se
 	$rootScope.user = res.data;
 	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
 },function(err){
