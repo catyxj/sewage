@@ -8,14 +8,14 @@
             		<a ui-sref="app.equip_table_2">
             			设备巡检率
             		</a>
-            		[{{area}}]
+            		<!--[{{area}}]-->
             	</div>
             	
                 <div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <!--<select name="" class="tab_select">
-                     	<option value="">2018-05</option>
-                     	<option value="">2018-04</option>
-                     </select>-->
+                     <select ng-model="area1" ng-options="data for data in areaList" ng-change="selectInspect(area1);"
+                     	class="tab_select">
+                     	
+                     </select>
                      
                      
                 </div>
@@ -51,14 +51,14 @@
             	<div class="pull-left">
             		
             		<a ui-sref="app.equip_table_3">设备故障率</a>  
-            		[{{area}}]
+            		<!--[{{area}}]-->
             	</div>
             	
             	<div class="input-group pull-left" style="width: 25%; margin-left: 20px;">
-                     <!--<select name="" class="tab_select">
-                     	<option value="">2018-05</option>
-                     	<option value="">2018-04</option>
-                     </select>-->
+                     <select ng-model="area2" ng-options="data for data in areaList" ng-change="selectMal(area2);"
+                     	class="tab_select">
+                     	
+                     </select>
               </div>
             </div>
             <div class="panel-body">
@@ -75,7 +75,7 @@
             	<div class="pull-right" style="margin-right: 10px;">
             		<div class="pull-left label label-warning">1</div> 流量告警
             	</div>             
-              <div class="">告警记录(测)</div>
+              <div class="">告警记录(测试)</div>
             </div>
             <div class="panel-body" style="height: 220px; overflow: auto;">
             	<div class="media-box-body clearfix">
