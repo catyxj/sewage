@@ -34,6 +34,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
 $http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
 	$rootScope.user = res.data;
 	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
+	//$rootScope.user.address 登录账号具体地址
 },function(err){
 	
 })
@@ -1008,6 +1009,8 @@ App.controller("cashCtrl",["$scope","$stateParams", "$http", function($scope,$st
 
 App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"$state", function($scope,$rootScope, $timeout, $http,$state) {
  
+ 	$scope.defaultAddress = $rootScope.user.address;
+ 
 	 //区县列表
 	 $scope.my_tree = {};
 	 $scope.level = $rootScope.user.jurisdiction;//权限
@@ -1911,7 +1914,7 @@ $scope.barChart();
  =========================================================*/
 
 App.controller('equipmentController', ['$scope', "$rootScope", '$timeout', 'colors', '$http', '$state', function($scope, $rootScope, $timeout, colors, $http, $state) {
-
+    $scope.defaultAddress = $rootScope.user.address;
 	$scope.my_tree = {};
 
 	$scope.my_tree_handler = function(branch) {
@@ -2130,7 +2133,7 @@ App.controller('equipController1', ['$scope', '$stateParams', '$timeout', 'color
 
 	//巡检率选择
 	$scope.selectInspect = function(area){
-		$http.post("/Seom/equipmentc/selectEis").then(function(res){ //server/equip-inspect.json
+		$http.post("/Seom/equipmentc/selectEis",{area:area}).then(function(res){ //server/equip-inspect.json
 			$scope.inspection = res.data;
 			$scope.xAxis = [];
 			$scope.yAxis = [];

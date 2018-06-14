@@ -34,6 +34,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
 $http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
 	$rootScope.user = res.data;
 	//$rootScope.user.jurisdiction 权限1:全部，2:市，3:区(县)，4:街道(镇)
+	//$rootScope.user.address 登录账号具体地址
 },function(err){
 	
 })

@@ -4,6 +4,8 @@
 
 App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"$state", function($scope,$rootScope, $timeout, $http,$state) {
  
+ 	$scope.defaultAddress = $rootScope.user.address;
+ 
 	 //区县列表
 	 $scope.my_tree = {};
 	 $scope.level = $rootScope.user.jurisdiction;//权限

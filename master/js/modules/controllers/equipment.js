@@ -3,7 +3,7 @@
  =========================================================*/
 
 App.controller('equipmentController', ['$scope', "$rootScope", '$timeout', 'colors', '$http', '$state', function($scope, $rootScope, $timeout, colors, $http, $state) {
-
+    $scope.defaultAddress = $rootScope.user.address;
 	$scope.my_tree = {};
 
 	$scope.my_tree_handler = function(branch) {
@@ -222,7 +222,7 @@ App.controller('equipController1', ['$scope', '$stateParams', '$timeout', 'color
 
 	//巡检率选择
 	$scope.selectInspect = function(area){
-		$http.post("/Seom/equipmentc/selectEis").then(function(res){ //server/equip-inspect.json
+		$http.post("/Seom/equipmentc/selectEis",{area:area}).then(function(res){ //server/equip-inspect.json
 			$scope.inspection = res.data;
 			$scope.xAxis = [];
 			$scope.yAxis = [];
