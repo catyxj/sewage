@@ -1394,7 +1394,7 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 	
 }])
 //dashboard
-App.controller("dashboardController",["$scope","$rootScope","$http","$state",function($scope,$rootScope,$http,$state){
+App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
 	
 	//站点数
 	$http.get("/Seom/fc/selectTotal").then(function(res){
@@ -1417,8 +1417,13 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	
 	
 	//站点搜索
-	$http.get("/Seom/fc/selectRegion").then(function(res){
-		$scope.selectRegion = res.data;
+	/*$http.get("/Seom/fc/selectRegion").then(function(res){  //   server/selectRegion.json
+		var selectRegion = res.data;
+		$scope.selectRegion = selectRegion;
+		$scope.serachRegion = function(search){
+			$scope.selectRegion = $filter('filter')(selectRegion, search);
+		}
+		
 		for(var i=0; i<$scope.selectRegion.length; i++){
 			switch($scope.selectRegion[i].facilityState){
 				case "1":
@@ -1441,10 +1446,168 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 
 	},function(err){
 		
-	});
+	});*/
 	
 	
+
+
+
+
+
+//天地图=====================================
+
+//  server/map.json
+// 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
+	goState=function(area){
+		
+		$state.go("app.county-equipment",{area:area});
+	}
+	
+	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
+						
+		var map;
+        var zoom = res.data.zoom;
+        var mapData = res.data.json;	
+        
+        //站点搜索--------------------
+        var selectRegion = res.data.json;
+		$scope.selectRegion = selectRegion;
+		$scope.serachRegion = function(search){
+			$scope.selectRegion = $filter('filter')(selectRegion, search);
+			mapData = $scope.selectRegion;
+			$scope.map();
+			
+		}
+		
+		for(var i=0; i<$scope.selectRegion.length; i++){
+			switch($scope.selectRegion[i].facilityState){
+				case "1":
+					$scope.selectRegion[i].stateName = "建设";
+					break;
+				case "2":
+					$scope.selectRegion[i].stateName = "运维";
+					break;
+				case "3":
+					$scope.selectRegion[i].stateName = "大修";
+					break;
+				case "4":
+					$scope.selectRegion[i].stateName = "重建";
+					break;
+				case "5":
+					$scope.selectRegion[i].stateName = "报废";				
+			}
+		}
+
+
+		//地图
+        $scope.map = function(){
+        	map = new T.Map('mapDiv');
+        	if(mapData.length===0){
+				map.centerAndZoom(new T.LngLat(121.56, 29.86), zoom);
+				return;
+			}
+	        map.centerAndZoom(new T.LngLat(mapData[0].longitude_E, mapData[0].latitude_N), zoom);
+	        
+	        angular.forEach(mapData,function(data,index){
+				var point = new T.LngLat(data.longitude_E,data.latitude_N);
+	            
+	            var icon;
+	            if(data.isItOnline==1){
+	            	data.isItOnline1="在线";
+	            	icon = new T.Icon({
+		                iconUrl: "app/img/map/mapicon2.png",
+		                iconSize: new T.Point(35, 35),
+		                iconAnchor: new T.Point(17, 33)
+		            })
+	            }else{
+	            	data.isItOnline1="离线";
+	            	icon = new T.Icon({
+		                iconUrl: "app/img/map/mapicon4.png",
+		                iconSize: new T.Point(35, 35),
+		                iconAnchor: new T.Point(17, 33)
+		            })
+	            }
+	            if(data.re==1){
+	            	data.re1="告警";
+	            	if(data.isItOnline==1){
+	            		icon = new T.Icon({
+			                iconUrl: "app/img/map/mapicon1.png",
+			                iconSize: new T.Point(35, 35),
+			                iconAnchor: new T.Point(17, 33)
+			            })
+	            	}
+	            	
+	            }else{
+	            	data.re1="正常";
+	            }
+	            if(data.fault==1){
+	            	data.fault1="故障";
+	            	if(data.isItOnline==1){
+	            		icon = new T.Icon({
+			                iconUrl: "app/img/map/mapicon1.png",
+			                iconSize: new T.Point(35, 35),
+			                iconAnchor: new T.Point(17, 33)
+			            })
+	            	}
+	            }else{
+	            	data.fault1="无故障";
+	            }
+	            if(data.waterQuality<80){
+	            	if(data.isItOnline==1){
+	            		icon = new T.Icon({
+			                iconUrl: "app/img/map/mapicon1.png",
+			                iconSize: new T.Point(35, 35),
+			                iconAnchor: new T.Point(17, 33)
+			            })
+	            	}
+	            }
+	            
+	            var marker = new T.Marker(point, {icon: icon});// 创建标注
+	            var content =  "<div>" +
+	                "设施名称： " + "<span style='font-weight:bold; color:#5d9cec;'>" + data.name + "</span><br/>" +
+	                "设施所在自然村： " + data.naturalVillage + "<br/>" +
+	                "日处理量（吨）： " + data.dailyProcessing + "<br/>" +
+	                "是否在线： " + "<span>" + data.isItOnline1 + "</span><br/>" +
+	                "告警： " + "<span>" + data.re1 + "</span><br/>" +
+	                "故障： " + "<span>" + data.fault1 + "</span><br/>" +
+	                "水质达标率： " + data.waterQuality + " % </span><br/>" +
+	                "<a onClick='goState(&quot;"+ data.administrativeVillage+"&quot;);'>查看详情</a>"+
+	                "</div>";
+	            map.addOverLay(marker);
+	            addClickHandler(content,marker,data.administrativeVillage);
+			})
+	        
+	         function addClickHandler(content,marker,area){
+	                marker.addEventListener("mouseover",function(e){
+	                    openInfo(content,e)}
+	                );
+	                marker.addEventListener("click",function(e){
+	                    goState(area);}
+	                );
+	            }
+	         function openInfo(content,e){
+	                var point = e.lnglat;
+	                marker = new T.Marker(point);// 创建标注
+	                var markerInfoWin = new T.InfoWindow(content,{offset:new T.Point(0,-30)}); // 创建信息窗口对象
+	                map.openInfoWindow(markerInfoWin,point); //开启信息窗口
+	            }
+        }
+        
+		$scope.map();//地图初始化
+		
+	},function(err){
+		
+	})
+
+
+		
+	
+
+
+
+
+
 	
 /**=========================================================
  * Module: vmaps,js
@@ -1464,7 +1627,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state",fun
 	$scope.mapName = "cn_mill";*/
 	
 /*-------百度地图------------*/	
-	var map = new BMap.Map("container");// 创建地图实例  
+/*	var map = new BMap.Map("container");// 创建地图实例  
 
 map.centerAndZoom("宁波", 11);// 初始化地图，设置中心点坐标和地图级别  
 map.enableScrollWheelZoom(true);  //开启鼠标滚轮缩放
@@ -1558,7 +1721,7 @@ var point15 = new BMap.Point(121.9814911896,29.8392335856);
 var marker15 = new BMap.Marker(point15);
 marker15.setTitle("北仑区白峰街道上阳村终端330206010208-01-046-D2");
 map.addOverlay(marker15);
-marker15.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_shangyang");});
+marker15.addEventListener("click", function showInfo(){ $state.go("app.county.county_1_3_shangyang");});*/
 
 
 	

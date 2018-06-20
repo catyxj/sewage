@@ -2,6 +2,8 @@
    站点概览
 </h3>
 
+
+
 <!-- START widgets box-->
 <div class="row">
    <div class="col-lg-3 col-sm-6">
@@ -82,13 +84,50 @@
 
 <div class="row">
 	<!--百度地图-->
-	<div class="col-md-9">
+	
+	<div class="col-md-12" style="position: relative;">
 		<div class="panel panel-default">
-			<div id="container" style = "width:100%; height:700px" ></div>
+			<!--<div id="container" style = "width:100%; height:700px" ></div>-->
+			<div id="mapDiv" style="width:100%; height:700px"></div>
 		</div>		
+		
+		<!-- START messages and activity-->
+      <div class="panel panel-default" style="position: absolute; right: 30px; top: 30px; z-index: 999; width: 300px;">
+        <div class="input-group" style="width: 90%; margin: auto; margin-top: 10px; margin-bottom: 10px;">
+        	<span class="input-group-addon">
+        		站点搜索
+        	</span>
+			<input type="text" placeholder="输入关键字进行搜索" ng-change="serachRegion(searchSite);" ng-model="searchSite" class="form-control input-sm"/>
+			
+		</div>
+         <!-- START list group-->
+         <div class="list-group" style="height: 358px; overflow: auto;">
+            <table class="table table-striped table-hover">           	
+            	<tr ng-repeat="data in selectRegion ">
+            		<td><a ui-sref="app.county-equipment({area:data.administrativeVillage})"> {{data.administrativeVillage}} </a> </td>
+            		<td>{{data.stateName}}</td>
+            		<td>
+            			<span class="stat_icon" 
+            				ng-class="{'bg-success':data.facilityState==='1','icon_info':data.facilityState==='2','bg-danger':data.facilityState==='3','bg-warning':data.facilityState==='4','icon_default':data.facilityState==='5'}"> 
+            			</span>
+            		</td>
+            	</tr>
+                        	            	
+            </table>
+         </div>
+         <!-- END list group-->
+         <!-- START panel footer-->
+         <div class="panel-footer clearfix">
+            <!--<a ui-sref="app.county.county_1_3" class="pull-right">
+               查看更多
+            </a>-->
+         </div>
+         <!-- END panel-footer-->
+      </div>
+      <!-- END messages and activity-->
 	</div>
 	
-	<div class="col-md-3">
+	<div class="col-md-3" style="display: none;">
 		<!-- START loader widget-->
 	      <div class="panel panel-default">
 	         <div class="panel-body">           
@@ -148,7 +187,7 @@
          <div class="list-group" style="height: 208px; overflow: auto;">
             <table class="table table-striped table-hover">           	
             	<tr ng-repeat="data in selectRegion | filter:searchSite">
-            		<td>{{data.administrativeVillage}}</td>
+            		<td><a ui-sref="app.county-equipment({area:data.administrativeVillage})"> {{data.administrativeVillage}} </a> </td>
             		<td>{{data.name}}</td>
             		<td>
             			<span class="stat_icon" 
@@ -162,14 +201,19 @@
          <!-- END list group-->
          <!-- START panel footer-->
          <div class="panel-footer clearfix">
-            <a ui-sref="app.county.county_1_3" class="pull-right">
+            <!--<a ui-sref="app.county.county_1_3" class="pull-right">
                查看更多
-            </a>
+            </a>-->
          </div>
          <!-- END panel-footer-->
       </div>
       <!-- END messages and activity-->
 	</div>
+	<!--col-3-end-->
+	
+	
+	
+	
 </div>
 
 
