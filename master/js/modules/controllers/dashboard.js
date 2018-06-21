@@ -64,7 +64,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//  /Seom/fc/selectAllFacilities
+//  server/map.json
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
 	goState=function(area){
@@ -72,7 +72,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 		$state.go("app.county-equipment",{area:area});
 	}
 	
-	$http.get("server/map.json").then(function(res){
+	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
 						
 		var map;
         var zoom = res.data.zoom;
