@@ -3094,8 +3094,7 @@ App.controller('NestableController', ['$scope', function($scope) {
  * Angular controller
  =========================================================*/
 
-App.controller('reportController', ['$scope', '$http','$state',
-  function($scope, $http,$state ) {
+App.controller('reportController', ['$scope','$rootScope', '$http','$state',function($scope,$rootScope, $http,$state ) {
   'use strict';
   
   $scope.level = $rootScope.user.jurisdiction;
