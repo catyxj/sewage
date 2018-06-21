@@ -1,8 +1,8 @@
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
 	
-//	$scope.defaultAddress = $rootScope.user.address;
-	$scope.defaultAddress = "宁波";
+	$scope.defaultAddress = $rootScope.user.address;
+//	$scope.defaultAddress = "宁波";
 	
 	//站点数
 	$http.get("/Seom/fc/selectTotal").then(function(res){
