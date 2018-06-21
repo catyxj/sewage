@@ -14,7 +14,7 @@
 	   			项
 	   		</div>
 	   		<div class="pull-right">
-	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success">
+	            <a ui-sref="app.report_edit4" class="btn btn-labeled btn-success" ng-if="level===4">
 	                <span class="btn-label">
 	                    <em class="fa fa-plus"></em>
 	                </span>
@@ -51,7 +51,7 @@
                      <th>
                      	审核
                      </th>
-                     <th>
+                     <th ng-if="level===4">
                      	操作
                      </th>
                   </tr>
@@ -82,7 +82,7 @@
                         	未审核
                         </span>                       
                      </td>
-                     <td>
+                     <td ng-if="level===4">
                         <a ui-sref="app.report_edit4({data:data})" class="btn btn-sm btn-warning">
                            <em class="fa fa-edit"></em>
                         </a>

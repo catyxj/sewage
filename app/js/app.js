@@ -1396,8 +1396,8 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
 	
-//	$scope.defaultAddress = $rootScope.user.address;
-	$scope.defaultAddress = "宁波";
+	$scope.defaultAddress = $rootScope.user.address;
+//	$scope.defaultAddress = "宁波";
 	
 	//站点数
 	$http.get("/Seom/fc/selectTotal").then(function(res){
@@ -3097,8 +3097,9 @@ App.controller('NestableController', ['$scope', function($scope) {
 App.controller('reportController', ['$scope', '$http','$state',
   function($scope, $http,$state ) {
   'use strict';
-
-
+  
+  $scope.level = 4;
+  
 
 	$scope.my_tree_handler = function(branch) {
 		$scope.output = branch.data.description;

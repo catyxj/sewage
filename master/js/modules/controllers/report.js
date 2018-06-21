@@ -6,8 +6,9 @@
 App.controller('reportController', ['$scope', '$http','$state',
   function($scope, $http,$state ) {
   'use strict';
-
-
+  
+  $scope.level = 4;
+  
 
 	$scope.my_tree_handler = function(branch) {
 		$scope.output = branch.data.description;
