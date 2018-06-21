@@ -3098,7 +3098,7 @@ App.controller('reportController', ['$scope', '$http','$state',
   function($scope, $http,$state ) {
   'use strict';
   
-  $scope.level = 4;
+  $scope.level = $rootScope.user.jurisdiction;
   
 
 	$scope.my_tree_handler = function(branch) {
