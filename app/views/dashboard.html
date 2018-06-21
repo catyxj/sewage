@@ -14,10 +14,10 @@
                <em class="fa fa-recycle fa-3x"></em>
             </div>
             <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">
+               <div class="h2 mt0 mb0">
                	{{siteNum}}
                </div>
-               <div class="text-uppercase">站点</div>
+               <div class="text-uppercase mb">站点</div>
                <a class="more pull-right" ui-sref="app.county.county_1_1">查看更多</a>
             </div>            
          </div>
@@ -26,34 +26,34 @@
    </div>
    <div class="col-lg-3 col-sm-6">
       <!-- START widget-->
-      <div class="panel widget bg-warning">
+      <div class="panel widget bg-purple">
          <div class="row row-table">
-            <div class="col-xs-4 text-center bg-warning-dark pv-lg">
-               <em class="fa fa-wrench fa-3x"></em>
+            <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+               <em class="fa fa-user fa-3x"></em>
             </div>
             <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">
-               	{{malfunction}}
+               <div class="h2 mt0 mb0">
+               	{{personnelNumber}}
                </div>
-               <div class="text-uppercase">故障</div>
-               <a class="more pull-right" ui-sref="app.malfunction.unsolved">查看更多</a>
+               <div class="text-uppercase mb">已受益人数</div>
+               <a class="more pull-right" ui-sref="app.beneficiary({area:defaultAddress})">查看更多</a>
             </div>
          </div>
       </div>
    </div>
    <div class="col-lg-3 col-md-6 col-sm-12">
       <!-- START widget-->
-      <div class="panel widget bg-danger">
+      <div class="panel widget bg-green">
          <div class="row row-table">
-            <div class="col-xs-4 text-center bg-danger-dark pv-lg">
-               <em class="fa fa-warning fa-3x"></em>
+            <div class="col-xs-4 text-center bg-green-dark pv-lg">
+               <em class="fa fa-home fa-3x"></em>
             </div>
             <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">
-               	{{alarmNum}}
+               <div class="h2 mt0 mb0">
+               	{{villageNumber}}
                </div>
-               <div class="text-uppercase">告警(测试)</div>
-               <a class="more pull-right" ui-sref="app.warning.current" disabled>查看更多</a>
+               <div class="text-uppercase mb">已建设行政自然村</div>
+               <a class="more pull-right" ui-sref="app.county.county_1_1">查看更多</a>
             </div>
          </div>
       </div>
@@ -88,7 +88,7 @@
 	<div class="col-md-12" style="position: relative;">
 		<div class="panel panel-default">
 			<!--<div id="container" style = "width:100%; height:700px" ></div>-->
-			<div id="mapDiv" style="width:100%; height:700px"></div>
+			<div id="mapDiv" style="width:100%; height:500px"></div>
 		</div>		
 		
 		<!-- START messages and activity-->

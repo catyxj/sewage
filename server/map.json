@@ -138,5 +138,7 @@
 			"waterQuality":70
 		}
 	],
-	"zoom": 10
+	"zoom": 10,
+	"villageNumber":"50",
+	"personnelNumber":"255"
 }
