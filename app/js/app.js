@@ -1459,7 +1459,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//   server/map.json
+//  /Seom/fc/selectAllFacilities
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
 	goState=function(area){
@@ -1467,7 +1467,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 		$state.go("app.county-equipment",{area:area});
 	}
 	
-	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
+	$http.get("server/map.json").then(function(res){
 						
 		var map;
         var zoom = res.data.zoom;
@@ -3657,11 +3657,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update2 = function(){
     		$http.post("/Seom/irs/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3673,11 +3687,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update3 = function(){
     		$http.post("/Seom/arc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3689,11 +3717,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update4 = function(){
     		$http.post("/Seom/tbc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3706,11 +3748,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	$scope.update5 = function(){
     		console.log($scope.data);
     		$http.post("/Seom/pic/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3722,11 +3778,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update6 = function(){
     		$http.post("/Seom/equipmentc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3738,11 +3808,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update7 = function(){
     		$http.post("/Seom/mmrc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3754,11 +3838,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update8 = function(){
     		$http.post("/msrc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3770,11 +3868,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update9 = function(){
     		$http.post("/Seom/aVillagec/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3786,11 +3898,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update10 = function(){
     		$http.post("/Seom/avuvc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3802,11 +3928,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update11 = function(){
     		$http.post("/Seom/fc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
@@ -3818,11 +3958,25 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	
     	$scope.update12 = function(){
     		$http.post("/Seom/fmsc/post",{data:$scope.data}).then(function(res){
-    			swal(
-				  '保存成功',
-				  '',
-				  'success'
-				)
+    			if(res.data==="true"){
+    				swal(
+					  '保存成功',
+					  '',
+					  'success'
+					);
+    			}else if(res.data==="false"){
+    				swal(
+					  '程序错误',
+					  '',
+					  'error'
+					)
+    			}else{
+    				swal(
+					  res.data,
+					  '',
+					  'error'
+					)
+    			}
     		},function(err){
     			swal(
 				  '保存失败',
