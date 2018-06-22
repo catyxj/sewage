@@ -46,7 +46,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
       $http.get(menuURL).then(function(items){
            $scope.menuItems = items.data;
-           if($rootScope.user.jurisdiction>2){
+           if($rootScope.user.jurisdiction!==2){
            	$scope.menuItems = $filter("filter")($scope.menuItems,function(item){
            		if(!item.level){
            			return true;

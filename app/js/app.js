@@ -2653,11 +2653,14 @@ App.controller("equipOperaCtrl", ["$scope", "$stateParams", "$http", function($s
 App.controller("headerCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
 	
 	$scope.logout = function(){
-		$http.get("Seom/userC/de").then(function(res){
-			window.location.href = "index.html";
+		
+		window.location.href = "index.html";
+		/*$http.get("Seom/userC/de").then(function(res){
+			
 		},function(err){
 			
-		})
+		})*/
+		
 	}
 
 
@@ -4062,7 +4065,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
       $http.get(menuURL).then(function(items){
            $scope.menuItems = items.data;
-           if($rootScope.user.jurisdiction>2){
+           if($rootScope.user.jurisdiction!==2){
            	$scope.menuItems = $filter("filter")($scope.menuItems,function(item){
            		if(!item.level){
            			return true;
