@@ -12,7 +12,8 @@
   {
     "text": "统计分析",
     "sref": "app.stat",
-    "icon": "icon-graph"
+    "icon": "icon-graph",
+    "level":"2"
   },
   {
     "text": "信息维护",
@@ -27,8 +28,7 @@
   {
     "text": "区县信息",
     "sref": "app.county.county_1_1",
-    "icon": "icon-grid",
-    "level":"2"
+    "icon": "icon-grid"
   },
   {
     "text": "设备信息",

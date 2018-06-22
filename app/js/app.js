@@ -1331,6 +1331,8 @@ App.controller("countyEquipCtrl",["$scope","$stateParams","$http",function($scop
 	$scope.refreshEquip = function(){
 		$http.post("/Seom/fc/selectVillage",{area:$stateParams.area}).then(function(res){
 			$scope.equip = res.data;
+			$scope.currentPage = 1;
+			$scope.totalItems = $scope.equip.length;
 
 		},function(err){
 			
@@ -2646,6 +2648,18 @@ App.controller("equipOperaCtrl", ["$scope", "$stateParams", "$http", function($s
 	}
 
 	$scope.refreshEquip();
+
+}])
+App.controller("headerCtrl",["$scope","$stateParams", "$http", function($scope,$stateParams,$http){
+	
+	$scope.logout = function(){
+		$http.get("Seom/userC/de").then(function(res){
+			window.location.href = "index.html";
+		},function(err){
+			
+		})
+	}
+
 
 }])
 App.controller("installController",['$scope',"$http","$stateParams",function($scope,$http,$stateParams){
@@ -4048,7 +4062,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$state', '$http', 
 
       $http.get(menuURL).then(function(items){
            $scope.menuItems = items.data;
-           if($rootScope.app.level>=2){
+           if($rootScope.user.jurisdiction>2){
            	$scope.menuItems = $filter("filter")($scope.menuItems,function(item){
            		if(!item.level){
            			return true;

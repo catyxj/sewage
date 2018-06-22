@@ -1,5 +1,5 @@
 <!-- START Top Navbar-->
-<nav role="navigation" class="navbar topnavbar">
+<nav role="navigation" class="navbar topnavbar" ng-controller="headerCtrl">
    <!-- START navbar header-->
    <div class="navbar-header">
       <a href="#/" class="navbar-brand">
@@ -78,7 +78,7 @@
                         </div>
                      </a>
                      <!-- list item-->
-                     <a href="#" class="list-group-item">
+                     <a class="list-group-item" ng-click="logout();">
                         <div class="media-box">
                            <div class="pull-left">
                               <em class="fa fa-sign-out fa-2x text-warning"></em>
