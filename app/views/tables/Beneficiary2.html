@@ -1,3 +1,4 @@
+
 <h3>
 	统计分析
 </h3>
@@ -10,15 +11,15 @@
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
 			  <li role="presentation" class="active"><a href="#">受益户数</a></li>			  
-			  	<a ui-sref="app.county.county_1_1" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  	<a ng-click="back();" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
    	
    	
    	<!-- START table-responsive-->
-   <div class="" style="height: 350px; padding:10px; border: 1px solid #ddd; border-top: none;">
-   		<div class="table-responsive" style="height: 300px; overflow: auto;">
+   <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
+   		<div class="table-responsive" style="height: 440px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
@@ -26,28 +27,26 @@
 	               <th>地域</th>
 	               <th>已受益户数</th>
 	               <th>应受益户数</th>
-	               <th>更新时间</th>
-	               <th style="width: 15%;">进度</th>
+	               <th>进度</th>
 	               <th>操作</th>          
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	            <tr ng-repeat="data in benefit | range:currentPage:itemsPerPage">
+	               <td>{{$index + 1}}</td>
 	               <td>
-	                  白峰街道
+	                  {{data.region}}
 	               </td>
-	               <td>2250</td>
-	               <td>2554</td>
-	               <td>2018-03</td>
+	               <td>{{data.alreadyBenefitNumber}}</td>
+	               <td>{{data.shouldBenefitNumber}}</td>
 	               <td>
 	               		<uib-progressbar value="val" type="success" class="progress progress-xs" style="width: 70%; display: inline-block;"></uib-progressbar>
 	               		<span class="font_sm">
-		                    {{val}}%
+		                    {{val=data.alreadyBenefitNumber/data.shouldBenefitNumber*100|number : 1}}%
 		                </span>
 	               </td>
 	               <td>
-	               	<a ui-sref="app.beneficiary3_baifeng">查看更多</a>
+	               	<a ui-sref="app.beneficiary3({area:data.region})">查看更多</a>
 	               </td>               
 	            </tr>
 	            	           
@@ -56,40 +55,10 @@
 	      </table>
 	   </div>
 	   
-	   <div class="row">
-	   	
-	   	<div class="col-lg-6">
-	   		共518条记录
-	   		pageSize: 
-	   		<select style="padding: 3px 10px;">
-	   			<option value="250">250</option>
-	   			<option value="150">150</option>
-	   		</select>
-	   	</div>
-	   	<div class="col-lg-6">
-	   		<nav>
-			  <ul class="pagination pull-right" style="margin: 0;">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-	   	</div>
-	   	
-   		
-   	</div>
+	   <pagination></pagination>
+	   	   	   
+
+   	
    </div>
    
    <!-- END table-responsive-->
@@ -102,6 +71,7 @@
    
 </div>
 <!-- END panel-->
+
 
 
 

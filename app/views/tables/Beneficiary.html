@@ -26,7 +26,6 @@
 	               <th>地域</th>
 	               <th>已受益户数</th>
 	               <th>应受益户数</th>
-	               <!--<th>更新时间</th>-->
 	               <th>进度</th>
 	               <th>操作</th>          
 	            </tr>
@@ -39,7 +38,7 @@
 	               </td>
 	               <td>{{data.alreadyBenefitNumber}}</td>
 	               <td>{{data.shouldBenefitNumber}}</td>
-	               <!--<td>{{data.update}}</td>-->
+
 	               <td>
 	               		<uib-progressbar value="val" type="success" class="progress progress-xs" style="width: 70%; display: inline-block;"></uib-progressbar>
 	               		<span class="font_sm">
@@ -47,7 +46,7 @@
 		                </span>
 	               </td>
 	               <td>
-	               	<a ng-click="refreshBene(data.region)">查看更多</a>
+	               	<a ui-sref="app.beneficiary({area:data.region})">查看更多</a>
 	               </td>               
 	            </tr>
 	            	           

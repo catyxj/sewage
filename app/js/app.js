@@ -964,7 +964,7 @@ App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($sc
 	var area = $stateParams.area;
 	
 	$scope.refreshBene = function(area){
-		$http.post("/Seom/bhc/select",{area}).then(function(res){
+		$http.post("/Seom/bhc/select",{area}).then(function(res){  //.get("server/select.json")
 			$scope.benefit = res.data;
 			$scope.currentPage = 1;
 			$scope.totalItems = $scope.benefit.length;			
@@ -1518,7 +1518,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 				var point = new T.LngLat(data.longitude_E,data.latitude_N);
 	            
 	            var icon;
-	            if(data.isItOnline==1){
+	            if(data.isItOnline==1 && data.facilityState==="2"){
 	            	data.isItOnline1="在线";
 	            	icon = new T.Icon({
 		                iconUrl: "app/img/map/mapicon2.png",
@@ -1535,7 +1535,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            }
 	            if(data.re==1){
 	            	data.re1="告警";
-	            	if(data.isItOnline==1){
+	            	if(data.isItOnline==1 && data.facilityState==="2"){
 	            		icon = new T.Icon({
 			                iconUrl: "app/img/map/mapicon1.png",
 			                iconSize: new T.Point(25, 25),
@@ -1548,7 +1548,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            }
 	            if(data.fault==1){
 	            	data.fault1="故障";
-	            	if(data.isItOnline==1){
+	            	if(data.isItOnline==1 && data.facilityState==="2"){
 	            		icon = new T.Icon({
 			                iconUrl: "app/img/map/mapicon1.png",
 			                iconSize: new T.Point(25, 25),
@@ -1559,7 +1559,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            	data.fault1="无故障";
 	            }
 	            if(data.waterQuality<80){
-	            	if(data.isItOnline==1){
+	            	if(data.isItOnline==1 && data.facilityState==="2"){
 	            		icon = new T.Icon({
 			                iconUrl: "app/img/map/mapicon1.png",
 			                iconSize: new T.Point(25, 25),

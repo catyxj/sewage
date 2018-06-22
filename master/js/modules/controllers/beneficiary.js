@@ -8,7 +8,7 @@ App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($sc
 	var area = $stateParams.area;
 	
 	$scope.refreshBene = function(area){
-		$http.post("/Seom/bhc/select",{area}).then(function(res){
+		$http.post("/Seom/bhc/select",{area}).then(function(res){  //.get("server/select.json")
 			$scope.benefit = res.data;
 			$scope.currentPage = 1;
 			$scope.totalItems = $scope.benefit.length;			
