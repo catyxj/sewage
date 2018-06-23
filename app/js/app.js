@@ -967,7 +967,11 @@ App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($sc
 		$http.post("/Seom/bhc/select",{area}).then(function(res){  //.get("server/select.json")
 			$scope.benefit = res.data;
 			$scope.currentPage = 1;
-			$scope.totalItems = $scope.benefit.length;			
+			$scope.totalItems = $scope.benefit.length;		
+			if(!$scope.benefit){
+				$scope.totalItems = 0;
+				return;
+			}
 		},function(err){
 			
 		})
@@ -1014,6 +1018,8 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
 	 //区县列表
 	 $scope.my_tree = {};
 	 $scope.level = $rootScope.user.jurisdiction;//权限
+
+	
 	
 	 $scope.my_tree_handler = function(branch) {
 	 	//	$scope.output = branch.data.description;
@@ -1373,7 +1379,10 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 		//设施列表
 		$http.post("/Seom/equipmentc/selectFacilityCode",{facilityCode:code}).then(function(res){
 			$scope.equipList = res.data;
+			$scope.currentPage = 1;
+			$scope.totalItems = $scope.equipList.length;	
 			if(!$scope.equipList){
+				$scope.totalItems = 0;
 				return;
 			}
 			

@@ -8,18 +8,18 @@
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
 			  <li role="presentation" class="active"><a href="#">工作人员</a></li>	
-			  <select class="tab_select ml-lg">
-			  	<option value="">宁波市北仑区</option>
-			  	<option value="">宁波市鄞州区</option>
-			  	<option value="">宁波市镇海区</option>
+			  <select class="tab_select ml-lg" ng-model="search1">
+			  	<option value="宁波市北仑区">宁波市北仑区</option>
+			  	<option value="宁波市鄞州区">宁波市鄞州区</option>
+			  	<option value="宁波市镇海区">宁波市镇海区</option>
 			  </select>
-			  <select class="tab_select">
-			  	<option value="">白峰街道</option>
-			  	<option value="">梅山街道</option>
-			  	<option value="">春晓街道</option>
-			  	<option value="">新碶街道</option>
-			  	<option value="">霞浦街道</option>
-			  	<option value="">小港街道</option>
+			  <select class="tab_select" ng-model="search2">
+			  	<option value="白峰街道">白峰街道</option>
+			  	<option value="梅山街道">梅山街道</option>
+			  	<option value="春晓街道">春晓街道</option>
+			  	<option value="新碶街道">新碶街道</option>
+			  	<option value="霞浦街道">霞浦街道</option>
+			  	<option value="小港街道">小港街道</option>
 			  </select>
 			  <select class="tab_select" ng-model="search">	
 			  	<option value="">显示所有</option>
@@ -59,7 +59,7 @@
 	            </tr>
 	         </thead>
 	         <tbody>
-	         	<tr ng-repeat="data in workers|filter:search ">
+	         	<tr ng-repeat="data in workers|filter:search1|filter:search2|filter:search">
 	               <td>{{$index + 1}}</td>
 	               <td>
 	               	{{data.name}}
@@ -74,73 +74,7 @@
 	               <td>{{data.remark}}</td>
 	            </tr>
 	         	
-	            <!--<tr>
-	               <td>1</td>
-	               <td>
-	                  陈冠俊
-	               </td>
-	               <td>镇书记</td>
-	               <td></td>
-	               <td></td>
-	               <td>宁波市北仑区</td>
-	               <td>白峰街道</td>
-	               <td></td>  
-	               <td></td>
-	            </tr>
-	            <tr>
-	               <td>2</td>
-	               <td>
-	                  汪越海
-	               </td>
-	               <td>镇长</td>
-	               <td></td>
-	               <td></td>
-	               <td>宁波市北仑区</td>
-	               <td>白峰街道</td>
-	               <td></td>  
-	               <td></td>
-	            </tr>
-	            <tr>
-	               <td>3</td>
-	               <td>
-	                  沃波涛
-	               </td>
-	               <td>分管负责人</td>
-	               <td>13780078100</td>
-	               <td>86787801</td>
-	               <td>宁波市北仑区</td>
-	               <td>白峰街道</td>
-	               <td></td>  
-	               <td></td>
-	            </tr>
-	            <tr>
-	               <td>4</td>
-	               <td>
-	                 王志群
-	               </td>
-	               <td>部门负责人</td>
-	               <td>13819874987</td>
-	               <td>86787922</td>
-	               <td>宁波市北仑区</td>
-	               <td>白峰街道</td>
-	               <td></td>  
-	               <td></td>
-	            </tr>
-	            <tr>
-	               <td>5</td>
-	               <td>
-	                  汪可韩
-	               </td>
-	               <td>部门联系人</td>
-	               <td>15058299515</td>
-	               <td>86787922</td>
-	               <td>宁波市北仑区</td>
-	               <td>白峰街道</td>
-	               <td></td>  
-	               <td></td>
-	            </tr>-->
-	            
-	            
+	        	                        
 	            
 	         </tbody>
 	      </table>
@@ -148,7 +82,7 @@
 	   
 	   <div class="row">
 	   	<div class="col-lg-6">
-	   		共{{(workers|filter:search).length}}条记录
+	   		共{{(workers|filter:search|filter:search1|filter:search2).length}}条记录
 	   		pageSize: 
 	   		<select style="padding: 3px 10px;">
 	   			<option value="250">250</option>

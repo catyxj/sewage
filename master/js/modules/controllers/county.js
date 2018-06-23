@@ -9,6 +9,8 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
 	 //区县列表
 	 $scope.my_tree = {};
 	 $scope.level = $rootScope.user.jurisdiction;//权限
+
+	
 	
 	 $scope.my_tree_handler = function(branch) {
 	 	//	$scope.output = branch.data.description;

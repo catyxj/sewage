@@ -28,7 +28,10 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 		//设施列表
 		$http.post("/Seom/equipmentc/selectFacilityCode",{facilityCode:code}).then(function(res){
 			$scope.equipList = res.data;
+			$scope.currentPage = 1;
+			$scope.totalItems = $scope.equipList.length;	
 			if(!$scope.equipList){
+				$scope.totalItems = 0;
 				return;
 			}
 			

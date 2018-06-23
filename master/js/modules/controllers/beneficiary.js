@@ -11,7 +11,11 @@ App.controller("beneficiaryCtrl",["$scope","$stateParams", "$http", function($sc
 		$http.post("/Seom/bhc/select",{area}).then(function(res){  //.get("server/select.json")
 			$scope.benefit = res.data;
 			$scope.currentPage = 1;
-			$scope.totalItems = $scope.benefit.length;			
+			$scope.totalItems = $scope.benefit.length;		
+			if(!$scope.benefit){
+				$scope.totalItems = 0;
+				return;
+			}
 		},function(err){
 			
 		})
