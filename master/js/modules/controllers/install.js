@@ -2,8 +2,15 @@ App.controller("installController",['$scope',"$http","$stateParams",function($sc
 	console.log($stateParams.area);
 	
 	$scope.refresh = function(){
-		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
+		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){  // get("server/equipmentc.json")
 			$scope.equipment = res.data;
+			
+			$scope.itemsPerPage = 10;
+	 		$scope.currentPage = 1;
+			$scope.totalItems = $scope.equipment.length;
+			if(!$scope.equipment){
+				$scope.totalItems = 0;
+			}
 			
 			$scope.areas = [];
 			$scope.uninstalls = [];
@@ -92,6 +99,13 @@ App.controller("installController2",['$scope',"$http","$stateParams",function($s
 		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
 			$scope.equipment = res.data;
 			
+			$scope.itemsPerPage = 10;
+	 		$scope.currentPage = 1;
+			$scope.totalItems = $scope.equipment.length;
+			if(!$scope.equipment){
+				$scope.totalItems = 0;
+			}
+			
 			$scope.areas = [];
 			$scope.uninstalls = [];
 			$scope.installs = [];
@@ -179,6 +193,13 @@ App.controller("installController3",['$scope',"$http","$stateParams",function($s
 	$scope.refresh = function(){
 		$http.post("/Seom/equipmentc/select",{area:$stateParams.area}).then(function(res){
 			$scope.equipment = res.data;
+			
+			$scope.itemsPerPage = 10;
+	 		$scope.currentPage = 1;
+			$scope.totalItems = $scope.equipment.length;
+			if(!$scope.equipment){
+				$scope.totalItems = 0;
+			}
 			
 			$scope.areas = [];
 			$scope.uninstalls = [];
