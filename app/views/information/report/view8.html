@@ -1,0 +1,206 @@
+<h3>
+	报表信息
+</h3>
+
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">运维季报表
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table8">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区县（市）</label>
+                     <div class="col-sm-6">
+                     	{{ data.name }}
+                        <!--<input type="text" ng-model="data.name" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施运维总数（个）集中式</label>
+                     <div class="col-sm-6">
+                     	{{ data.centralizedNumber }}
+                        <!--<input type="text" ng-model="data.centralizedNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施运维总数（个）分散式</label>
+                     <div class="col-sm-6">
+                     	{{ data.dispersiveNumber }}
+                        <!--<input type="text" ng-model="data.dispersiveNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">出水水质全部符合省标准的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.csNumber }}
+                        <!--<input type="text" ng-model="data.csNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">5项指标全部符合省标准的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.wholecsNumber }}
+                        <!--<input type="text" ng-model="data.wholecsNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应安装流量计的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.sifNumber }}
+                        <!--<input type="text" ng-model="data.sifNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已安装流量计的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.aifNumber }}
+                        <!--<input type="text" ng-model="data.aifNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应安装在线监控的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.simNumber }}
+                        <!--<input type="text" ng-model="data.simNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已安装在线监控的设施个数</label>
+                     <div class="col-sm-6">
+                     	{{ data.aimNumber }}
+                        <!--<input type="text" ng-model="data.aimNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">每吨污水处理能耗费（元）</label>
+                     <div class="col-sm-6">
+                     	{{ data.handleMoney }}
+                        <!--<input type="text" ng-model="data.handleMoney" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施平均负荷率（%）</label>
+                     <div class="col-sm-6">
+                     	{{ data.loadRate }}
+                        <!--<input type="text" ng-model="data.loadRate" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+             
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">年度运维资金额（万元）</label>
+                     <div class="col-sm-6">
+                     	{{ data.maintenanceMoney }}
+                        <!--<input type="text" ng-model="data.maintenanceMoney" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已支付资金（万元）</label>
+                     <div class="col-sm-6">
+                     	{{ data.alreadyPaidMoney }}
+                        <!--<input type="text" ng-model="data.alreadyPaidMoney" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">支付百分率（%）</label>
+                     <div class="col-sm-6">
+                     	{{ data.PaidRate }}
+                        <!--<input type="text" ng-model="data.PaidRate" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+
+              
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update8();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table8">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

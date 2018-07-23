@@ -51,7 +51,7 @@
                      <th>
                      	审核
                      </th>
-                     <th ng-if="level===4">
+                     <th>
                      	操作
                      </th>
                   </tr>
@@ -83,14 +83,16 @@
                         </span>
                         
                      </td>
-                     <td ng-if="level===4">
-                        <a ui-sref="app.report_edit10({data:data})" class="btn btn-sm btn-warning">
+                     <td>
+                        <a ui-sref="app.report_edit10({data:data})" class="btn btn-sm btn-warning" ng-if="level===4">
                            <em class="fa fa-edit"></em>
                         </a>
-                        <button type="button" ng-click="remove10(data.vs_id)" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="remove10(data.vs_id)" class="btn btn-sm btn-danger" ng-if="level===4">
                            <em class="fa fa-trash-o"></em>
                         </button>
-
+						<a ui-sref="app.report_view10({data:data})" class="btn btn-sm btn-primary" ng-if="level<4">
+                           <em class="fa fa-eye"></em>
+                        </a>
                      </td>
                   </tr>
                </tbody>

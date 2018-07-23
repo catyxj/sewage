@@ -15,6 +15,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$storage = $window.localStorage;
+ 
 
   // Uncomment this to disable template cache
   /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
@@ -58,7 +59,8 @@ $http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
     },
     useFullLayout: false,
     hiddenFooter: false,
-    viewAnimation: 'ng-fadeInUp'
+    viewAnimation: 'ng-fadeInUp',
+    showLoading: false
   };
 
 }]);

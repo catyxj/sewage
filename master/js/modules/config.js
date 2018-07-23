@@ -199,7 +199,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/equipment.html',
     })
     .state('app.county-worker', {
-        url: '/county-worker',
+        url: '/county-worker?area',
         title: 'county-worker',
         templateUrl: 'app/views/information/county/worker.html',
     })
@@ -221,12 +221,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-worker2', {
-        url: '/county-worker2',
+        url: '/county-worker2?area',
         title: 'county-worker2',
         templateUrl: 'app/views/information/county/worker2.html',
     })
     .state('app.county-worker3', {
-        url: '/county-worker3',
+        url: '/county-worker3?area',
         title: 'county-worker3',
         templateUrl: 'app/views/information/county/worker3.html',
     })
@@ -261,41 +261,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3_baifeng',
         templateUrl: 'app/views/information/shows/county_1_3_baifeng.html',
     })
-    .state('app.county.county_1_3_guanzhuang', {
-        url: '/county_1_3_guanzhuang',
-        title: 'county_1_3_guanzhuang',
-        templateUrl: 'app/views/information/shows/county_1_3_guanzhuang.html',
-    })
-    .state('app.county.county_1_3_siyan', {
-        url: '/county_1_3_siyan',
-        title: 'county_1_3_siyan',
-        templateUrl: 'app/views/information/shows/county_1_3_siyan.html',
-    })
-    .state('app.county.county_1_3_xinfeng', {
-        url: '/county_1_3_xinfeng',
-        title: 'county_1_3_xinfeng',
-        templateUrl: 'app/views/information/shows/county_1_3_xinfeng.html',
-    })
-    .state('app.county.county_1_3_yangdong', {
-        url: '/county_1_3_yangdong',
-        title: 'county_1_3_yangdong',
-        templateUrl: 'app/views/information/shows/county_1_3_yangdong.html',
-    })
-    .state('app.county.county_1_3_qinshan', {
-        url: '/county_1_3_qinshan',
-        title: 'county_1_3_qinshan',
-        templateUrl: 'app/views/information/shows/county_1_3_qinshan.html',
-    })
-    .state('app.county.county_1_3_shangyang', {
-        url: '/county_1_3_shangyang',
-        title: 'county_1_3_shangyang',
-        templateUrl: 'app/views/information/shows/county_1_3_shangyang.html',
-    })
-    .state('app.county.county_1_3_xiayang', {
-        url: '/county_1_3_xiayang',
-        title: 'county_1_3_xiayang',
-        templateUrl: 'app/views/information/shows/county_1_3_xiayang.html',
-    })
+
     .state('app.county-equipment_baifeng', {
         url: '/county-equipment_baifeng',
         title: 'county-equipment_baifeng',
@@ -306,121 +272,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-equipment-detail_baifeng',
         templateUrl: 'app/views/information/shows/equipment_detail_baifeng.html',
     })
-    .state('app.county-equipment_guanzhuang', {
-        url: '/county-equipment_guanzhuang',
-        title: 'county-equipment_guanzhuang',
-        templateUrl: 'app/views/information/shows/equipment_guanzhuang.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang', {
-        url: '/county-equipment-detail_guanzhuang',
-        title: 'county-equipment-detail_guanzhuang',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang2', {
-        url: '/county-equipment-detail_guanzhuang2',
-        title: 'county-equipment-detail_guanzhuang2',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang2.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang3', {
-        url: '/county-equipment-detail_guanzhuang3',
-        title: 'county-equipment-detail_guanzhuang3',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang3.html',
-    })
-    .state('app.county-equipment_siyan', {
-        url: '/county-equipment_siyan',
-        title: 'county-equipment_siyan',
-        templateUrl: 'app/views/information/shows/equipment_siyan.html',
-    })
-    .state('app.county-equipment-detail_siyan', {
-        url: '/county-equipment-detail_siyan',
-        title: 'county-equipment-detail_siyan',
-        templateUrl: 'app/views/information/shows/equipment_detail_siyan.html',
-    })
-    .state('app.county-equipment-detail_siyan2', {
-        url: '/county-equipment-detail_siyan2',
-        title: 'county-equipment-detail_siyan2',
-        templateUrl: 'app/views/information/shows/equipment_detail_siyan2.html',
-    })
-    .state('app.county-equipment_xinfeng', {
-        url: '/county-equipment_xinfeng',
-        title: 'county-equipment_xinfeng',
-        templateUrl: 'app/views/information/shows/equipment_xinfeng.html',
-    })
-    .state('app.county-equipment-detail_xinfeng', {
-        url: '/county-equipment-detail_xinfeng',
-        title: 'county-equipment-detail_xinfeng',
-        templateUrl: 'app/views/information/shows/equipment_detail_xinfeng.html',
-    })
-    .state('app.county-equipment_yangdong', {
-        url: '/county-equipment_yangdong',
-        title: 'county-equipment_yangdong',
-        templateUrl: 'app/views/information/shows/equipment_yangdong.html',
-    })
-    .state('app.county-equipment-detail_yangdong', {
-        url: '/county-equipment-detail_yangdong',
-        title: 'county-equipment-detail_yangdong',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong.html',
-    })
-    .state('app.county-equipment-detail_yangdong2', {
-        url: '/county-equipment-detail_yangdong2',
-        title: 'county-equipment-detail_yangdong2',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong2.html',
-    })
-    .state('app.county-equipment-detail_yangdong3', {
-        url: '/county-equipment-detail_yangdong3',
-        title: 'county-equipment-detail_yangdong3',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong3.html',
-    })
-    .state('app.county-equipment-detail_yangdong4', {
-        url: '/county-equipment-detail_yangdong4',
-        title: 'county-equipment-detail_yangdong4',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong4.html',
-    })
-    .state('app.county-equipment-detail_yangdong5', {
-        url: '/county-equipment-detail_yangdong5',
-        title: 'county-equipment-detail_yangdong5',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong5.html',
-    })
-    .state('app.county-equipment-detail_yangdong6', {
-        url: '/county-equipment-detail_yangdong6',
-        title: 'county-equipment-detail_yangdong6',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong6.html',
-    })
-    .state('app.county-equipment_qinshan', {
-        url: '/county-equipment_qinshan',
-        title: 'county-equipment_qinshan',
-        templateUrl: 'app/views/information/shows/equipment_qinshan.html',
-    })
-    .state('app.county-equipment-detail_qinshan', {
-        url: '/county-equipment-detail_qinshan',
-        title: 'county-equipment-detail_qinshan',
-        templateUrl: 'app/views/information/shows/equipment_detail_qinshan.html',
-    })
-    .state('app.county-equipment_shangyang', {
-        url: '/county-equipment_shangyang',
-        title: 'county-equipment_shangyang',
-        templateUrl: 'app/views/information/shows/equipment_shangyang.html',
-    })
-    .state('app.county-equipment-detail_shangyang', {
-        url: '/county-equipment-detail_shangyang',
-        title: 'county-equipment-detail_shangyang',
-        templateUrl: 'app/views/information/shows/equipment_detail_shangyang.html',
-    })
-    .state('app.county-equipment_xiayang', {
-        url: '/county-equipment_xiayang',
-        title: 'county-equipment_xiayang',
-        templateUrl: 'app/views/information/shows/equipment_xiayang.html',
-    })
-    .state('app.county-equipment-detail_xiayang', {
-        url: '/county-equipment-detail_xiayang',
-        title: 'county-equipment-detail_xiayang',
-        templateUrl: 'app/views/information/shows/equipment_detail_xiayang.html',
-    })
-    .state('app.county-equipment-detail_xiayang2', {
-        url: '/county-equipment-detail_xiayang2',
-        title: 'county-equipment-detail_xiayang2',
-        templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
-    })
+  
     //工作人员
     .state('app.county-worker_beilun', {
         url: '/county-worker_beilun',
@@ -437,42 +289,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-worker3_baifeng',
         templateUrl: 'app/views/information/shows/workers/worker3_baifeng.html',
     })
-    .state('app.county-worker3_guanzhuang', {
-        url: '/county-worker3_guanzhuang',
-        title: 'county-worker3_guanzhuang',
-        templateUrl: 'app/views/information/shows/workers/worker3_guanzhuang.html',
-    })
-    .state('app.county-worker3_qinshan', {
-        url: '/county-worker3_qinshan',
-        title: 'county-worker3_qinshan',
-        templateUrl: 'app/views/information/shows/workers/worker3_qinshan.html',
-    })
-    .state('app.county-worker3_siyan', {
-        url: '/county-worker3_siyan',
-        title: 'county-worker3_siyan',
-        templateUrl: 'app/views/information/shows/workers/worker3_siyan.html',
-    })
-    .state('app.county-worker3_xinfeng', {
-        url: '/county-worker3_xinfeng',
-        title: 'county-worker3_xinfeng',
-        templateUrl: 'app/views/information/shows/workers/worker3_xinfeng.html',
-    })
-    .state('app.county-worker3_yangdong', {
-        url: '/county-worker3_yangdong',
-        title: 'county-worker3_yangdong',
-        templateUrl: 'app/views/information/shows/workers/worker3_yangdong.html',
-    })
-    .state('app.county-worker3_shangyang', {
-        url: '/county-worker3_shangyang',
-        title: 'county-worker3_shangyang',
-        templateUrl: 'app/views/information/shows/workers/worker3_shangyang.html',
-    })
-    .state('app.county-worker3_xiayang', {
-        url: '/county-worker3_xisyang',
-        title: 'county-worker3_xiayang',
-        templateUrl: 'app/views/information/shows/workers/worker3_xiayang.html',
-    })
-    
+ 
     
 
     //设备信息
@@ -614,7 +431,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     
-    
+    //edit
     
     .state('app.report_edit2', {
         url: '/report_edit2',
@@ -693,6 +510,101 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/edit12.html',
         resolve: helper.resolveFor()
     })
+	
+	
+	
+	
+	
+	
+	
+	
+	//view
+	.state('app.report_view', {
+        url: '/report_view',
+        title: 'report_view',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view2', {
+        url: '/report_view2',
+        title: 'report_view2',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.report_view3', {
+        url: '/report_view3',
+        title: 'report_view3',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view3.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view4', {
+        url: '/report_view4',
+        title: 'report_view4',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view4.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view5', {
+        url: '/report_view5',
+        title: 'report_view5',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view5.html',
+        resolve: helper.resolveFor('ui.select')
+    })
+	.state('app.report_view6', {
+        url: '/report_view6',
+        title: 'report_view6',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view6.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view7', {
+        url: '/report_view7',
+        title: 'report_view7',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view7.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view8', {
+        url: '/report_view8',
+        title: 'report_view8',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view8.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view9', {
+        url: '/report_view9',
+        title: 'report_view9',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view9.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view10', {
+        url: '/report_view10',
+        title: 'report_view10',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view10.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view11', {
+        url: '/report_view11',
+        title: 'report_view11',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view11.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view12', {
+        url: '/report_view12',
+        title: 'report_view12',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view12.html',
+        resolve: helper.resolveFor()
+    })
+	
+	
 
 //	.state('app.nestable', {
 //      url: '/nestable',

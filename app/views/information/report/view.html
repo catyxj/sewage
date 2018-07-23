@@ -1,0 +1,137 @@
+<h3>
+	报表信息
+</h3>
+
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form  class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">
+               	故障表单
+               	<a class="btn btn-default pull-right" ui-sref="app.report.table1">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">设备状态</label>
+                     <div class="col-sm-6">
+                     	{{data.malfunctionState}}
+                     	<!--<input type="text" ng-model="data.malfunctionState" required="required" class="form-control" disabled/>-->
+                     </div>
+                     <div class="col-sm-4">
+                        <!--故障设备当前状态：1、已修复 2、报修-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">故障编号</label>
+                     <div class="col-sm-6">
+                     	{{ data.code }}                      
+                     </div>
+                     <div class="col-sm-4">
+                        <!--对应设备发生故障编号-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">站点名称</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteName }}                 
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">站点编码</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteCode }}
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障设备所属站点编码-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">故障设备</label>
+                     <div class="col-sm-6">
+                     	{{ data.name }}
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发生故障的设备名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">故障日期</label>
+                     <div class="col-sm-6">
+                     	{{ data.malfunctionDate }}
+                        
+                     </div>
+                     <div class="col-sm-4">
+                        <!--发现设备发生故障日期-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">登记人</label>
+                     <div class="col-sm-6">
+                     	
+                     		{{ data.registrant }}
+                     	                                       
+                     </div>
+                     <div class="col-sm-4">
+                        <!--故障设备相关负责人名称-->
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">费用</label>
+                     <div class="col-sm-6">
+                     	{{ data.outlay }}
+                     </div>
+                     <div class="col-sm-4">
+                        <!--故障修复相关费用金额数量-->
+                     </div>
+                  </div>
+               </fieldset>
+
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label">备注</label>
+                     <div class="col-sm-6">
+                     	{{ data.remarks }}
+                     </div>
+                     <div class="col-sm-4">
+                        <!--故障详情描述-->
+                     </div>
+                  </div>
+               </fieldset>
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update1();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table1">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

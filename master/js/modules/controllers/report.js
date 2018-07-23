@@ -119,7 +119,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 
   // Ajax 
   $scope.table1 = function(){
-  	$http.get("/Seom/mrc/get").then(function(res){
+  	$http.get("/Seom/mrc/get").then(function(res){  //   server/malfunctions.json
 	  	$scope.malfunctions = res.data;
 	  	$scope.totalItems = $scope.malfunctions.length;
 	  })
@@ -204,7 +204,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 	  })
   };
   
-$scope.pages=[5,10,25];
+$scope.pages=[10,25,50];
 $scope.currentPage = 1;
 $scope.itemsPerPage = 10;
 $scope.selectPage = function(page){

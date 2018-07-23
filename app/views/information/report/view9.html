@@ -1,0 +1,329 @@
+<h3>
+	报表信息
+</h3>
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">行政村基本信息表
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table9">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">上级行政区域</label>
+                     <div class="col-sm-6">
+                     	{{ data.ts_BasicInformation.administrativeDivision }}
+                        <!--<input type="text" ng-model="data.ts_BasicInformation.administrativeDivision" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                     	
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">行政村名</label>
+                     <div class="col-sm-6">
+                     	{{ data.village }}
+                        <!--<input type="text" ng-model="data.village" required="required" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                     	
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区划代码</label>
+                     <div class="col-sm-6">
+                     	{{ data.zoningCode }}
+                        <!--<input type="text" ng-model="data.zoningCode" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">党支部书记</label>
+                     <div class="col-sm-6">
+                     	{{ data.pbs }}
+                        <!--<input type="text" ng-model="data.pbs" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">党支部书记电话</label>
+                     <div class="col-sm-6">
+                     	{{ data.pbs_mp }}
+                        <!--<input type="text" ng-model="data.pbs_mp" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">村委会主任</label>
+                     <div class="col-sm-6">
+                     	{{ data.vcd }}
+                        <!--<input type="text" ng-model="data.vcd" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">村委会主任电话</label>
+                     <div class="col-sm-6">
+                     	{{ data.vcd_mp }}
+                        <!--<input type="text" ng-model="data.vcd_mp" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">分管负责人</label>
+                     <div class="col-sm-6">
+                     	{{ data.md }}
+                        <!--<input type="text" ng-model="data.md" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">分管负责人电话</label>
+                     <div class="col-sm-6">
+                     	{{ data.md_mp }}
+                        <!--<input type="text" ng-model="data.md_mp" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">行政村农户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.farmersNumber }}
+                        <!--<input type="text" ng-model="data.farmersNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">户籍人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.rpn }}
+                        <!--<input type="text" ng-model="data.rpn" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">常住人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.prpn }}
+                        <!--<input type="text" ng-model="data.prpn" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">人均GDP（元）</label>
+                     <div class="col-sm-6">
+                     	{{ data.perCapita_GDP }}
+                        <!--<input type="text" ng-model="data.perCapita_GDP" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">农家乐数</label>
+                     <div class="col-sm-6">
+                     	{{ data.agritainmentNumber }}
+                        <!--<input type="text" ng-model="data.agritainmentNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">纳厂信息</label>
+                     <div class="col-sm-6">
+                     	{{ data.intoFactory }}
+                        <!--<input type="text" ng-model="data.departmentHeadIdentity" class="form-control" />-->
+                        <!--<select ng-model="data.intoFactory" ng-options="x.id as x.name for x in plants" class="form-control">
+                        	
+                        </select>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">设施建设</label>
+                     <div class="col-sm-6">
+                     	{{ data.facilitiesBuild }}
+                        <!--<input type="text" ng-model="data.departmentContacts" class="form-control" />-->
+                        <!--<select ng-model="data.facilitiesBuild" ng-options="x.id as x.name for x in facilities" class="form-control">
+                        	
+                        </select>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">总户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.thNumber }}
+                        <!--<input type="text" ng-model="data.thNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应接入户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.scNumber }}
+                        <!--<input type="text" ng-model="data.scNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际接入户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.aaNumber }}
+                        <!--<input type="text" ng-model="data.aaNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应受益人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.bpNumber }}
+                        <!--<input type="text" ng-model="data.bpNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际受益人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.abNumber }}
+                        <!--<input type="text" ng-model="data.abNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">图片</label>
+                     <div class="col-sm-6">
+                     	<img id="file_img" class="img_input" src="data.image"/>
+                        <!--<input type="file" ng-model="data.image" id="image" class="" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">简介</label>
+                     <div class="col-sm-6">
+                     	{{ data.summary }}
+                        <!--<input type="text" ng-model="data.summary" class="form-control" />-->
+                        <!--<textarea ng-model="data.summary" rows="6" cols="" class="form-control"></textarea>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update9();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table9">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

@@ -1,0 +1,107 @@
+<h3>
+	报表信息
+</h3>
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4>设施监督员关联表
+               	<a class="btn btn-default pull-right" ui-sref="app.report.table12">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">设施编码</label>
+                     <div class="col-sm-6">
+                     	{{ data.facilityCode }}
+                     </div>
+                     <div class="col-sm-3">
+                     	
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">姓名</label>
+                     <div class="col-sm-6">
+                     	{{ data.name }}                 
+                     </div>
+                     <div class="col-sm-3">
+                     	
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区划代码</label>
+                     <div class="col-sm-6">
+                     	{{ data.townMayor }}
+                        <!--<input type="text" ng-model="data.townMayor" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">监督员级别</label>
+                     <div class="col-sm-6">
+                     	{{ data.mslevel }}
+                        <!--<select ng-model="data.mslevel" ng-options="x.id as x.name for x in supervisorLevels" class="form-control">
+                        	
+                        </select>-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">电话</label>
+                     <div class="col-sm-6">
+                     	{{ data.mp }}
+                        <!--<input type="text" ng-model="data.mp" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">身份证号</label>
+                     <div class="col-sm-6">
+                     	{{ data.id_card }}
+                        <!--<input type="text" ng-model="data.id_card" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update12();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table12">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

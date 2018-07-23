@@ -1,0 +1,176 @@
+<h3>
+	报表信息
+</h3>
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">化验表单
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table3">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">化验单号</label>
+                     <div class="col-sm-6">
+                     	{{ data.assayCode }}
+                        <!--<input type="text" ng-model="data.assayCode" required="required" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">取样日期</label>
+                     <div class="col-sm-6">
+                     	{{ data.samplingDate }}
+                          
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">化验日期</label>
+                     <div class="col-sm-6">
+                       {{ data.assayDate }}
+                        
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">化验人</label>
+                     <div class="col-sm-6">
+                     	{{ data.assayPeople }}
+                        <!--<input type="text" ng-model="data.assayPeople"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">站点编号</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteCode }}
+                        <!--<input type="text" ng-model="data.siteCode"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">站点名称</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteName }}
+                        <!--<input type="text" ng-model="data.siteName"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">CODcr化学耗氧量</label>
+                     <div class="col-sm-6">
+                     	{{ data.codcr }}
+                        <!--<input type="text" ng-model="data.codcr"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">PH酸碱度</label>
+                     <div class="col-sm-6">
+                     	{{ data.ph }}
+                        <!--<input type="text" ng-model="data.ph"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">SS悬浮物</label>
+                     <div class="col-sm-6">
+                     	{{ data.ss }}
+                        <!--<input type="text" ng-model="data.ss"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">NH₃N氨氮</label>
+                     <div class="col-sm-6">
+                     	{{ data.an }}
+                        <!--<input type="text" ng-model="data.an"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">TP总磷</label>
+                     <div class="col-sm-6">
+                     	{{ data.tp }}
+                        <!--<input type="text" ng-model="data.tp" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">备注</label>
+                     <div class="col-sm-6">
+                     	{{ data.remarks }}
+                        <!--<input type="text" ng-model="data.remarks" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update3();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table3">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

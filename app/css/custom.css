@@ -47,6 +47,23 @@ ul,li{
 	border: none;
 }
 
+
+
+.sidebar .nav > li.active, .sidebar .nav > li.open, .sidebar .nav > li.active > a, .sidebar .nav > li.open > a, .sidebar .nav > li.active .nav, .sidebar .nav > li.open .nav {
+    background-color: #2b957a;
+    color: #FFFFFF;
+}
+
+.sidebar .nav > li.active{
+	border-left-color: transparent;
+}
+
+.sidebar .nav > li.active > a > em, .sidebar .nav > li.open > a > em{
+	color: #FFFFFF;
+}
+
+
+
 /*header*/
 .logo_text{	
 	color: #FFFFFF;

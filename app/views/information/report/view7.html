@@ -1,0 +1,196 @@
+<h3>
+	报表信息
+</h3>
+
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">运维月报表
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table7">返回</a>
+               </h4>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区县（市）</label>
+                     <div class="col-sm-6">
+                     	{{ data.dcc }}
+                        <!--<input type="text" ng-model="data.dcc" required="required" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">治理设施建设行政村数（个）</label>
+                     <div class="col-sm-6">
+                     	{{ data.governVillageNumber }}
+                        <!--<input type="text" ng-model="data.governVillageNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">接收治理设施行政村数（个）</label>
+                     <div class="col-sm-6">
+                     	{{ data.receiveVillageNumber }}
+                        <!--<input type="text" ng-model="data.receiveVillageNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">总移交占比（%）</label>
+                     <div class="col-sm-6">
+                     	{{ data.totalTransferRatio }}
+                        <!--<input type="text" ng-model="data.totalTransferRatio" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应受益户数（户）</label>
+                     <div class="col-sm-6">
+                     	{{ data.shouldBenefitNumber }}
+                        <!--<input type="text" ng-model="data.shouldBenefitNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">已受益户数（户）</label>
+                     <div class="col-sm-6">
+                     	{{ data.alreadyBenefitNumber }}
+                        <!--<input type="text" ng-model="data.alreadyBenefitNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">农户受益率（%）</label>
+                     <div class="col-sm-6">
+                     	{{ data.benefitRatio }}
+                        <!--<input type="text" ng-model="data.benefitRatio" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">平台招标日期</label>
+                     <div class="col-sm-6">
+                     	{{ data.platformBiddingDate }}
+                        <!--<input type="text" ng-model="data.platformBiddingDate" class="form-control" />-->
+                        <!--<div class="input-group">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="data.platformBiddingDate" is-open="popup1.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			            </div>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">平台验收日期</label>
+                     <div class="col-sm-6">
+                     	{{ data.acceptanceBiddingDate }}
+                        <!--<input type="text" ng-model="data.acceptanceBiddingDate" class="form-control" />-->
+                        <!--<div class="input-group">
+			                 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" 
+			                 		ng-model="data.acceptanceBiddingDate" is-open="popup2.opened" ng-required="true" close-text="关闭"
+			                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+			                 <span class="input-group-btn">
+			                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+			                 </span>
+			            </div>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">建设设施数（个）</label>
+                     <div class="col-sm-6">
+                     	{{ data.ctFacilitiesNumber }}
+                        <!--<input type="text" ng-model="data.ctFacilitiesNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">移交设施数（个）</label>
+                     <div class="col-sm-6">
+                     	{{ data.tfFacilitiesNumber }}
+                        <!--<input type="text" ng-model="data.tfFacilitiesNumber" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">移交占比（%）</label>
+                     <div class="col-sm-6">
+                     	{{ data.transferRatio }}
+                        <!--<input type="text" ng-model="data.transferRatio"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+                             
+
+              
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update7();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table7">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

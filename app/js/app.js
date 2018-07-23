@@ -15,6 +15,7 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache',"$
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$storage = $window.localStorage;
+ 
 
   // Uncomment this to disable template cache
   /*$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
@@ -58,7 +59,8 @@ $http.get("/Seom/userC/se").then(function(res){  //  server/userC.json
     },
     useFullLayout: false,
     hiddenFooter: false,
-    viewAnimation: 'ng-fadeInUp'
+    viewAnimation: 'ng-fadeInUp',
+    showLoading: false
   };
 
 }]);
@@ -268,7 +270,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/county/equipment.html',
     })
     .state('app.county-worker', {
-        url: '/county-worker',
+        url: '/county-worker?area',
         title: 'county-worker',
         templateUrl: 'app/views/information/county/worker.html',
     })
@@ -290,12 +292,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('chartjs')
     })
     .state('app.county-worker2', {
-        url: '/county-worker2',
+        url: '/county-worker2?area',
         title: 'county-worker2',
         templateUrl: 'app/views/information/county/worker2.html',
     })
     .state('app.county-worker3', {
-        url: '/county-worker3',
+        url: '/county-worker3?area',
         title: 'county-worker3',
         templateUrl: 'app/views/information/county/worker3.html',
     })
@@ -330,41 +332,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county_1_3_baifeng',
         templateUrl: 'app/views/information/shows/county_1_3_baifeng.html',
     })
-    .state('app.county.county_1_3_guanzhuang', {
-        url: '/county_1_3_guanzhuang',
-        title: 'county_1_3_guanzhuang',
-        templateUrl: 'app/views/information/shows/county_1_3_guanzhuang.html',
-    })
-    .state('app.county.county_1_3_siyan', {
-        url: '/county_1_3_siyan',
-        title: 'county_1_3_siyan',
-        templateUrl: 'app/views/information/shows/county_1_3_siyan.html',
-    })
-    .state('app.county.county_1_3_xinfeng', {
-        url: '/county_1_3_xinfeng',
-        title: 'county_1_3_xinfeng',
-        templateUrl: 'app/views/information/shows/county_1_3_xinfeng.html',
-    })
-    .state('app.county.county_1_3_yangdong', {
-        url: '/county_1_3_yangdong',
-        title: 'county_1_3_yangdong',
-        templateUrl: 'app/views/information/shows/county_1_3_yangdong.html',
-    })
-    .state('app.county.county_1_3_qinshan', {
-        url: '/county_1_3_qinshan',
-        title: 'county_1_3_qinshan',
-        templateUrl: 'app/views/information/shows/county_1_3_qinshan.html',
-    })
-    .state('app.county.county_1_3_shangyang', {
-        url: '/county_1_3_shangyang',
-        title: 'county_1_3_shangyang',
-        templateUrl: 'app/views/information/shows/county_1_3_shangyang.html',
-    })
-    .state('app.county.county_1_3_xiayang', {
-        url: '/county_1_3_xiayang',
-        title: 'county_1_3_xiayang',
-        templateUrl: 'app/views/information/shows/county_1_3_xiayang.html',
-    })
+
     .state('app.county-equipment_baifeng', {
         url: '/county-equipment_baifeng',
         title: 'county-equipment_baifeng',
@@ -375,121 +343,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-equipment-detail_baifeng',
         templateUrl: 'app/views/information/shows/equipment_detail_baifeng.html',
     })
-    .state('app.county-equipment_guanzhuang', {
-        url: '/county-equipment_guanzhuang',
-        title: 'county-equipment_guanzhuang',
-        templateUrl: 'app/views/information/shows/equipment_guanzhuang.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang', {
-        url: '/county-equipment-detail_guanzhuang',
-        title: 'county-equipment-detail_guanzhuang',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang2', {
-        url: '/county-equipment-detail_guanzhuang2',
-        title: 'county-equipment-detail_guanzhuang2',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang2.html',
-    })
-    .state('app.county-equipment-detail_guanzhuang3', {
-        url: '/county-equipment-detail_guanzhuang3',
-        title: 'county-equipment-detail_guanzhuang3',
-        templateUrl: 'app/views/information/shows/equipment_detail_guanzhuang3.html',
-    })
-    .state('app.county-equipment_siyan', {
-        url: '/county-equipment_siyan',
-        title: 'county-equipment_siyan',
-        templateUrl: 'app/views/information/shows/equipment_siyan.html',
-    })
-    .state('app.county-equipment-detail_siyan', {
-        url: '/county-equipment-detail_siyan',
-        title: 'county-equipment-detail_siyan',
-        templateUrl: 'app/views/information/shows/equipment_detail_siyan.html',
-    })
-    .state('app.county-equipment-detail_siyan2', {
-        url: '/county-equipment-detail_siyan2',
-        title: 'county-equipment-detail_siyan2',
-        templateUrl: 'app/views/information/shows/equipment_detail_siyan2.html',
-    })
-    .state('app.county-equipment_xinfeng', {
-        url: '/county-equipment_xinfeng',
-        title: 'county-equipment_xinfeng',
-        templateUrl: 'app/views/information/shows/equipment_xinfeng.html',
-    })
-    .state('app.county-equipment-detail_xinfeng', {
-        url: '/county-equipment-detail_xinfeng',
-        title: 'county-equipment-detail_xinfeng',
-        templateUrl: 'app/views/information/shows/equipment_detail_xinfeng.html',
-    })
-    .state('app.county-equipment_yangdong', {
-        url: '/county-equipment_yangdong',
-        title: 'county-equipment_yangdong',
-        templateUrl: 'app/views/information/shows/equipment_yangdong.html',
-    })
-    .state('app.county-equipment-detail_yangdong', {
-        url: '/county-equipment-detail_yangdong',
-        title: 'county-equipment-detail_yangdong',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong.html',
-    })
-    .state('app.county-equipment-detail_yangdong2', {
-        url: '/county-equipment-detail_yangdong2',
-        title: 'county-equipment-detail_yangdong2',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong2.html',
-    })
-    .state('app.county-equipment-detail_yangdong3', {
-        url: '/county-equipment-detail_yangdong3',
-        title: 'county-equipment-detail_yangdong3',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong3.html',
-    })
-    .state('app.county-equipment-detail_yangdong4', {
-        url: '/county-equipment-detail_yangdong4',
-        title: 'county-equipment-detail_yangdong4',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong4.html',
-    })
-    .state('app.county-equipment-detail_yangdong5', {
-        url: '/county-equipment-detail_yangdong5',
-        title: 'county-equipment-detail_yangdong5',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong5.html',
-    })
-    .state('app.county-equipment-detail_yangdong6', {
-        url: '/county-equipment-detail_yangdong6',
-        title: 'county-equipment-detail_yangdong6',
-        templateUrl: 'app/views/information/shows/equipment_detail_yangdong6.html',
-    })
-    .state('app.county-equipment_qinshan', {
-        url: '/county-equipment_qinshan',
-        title: 'county-equipment_qinshan',
-        templateUrl: 'app/views/information/shows/equipment_qinshan.html',
-    })
-    .state('app.county-equipment-detail_qinshan', {
-        url: '/county-equipment-detail_qinshan',
-        title: 'county-equipment-detail_qinshan',
-        templateUrl: 'app/views/information/shows/equipment_detail_qinshan.html',
-    })
-    .state('app.county-equipment_shangyang', {
-        url: '/county-equipment_shangyang',
-        title: 'county-equipment_shangyang',
-        templateUrl: 'app/views/information/shows/equipment_shangyang.html',
-    })
-    .state('app.county-equipment-detail_shangyang', {
-        url: '/county-equipment-detail_shangyang',
-        title: 'county-equipment-detail_shangyang',
-        templateUrl: 'app/views/information/shows/equipment_detail_shangyang.html',
-    })
-    .state('app.county-equipment_xiayang', {
-        url: '/county-equipment_xiayang',
-        title: 'county-equipment_xiayang',
-        templateUrl: 'app/views/information/shows/equipment_xiayang.html',
-    })
-    .state('app.county-equipment-detail_xiayang', {
-        url: '/county-equipment-detail_xiayang',
-        title: 'county-equipment-detail_xiayang',
-        templateUrl: 'app/views/information/shows/equipment_detail_xiayang.html',
-    })
-    .state('app.county-equipment-detail_xiayang2', {
-        url: '/county-equipment-detail_xiayang2',
-        title: 'county-equipment-detail_xiayang2',
-        templateUrl: 'app/views/information/shows/equipment_detail_xiayang2.html',
-    })
+  
     //工作人员
     .state('app.county-worker_beilun', {
         url: '/county-worker_beilun',
@@ -506,42 +360,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'county-worker3_baifeng',
         templateUrl: 'app/views/information/shows/workers/worker3_baifeng.html',
     })
-    .state('app.county-worker3_guanzhuang', {
-        url: '/county-worker3_guanzhuang',
-        title: 'county-worker3_guanzhuang',
-        templateUrl: 'app/views/information/shows/workers/worker3_guanzhuang.html',
-    })
-    .state('app.county-worker3_qinshan', {
-        url: '/county-worker3_qinshan',
-        title: 'county-worker3_qinshan',
-        templateUrl: 'app/views/information/shows/workers/worker3_qinshan.html',
-    })
-    .state('app.county-worker3_siyan', {
-        url: '/county-worker3_siyan',
-        title: 'county-worker3_siyan',
-        templateUrl: 'app/views/information/shows/workers/worker3_siyan.html',
-    })
-    .state('app.county-worker3_xinfeng', {
-        url: '/county-worker3_xinfeng',
-        title: 'county-worker3_xinfeng',
-        templateUrl: 'app/views/information/shows/workers/worker3_xinfeng.html',
-    })
-    .state('app.county-worker3_yangdong', {
-        url: '/county-worker3_yangdong',
-        title: 'county-worker3_yangdong',
-        templateUrl: 'app/views/information/shows/workers/worker3_yangdong.html',
-    })
-    .state('app.county-worker3_shangyang', {
-        url: '/county-worker3_shangyang',
-        title: 'county-worker3_shangyang',
-        templateUrl: 'app/views/information/shows/workers/worker3_shangyang.html',
-    })
-    .state('app.county-worker3_xiayang', {
-        url: '/county-worker3_xisyang',
-        title: 'county-worker3_xiayang',
-        templateUrl: 'app/views/information/shows/workers/worker3_xiayang.html',
-    })
-    
+ 
     
 
     //设备信息
@@ -683,7 +502,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     })
     
     
-    
+    //edit
     
     .state('app.report_edit2', {
         url: '/report_edit2',
@@ -762,6 +581,101 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/edit12.html',
         resolve: helper.resolveFor()
     })
+	
+	
+	
+	
+	
+	
+	
+	
+	//view
+	.state('app.report_view', {
+        url: '/report_view',
+        title: 'report_view',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view2', {
+        url: '/report_view2',
+        title: 'report_view2',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view2.html',
+        resolve: helper.resolveFor()
+    })
+    .state('app.report_view3', {
+        url: '/report_view3',
+        title: 'report_view3',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view3.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view4', {
+        url: '/report_view4',
+        title: 'report_view4',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view4.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view5', {
+        url: '/report_view5',
+        title: 'report_view5',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view5.html',
+        resolve: helper.resolveFor('ui.select')
+    })
+	.state('app.report_view6', {
+        url: '/report_view6',
+        title: 'report_view6',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view6.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view7', {
+        url: '/report_view7',
+        title: 'report_view7',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view7.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view8', {
+        url: '/report_view8',
+        title: 'report_view8',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view8.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view9', {
+        url: '/report_view9',
+        title: 'report_view9',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view9.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view10', {
+        url: '/report_view10',
+        title: 'report_view10',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view10.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view11', {
+        url: '/report_view11',
+        title: 'report_view11',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view11.html',
+        resolve: helper.resolveFor()
+    })
+	.state('app.report_view12', {
+        url: '/report_view12',
+        title: 'report_view12',
+        params:{"data":null},
+        templateUrl: 'app/views/information/report/view12.html',
+        resolve: helper.resolveFor()
+    })
+	
+	
 
 //	.state('app.nestable', {
 //      url: '/nestable',
@@ -1112,6 +1026,15 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
 App.controller("countyController1",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
+	
+	
+	//	传后台json格式的地址(area)得到一个数字工作人员     
+	// /Seom/pic/selectPeopleNum  
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
 
 	//区县信息
 	 $scope.itemsPerPage = 9;
@@ -1149,6 +1072,13 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 App.controller("countyController2",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
+	
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
+	
 	$scope.itemsPerPage = 9;
 	$scope.currentPage = 1;
 	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ // .get("server/county-12.json")
@@ -1177,6 +1107,11 @@ App.controller("countyController3",["$scope","$rootScope","$http","$stateParams"
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
 	
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
 	
 	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-13.json")
 		$scope.village = res.data.v;
@@ -1406,13 +1341,17 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 }])
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
-	
+	$rootScope.app.showLoading = true;	
 	$scope.defaultAddress = $rootScope.user.address;
 //	$scope.defaultAddress = "宁波";
 	
 	//站点数
 	$http.get("/Seom/fc/selectTotal").then(function(res){
-		$scope.siteNum = res.data;
+		$scope.siteNum = res.data.zhan;
+		$scope.villageNumber = res.data.zi;
+        $scope.personnelNumber = res.data.ren;
+		
+		
 	},function(err){
 		
 	});
@@ -1470,21 +1409,22 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//  server/map.json
+//  server/map.json  
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
-	goState=function(area){
+	goState=function(code){
 		
-		$state.go("app.county-equipment",{area:area});
+		$state.go("app.county-equipment-detail",{code:code});
 	}
 	
 	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
-						
+				
+		$rootScope.app.showLoading = false;	
+		
 		var map;
         var zoom = res.data.zoom;
         var mapData = res.data.json;
-        $scope.villageNumber = res.data.villageNumber;
-        $scope.personnelNumber = res.data.personnelNumber;
+        
         
         //站点搜索--------------------
         var selectRegion = res.data.json;
@@ -1581,26 +1521,24 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            
 	            var marker = new T.Marker(point, {icon: icon});// 创建标注
 	            var content =  "<div>" +
-	                "设施名称： " + "<span style='font-weight:bold; color:#5d9cec;'>" + data.name + "</span><br/>" +
-	                "设施所在自然村： " + data.naturalVillage + "<br/>" +	 
+	                "设施名称： " + "<span style='font-weight:bold; color:#5d9cec;'>" + data.name + "</span><br/>" +	               
 	                "所在行政村： " + data.administrativeVillage + "<br/>" +	 
 	                "在线状态： " + "<span>" + data.isItOnline1 + "</span><br/>" +
 	                "告警状态： " + "<span>" + data.re1 + "</span><br/>" +
 	                "故障状态： " + "<span>" + data.fault1 + "</span><br/>" +
-	                "日处理量（吨）： " + data.dailyProcessing + "<br/>" +
 	                "水质达标率： " + data.waterQuality + " % </span><br/> <div style='text-align:right;'>" +
-	                "<a onClick='goState(&quot;"+ data.administrativeVillage+"&quot;);'>查看详情</a></div>"+
+	                "<a onClick='goState(&quot;"+ data.facilityCode +"&quot;);'>查看详情</a></div>"+
 	                "</div>";
 	            map.addOverLay(marker);
-	            addClickHandler(content,marker,data.administrativeVillage);
+	            addClickHandler(content,marker,data.facilityCode);
 			})
 	        
-	         function addClickHandler(content,marker,area){
+	         function addClickHandler(content,marker,code){
 	                marker.addEventListener("mouseover",function(e){
 	                    openInfo(content,e)}
 	                );
 	                marker.addEventListener("click",function(e){
-	                    goState(area);}
+	                    goState(code);}
 	                );
 	            }
 	         function openInfo(content,e){
@@ -3257,7 +3195,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 
   // Ajax 
   $scope.table1 = function(){
-  	$http.get("/Seom/mrc/get").then(function(res){
+  	$http.get("/Seom/mrc/get").then(function(res){  //   server/malfunctions.json
 	  	$scope.malfunctions = res.data;
 	  	$scope.totalItems = $scope.malfunctions.length;
 	  })
@@ -3342,7 +3280,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 	  })
   };
   
-$scope.pages=[5,10,25];
+$scope.pages=[10,25,50];
 $scope.currentPage = 1;
 $scope.itemsPerPage = 10;
 $scope.selectPage = function(page){
@@ -4685,297 +4623,43 @@ App.controller("waterQualityController3",["$scope",function($scope){
 	
 }]);
 
-App.controller("countyWorkerCtrl",["$scope",function($scope){
+App.controller("countyWorkerCtrl",["$scope", "$http", "$filter","$stateParams",function($scope,$http,$filter,$stateParams){
 	
+	$scope.area = $stateParams.area;
+	$scope.back = function(){
+		history.go(-1);
+	}
 	
-	/*$scope.cunNames=[
-		"白峰村",
-		"官庄村",
-		"司岩村",
-		"新峰村",
-		"阳东村",
-		"勤山村",
-		"上阳村",
-		"下阳村",
-		"门浦村"
-	]*/
+//传后台json格式的地址(area)得到工作人员信息json的数据 
+//    .get("server/workers.json")
+//
+//String name//姓名
+//String title//职称
+//String handset//手机
+//String telephone//固话
+//String region//区域
+//String administrativeVillage//行政村
+//String remarks//备注
 	
-	
-
-	$scope.workers = [
-		{
-			name:"陈冠俊",
-			work:"镇书记",
-			mobile:"",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"",
-			remark:""
-		},
-		{
-			name:"汪越海",
-			work:"镇长",
-			mobile:"",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"",
-			remark:""
-		},
-		{
-			name:"沃波涛",
-			work:"分管负责人",
-			mobile:"13780078100",
-			phone:"86787801",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"",
-			remark:""
-		},
-		{
-			name:"王志群",
-			work:"部门负责人",
-			mobile:"13819874987",
-			phone:"86787922",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"",
-			remark:""
-		},
-		{
-			name:"汪可韩",
-			work:"部门联系人",
-			mobile:"15058299515",
-			phone:"86787922",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"",
-			remark:""
-		},
-		{
-			name:"张建国",
-			work:"党支部书记、分管负责人",
-			mobile:"13858280218",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"门浦村",
-			remark:""
-		},
-		{
-			name:"胡世红",
-			work:"村委会主任",
-			mobile:"13567910333",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"门浦村",
-			remark:""
-		},
-		{
-			name:"周建成",
-			work:"党支部书记、分管负责人",
-			mobile:"13606842656",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"白峰村",
-			remark:""
-		},
-		{
-			name:"乐建明",
-			work:"村委会主任",
-			mobile:"13566331298",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"白峰村",
-			remark:""
-		},
-		{
-			name:"陈忠",
-			work:"党支部书记、分管负责人",
-			mobile:"13606843205",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"官庄村",
-			remark:""
-		},
-		{
-			name:"马汉东",
-			work:"村委会主任",
-			mobile:"13566517627",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"官庄村",
-			remark:""
-		},
-		{
-			name:"林纪伦",
-			work:"党支部书记、分管负责人",
-			mobile:"13685716090",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"勤山村",
-			remark:""
-		},
-		{
-			name:"胡彩祥",
-			work:"村委会主任",
-			mobile:"15968965198",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"勤山村",
-			remark:""
-		},
-		{
-			name:"王蛟龙",
-			work:"党支部书记、分管负责人",
-			mobile:"13486626223",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"上阳村",
-			remark:""
-		},
-		{
-			name:"王信平",
-			work:"村委会主任",
-			mobile:"15867308000",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"上阳村",
-			remark:""
-		},
-		{
-			name:"周祖青",
-			work:"党支部书记、分管负责人",
-			mobile:"13906692242",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"神马村",
-			remark:""
-		},
-		{
-			name:"曹静飞",
-			work:"村委会主任",
-			mobile:"13858361185",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"神马村",
-			remark:""
-		},
-		{
-			name:"金月芳",
-			work:"党支部书记、分管负责人",
-			mobile:"13906843419",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"司沿村",
-			remark:""
-		},
-		{
-			name:"郑伟",
-			work:"村委会主任",
-			mobile:"13806631586",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"司沿村",
-			remark:""
-		},
-		{
-			name:"方国久",
-			work:"党支部书记、分管负责人",
-			mobile:"13606841783",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"下阳村",
-			remark:""
-		},
-		{
-			name:"王泰君",
-			work:"村委会主任",
-			mobile:"13806631586",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"下阳村",
-			remark:""
-		},
-		{
-			name:"贝伟良",
-			work:"党支部书记、分管负责人",
-			mobile:"13906691340",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"小门村",
-			remark:""
-		},
-		{
-			name:"石夫藏",
-			work:"村委会主任",
-			mobile:"13906842303",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"小门村",
-			remark:""
-		},
-		{
-			name:"周波",
-			work:"党支部书记、分管负责人",
-			mobile:"13515849122",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"新峰村",
-			remark:""
-		},
-		{
-			name:"葛伟军",
-			work:"村委会主任",
-			mobile:"13175166055",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"新峰村",
-			remark:""
-		},
-		{
-			name:"王永红",
-			work:"党支部书记、分管负责人",
-			mobile:"13515848036",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"阳东村",
-			remark:""
-		},
-		{
-			name:"舒红",
-			work:"村委会主任",
-			mobile:"13306600909",
-			phone:"",
-			qu:"宁波市北仑区",
-			jiedao:"白峰街道",
-			cun:"阳东村",
-			remark:""
+	$http.post("/Seom/pic/selectPeople",{area:$scope.area}).then(function(res){
+		var workers = res.data;
+		$scope.workers = workers;
+		
+		$scope.totalItems = $scope.workers.length;
+		$scope.itemsPerPage = 25;
+		$scope.currentPage = 1;
+		
+		$scope.searchworker = function(search){
+			$scope.workers = $filter("filter")(workers,search);
+			$scope.totalItems = $scope.workers.length;
 		}
 		
 		
-	];
+	},function(err){
+		
+	})
+
+	
 	
 	
 	

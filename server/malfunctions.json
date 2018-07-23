@@ -1,56 +1,56 @@
 [
 	{
-      "id": "GZ53731",
+      "code": "GZ53731",
       "name": "故障：瞬时液位",
-      "equip": "",
-      "date":"2017-07-19",
-      "state":"未解决",
-      "siteNum":"",
+      "registrant": "",
+      "malfunctionDate":"2017-07-19",
+      "malfunctionState":"未解决",
+      "siteCode":"sssssq111",
       "siteName":""
    },
    {
-      "id": "ECW_109321SD_122",
+      "code": "ECW_109321SD_122",
       "name": "流量计变压器损坏",
-      "equip": "NSECO193流量计",
-      "date":"2018-03-25",
-      "state":"未解决",
-      "siteNum":"",
-      "siteName":""
+      "registrant": "NSECO193流量计",
+      "malfunctionDate":"2018-03-25",
+      "malfunctionState":"未解决",
+      "siteCode":"1223333",
+      "siteName":"rrrr"
    },
    {
-      "id": "GZ53711",
+      "code": "GZ53711",
       "name": "水碓头_瞬时液位",
-      "equip": "",
-      "date":"2017-07-04",
-      "state":"未解决",
-      "siteNum":"",
-      "siteName":""
+      "registrant": "",
+      "malfunctionDate":"2017-07-04",
+      "malfunctionState":"未解决",
+      "siteCode":"eee333",
+      "siteName":"tttt"
    },
    {
-      "id": "GZ53731",
+      "code": "GZ53731",
       "name": "故障：瞬时液位",
-      "equip": "",
-      "date":"2017-07-19",
-      "state":"未解决",
-      "siteNum":"",
-      "siteName":""
+      "registrant": "",
+      "malfunctionDate":"2017-07-19",
+      "malfunctionState":"未解决",
+      "siteCode":"",
+      "siteName":"eeee"
    },
    {
-      "id": "ECW_109321SD_122",
+      "code": "ECW_109321SD_122",
       "name": "流量计变压器损坏",
-      "equip": "NSECO193流量计",
-      "date":"2018-03-25",
-      "state":"未解决",
-      "siteNum":"",
-      "siteName":""
+      "registrant": "NSECO193流量计",
+      "malfunctionDate":"2018-03-25",
+      "malfunctionState":"未解决",
+      "siteCode":"",
+      "siteName":"eee"
    },
    {
-      "id": "GZ53711",
+      "code": "GZ53711",
       "name": "水碓头_瞬时液位",
-      "equip": "",
-      "date":"2017-07-04",
-      "state":"未解决",
-      "siteNum":"",
-      "siteName":""
+      "registrant": "",
+      "malfunctionDate":"2017-07-04",
+      "malfunctionState":"未解决",
+      "siteCode":"",
+      "siteName":"wrwt"
    }
 ]

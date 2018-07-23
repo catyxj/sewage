@@ -1,12 +1,16 @@
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
-	
+	$rootScope.app.showLoading = true;	
 	$scope.defaultAddress = $rootScope.user.address;
 //	$scope.defaultAddress = "宁波";
 	
 	//站点数
 	$http.get("/Seom/fc/selectTotal").then(function(res){
-		$scope.siteNum = res.data;
+		$scope.siteNum = res.data.zhan;
+		$scope.villageNumber = res.data.zi;
+        $scope.personnelNumber = res.data.ren;
+		
+		
 	},function(err){
 		
 	});
@@ -64,21 +68,22 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//  server/map.json
+//  server/map.json  
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
-	goState=function(area){
+	goState=function(code){
 		
-		$state.go("app.county-equipment",{area:area});
+		$state.go("app.county-equipment-detail",{code:code});
 	}
 	
 	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
-						
+				
+		$rootScope.app.showLoading = false;	
+		
 		var map;
         var zoom = res.data.zoom;
         var mapData = res.data.json;
-        $scope.villageNumber = res.data.villageNumber;
-        $scope.personnelNumber = res.data.personnelNumber;
+        
         
         //站点搜索--------------------
         var selectRegion = res.data.json;
@@ -175,26 +180,24 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            
 	            var marker = new T.Marker(point, {icon: icon});// 创建标注
 	            var content =  "<div>" +
-	                "设施名称： " + "<span style='font-weight:bold; color:#5d9cec;'>" + data.name + "</span><br/>" +
-	                "设施所在自然村： " + data.naturalVillage + "<br/>" +	 
+	                "设施名称： " + "<span style='font-weight:bold; color:#5d9cec;'>" + data.name + "</span><br/>" +	               
 	                "所在行政村： " + data.administrativeVillage + "<br/>" +	 
 	                "在线状态： " + "<span>" + data.isItOnline1 + "</span><br/>" +
 	                "告警状态： " + "<span>" + data.re1 + "</span><br/>" +
 	                "故障状态： " + "<span>" + data.fault1 + "</span><br/>" +
-	                "日处理量（吨）： " + data.dailyProcessing + "<br/>" +
 	                "水质达标率： " + data.waterQuality + " % </span><br/> <div style='text-align:right;'>" +
-	                "<a onClick='goState(&quot;"+ data.administrativeVillage+"&quot;);'>查看详情</a></div>"+
+	                "<a onClick='goState(&quot;"+ data.facilityCode +"&quot;);'>查看详情</a></div>"+
 	                "</div>";
 	            map.addOverLay(marker);
-	            addClickHandler(content,marker,data.administrativeVillage);
+	            addClickHandler(content,marker,data.facilityCode);
 			})
 	        
-	         function addClickHandler(content,marker,area){
+	         function addClickHandler(content,marker,code){
 	                marker.addEventListener("mouseover",function(e){
 	                    openInfo(content,e)}
 	                );
 	                marker.addEventListener("click",function(e){
-	                    goState(area);}
+	                    goState(code);}
 	                );
 	            }
 	         function openInfo(content,e){

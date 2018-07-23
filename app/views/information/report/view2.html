@@ -1,0 +1,166 @@
+<h3>
+	报表信息
+</h3>
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">巡检表单
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table2">返回</a>
+               </h4>
+
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检单号</label>
+                     <div class="col-sm-6">
+                     	{{ data.inspectionCode }}
+                        <!--<input type="text" ng-model="data.inspectionCode" name="email" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检名称</label>
+                     <div class="col-sm-6">
+                     	{{ data.name }}
+                        <!--<input type="text" ng-model="data.name" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检人</label>
+                     <div class="col-sm-6">
+                     	{{ data.inspectionPeople }}
+                        <!--<input type="text" ng-model="data.inspectionPeople"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检时间</label>
+                     <div class="col-sm-6">
+                     	{{ data.inspectionDate }}
+                        
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检卡号</label>
+                     <div class="col-sm-6">
+                     	{{ data.inspectionCard }}
+                        <!--<input type="text" ng-model="data.inspectionCard"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">站点编号</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteCode }}
+                        <!--<input type="text" ng-model="data.siteCode"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">站点名称</label>
+                     <div class="col-sm-6">
+                     	{{ data.siteName }}
+                        <!--<input type="text" ng-model="data.siteName"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>              
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区域编号</label>
+                     <div class="col-sm-6">
+                     	{{ data.regionCode }}
+                        <!--<input type="text" ng-model="data.regionCode"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">所属区域</label>
+                     <div class="col-sm-6">
+                     	{{ data.regionName }}
+                        <!--<input type="text" ng-model="data.regionName"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">评分</label>
+                     <div class="col-sm-6">
+                     	{{ data.score }}
+                        <!--<input type="text" ng-model="data.score"  class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+            
+
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">巡检内容</label>
+                     <div class="col-sm-6">
+                     	{{ data.inspectionContent }}
+                        <!--<input type="text" ng-model="data.inspectionContent" class="form-control" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update2();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table2">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

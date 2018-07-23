@@ -16,13 +16,43 @@
    <!-- Themes-->
    <link rel="stylesheet" type="text/css" href="app/css/theme-f.css"/>
    <!-- custom -->
+   <link rel="stylesheet" type="text/css" href="app/css/spinner.css"/>
+   <link rel="stylesheet" type="text/css" href="app/vendor/loaders.css"/>
    <link rel="stylesheet" type="text/css" href="app/css/custom.css"/>
    <script src="http://api.tianditu.com/api?v=4.0" type="text/javascript"></script>
+   
+   <style type="text/css">
+   body	.line-scale-pulse-out>div{
+   		background-color: #FFFFFF;
+   	}
+   	.line-scale-pulse-out{
+   		position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    width: 60px;
+	    height: 100px;
+	    margin: -50px 0 0 -30px;
+   	}
+   </style>
 </head>
 
-<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
+<body data-ng-class="{'modal-open': app.showLoading, 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
    <div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
-   
+   <div id="loading" ng-show="app.showLoading">
+		<div class="spinner">
+			<div class="line-scale-pulse-out">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+           </div>		 
+		    <div class="load_title">正在加载数据</div>
+		</div>
+		
+             
+         
+	</div>
    <script src="app/js/base.js"></script>
    <script src="vendor/sweetalert2/dist/sweetalert2.min.js" type="text/javascript" charset="utf-8"></script>
    <script src="app/js/app.js"></script>

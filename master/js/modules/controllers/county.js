@@ -103,6 +103,15 @@ App.controller('countyController', ['$scope',"$rootScope", '$timeout', '$http',"
 App.controller("countyController1",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
+	
+	
+	//	传后台json格式的地址(area)得到一个数字工作人员     
+	// /Seom/pic/selectPeopleNum  
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
 
 	//区县信息
 	 $scope.itemsPerPage = 9;
@@ -140,6 +149,13 @@ App.controller("countyController1",["$scope","$rootScope","$http","$stateParams"
 App.controller("countyController2",["$scope","$rootScope","$http","$stateParams",function($scope,$rootScope,$http,$stateParams){
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
+	
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
+	
 	$scope.itemsPerPage = 9;
 	$scope.currentPage = 1;
 	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ // .get("server/county-12.json")
@@ -168,6 +184,11 @@ App.controller("countyController3",["$scope","$rootScope","$http","$stateParams"
 //	console.log($stateParams.area);
 	$scope.area = $stateParams.area;
 	
+	$http.post("/Seom/pic/selectPeopleNum",{area:$scope.area}).then(function(res){
+		$scope.workers = res.data;
+	},function(err){
+		
+	});
 	
 	$http.post("/Seom/tbc/region",{area:$scope.area}).then(function(res){ //get("server/county-13.json")
 		$scope.village = res.data.v;

@@ -1,0 +1,161 @@
+<h3>
+	报表信息
+</h3>
+<style type="text/css">
+	fieldset .col-sm-6{
+		padding-top: 7px;
+	}
+</style>
+<div class="report" ng-controller="reportEditCtrl">
+   <div class="row">
+      <div class="col-md-12">
+      	<form class="form-horizontal">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            
+            <div class="panel-body">
+               <h4 style="overflow: hidden;">自然村信息表
+               		<a class="btn btn-default pull-right" ui-sref="app.report.table10">返回</a>
+               </h4>
+                  
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">区划代码</label>
+                     <div class="col-sm-6">
+                     	{{ data.zoningCode }}
+                     </div>
+                     <div class="col-sm-3">
+                       
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">自然村名</label>
+                     <div class="col-sm-6">
+                     	{{ data.name }}
+                       
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">是否纳厂</label>
+                     <div class="col-sm-6">
+                     	{{ data.intoFactory }}              
+                        
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>    
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">总户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.thNumber }}
+      
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应接入户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.scNumber }}
+                       
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际接入户数</label>
+                     <div class="col-sm-6">
+                     	{{ data.aaNumber }}
+                        
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">应受益人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.bpNumber }}
+                       
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">实际受益人口数</label>
+                     <div class="col-sm-6">
+                     	{{ data.abNumber }}
+                     
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">图片</label>
+                     <div class="col-sm-6">
+                     	<img id="file_img" class="img_input" src="{{data.image}}"/>
+                        <!--<input type="file" ng-model="data.image" id="image" class="" />-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               <fieldset>
+                  <div class="form-group">
+                     <label class="col-sm-3 control-label">简介</label>
+                     <div class="col-sm-6">
+                     	{{data.summary}}
+
+                        <!--<textarea ng-model="data.summary" rows="6" cols="" class="form-control"></textarea>-->
+                     </div>
+                     <div class="col-sm-3">
+                        
+                     </div>
+                  </div>
+               </fieldset>
+               
+               
+               
+            </div>
+            <div class="panel-footer text-center">
+               <!--<button type="submit" ng-click="update10();" class="btn btn-success">提 交</button>-->
+               <a class="btn btn-default" ui-sref="app.report.table10">返回</a>
+            </div>
+         </div>
+         <!-- END panel-->
+      </form>
+      </div>				
+   </div>
+</div>

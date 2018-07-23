@@ -2,25 +2,53 @@
 	区县信息
 </h3>
 <!-- START panel-->
-<div class="panel panel-default cou_analysis" >
+<div class="panel panel-default cou_analysis" ng-controller="countyWorkerCtrl">
    <div class="panel-body">
    	<div class="row">
    		<div class="col-md-12" role="navigation">
    			<ul class="nav nav-tabs">
-			  <li role="presentation" class="active"><a href="#">工作人员</a></li>	
-			  <select class="tab_select ml-lg">
-			  	<option value="">xxx区县（市）</option>
-			  	<option value="">xxx区县（市）</option>
+			  <li role="presentation" class="active"><a href="#">工作人员</a></li>
+			  
+			  
+			  <div class="input-group ml-lg" style="width: 250px; float: left;">
+					<input type="text" placeholder="" ng-model="search" class="form-control input-sm">
+					<span class="input-group-btn">
+					    <button type="submit" ng-click="searchworker(search);" class="btn btn-default btn-sm"><i class="fa fa-search"></i>
+					    </button>
+					</span>
+				</div>
+			  <!--<input type="text" ng-model="search" ng-change="" class="tab_select "/>-->
+			  
+			  <!--<select class="tab_select ml-lg" ng-model="search1">
+			  	<option value="">显示所有</option>
+			  	<option value="宁波市北仑区">宁波市北仑区</option>
+			  	<option value="宁波市鄞州区">宁波市鄞州区</option>
+			  	<option value="宁波市镇海区">宁波市镇海区</option>
 			  </select>
-			  <select class="tab_select">
-			  	<option value="">xxx乡镇（街道）</option>
-			  	<option value="">xxx乡镇（街道）</option>
+			  <select class="tab_select" ng-model="search2">
+			  	<option value="">显示所有</option>
+			  	<option value="白峰街道">白峰街道</option>
+			  	<option value="梅山街道">梅山街道</option>
+			  	<option value="春晓街道">春晓街道</option>
+			  	<option value="新碶街道">新碶街道</option>
+			  	<option value="霞浦街道">霞浦街道</option>
+			  	<option value="小港街道">小港街道</option>
 			  </select>
-			  <select class="tab_select">
-			  	<option value="">xxx村</option>
-			  	<option value="">xxx村</option>
-			  </select>
-			  	<a ui-sref="app.county.county_1_1" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
+			  <select class="tab_select" ng-model="search">	
+			  	<option value="">显示所有</option>
+			  	<option value="白峰村">白峰村</option>
+			  	<option value="官庄村">官庄村</option>
+			  	<option value="司沿村">司沿村</option>
+			  	<option value="新峰村">新峰村</option>
+			  	<option value="阳东村">阳东村</option>
+			  	<option value="勤山村">勤山村</option>
+			  	<option value="上阳村">上阳村</option>
+			  	<option value="下阳村">下阳村</option>
+			  	<option value="门浦村">门浦村</option>
+			  	<option value="神马村">神马村</option>
+			  	<option value="小门村">小门村</option>
+			  </select>-->
+			  	<a ng-click="back();" class="btn btn-default pull-right" style="color: #1AACDA;">返回</a>			  
 			</ul>
    		</div>   		     	
    	</div>
@@ -28,7 +56,7 @@
    	
    	<!-- START table-responsive-->
    <div class="" style="height: 500px; padding:10px; border: 1px solid #ddd; border-top: none;">
-   		<div class="table-responsive" style="height: 450px; overflow: auto;">
+   		<div class="table-responsive" style="height: 445px; overflow: auto;">
 	      <table class="table table-bordered table-hover table-striped">
 	         <thead>
 	            <tr>
@@ -37,66 +65,65 @@
 	               <th>职称</th>
 	               <th>手机</th>
 	               <th>固话</th>
-	               <th>所属区县（市）</th>
-	               <th>所属乡镇（街道）</th>
-	               <th>所属自然村</th>   
+	               <th>所属区域</th>
+	               <!--<th>所属乡镇（街道）</th>-->
+	               <th>所属行政村</th>   
 	               <th>备注</th>
 	            </tr>
 	         </thead>
 	         <tbody>
-	            <tr>
-	               <td>1</td>
+	         	<tr ng-repeat="data in workers | range:currentPage:itemsPerPage">
+	               <td>{{$index + 1}}</td>
 	               <td>
-	                  张三
+	               	{{data.name}}
+	                  
 	               </td>
-	               <td>部门负责人</td>
-	               <td>18023457878</td>
-	               <td>0574-52114452</td>
-	               <td>xxx区县（市）</td>
-	               <td>xxx乡镇（街道）</td>
-	               <td>xxx村</td>  
-	               <td></td>
+	               <td>{{data.title}}</td>
+	               <td>{{data.handset}}</td>
+	               <td>{{data.telephone}}</td>
+	               <td>{{data.region}}</td>
+	               <!--<td>{{data.xian}}</td>-->
+	               <td>{{data.administrativeVillage}}</td>  
+	               <td>{{data.remarks}}</td>
 	            </tr>
-	            
-	            
+	         	
+	        	                        
 	            
 	         </tbody>
 	      </table>
 	   </div>
 	   
-	   <div class="row">
-	   	<div class="col-lg-6">
-	   		共518条记录
-	   		pageSize: 
-	   		<select style="padding: 3px 10px;">
-	   			<option value="250">250</option>
-	   			<option value="150">150</option>
-	   		</select>
-	   	</div>
-	   	<div class="col-lg-6">
-	   		<nav>
-			  <ul class="pagination pull-right" style="margin: 0;">
-			    <li>
-			      <a href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-			      <a href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-	   	</div>
-	   	
+	   <pagination></pagination>
+	   
+	   <!--<div class="row">
+		   	<div class="col-lg-6">
+		   		共{{(workers|filter:search|filter:search1|filter:search2).length}}条记录
+		   		pageSize: 
+		   		<select style="padding: 3px 10px;">
+		   			<option value="250">250</option>
+		   			<option value="150">150</option>
+		   		</select>
+		   	</div>
+		   	<div class="col-lg-6">
+		   		<nav>
+				  <ul class="pagination pull-right" style="margin: 0;">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li><a href="#">1</a></li>
+				   
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+		   	</div>	   	 		
+   		</div>-->
    		
-   	</div>
    </div>
    
    <!-- END table-responsive-->
