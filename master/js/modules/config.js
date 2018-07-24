@@ -603,8 +603,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/view12.html',
         resolve: helper.resolveFor()
     })
-	
-	
+
+      // 导出
+      .state('app.export', {
+          url: '/export',
+          title: 'export',
+          params:{"data":null},
+          templateUrl: 'app/views/information/export.html',
+          resolve: helper.resolveFor()
+      })
+
+
 
 //	.state('app.nestable', {
 //      url: '/nestable',

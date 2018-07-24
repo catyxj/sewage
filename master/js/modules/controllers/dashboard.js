@@ -1,6 +1,6 @@
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
-	$rootScope.app.showLoading = true;	
+	$rootScope.app.showLoading = true;
 	$scope.defaultAddress = $rootScope.user.address;
 //	$scope.defaultAddress = "宁波";
 	
@@ -68,13 +68,13 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//  server/map.json  
+//  server/map.json
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
 	goState=function(code){
 		
 		$state.go("app.county-equipment-detail",{code:code});
-	}
+	};
 	
 	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
 				
@@ -93,7 +93,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 			mapData = $scope.selectRegion;
 			$scope.map();
 			
-		}
+		};
 		
 		for(var i=0; i<$scope.selectRegion.length; i++){
 			switch($scope.selectRegion[i].facilityState){
@@ -206,13 +206,13 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	                var markerInfoWin = new T.InfoWindow(content,{offset:new T.Point(0,-20)}); // 创建信息窗口对象
 	                map.openInfoWindow(markerInfoWin,point); //开启信息窗口
 	            }
-        }
+        };
         
 		$scope.map();//地图初始化
 		
 	},function(err){
 		
-	})
+	});
 
 
 		

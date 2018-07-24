@@ -1,0 +1,35 @@
+<h3>
+    导出列表
+</h3>
+<div ng-controller="exportCtrl">
+    <div style="overflow: hidden;">
+        <ul class="">
+            <li ng-repeat="data in exports track by $index"
+                ng-click="download(data)"
+                class="pull-left" style="margin-right: 20px; cursor: pointer;">
+                <a> {{data}} </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-lg" style="overflow: hidden;">
+        <button class="btn btn-primary" ng-click="download2('故障报表')">
+            故障报表
+        </button>
+        <button class="btn btn-primary ml-sm" ng-click="download2('巡检报表')">
+            巡检报表
+        </button>
+        <button class="btn btn-primary ml-sm" ng-click="download2('化验报表')">
+            化验报表
+        </button>
+        <button class="btn btn-primary ml-sm" ng-click="download2('运维月报表')">
+            运维月报表
+        </button>
+        <button class="btn btn-primary ml-sm" ng-click="download2('运维季报表')">
+            运维季报表
+        </button>
+
+    </div>
+
+</div>
+

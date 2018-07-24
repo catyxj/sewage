@@ -674,8 +674,17 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: 'app/views/information/report/view12.html',
         resolve: helper.resolveFor()
     })
-	
-	
+
+      // 导出
+      .state('app.export', {
+          url: '/export',
+          title: 'export',
+          params:{"data":null},
+          templateUrl: 'app/views/information/export.html',
+          resolve: helper.resolveFor()
+      })
+
+
 
 //	.state('app.nestable', {
 //      url: '/nestable',
@@ -1341,7 +1350,7 @@ App.controller("countyEquipDetailCtrl",["$scope","$stateParams","$http",function
 }])
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
-	$rootScope.app.showLoading = true;	
+	$rootScope.app.showLoading = true;
 	$scope.defaultAddress = $rootScope.user.address;
 //	$scope.defaultAddress = "宁波";
 	
@@ -1409,13 +1418,13 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 //天地图=====================================
 
-//  server/map.json  
+//  server/map.json
 // 是否在线isItOnline：1在线0离线；告警re：1告警，0正常；故障fault：是否故障1故障，0无故障；
 	
 	goState=function(code){
 		
 		$state.go("app.county-equipment-detail",{code:code});
-	}
+	};
 	
 	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
 				
@@ -1434,7 +1443,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 			mapData = $scope.selectRegion;
 			$scope.map();
 			
-		}
+		};
 		
 		for(var i=0; i<$scope.selectRegion.length; i++){
 			switch($scope.selectRegion[i].facilityState){
@@ -1547,13 +1556,13 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	                var markerInfoWin = new T.InfoWindow(content,{offset:new T.Point(0,-20)}); // 创建信息窗口对象
 	                map.openInfoWindow(markerInfoWin,point); //开启信息窗口
 	            }
-        }
+        };
         
 		$scope.map();//地图初始化
 		
 	},function(err){
 		
-	})
+	});
 
 
 		
@@ -3007,74 +3016,6 @@ App.controller("malfunctionCtrl",["$scope","$http",function($scope,$http){
 	
 }])
 /**=========================================================
- * Module: nestable.js
- * Nestable controller
- =========================================================*/
-
-App.controller('NestableController', ['$scope', function($scope) {
-  
-  'use strict';
-
-  $scope.items =  [
-    {
-      item: {text: 'a'},
-      children: []
-    },
-    {
-      item: {text: 'b'},
-      children: [
-        {
-          item: {text: 'c'},
-          children: []
-        },
-        {
-          item: {text: 'd'},
-          children: []
-        }
-      ]
-    },
-    {
-      item: {text: 'e'},
-      children: []
-    },
-    {
-      item: {text: 'f'},
-      children: []
-    }
-  ];
-
-  $scope.items2 =  [
-    {
-      item: {text: '1'},
-      children: []
-    },
-    {
-      item: {text: '2'},
-      children: [
-        {
-          item: {text: '3'},
-          children: []
-        },
-        {
-          item: {text: '4'},
-          children: []
-        }
-      ]
-    },
-    {
-      item: {text: '5'},
-      children: []
-    },
-    {
-      item: {text: '6'},
-      children: []
-    }
-  ]
-
-
-}]);
-
-/**=========================================================
  * Module: 
  * Angular controller
  =========================================================*/
@@ -3083,7 +3024,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
   'use strict';
   
   $scope.level = $rootScope.user.jurisdiction;
-  
+    // $scope.level=1
 
 	$scope.my_tree_handler = function(branch) {
 		$scope.output = branch.data.description;
@@ -3179,7 +3120,12 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 	      }
         }
       ]
-    }
+    }, {
+          label: '导出报表',
+          data: {
+              description: "app.export"
+          }
+      }
   ];
   
 
@@ -3288,7 +3234,7 @@ $scope.selectPage = function(page){
 };
 $scope.changePageSize = function(page){
 	$scope.itemsPerPage = page;
-}
+};
 
 //$scope.edit = function(data){
 //	console.log("edit",data);
@@ -3972,10 +3918,51 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	};
     
     
-}])
+}]);
 
 
+// 导出
+App.controller("exportCtrl",["$scope", "$http",function ($scope,$http) {
 
+    // $scope.exports = ["XXX","XXXXX","XXXX","XXXXX"];
+    $scope.day = new Date().getMonth() + "-" + new Date().getDate();
+
+	$http.get("/Seom/tbc/daochuName").then(function (res) {
+        $scope.exports = res.data;
+    },function (err) {
+
+    });
+
+
+    $scope.download = function(data){
+		$http.post("/Seom/tbc/daochu",{area:data}, {responseType: "blob"}).then(function (res) {
+            var blob = new Blob([res.data], {type: "application/vnd.ms-excel"});
+            // var fileName = data + "-" + $scope.day;
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            // a.download = fileName;
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        },function (err) {
+			
+        })
+	};
+
+	$scope.download2 = function(data){
+    	$http.post("/Seom/tbc/daochuYX",{table:data}, {responseType: "blob"}).then(function (res) {
+            var blob = new Blob([res.data], {type: "application/vnd.ms-excel"});
+            // var fileName = data + "-" + $scope.day;
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            // a.download = fileName;
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        },function (err) {
+			
+        })
+	};
+
+}]);
 
 
 
@@ -3984,7 +3971,7 @@ App.controller("PaginationCtrl",["$scope",function($scope){
 //	$scope.maxSize = 5;
 //  $scope.totalItems = 175;
     
-}])
+}]);
 /**=========================================================
  * Module: sidebar-menu.js
  * Handle sidebar collapsible elements
@@ -4306,48 +4293,6 @@ App.controller('statController', ['$scope','$http',"colors", function($scope,$ht
 
 
 
-
-/**=========================================================
- * Module: vmaps,js
- * jVector Maps support
- =========================================================*/
-
-App.controller('VectorMapController', ['$scope', function($scope) {
-  'use strict';
-
-  $scope.seriesData = {
-    'CA': 11100,   // Canada
-    'DE': 2510,    // Germany
-    'FR': 3710,    // France
-    'AU': 5710,    // Australia
-    'GB': 8310,    // Great Britain
-    'RU': 9310,    // Russia
-    'BR': 6610,    // Brazil
-    'IN': 7810,    // India
-    'CN': 4310,    // China
-    'US': 839,     // USA
-    'SA': 410      // Saudi Arabia
-  };
-  
-  $scope.markersData = [
-    { latLng:[41.90, 12.45],  name:'Vatican City'          },
-    { latLng:[43.73, 7.41],   name:'Monaco'                },
-    { latLng:[-0.52, 166.93], name:'Nauru'                 },
-    { latLng:[-8.51, 179.21], name:'Tuvalu'                },
-    { latLng:[7.11,171.06],   name:'Marshall Islands'      },
-    { latLng:[17.3,-62.73],   name:'Saint Kitts and Nevis' },
-    { latLng:[3.2,73.22],     name:'Maldives'              },
-    { latLng:[35.88,14.5],    name:'Malta'                 },
-    { latLng:[41.0,-71.06],   name:'New England'           },
-    { latLng:[12.05,-61.75],  name:'Grenada'               },
-    { latLng:[13.16,-59.55],  name:'Barbados'              },
-    { latLng:[17.11,-61.85],  name:'Antigua and Barbuda'   },
-    { latLng:[-4.61,55.45],   name:'Seychelles'            },
-    { latLng:[7.35,134.46],   name:'Palau'                 },
-    { latLng:[42.5,1.51],     name:'Andorra'               }
-  ];
-
-}]);
 
 
 App.controller("warningFlowCtrl",["$scope","$http","$uibModal",function($scope,$http,$uibModal){

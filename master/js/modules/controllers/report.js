@@ -7,7 +7,7 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
   'use strict';
   
   $scope.level = $rootScope.user.jurisdiction;
-  
+    // $scope.level=1
 
 	$scope.my_tree_handler = function(branch) {
 		$scope.output = branch.data.description;
@@ -103,7 +103,12 @@ App.controller('reportController', ['$scope','$rootScope', '$http','$state',func
 	      }
         }
       ]
-    }
+    }, {
+          label: '导出报表',
+          data: {
+              description: "app.export"
+          }
+      }
   ];
   
 
@@ -212,7 +217,7 @@ $scope.selectPage = function(page){
 };
 $scope.changePageSize = function(page){
 	$scope.itemsPerPage = page;
-}
+};
 
 //$scope.edit = function(data){
 //	console.log("edit",data);
@@ -896,10 +901,51 @@ App.controller("reportEditCtrl",["$scope","$state","$stateParams","$http",functi
     	};
     
     
-}])
+}]);
 
 
+// 导出
+App.controller("exportCtrl",["$scope", "$http",function ($scope,$http) {
 
+    // $scope.exports = ["XXX","XXXXX","XXXX","XXXXX"];
+    $scope.day = new Date().getMonth() + "-" + new Date().getDate();
+
+	$http.get("/Seom/tbc/daochuName").then(function (res) {
+        $scope.exports = res.data;
+    },function (err) {
+
+    });
+
+
+    $scope.download = function(data){
+		$http.post("/Seom/tbc/daochu",{area:data}, {responseType: "blob"}).then(function (res) {
+            var blob = new Blob([res.data], {type: "application/vnd.ms-excel"});
+            // var fileName = data + "-" + $scope.day;
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            // a.download = fileName;
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        },function (err) {
+			
+        })
+	};
+
+	$scope.download2 = function(data){
+    	$http.post("/Seom/tbc/daochuYX",{table:data}, {responseType: "blob"}).then(function (res) {
+            var blob = new Blob([res.data], {type: "application/vnd.ms-excel"});
+            // var fileName = data + "-" + $scope.day;
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            // a.download = fileName;
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        },function (err) {
+			
+        })
+	};
+
+}]);
 
 
 
@@ -908,4 +954,4 @@ App.controller("PaginationCtrl",["$scope",function($scope){
 //	$scope.maxSize = 5;
 //  $scope.totalItems = 175;
     
-}])
+}]);
