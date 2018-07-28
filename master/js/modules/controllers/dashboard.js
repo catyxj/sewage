@@ -1,6 +1,6 @@
 //dashboard
 App.controller("dashboardController",["$scope","$rootScope","$http","$state","$filter",function($scope,$rootScope,$http,$state,$filter){
-	$rootScope.app.showLoading = true;
+	// $rootScope.app.showLoading = true;
 	$scope.defaultAddress = $rootScope.user.address;
 //	$scope.defaultAddress = "宁波";
 	
@@ -75,12 +75,16 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 		
 		$state.go("app.county-equipment-detail",{code:code});
 	};
-	
+
+    var map;
+    map = new T.Map('mapDiv');
+    map.centerAndZoom(new T.LngLat(121.56, 29.86), 10); //地图初始化
+
 	$http.get("/Seom/fc/selectAllFacilities").then(function(res){
 				
 		$rootScope.app.showLoading = false;	
 		
-		var map;
+
         var zoom = res.data.zoom;
         var mapData = res.data.json;
         
@@ -91,8 +95,8 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 		$scope.serachRegion = function(search){
 			$scope.selectRegion = $filter('filter')(selectRegion, search);
 			mapData = $scope.selectRegion;
+            map.clearOverLays();
 			$scope.map();
-			
 		};
 		
 		for(var i=0; i<$scope.selectRegion.length; i++){
@@ -117,9 +121,9 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 
 		//地图
         $scope.map = function(){
-        	map = new T.Map('mapDiv');
+        	// map = new T.Map('mapDiv');
         	if(mapData.length===0){
-				map.centerAndZoom(new T.LngLat(121.56, 29.86), zoom);
+				// map.centerAndZoom(new T.LngLat(121.56, 29.86), zoom);
 				return;
 			}
 	        map.centerAndZoom(new T.LngLat(mapData[0].longitude_E, mapData[0].latitude_N), zoom);
@@ -190,7 +194,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	                "</div>";
 	            map.addOverLay(marker);
 	            addClickHandler(content,marker,data.facilityCode);
-			})
+			});
 	        
 	         function addClickHandler(content,marker,code){
 	                marker.addEventListener("mouseover",function(e){
@@ -208,7 +212,7 @@ App.controller("dashboardController",["$scope","$rootScope","$http","$state","$f
 	            }
         };
         
-		$scope.map();//地图初始化
+		$scope.map();//地图刷新
 		
 	},function(err){
 		
